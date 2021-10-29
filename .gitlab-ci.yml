@@ -1,0 +1,36 @@
+image: jangrewe/gitlab-ci-android
+# docker untuk membuat atau membuild app kita
+
+before_script:
+    - export GRADLE_USER_HOME=$(pwd)/androidteam_a/.gradle
+    - chmod +x androidteam_a/./gradlew
+# Mengexport gradle.user home
+
+cache:
+    key: ${CI_PROJECT_ID}
+    paths:
+        - androidteam_a/.gradle/wrapper
+        - androidteam_a/.gradle/caches
+
+stages:
+    - build
+
+build-app-debug:
+    stage: build
+    #only:
+    #    - development
+    script:
+        - export BUILD_NUMBER=$CI_JOB_ID
+        - cd androidteam_a
+        - ./gradlew clean assembleDebug
+        - export FILENAME=$(ls)
+        - export TELEGRAM_CHAT_ID=-547714907
+        - export TELEGRAM_TOKEN=2080606855:AAFeqicxtMbf-jHpMv4c6Udcy26AkOn8ylA
+        - curl -d chat_id=${TELEGRAM_CHAT_ID} -d text="[Android CI] Build from $CI_COMMIT_REF_NAME branch Done | ${CI_COMMIT_SHA:0:8} -     $CI_COMMIT_TITLE | Ada yang ngepush barusan, bisa di cek dan di pull dulu ya gengs, thank you." https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage
+
+        - cd app/build/outputs/apk/debug/
+        - export FILENAME=$(ls)
+        - curl -F document=@${FILENAME} https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendDocument?chat_id=${TELEGRAM_CHAT_ID}
+    artifacts:
+        paths:
+            - androidteam_a/app/build/outputs/apk/debug/**.apk
