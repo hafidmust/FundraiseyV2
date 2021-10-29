@@ -13,19 +13,19 @@ class SignInViewModel(private val sharedPreferences: SharedPreferences) : ViewMo
     private val isButtonEnable : MutableLiveData<Boolean> = MutableLiveData(false)
     private val goHomePage : MutableLiveData<Boolean> = MutableLiveData(false)
     private val showLoading : MutableLiveData<Boolean> = MutableLiveData(false)
-    val showMessagePhone : MutableLiveData<String> = MutableLiveData()
+    val showMessageEmail : MutableLiveData<String> = MutableLiveData()
     val showMessagePassword : MutableLiveData<String> = MutableLiveData()
 
-    private var phone : String = ""
+    private var email : String = ""
     private var password : String = ""
 
 
-    fun onChangePhone(phone: String){
-        this.phone = phone
-        if (!validatePhone(phone)){
-            showMessagePhone.value = "minimal phone 10 & maks 13 !"
+    fun onChangeEmail(email: String){
+        this.email = email
+        if (!validateEmail(email)){
+            showMessageEmail.value = "format email harus benar"
         }else{
-            validatePhone(phone)
+            validateEmail(email)
         }
     }
 
@@ -38,10 +38,8 @@ class SignInViewModel(private val sharedPreferences: SharedPreferences) : ViewMo
         }
     }
 
-    private fun validatePhone(phone : String) : Boolean{
-        val pattern = Pattern.compile(PHONE_PATTERN)
-        val matcher = pattern.matcher(phone)
-        return matcher.matches()
+    private fun validateEmail(email : String) : Boolean{
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
     private fun validatePassword(password: String) : Boolean{

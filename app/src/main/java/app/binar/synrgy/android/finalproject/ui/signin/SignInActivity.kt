@@ -22,9 +22,9 @@ class SignInActivity : AppCompatActivity() {
         viewModel = SignInViewModel(sharedPreferences)
 
         
-        binding.phone.doAfterTextChanged {
-            val phone = it.toString().trim()
-            viewModel.onChangePhone(phone)
+        binding.email.doAfterTextChanged {
+            val email = it.toString().trim()
+            viewModel.onChangeEmail(email)
         }
 
         binding.password.doAfterTextChanged {
@@ -33,8 +33,8 @@ class SignInActivity : AppCompatActivity() {
         }
 
 //        show message error
-        viewModel.showMessagePhone.observe(this,{
-            binding.phone.error = it
+        viewModel.showMessageEmail.observe(this,{
+            binding.email.error = it
         })
         viewModel.showMessagePassword.observe(this,{
             binding.password.error = it
