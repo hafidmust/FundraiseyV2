@@ -16,9 +16,11 @@ class SignInActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        inisialisasi sharedpreferences
+
+        // inisialisasi sharedpreferences
         val sharedPreferences : SharedPreferences = applicationContext.getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
-//        viewmodel initial
+
+        // viewmodel initial
         viewModel = SignInViewModel(sharedPreferences)
 
         
@@ -32,7 +34,7 @@ class SignInActivity : AppCompatActivity() {
             viewModel.onChangePassword(password)
         }
 
-//        show message error
+        //  show message error
         viewModel.showMessageEmail.observe(this,{
             binding.email.error = it
         })
