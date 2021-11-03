@@ -7,11 +7,14 @@
     <string name="password">Password</string>
     <string name="phone">Phone Number</string>
     <string name="gender">Gender</string>
-    <string name="privacy">I aggree to the privacy policy</string>
+    <string name="aggree">I aggree to the</string>
+    <string name="privacy">privacy policy</string>
     <string name="method">Other Method</string>
-    <string name="gender_male">♂ Male</string>
-    <string name="gender_female">♀ Female</string>
-    <string name="have_an">Have an account? Log in</string>
+    <string name="gender_male"><b>♂ Male</b></string>
+    <string name="create">Create account</string>
+    <string name="gender_female"><b>♀ Female</b></string>
+    <string name="have_an">Have an account?</string>
+    <string name="log_in_bot">Log in</string>
 
 
 
