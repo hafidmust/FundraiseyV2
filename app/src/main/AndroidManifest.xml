@@ -9,12 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject">
-        <activity
-            android:name=".ui.signin.SignInActivity"
-            android:exported="false" />
+
         <activity
             android:name=".ui.signup.SignupActivity"
-            android:exported="false" />
+            android:exported="true">
+        </activity>
         <activity
             android:name=".ui.onboarding.MainActivity"
             android:exported="true">
