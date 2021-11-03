@@ -38,6 +38,7 @@ class SignInViewModel(private val sharedPreferences: SharedPreferences) : ViewMo
             showMessageEmail.value = "format email harus benar"
         } else {
             validateEmail(email)
+            validate()
         }
     }
 
@@ -47,6 +48,7 @@ class SignInViewModel(private val sharedPreferences: SharedPreferences) : ViewMo
             showMessagePassword.value = "Password minimal 6 karakter & kombinasi huruf"
         } else {
             validatePassword(password)
+            validate()
         }
     }
 
@@ -58,6 +60,9 @@ class SignInViewModel(private val sharedPreferences: SharedPreferences) : ViewMo
         val pattern: Pattern = Pattern.compile(Const.PASSWORD_PATTERN)
         val matcher: Matcher = pattern.matcher(password)
         return matcher.matches()
+    }
+    private fun validate(){
+        isButtonEnable.value = email.isNotEmpty() && password.isNotEmpty()
     }
 
     fun doSignIn() {
