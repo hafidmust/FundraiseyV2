@@ -9,7 +9,8 @@
     <string name="forgot_pass">Forgot Password?</string>
     <string name="other_meth">Other Method</string>
     <string name="Guest">As Guest</string>
-    <string name="dont">Don`t have an account? Register</string>
+    <string name="dont">Don`t have an account?</string>
+    <string name="register">Register</string>
 
 
 

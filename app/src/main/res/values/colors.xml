@@ -11,6 +11,7 @@
 <!--    Log in -->
     <color name="blue">#1976D2</color>
     <color name="purple">#6200EE</color>
+    <color name="grey_border">#DADADA</color>
 
 
 </resources>
