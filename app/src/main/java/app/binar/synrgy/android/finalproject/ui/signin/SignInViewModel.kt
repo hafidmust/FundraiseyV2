@@ -20,9 +20,9 @@ import java.util.regex.Matcher
 import java.util.regex.Pattern
 
 class SignInViewModel(private val sharedPreferences: SharedPreferences) : ViewModel() {
-    private val isButtonEnable: MutableLiveData<Boolean> = MutableLiveData(false)
-    private val goHomePage: MutableLiveData<Boolean> = MutableLiveData(false)
-    private val showLoading: MutableLiveData<Boolean> = MutableLiveData(false)
+    val isButtonEnable: MutableLiveData<Boolean> = MutableLiveData(false)
+    val goHomePage: MutableLiveData<Boolean> = MutableLiveData(false)
+    val showLoading: MutableLiveData<Boolean> = MutableLiveData(false)
     val showMessageEmail: MutableLiveData<String> = MutableLiveData()
     val showMessagePassword: MutableLiveData<String> = MutableLiveData()
     val showErrorMessage: MutableLiveData<String> = MutableLiveData()
