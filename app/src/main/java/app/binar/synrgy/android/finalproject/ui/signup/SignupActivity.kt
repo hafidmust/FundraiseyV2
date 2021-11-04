@@ -39,5 +39,8 @@ class SignupActivity : AppCompatActivity() {
         viewmodel.showMessagePhone.observe(this,{
             binding.textPhone.error = it
         })
+        viewmodel.isButtonEnable.observe(this,{
+            binding.buttonSignUp.isEnabled = it
+        })
     }
 }

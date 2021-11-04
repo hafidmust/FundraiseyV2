@@ -10,6 +10,7 @@ class SignupViewModel : ViewModel() {
     val showMessageEmail : MutableLiveData<String> = MutableLiveData()
     val showMessagePassword : MutableLiveData<String> = MutableLiveData()
     val showMessagePhone : MutableLiveData<String> = MutableLiveData()
+    val isButtonEnable : MutableLiveData<Boolean> = MutableLiveData(false)
 
     private var email : String = ""
     private var password : String = ""
@@ -22,6 +23,7 @@ class SignupViewModel : ViewModel() {
             showMessageEmail.value = "format email harus benar"
         }else{
             validateEmail(email)
+            validate()
         }
     }
 
@@ -31,6 +33,7 @@ class SignupViewModel : ViewModel() {
             showMessagePassword.value = "Password minimal 6 karakter & kombinasi huruf"
         }else{
             validatePassword(password)
+            validate()
         }
     }
     fun onChangePhone(phone: String) {
@@ -39,6 +42,7 @@ class SignupViewModel : ViewModel() {
             showMessagePhone.value = "Pastikan nomer hp 10-13 digit"
         }else{
             validatePhone(phone)
+            validate()
         }
     }
 
@@ -56,6 +60,9 @@ class SignupViewModel : ViewModel() {
         val pattern : Pattern = Pattern.compile(Const.PHONE_PATTERN)
         val matcher : Matcher = pattern.matcher(phone)
         return matcher.matches()
+    }
+    private fun validate(){
+        isButtonEnable.value = email.isNotEmpty() && password.isNotEmpty() && phone.isNotEmpty()
     }
 
 
