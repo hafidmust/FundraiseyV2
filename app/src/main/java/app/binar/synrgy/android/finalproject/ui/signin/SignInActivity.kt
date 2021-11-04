@@ -13,6 +13,7 @@ import app.binar.synrgy.android.finalproject.ui.homenavigation.HomeNavigationAct
 import app.binar.synrgy.android.finalproject.ui.loading.LoadingDialog
 import com.google.android.material.snackbar.Snackbar
 
+
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding : ActivitySignInBinding
     private lateinit var viewModel: SignInViewModel

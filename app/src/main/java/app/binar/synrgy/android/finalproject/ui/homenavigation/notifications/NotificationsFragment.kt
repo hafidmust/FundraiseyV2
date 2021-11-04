@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import app.binar.synrgy.android.finalproject.ui.databinding.FragmentNotificationsBinding
+import app.binar.synrgy.android.finalproject.databinding.FragmentNotificationsBinding
 
 class NotificationsFragment : Fragment() {
 

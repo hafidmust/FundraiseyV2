@@ -10,7 +10,6 @@
     <string name="other_meth">Other Method</string>
     <string name="Guest">As Guest</string>
     <string name="dont">Don`t have an account?</string>
-    <string name="register">Register</string>
     <string name="title_activity_home_navigation">HomeNavigation</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
@@ -21,8 +20,7 @@
 
     <!--Sign Up page-->
     <string name="register">Register</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
+    
     <string name="phone">Phone Number</string>
     <string name="gender">Gender</string>
     <string name="aggree">I aggree to the</string>
