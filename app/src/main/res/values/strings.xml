@@ -1,7 +1,11 @@
 <resources>
-    <string name="app_name">FinalProject</string>
+    <string name="app_name">FundRaisey</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="title_contacts">Contacts</string>
+    <string name="portofolio">portofolio</string>
+    <string name="information">Information</string>
+    <string name="profile">Profile</string>
+
+
+
+
 </resources>
