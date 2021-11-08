@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FundRaisey</string>
+    <string name="app_name"><b>FundRaisey</b></string>
     <string name="title_home">Home</string>
     <string name="portofolio">portofolio</string>
     <string name="information">Information</string>
