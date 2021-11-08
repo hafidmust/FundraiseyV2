@@ -28,4 +28,5 @@
         android:name="app.binar.synrgy.android.finalproject.ui.homenavigation.contact.ContactFragment"
         android:label="@string/title_contacts"
         tools:layout="@layout/fragment_contact" />
+
 </navigation>
