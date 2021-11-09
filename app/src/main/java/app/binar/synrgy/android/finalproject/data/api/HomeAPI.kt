@@ -2,6 +2,8 @@ package app.binar.synrgy.android.finalproject.data.api
 
 import app.binar.synrgy.android.finalproject.data.api.signIn.SignInRequest
 import app.binar.synrgy.android.finalproject.data.api.signIn.SignInResponse
+import app.binar.synrgy.android.finalproject.data.api.signup.SignUpRequest
+import app.binar.synrgy.android.finalproject.data.api.signup.SignUpResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -14,6 +16,9 @@ interface HomeAPI {
 
     @POST("v1/login")
     suspend fun postSignIn(@Body request: SignInRequest): Response<SignInResponse>
+
+    @POST("/v1/register-investor")
+    suspend fun postSignUp(@Body request : SignUpRequest) : Response<SignUpResponse>
 
     companion object {
         fun getInstance(): Retrofit {

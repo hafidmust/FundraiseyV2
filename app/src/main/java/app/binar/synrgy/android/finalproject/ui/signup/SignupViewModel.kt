@@ -3,6 +3,12 @@ package app.binar.synrgy.android.finalproject.ui.signup
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import app.binar.synrgy.android.finalproject.constant.Const
+import app.binar.synrgy.android.finalproject.data.api.HomeAPI
+import app.binar.synrgy.android.finalproject.data.api.signup.SignUpRequest
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -11,7 +17,9 @@ class SignupViewModel : ViewModel() {
     val showMessagePassword : MutableLiveData<String> = MutableLiveData()
     val showMessagePhone : MutableLiveData<String> = MutableLiveData()
     val isButtonEnable : MutableLiveData<Boolean> = MutableLiveData(false)
-
+    val showMessageAPI : MutableLiveData<String> = MutableLiveData()
+    val isLoginSuccess : MutableLiveData<Boolean> = MutableLiveData(false)
+    private lateinit var homeAPI: HomeAPI
     private var email : String = ""
     private var password : String = ""
     private var phone : String = ""
@@ -64,6 +72,26 @@ class SignupViewModel : ViewModel() {
     private fun validate(){
         isButtonEnable.value = email.isNotEmpty() && password.isNotEmpty() && phone.isNotEmpty()
     }
-
+    fun doSignUp(){
+        homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
+        CoroutineScope(Dispatchers.IO).launch {
+            val request = SignUpRequest(
+                email = email,
+                password = password,
+                phoneNumber = phone
+            )
+            val response = homeAPI.postSignUp(request)
+            withContext(Dispatchers.Main){
+                if (response.isSuccessful){
+                    if (response.body()?.status == 200){
+                        showMessageAPI.value = response.body()!!.message
+                        isLoginSuccess.value = true
+                    }else{
+                        showMessageAPI.value = response.body()!!.message
+                    }
+                }
+            }
+        }
+    }
 
 }

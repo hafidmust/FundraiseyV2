@@ -1,9 +1,11 @@
 package app.binar.synrgy.android.finalproject.ui.signup
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import app.binar.synrgy.android.finalproject.databinding.ActivitySignUpBinding
+import com.google.android.material.snackbar.Snackbar
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding : ActivitySignUpBinding
@@ -42,5 +44,12 @@ class SignupActivity : AppCompatActivity() {
         viewmodel.isButtonEnable.observe(this,{
             binding.buttonSignUp.isEnabled = it
         })
+        binding.buttonSignUp.setOnClickListener {
+            viewmodel.doSignUp()
+        }
+        viewmodel.showMessageAPI.observe(this,{
+            Snackbar.make(binding.root, it, Snackbar.LENGTH_SHORT).show()
+        })
+
     }
 }
