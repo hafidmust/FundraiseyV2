@@ -5,9 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- header sign in -->
-
-
+    <!-- header log in -->
     <TextView
         android:id="@+id/log_in_header"
         android:layout_width="wrap_content"
@@ -19,19 +17,16 @@
         android:textSize="25sp"
         android:fontFamily="@font/inter_regular"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
+        tools:ignore="MissingConstraints"/>
 
-        />
-
-<!--    email -->
+    <!-- email -->
     <EditText
         android:id="@+id/email"
         android:layout_width="318dp"
         android:layout_height="54dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="32dp"
         android:autofillHints="phone"
         android:paddingLeft="15dp"
         android:textColorHint="@color/black"
@@ -41,16 +36,15 @@
         android:inputType="textEmailAddress"
         android:fontFamily="@font/inter_regular"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/log_in_header"
         tools:ignore="LabelFor" />
 
-<!--    password -->
+    <!-- password -->
     <EditText
         android:id="@+id/password"
         android:layout_width="318dp"
         android:layout_height="54dp"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginLeft="44dp"
         android:layout_marginTop="25dp"
         android:paddingLeft="15dp"
         android:fontFamily="@font/inter_regular"
@@ -61,7 +55,6 @@
         android:hint="@string/password"
         android:inputType="textPassword"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email"
         tools:ignore="LabelFor" />
 
@@ -80,8 +73,7 @@
 <!--        tools:ignore="MissingConstraints" />-->
 
 
-
-
+    <!-- forgot password -->
     <TextView
         android:id="@+id/button_forgot_password"
         android:layout_width="wrap_content"
@@ -95,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@id/password"
         tools:ignore="MissingConstraints" />
 
-    <!--    button sign in -->
+    <!--    button log in -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_sign_in"
         android:layout_width="323dp"
