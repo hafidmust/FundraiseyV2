@@ -73,6 +73,9 @@ class SignInActivity : AppCompatActivity() {
         viewModel.showMessagePassword.observe(this,{
             binding.password.error = it
         })
+        binding.buttonSignIn.setOnClickListener {
+            viewModel.doSignIn()
+        }
 
     }
 }

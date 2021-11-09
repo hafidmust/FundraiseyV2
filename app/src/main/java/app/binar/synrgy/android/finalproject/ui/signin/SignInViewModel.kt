@@ -45,7 +45,7 @@ class SignInViewModel(private val sharedPreferences: SharedPreferences) : ViewMo
     fun onChangePassword(password: String) {
         this.password = password
         if (!validatePassword(password)) {
-            showMessagePassword.value = "Password minimal 6 karakter & kombinasi huruf"
+            showMessagePassword.value = "Password minimal 8 karakter"
         } else {
             validatePassword(password)
             validate()
