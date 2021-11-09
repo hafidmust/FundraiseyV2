@@ -83,7 +83,7 @@
         android:id="@+id/radio_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="25dp"
         android:fontFamily="@font/inter_regular"
         android:orientation="horizontal"
@@ -94,7 +94,8 @@
         <RadioButton
             android:layout_width="130dp"
             android:layout_height="54dp"
-            android:background="@drawable/bg_text_box"
+            android:layout_marginLeft="48dp"
+            android:background="@drawable/radio_selector"
             android:button="@drawable/null_radio_button"
             android:elevation="4dp"
             android:fontFamily="@font/inter_regular"
