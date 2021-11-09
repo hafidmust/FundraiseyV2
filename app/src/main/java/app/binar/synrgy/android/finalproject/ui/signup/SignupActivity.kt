@@ -48,7 +48,7 @@ class SignupActivity : AppCompatActivity() {
             viewmodel.doSignUp()
         }
         viewmodel.showMessageAPI.observe(this,{
-            Snackbar.make(binding.root, it, Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
         })
 
     }
