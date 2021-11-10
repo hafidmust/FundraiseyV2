@@ -23,14 +23,14 @@
     
     <string name="phone">Phone Number</string>
     <string name="gender">Gender</string>
-    <string name="aggree">I aggree to the</string>
+    <string name="aggree">I agree to the</string>
     <string name="privacy">privacy policy</string>
     <string name="method">Other Method</string>
     <string name="gender_male"><b>♂ Male</b></string>
     <string name="create">Create account</string>
     <string name="gender_female"><b>♀ Female</b></string>
     <string name="have_an">Have an account?</string>
-    <string name="log_in_bot">Log in</string>
+    <string name="log_in_bot"> Log in</string>
 
 
     <!--Onboarding-->

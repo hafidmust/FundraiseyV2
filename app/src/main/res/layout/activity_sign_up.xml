@@ -13,30 +13,31 @@
         android:id="@+id/sign_up_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="80dp"
         android:fontFamily="@font/inter_regular"
         android:text="@string/register"
-        android:layout_marginLeft="44dp"
         android:textColor="@color/blue"
         android:textSize="25sp"
-        tools:ignore="MissingConstraints"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
+        tools:ignore="MissingConstraints" />
 
     <!-- email -->
     <EditText
         android:id="@+id/text_email"
         android:layout_width="318dp"
         android:layout_height="54dp"
-        android:layout_marginLeft="44dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="32dp"
         android:autofillHints="phone"
         android:background="@drawable/bg_text_box"
         android:fontFamily="@font/inter_regular"
-        android:inputType="textEmailAddress"
         android:hint="@string/email"
+        android:inputType="textEmailAddress"
         android:paddingLeft="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_header"
         tools:ignore="LabelFor,TextFields" />
 
@@ -45,15 +46,16 @@
         android:id="@+id/password"
         android:layout_width="318dp"
         android:layout_height="54dp"
-        android:layout_marginLeft="44dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="25dp"
         android:autofillHints="password"
         android:background="@drawable/bg_text_box"
         android:fontFamily="@font/inter_regular"
-        android:inputType="textPassword"
         android:hint="@string/password"
+        android:inputType="textPassword"
         android:paddingLeft="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_email"
         tools:ignore="LabelFor" />
 
@@ -62,15 +64,16 @@
         android:id="@+id/text_phone"
         android:layout_width="318dp"
         android:layout_height="54dp"
-        android:layout_marginLeft="44dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="25dp"
         android:autofillHints="phone"
         android:background="@drawable/bg_text_box"
         android:fontFamily="@font/inter_regular"
+        android:hint="@string/phone"
         android:inputType="phone"
         android:paddingLeft="15dp"
-        android:hint="@string/phone"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
         tools:ignore="LabelFor" />
 
@@ -79,10 +82,11 @@
         android:id="@+id/radio_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="25dp"
         android:orientation="horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_phone"
         tools:ignore="MissingConstraints">
 
@@ -90,7 +94,7 @@
             android:id="@+id/rbMale"
             android:layout_width="130dp"
             android:layout_height="54dp"
-            android:layout_marginLeft="44dp"
+            android:layout_marginRight="24dp"
             android:background="@drawable/radio_selector"
             android:button="@drawable/null_radio_button"
             android:elevation="4dp"
@@ -103,7 +107,7 @@
             android:id="@+id/rbFemale"
             android:layout_width="130dp"
             android:layout_height="54dp"
-            android:layout_marginLeft="58dp"
+            android:layout_marginLeft="24dp"
             android:background="@drawable/radio_selector"
             android:button="@drawable/null_radio_button"
             android:elevation="4dp"
@@ -118,14 +122,14 @@
         android:id="@+id/checkbox_privacy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="25dp"
         android:fontFamily="@font/inter_regular"
+        android:onClick="onPPClicked"
         android:text="@string/aggree"
         android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radio_group"
-        android:onClick="onPPClicked"/>
+        app:layout_constraintTop_toBottomOf="@+id/radio_group" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -143,41 +147,48 @@
         android:id="@+id/button_sign_up"
         android:layout_width="320dp"
         android:layout_height="40dp"
-        android:layout_marginStart="44dp"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="88dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/bg_text_register"
         android:fontFamily="@font/inter_regular"
         android:text="@string/create"
+        android:textAllCaps="false"
         android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/tvlogin"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/checkbox_privacy"
+        app:layout_constraintRight_toRightOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/have_an_account"
+    <LinearLayout
+        android:id="@+id/tvlogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/inter_regular"
-        android:text="@string/have_an"
-        android:textColor="@color/black"
-        android:textSize="14sp"
+        android:layout_marginBottom="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_sign_up"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintRight_toRightOf="parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="4dp"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/inter_regular"
-        android:text="@string/log_in_bot"
-        android:textColor="@color/blue"
-        android:textSize="14sp"
-        app:layout_constraintLeft_toRightOf="@id/have_an_account"
-        app:layout_constraintTop_toBottomOf="@+id/button_sign_up" />
+        <TextView
+            android:id="@+id/have_an_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/have_an"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/log_in_bot"
+            android:textColor="@color/blue"
+            android:textSize="14sp" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
