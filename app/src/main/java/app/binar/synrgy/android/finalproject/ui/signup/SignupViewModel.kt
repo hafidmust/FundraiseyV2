@@ -21,10 +21,14 @@ class SignupViewModel : ViewModel() {
     val isButtonEnable: MutableLiveData<Boolean> = MutableLiveData(false)
     val showMessageAPI: MutableLiveData<String> = MutableLiveData()
     val isLoginSuccess: MutableLiveData<Boolean> = MutableLiveData(false)
+
     private lateinit var homeAPI: HomeAPI
     private var email: String = ""
     private var password: String = ""
     private var phone: String = ""
+    var gender : String = ""
+    var isPPChecked : Boolean? = null
+
 
 
     fun onChangeEmail(email: String) {
@@ -75,7 +79,8 @@ class SignupViewModel : ViewModel() {
     }
 
     private fun validate() {
-        isButtonEnable.value = email.isNotEmpty() && password.isNotEmpty() && phone.isNotEmpty()
+        isButtonEnable.value = email.isNotEmpty() && password.isNotEmpty() && phone.isNotEmpty() && gender.isNotEmpty()
+                && isPPChecked == true
     }
 
     fun doSignUp() {
@@ -84,7 +89,8 @@ class SignupViewModel : ViewModel() {
             val request = SignUpRequest(
                 email = email,
                 password = password,
-                phoneNumber = phone
+                phoneNumber = phone,
+                gender = gender
             )
             val response = homeAPI.postSignUp(request)
             withContext(Dispatchers.Main) {
