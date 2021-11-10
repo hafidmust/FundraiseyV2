@@ -1,20 +1,16 @@
 <resources>
     <string name="app_name"><b>FundRaisey</b></string>
+
+
+    <!-- home nav menu -->
     <string name="title_home">Home</string>
-    <string name="portofolio">portofolio</string>
+    <string name="portofolio">Portfolio</string>
+    <string name="history">History</string>
     <string name="information">Information</string>
-    <string name="profile">Profile</string>
+
+
+
     <string name="balance">Total Balance</string>
-
-
-
-
-
-
-
-
-
-
     <string name="dummy">RpXXX.XXX</string>
 
 
