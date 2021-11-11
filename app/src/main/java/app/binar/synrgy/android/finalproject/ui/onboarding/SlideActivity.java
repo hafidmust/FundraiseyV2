@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 import app.binar.synrgy.android.finalproject.R;
+import app.binar.synrgy.android.finalproject.databinding.ActivitySlideBinding;
 import app.binar.synrgy.android.finalproject.ui.homenavigation.HomeNavigationActivity;
 
 import android.content.Intent;
@@ -31,6 +32,8 @@ public class SlideActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = getSharedPreferences("slide", MODE_PRIVATE).edit();
         editor.putBoolean("slide", true);
         editor.commit();
+
+
 
 ////        if (AppHasOpened())
 ////        {

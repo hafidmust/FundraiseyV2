@@ -61,7 +61,8 @@ class SignInViewModel(private val sharedPreferences: SharedPreferences) : ViewMo
         val matcher: Matcher = pattern.matcher(password)
         return matcher.matches()
     }
-    private fun validate(){
+
+    private fun validate() {
         isButtonEnable.value = email.isNotEmpty() && password.isNotEmpty()
     }
 
@@ -87,7 +88,7 @@ class SignInViewModel(private val sharedPreferences: SharedPreferences) : ViewMo
                         this.putString(Const.GRANT_TYPE, signInResponse?.password)
                         this.putString(Const.CLIENT_SECRET, signInResponse?.password)
                         this.putString(Const.CLIENT_ID, "client-apps")
-
+                        this.putBoolean(Const.IS_GUEST, false)
                         apply()
                     }
                     showLoading.value = false
@@ -101,4 +102,41 @@ class SignInViewModel(private val sharedPreferences: SharedPreferences) : ViewMo
             }
         }
     }
+
+//    fun guestAccess() {
+//        homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
+//
+//        showLoading.value = true
+//
+//        CoroutineScope(Dispatchers.IO).launch {
+//            val request = SignInRequest(
+//                email = "guest",
+//                password = "guest"
+//            )
+//
+//            val response = homeAPI.postSignIn(request = request)
+//            withContext(Dispatchers.Main) {
+//                if (response.isSuccessful) {
+//                    val signInResponse = response.body()
+//                    sharedPreferences.edit {
+//                        this.putBoolean(Const.IS_LOGIN, true)
+//                        this.putString(Const.EMAIL, signInResponse?.email)
+//                        this.putString(Const.PASSWORD, signInResponse?.password)
+//                        this.putString(Const.GRANT_TYPE, signInResponse?.password)
+//                        this.putString(Const.CLIENT_SECRET, signInResponse?.password)
+//                        this.putString(Const.CLIENT_ID, "client-apps")
+//                        this.putBoolean(Const.IS_GUEST, true)
+//                        apply()
+//                    }
+//                    showLoading.value = false
+//                    goHomePage.value = true
+//                } else {
+//                    showLoading.value = false
+//                    val error =
+//                        Gson().fromJson(response.errorBody()?.string(), ErrorModel::class.java)
+//                    showErrorMessage.value = error.message
+//                }
+//            }
+//        }
+//    }
 }

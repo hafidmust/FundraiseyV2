@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import app.binar.synrgy.android.finalproject.R;
+import app.binar.synrgy.android.finalproject.constant.Const;
 import app.binar.synrgy.android.finalproject.ui.homenavigation.HomeNavigationActivity;
 import app.binar.synrgy.android.finalproject.ui.signin.SignInActivity;
 import app.binar.synrgy.android.finalproject.ui.signup.SignupActivity;
@@ -167,6 +168,9 @@ public class SlideViewPagerAdapter extends PagerAdapter {
                         Intent intent = new Intent(ctx, HomeNavigationActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         ctx.startActivity(intent);
+
+//                        // Const IS_GUEST = TRUE
+//                        Const.IS_GUEST == 
                     }
                 });
                 break;

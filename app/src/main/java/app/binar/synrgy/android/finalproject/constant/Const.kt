@@ -9,6 +9,7 @@ object Const {
     const val CLIENT_ID = "CLIENT_APPS"
     const val CLIENT_SECRET = "PASSWORD"
     const val TOKEN = "TOKEN"
+    const val IS_GUEST = "FALSE"
 
     // regex password pattern
     const val PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#\$%^&+=!_()/*.,])(?=\\S+\$).{4,}\$"
