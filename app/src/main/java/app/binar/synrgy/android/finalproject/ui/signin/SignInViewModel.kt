@@ -2,6 +2,7 @@ package app.binar.synrgy.android.finalproject.ui.signin
 
 import android.content.SharedPreferences
 import android.text.TextUtils
+import android.widget.Toast
 import androidx.core.content.edit
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -30,7 +31,6 @@ class SignInViewModel(private val sharedPreferences: SharedPreferences) : ViewMo
     private lateinit var homeAPI: HomeAPI
     private var email: String = ""
     private var password: String = ""
-
 
     fun onChangeEmail(email: String) {
         this.email = email
@@ -96,7 +96,7 @@ class SignInViewModel(private val sharedPreferences: SharedPreferences) : ViewMo
                     showLoading.value = false
                     val error =
                         Gson().fromJson(response.errorBody()?.string(), ErrorModel::class.java)
-                        showErrorMessage.value = error.message
+                    showErrorMessage.value = error.message
                 }
             }
         }
