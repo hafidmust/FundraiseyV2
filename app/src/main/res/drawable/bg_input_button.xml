@@ -9,7 +9,7 @@
         android:color="@color/grey_border"
         />
     <corners
-        android:radius="3.5dp"
+        android:radius="4dp"
         />
 
 
