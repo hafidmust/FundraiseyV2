@@ -16,13 +16,13 @@
         app:layout_constraintRight_toRightOf="parent"
         android:text="Sign Out"/>
 
-    <Button
-        android:id="@+id/btn_require_access"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/btn_signout"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:background="@color/colorBlueSecondary"
-        android:text="This activity require users to login" />
+<!--    <Button-->
+<!--        android:id="@+id/btn_require_access"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btn_signout"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        android:background="@color/colorBlueSecondary"-->
+<!--        android:text="This activity require users to login" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>

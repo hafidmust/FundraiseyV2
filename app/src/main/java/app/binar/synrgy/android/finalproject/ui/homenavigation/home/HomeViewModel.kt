@@ -17,6 +17,7 @@ class HomeViewModel(val sharedPreferences: SharedPreferences) : ViewModel() {
     fun logout(){
         sharedPreferences.edit {
             this.putBoolean(Const.IS_LOGIN, false)
+            this.putBoolean(Const.IS_GUEST, false)
             apply()
         }
     }

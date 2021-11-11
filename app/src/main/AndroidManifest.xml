@@ -15,25 +15,25 @@
             android:name=".ui.onboarding.SlideActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.homenavigation.HomeNavigationActivity"
+            android:name=".ui.onboarding.SplashScreen"
             android:exported="true"
             android:label="@string/title_activity_home_navigation" />
         <activity
             android:name=".ui.signup.SignupActivity"
-            android:exported="true">
+            android:exported="true"/>
+        <activity
+            android:name=".ui.homenavigation.HomeNavigationActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".ui.onboarding.MainActivity"
+            android:exported="true"
+            android:label="@string/title_activity_splash_screen"
+            android:theme="@style/Theme.FinalProject.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.onboarding.SplashScreen"
-            android:exported="true"
-            android:label="@string/title_activity_splash_screen"
-            android:theme="@style/Theme.FinalProject.NoActionBar">
-
-        </activity>
     </application>
-
 </manifest>
