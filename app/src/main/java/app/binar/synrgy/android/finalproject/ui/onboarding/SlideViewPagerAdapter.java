@@ -2,6 +2,7 @@ package app.binar.synrgy.android.finalproject.ui.onboarding;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,10 @@ public class SlideViewPagerAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, final int position) {
+
+        SharedPreferences sharedPreferences = ctx.getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
         LayoutInflater layoutInflater = (LayoutInflater) ctx.getSystemService(ctx.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.slide_screen, container, false);
 
@@ -165,16 +170,14 @@ public class SlideViewPagerAdapter extends PagerAdapter {
                 skip.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        editor.putBoolean(Const.IS_GUEST, true);
+                        editor.putBoolean(Const.IS_LOGIN, true);
                         Intent intent = new Intent(ctx, HomeNavigationActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         ctx.startActivity(intent);
-
-//                        // Const IS_GUEST = TRUE
-//                        Const.IS_GUEST == 
                     }
                 });
                 break;
-
         }
 
 

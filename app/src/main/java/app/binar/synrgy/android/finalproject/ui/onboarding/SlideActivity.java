@@ -21,7 +21,7 @@ public class SlideActivity extends AppCompatActivity {
     SlideViewPagerAdapter adapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_slide);
 
@@ -32,7 +32,6 @@ public class SlideActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = getSharedPreferences("slide", MODE_PRIVATE).edit();
         editor.putBoolean("slide", true);
         editor.commit();
-
 
 
 ////        if (AppHasOpened())

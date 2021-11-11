@@ -16,7 +16,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // NOTE : MainActivity -> SplashScreen
 
+        val sharedPreferences: SharedPreferences =
+            applicationContext.getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
+
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            if (sharedPreferences.getBoolean(Const.IS_LOGIN, true)) {
+                startActivity(Intent(this, HomeNavigationActivity::class.java))
+                finish()
+            } else {
+                startActivity(Intent(this, SplashScreen::class.java))
+                finish()
+            }
+        }, 3000)
     }
 }
