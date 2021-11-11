@@ -88,7 +88,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_phone"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints"
+        android:=""
+        >
 
         <RadioButton
             android:id="@+id/rbMale"
@@ -125,7 +127,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="25dp"
         android:fontFamily="@font/inter_regular"
-        android:onClick="onPPClicked"
+
         android:text="@string/aggree"
         android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="parent"

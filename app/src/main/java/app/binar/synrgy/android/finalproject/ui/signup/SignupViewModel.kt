@@ -21,13 +21,14 @@ class SignupViewModel : ViewModel() {
     val isButtonEnable: MutableLiveData<Boolean> = MutableLiveData(false)
     val showMessageAPI: MutableLiveData<String> = MutableLiveData()
     val isLoginSuccess: MutableLiveData<Boolean> = MutableLiveData(false)
+    val showLoading : MutableLiveData<Boolean> = MutableLiveData(false)
 
     private lateinit var homeAPI: HomeAPI
     private var email: String = ""
     private var password: String = ""
     private var phone: String = ""
     var gender : String = ""
-    var isPPChecked : Boolean? = null
+    var isPPChecked : Boolean ? = false
 
 
 
@@ -37,8 +38,9 @@ class SignupViewModel : ViewModel() {
             showMessageEmail.value = "format email harus benar"
         } else {
             validateEmail(email)
-            validate()
+
         }
+        validate()
     }
 
     fun onChangePassword(password: String) {
@@ -47,8 +49,9 @@ class SignupViewModel : ViewModel() {
             showMessagePassword.value = "Password minimal 6 karakter & kombinasi huruf"
         } else {
             validatePassword(password)
-            validate()
+
         }
+        validate()
     }
 
     fun onChangePhone(phone: String) {
@@ -57,8 +60,9 @@ class SignupViewModel : ViewModel() {
             showMessagePhone.value = "Pastikan nomer hp 10-13 digit"
         } else {
             validatePhone(phone)
-            validate()
+
         }
+        validate()
     }
 
 
@@ -79,12 +83,13 @@ class SignupViewModel : ViewModel() {
     }
 
     private fun validate() {
-        isButtonEnable.value = email.isNotEmpty() && password.isNotEmpty() && phone.isNotEmpty() && gender.isNotEmpty()
-                && isPPChecked == true
+        isButtonEnable.value = email.isNotEmpty() && password.isNotEmpty() && phone.isNotEmpty()
+//                && gender.isNotEmpty() && isPPChecked == true
     }
 
     fun doSignUp() {
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
+        showLoading.value = true
         CoroutineScope(Dispatchers.IO).launch {
             val request = SignUpRequest(
                 email = email,
@@ -99,12 +104,13 @@ class SignupViewModel : ViewModel() {
                     if (response.body()?.status == 200) {
                         showMessageAPI.value = response.body()!!.message
                         isLoginSuccess.value = true
+                        showLoading.value = false
                     }
                 } else {
                     val error =
                         Gson().fromJson(response.errorBody()?.string(), ErrorModel::class.java)
                     showMessageAPI.value = error.message
-
+                    showLoading.value = false
                 }
 
             }
