@@ -10,7 +10,6 @@ import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import app.binar.synrgy.android.finalproject.const.Const
 import app.binar.synrgy.android.finalproject.databinding.FragmentHomeBinding
 
 class HomeFragment(val sharedPreferences: SharedPreferences) : Fragment() {
