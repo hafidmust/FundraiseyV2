@@ -9,9 +9,16 @@
     <string name="information">Information</string>
 
 
-
-    <string name="balance">Total Balance</string>
+    <string name="balance"><b>Total Balance</b></string>
     <string name="dummy">RpXXX.XXX</string>
+
+
+    <string name="progress"><b>Your Progress</b></string>
+    <string name="regis">Registration</string>
+    <string name="verif">Verification</string>
+    <string name="done">Done</string>
+
+
 
 
 

@@ -8,6 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#1976D2</color>
+    <color name="box_home">#E4F2FF</color>
+    <color name="progress_text">#0F4880</color>
+    <color name="border_color">#C3E0FD</color>
+
 
 
 </resources>
