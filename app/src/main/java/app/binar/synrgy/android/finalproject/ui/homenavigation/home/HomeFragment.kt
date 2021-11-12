@@ -1,57 +1,50 @@
 package app.binar.synrgy.android.finalproject.ui.homenavigation.home
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import app.binar.synrgy.android.finalproject.constant.Const
+import app.binar.synrgy.android.finalproject.const.Const
 import app.binar.synrgy.android.finalproject.databinding.FragmentHomeBinding
-import app.binar.synrgy.android.finalproject.ui.signin.SignInActivity
-import app.binar.synrgy.android.finalproject.ui.signup.SignupActivity
-import app.binar.synrgy.android.finalproject.ui.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment() {
-
+class HomeFragment(val sharedPreferences: SharedPreferences) : Fragment() {
     private lateinit var homeViewModel: HomeViewModel
-    private lateinit var binding: FragmentHomeBinding
+    private var _binding: FragmentHomeBinding? = null
+
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        homeViewModel =
+            ViewModelProvider(this).get(HomeViewModel::class.java)
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        val sharedPreferences =
-            activity?.getSharedPreferences(
-                Const.PREF_NAME,
-                AppCompatActivity.MODE_PRIVATE
-            )
-        homeViewModel = HomeViewModel(sharedPreferences!!)
 
-        binding.btnSignout.setOnClickListener {
-            println("logout")
-            homeViewModel.logout()
-            startActivity(Intent(this.context, SignupActivity::class.java))
-        }
-
-//        binding.btnRequireAccess.setOnClickListener {
-//            if (sharedPreferences.getBoolean(Const.IS_GUEST, false)) {
-//                startActivity(Intent(this.context, SignupActivity::class.java))
-//            } else {
-//                println("User ini sudah login")
-//            }
+//        val textView: TextView = binding.txtLogout
+//        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
+//
+//        binding.txtLogout.setOnClickListener {
+//            homeViewModel.logout()
 //        }
         return root
     }
 
-//    override fun onDestroyView() {
-//        super.onDestroyView()
-//        binding = null
-//    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
