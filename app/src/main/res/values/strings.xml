@@ -19,6 +19,18 @@
     <string name="done">Done</string>
 
 
+    <!--  recycler  -->
+    <string name="title_start_up">Star Track .Inc</string>
+    <string name="pro_funding">Project funding</string>
+    <string name="donation">RpXX.XXX.XXX</string>
+    <string name="description">we are making a machine learning-based application that can process an image.....</string>
+    <string name="collected">Collected</string>
+    <string name="total_collected">RpX.XXX.XXX</string>
+    <string name="deadline">Deadline remaining</string>
+    <string name="date_deadline">29 July</string>
+
+
+
 
 
 
