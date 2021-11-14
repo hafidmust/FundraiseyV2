@@ -77,46 +77,22 @@
         app:layout_constraintTop_toBottomOf="@+id/password"
         tools:ignore="LabelFor" />
 
-    <!--  gender  -->
-    <RadioGroup
-        android:id="@+id/radio_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <!--  date of birth  -->
+    <EditText
+        android:id="@+id/date_pick"
+        android:layout_width="318dp"
+        android:layout_height="54dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="25dp"
-        android:orientation="horizontal"
+        android:autofillHints="password"
+        android:background="@drawable/bg_text_box"
+        android:fontFamily="@font/inter_regular"
+        android:hint="@string/date_birth"
+        android:paddingLeft="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_phone"
-        tools:ignore="MissingConstraints">
-
-        <RadioButton
-            android:id="@+id/rbMale"
-            android:layout_width="130dp"
-            android:layout_height="54dp"
-            android:layout_marginRight="34dp"
-            android:background="@drawable/radio_selector"
-            android:button="@drawable/null_radio_button"
-            android:elevation="4dp"
-            android:fontFamily="@font/inter_regular"
-            android:gravity="center"
-            android:text="@string/gender_male"
-            android:textColor="@drawable/radio_text_selector" />
-
-        <RadioButton
-            android:id="@+id/rbFemale"
-            android:layout_width="130dp"
-            android:layout_height="54dp"
-            android:layout_marginLeft="24dp"
-            android:background="@drawable/radio_selector"
-            android:button="@drawable/null_radio_button"
-            android:elevation="4dp"
-            android:fontFamily="@font/inter_regular"
-            android:gravity="center"
-            android:text="@string/gender_female"
-            android:textColor="@drawable/radio_text_selector" />
-    </RadioGroup>
-
+        />
 
     <CheckBox
         android:id="@+id/checkbox_privacy"
@@ -128,7 +104,7 @@
         android:text="@string/aggree"
         android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radio_group" />
+        app:layout_constraintTop_toBottomOf="@+id/date_pick" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -140,7 +116,7 @@
         android:textColor="@color/blue"
         android:textSize="14sp"
         app:layout_constraintLeft_toRightOf="@id/checkbox_privacy"
-        app:layout_constraintTop_toBottomOf="@+id/radio_group" />
+        app:layout_constraintTop_toBottomOf="@+id/date_pick" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_sign_up"
@@ -190,5 +166,47 @@
             android:textSize="14sp" />
     </LinearLayout>
 
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+    <!--    <RadioGroup-->
+    <!--        android:id="@+id/radio_group"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginHorizontal="20dp"-->
+    <!--        android:layout_marginTop="25dp"-->
+    <!--        android:orientation="horizontal"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/text_phone"-->
+    <!--        tools:ignore="MissingConstraints">-->
+
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/rbMale"-->
+    <!--            android:layout_width="130dp"-->
+    <!--            android:layout_height="54dp"-->
+    <!--            android:layout_marginRight="34dp"-->
+    <!--            android:background="@drawable/radio_selector"-->
+    <!--            android:button="@drawable/null_radio_button"-->
+    <!--            android:elevation="4dp"-->
+    <!--            android:fontFamily="@font/inter_regular"-->
+    <!--            android:gravity="center"-->
+    <!--            android:text="@string/gender_male"-->
+    <!--            android:textColor="@drawable/radio_text_selector" />-->
+
+    <!--        <RadioButton-->
+    <!--            android:id="@+id/rbFemale"-->
+    <!--            android:layout_width="130dp"-->
+    <!--            android:layout_height="54dp"-->
+    <!--            android:layout_marginLeft="24dp"-->
+    <!--            android:background="@drawable/radio_selector"-->
+    <!--            android:button="@drawable/null_radio_button"-->
+    <!--            android:elevation="4dp"-->
+    <!--            android:fontFamily="@font/inter_regular"-->
+    <!--            android:gravity="center"-->
+    <!--            android:text="@string/gender_female"-->
+    <!--            android:textColor="@drawable/radio_text_selector" />-->
+    <!--    </RadioGroup>-->
