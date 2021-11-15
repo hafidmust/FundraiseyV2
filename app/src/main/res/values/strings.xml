@@ -19,7 +19,7 @@
     <string name="done">Done</string>
 
 
-    <!--  recycler  -->
+    <!--  recycler home  -->
     <string name="title_start_up">Star Track .Inc</string>
     <string name="pro_funding">Project funding</string>
     <string name="donation">RpXX.XXX.XXX</string>
@@ -29,6 +29,9 @@
     <string name="deadline">Deadline remaining</string>
     <string name="date_deadline">29 July</string>
 
+    <!--  recycler history  -->
+    <string name="day_date">Sunday, 12 July 2022</string>
+    <string name="status">Payment process</string>
 
 
 

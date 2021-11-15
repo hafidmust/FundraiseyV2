@@ -14,18 +14,18 @@
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="app.binar.synrgy.android.finalproject.ui.homenavigation.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
+        android:label="@string/portofolio"
         tools:layout="@layout/fragment_dashboard" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_history"
         android:name="app.binar.synrgy.android.finalproject.ui.homenavigation.notification.NotificationFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notification" />
+        android:label="@string/history"
+        tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/navigation_contacts"
         android:name="app.binar.synrgy.android.finalproject.ui.homenavigation.contact.ContactFragment"
-        android:label="@string/title_contacts"
+        android:label="@string/information"
         tools:layout="@layout/fragment_contact" />
 </navigation>
