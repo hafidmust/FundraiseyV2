@@ -12,6 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject">
         <activity
+            android:name=".ui.onboarding.SkippedOnboardingActivity"
+            android:theme="@style/Theme.FinalProject.NoActionBar"
+            android:exported="false" />
+        <activity
+            android:name=".ui.onboarding.OnboardingActivity"
+            android:exported="false"
+            android:theme="@style/Theme.FinalProject.NoActionBar"/>
+        <activity
             android:name=".ui.onboarding.SlideActivity"
             android:exported="true" />
         <activity
@@ -20,10 +28,14 @@
             android:label="@string/title_activity_home_navigation" />
         <activity
             android:name=".ui.signup.SignupActivity"
-            android:exported="true"/>
+            android:exported="true" />
+        <activity
+            android:name=".ui.signin.SignInActivity"
+            android:exported="true" />
+
         <activity
             android:name=".ui.homenavigation.HomeNavigationActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".ui.onboarding.MainActivity"
             android:exported="true"
@@ -36,4 +48,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
