@@ -44,11 +44,14 @@
     <string name="fivehundred">Rp500.000</string>
     <string name="onemillion">Rp1.000.000</string>
     <string name="twomillion">Rp2.000.000</string>
+
     <string name="payment_metode">Payment Method</string>
-    <string name="nominal_amount">Nominal Amounts</string>
+    <string name="bank_trans">Bank Transfer</string>
     <string name="page_payment_screen">Payment Methods</string>
-    <string name="nominal_amount">Nominal Amounts</string>
-    <string name="page_payment_screen">Payment Methods</string>
+    <string name="bca">Bank BCA</string>
+    <string name="mandiri">Bank Mandiri</string>
+
+
     <string name="nominal_amount">Nominal Amounts</string>
 
 
