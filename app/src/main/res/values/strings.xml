@@ -33,6 +33,25 @@
     <string name="day_date">Sunday, 12 July 2022</string>
     <string name="status">Payment process</string>
 
+    <!--  Payment screen  -->
+    <string name="page_payment_screen">Payment</string>
+    <string name="nominal_amount">Nominal Amounts</string>
+    <string name="nominal_text">Nominal</string>
+    <string name="hint_text_amount">Rp 0</string>
+    <string name="fifty">Rp50.000</string>
+    <string name="onehundred">Rp100.000</string>
+    <string name="twohundred">Rp200.000</string>
+    <string name="fivehundred">Rp500.000</string>
+    <string name="onemillion">Rp1.000.000</string>
+    <string name="twomillion">Rp2.000.000</string>
+    <string name="payment_metode">Payment Method</string>
+    <string name="nominal_amount">Nominal Amounts</string>
+    <string name="page_payment_screen">Payment Methods</string>
+    <string name="nominal_amount">Nominal Amounts</string>
+    <string name="page_payment_screen">Payment Methods</string>
+    <string name="nominal_amount">Nominal Amounts</string>
+
+
 
 
 

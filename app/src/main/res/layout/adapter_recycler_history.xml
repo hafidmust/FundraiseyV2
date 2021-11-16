@@ -74,7 +74,7 @@
                 android:paddingHorizontal="12dp"
                 android:paddingVertical="5dp"
                 android:paddingBottom="5dp"
-                android:background="@drawable/box_status_payment_history"
+                android:background="@drawable/box_rectangel_payment_history"
                 tools:layout_editor_absoluteX="179dp"
                 tools:layout_editor_absoluteY="87dp" />
 
