@@ -9,39 +9,19 @@
     <!-- header sign up -->
     <!--  layout format sign_up_header ini amna  -->
 
-    <TextView
-        android:id="@+id/sign_up_header"
+    <CheckBox
+        android:id="@+id/checkbox_privacy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/inter_regular"
-        android:text="@string/register"
-        android:textColor="@color/blue"
-        android:textSize="25sp"
+        android:text="@string/aggree"
+        android:textSize="14sp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/date_pick" />
 
     <!-- email -->
-    <EditText
-        android:id="@+id/text_email"
-        android:layout_width="318dp"
-        android:layout_height="54dp"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="32dp"
-        android:autofillHints="phone"
-        android:background="@drawable/bg_text_box"
-        android:fontFamily="@font/inter_regular"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="15dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sign_up_header"
-        tools:ignore="LabelFor,TextFields" />
-
-    <!--    password -->
     <EditText
         android:id="@+id/password"
         android:layout_width="318dp"
@@ -59,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/text_email"
         tools:ignore="LabelFor" />
 
-    <!--  phone number  -->
+    <!--    password -->
     <EditText
         android:id="@+id/text_phone"
         android:layout_width="318dp"
@@ -77,64 +57,41 @@
         app:layout_constraintTop_toBottomOf="@+id/password"
         tools:ignore="LabelFor" />
 
-    <!--  date of birth  -->
-    <EditText
+    <!--  phone number  -->
+    <TextView
         android:id="@+id/date_pick"
         android:layout_width="318dp"
         android:layout_height="54dp"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="25dp"
-        android:autofillHints="password"
         android:background="@drawable/bg_text_box"
-        android:fontFamily="@font/inter_regular"
+        android:datePickerMode="calendar"
         android:hint="@string/date_birth"
+        android:fontFamily="@font/inter_regular"
+        android:textSize="18sp"
+        android:paddingTop="13dp"
         android:paddingLeft="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_phone"
-        />
+        app:layout_constraintTop_toBottomOf="@id/text_phone" />
 
-    <CheckBox
-        android:id="@+id/checkbox_privacy"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="25dp"
-        android:fontFamily="@font/inter_regular"
-        android:text="@string/aggree"
-        android:textSize="14sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/date_pick" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="4dp"
-        android:layout_marginTop="38dp"
-        android:fontFamily="@font/inter_regular"
-        android:text="@string/privacy"
-        android:textColor="@color/blue"
-        android:textSize="14sp"
-        app:layout_constraintLeft_toRightOf="@id/checkbox_privacy"
-        app:layout_constraintTop_toBottomOf="@+id/date_pick" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_sign_up"
-        android:layout_width="320dp"
-        android:layout_height="40dp"
+    <!--  date of birth  -->
+    <EditText
+        android:id="@+id/text_email"
+        android:layout_width="318dp"
+        android:layout_height="54dp"
         android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/bg_text_register"
+        android:layout_marginTop="32dp"
+        android:autofillHints="phone"
+        android:background="@drawable/bg_text_box"
         android:fontFamily="@font/inter_regular"
-        android:text="@string/create"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/tvlogin"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_header"
+        tools:ignore="LabelFor,TextFields" />
 
     <LinearLayout
         android:id="@+id/tvlogin"
@@ -166,10 +123,52 @@
             android:textSize="14sp" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/text_privacy_policy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginTop="38dp"
+        android:fontFamily="@font/inter_regular"
+        android:text="@string/privacy"
+        android:textColor="@color/blue"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toRightOf="@id/checkbox_privacy"
+        app:layout_constraintTop_toBottomOf="@+id/date_pick" />
+
+    <TextView
+        android:id="@+id/sign_up_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="80dp"
+        android:fontFamily="@font/inter_regular"
+        android:text="@string/register"
+        android:textColor="@color/blue"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_sign_up"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="88dp"
+        android:background="@drawable/bg_text_register"
+        android:fontFamily="@font/inter_regular"
+        android:text="@string/create"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/tvlogin"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 
 
     <!--    <RadioGroup-->

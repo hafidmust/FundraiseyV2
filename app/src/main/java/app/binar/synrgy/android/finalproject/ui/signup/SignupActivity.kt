@@ -1,31 +1,42 @@
 package app.binar.synrgy.android.finalproject.ui.signup
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
 import app.binar.synrgy.android.finalproject.databinding.ActivitySignUpBinding
 import com.google.android.material.snackbar.Snackbar
-import android.R
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.view.View
-import android.widget.CheckBox
-import android.widget.RadioButton
-import android.widget.RadioGroup
+import android.widget.*
 import app.binar.synrgy.android.finalproject.ui.homenavigation.HomeNavigationActivity
 import app.binar.synrgy.android.finalproject.ui.loading.LoadingDialog
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
     private lateinit var viewmodel: SignupViewModel
     private val loading by lazy { LoadingDialog(this) }
+    var calendar = Calendar.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         viewmodel = SignupViewModel()
+
+            val dateSetListener = object : DatePickerDialog.OnDateSetListener {
+            override fun onDateSet(view: DatePicker, year: Int, monthOfYear: Int,
+                                   dayOfMonth: Int) {
+                calendar.set(Calendar.YEAR, year)
+                calendar.set(Calendar.MONTH, monthOfYear)
+                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                updateDateInView()
+            }
+        }
 
         binding.textEmail.doAfterTextChanged {
             val email = it.toString().trim()
@@ -40,6 +51,21 @@ class SignupActivity : AppCompatActivity() {
         binding.textPhone.doAfterTextChanged {
             val phone = it.toString().trim()
             viewmodel.onChangePhone(phone)
+        }
+
+        binding.datePick.setOnClickListener (object : View.OnClickListener {
+            override fun onClick(view: View) {
+                DatePickerDialog(this@SignupActivity,
+                    dateSetListener,
+                    calendar.get(Calendar.YEAR),
+                    calendar.get(Calendar.MONTH),
+                    calendar.get(Calendar.DAY_OF_MONTH)).show()
+            }
+
+        })
+
+        binding.textPrivacyPolicy.setOnClickListener {
+            // still in progress
         }
 
         viewmodel.showMessageEmail.observe(this, {
@@ -60,15 +86,6 @@ class SignupActivity : AppCompatActivity() {
         }
         viewmodel.showMessageAPI.observe(this, {
             Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
-        })
-
-        binding.radioGroup.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { radioGroup, id ->
-            when (id) {
-                binding.rbMale.id ->
-                    viewmodel.gender = "male"
-                binding.rbFemale.id ->
-                    viewmodel.gender = "female"
-            }
         })
         binding.checkboxPrivacy.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){
@@ -93,6 +110,12 @@ class SignupActivity : AppCompatActivity() {
                 )
             }
         })
+    }
+
+    private fun updateDateInView() {
+        val myFormat = "MM/dd/yyyy" // mention the format you need
+        val sdf = SimpleDateFormat(myFormat, Locale.US)
+        binding.datePick.text = sdf.format(calendar.getTime())
     }
 
 //    fun onPPClicked(view: android.view.View) {

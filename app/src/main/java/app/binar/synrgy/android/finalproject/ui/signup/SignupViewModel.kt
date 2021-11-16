@@ -31,14 +31,12 @@ class SignupViewModel : ViewModel() {
     var isPPChecked : Boolean ? = false
 
 
-
     fun onChangeEmail(email: String) {
         this.email = email
         if (!validateEmail(email)) {
-            showMessageEmail.value = "format email harus benar"
+            showMessageEmail.value = "Format email tidak valid"
         } else {
             validateEmail(email)
-
         }
         validate()
     }
@@ -46,10 +44,9 @@ class SignupViewModel : ViewModel() {
     fun onChangePassword(password: String) {
         this.password = password
         if (!validatePassword(password)) {
-            showMessagePassword.value = "Password minimal 6 karakter & kombinasi huruf"
+            showMessagePassword.value = "Password minimal 6 karakter alphanumeric"
         } else {
             validatePassword(password)
-
         }
         validate()
     }
@@ -57,10 +54,9 @@ class SignupViewModel : ViewModel() {
     fun onChangePhone(phone: String) {
         this.phone = phone
         if (!validatePhone(phone)) {
-            showMessagePhone.value = "Pastikan nomer hp 10-13 digit"
+            showMessagePhone.value = "Pastikan nomor HP 10-13 digit."
         } else {
             validatePhone(phone)
-
         }
         validate()
     }
@@ -100,7 +96,6 @@ class SignupViewModel : ViewModel() {
             val response = homeAPI.postSignUp(request)
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
-
                     if (response.body()?.status == 200) {
                         showMessageAPI.value = response.body()!!.message
                         isLoginSuccess.value = true
@@ -112,9 +107,7 @@ class SignupViewModel : ViewModel() {
                     showMessageAPI.value = error.message
                     showLoading.value = false
                 }
-
             }
         }
     }
-
 }
