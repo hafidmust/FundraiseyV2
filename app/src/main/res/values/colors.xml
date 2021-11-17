@@ -14,7 +14,8 @@
     <color name="desc_box_color">#5F5F5F</color>
     <color name="box_color_history">#0F4880</color>
     <color name="status_payment">#D99F48</color>
-
+    <color name="hitam">#000000</color>
+    <color name="status">#d99f48</color>
 
 
 </resources>

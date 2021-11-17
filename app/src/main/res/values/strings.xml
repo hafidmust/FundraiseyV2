@@ -54,10 +54,9 @@
 
     <string name="nominal_amount">Nominal Amounts</string>
 
-
-
-
-
+    <string name="content_funding_needs">Currently we have an innovative project from other startups because we use the latest technology, namely using machine lensing support to be able to paint faces</string>
+    <string name="content_aboutstartup">Star Track.Inc is a startup engaged in information technology by utilizing machine learning for the work of the nation\'s children</string>
+    <string name="startrack">\@starttrack.inc</string>
 
 
 </resources>
