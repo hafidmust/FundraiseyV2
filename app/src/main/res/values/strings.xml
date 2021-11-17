@@ -47,12 +47,18 @@
 
     <string name="payment_metode">Payment Method</string>
     <string name="bank_trans">Bank Transfer</string>
-    <string name="page_payment_screen">Payment Methods</string>
+    <string name="payment_method">Payment Methods</string>
     <string name="bca">Bank BCA</string>
     <string name="mandiri">Bank Mandiri</string>
 
 
-    <string name="nominal_amount">Nominal Amounts</string>
+    <string name="e_wallet">E-Wallet Transfer</string>
+    <string name="gopay">GoPay</string>
+    <string name="OVO">OVO</string>
+
+    <string name="pay_button">Pay</string>
+
+
 
     <string name="content_funding_needs">Currently we have an innovative project from other startups because we use the latest technology, namely using machine lensing support to be able to paint faces</string>
     <string name="content_aboutstartup">Star Track.Inc is a startup engaged in information technology by utilizing machine learning for the work of the nation\'s children</string>

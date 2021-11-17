@@ -36,12 +36,13 @@
 
     </LinearLayout>
 
+    <!-- Nominal amounts   -->
     <TextView
         android:id="@+id/text_nominal_amount_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/inter_bold"
         android:text="@string/nominal_amount"
         android:textColor="@color/blue"
@@ -55,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/inter_regular"
         android:text="@string/nominal_text"
         android:textColor="@color/desc_box_color"
@@ -134,7 +135,7 @@
             android:layout_width="100dp"
             android:layout_height="55dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:paddingLeft="15dp"
             android:backgroundTint="@color/blue"
             android:fontFamily="@font/inter_regular"
             android:text="@string/fivehundred"
@@ -147,10 +148,9 @@
             android:layout_width="100dp"
             android:layout_height="55dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
             android:backgroundTint="@color/blue"
             android:fontFamily="@font/inter_regular"
-            android:paddingLeft="12dp"
+            android:paddingLeft="10dp"
             android:text="@string/onemillion"
             android:textAllCaps="false"
             android:textSize="12sp"
@@ -163,7 +163,6 @@
             android:layout_width="100dp"
             android:layout_height="55dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
             android:backgroundTint="@color/blue"
             android:fontFamily="@font/inter_regular"
             android:paddingLeft="10dp"
@@ -175,6 +174,7 @@
 
     </GridLayout>
 
+    <!--  Payment Method  -->
     <TextView
         android:id="@+id/text_payment_method"
         android:layout_width="wrap_content"
@@ -191,8 +191,8 @@
     <RadioGroup
         android:id="@+id/text_bank_transfer"
         android:layout_width="340dp"
-        android:layout_height="152dp"
-        android:layout_marginTop="12dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/grid_recycler_history"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -203,7 +203,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="19dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/inter_regular"
             android:text="@string/bank_trans"
             android:textColor="@color/blue"
@@ -216,7 +216,6 @@
             android:layout_marginLeft="19dp"
             android:columnCount="2"
             android:orientation="vertical"
-
             android:rowCount="2">
 
 
@@ -225,37 +224,117 @@
                 android:layout_width="40dp"
                 android:layout_height="13dp"
                 android:layout_marginTop="18dp"
-                android:src="@drawable/bcaa"
-                />
+                android:src="@drawable/bcaa" />
 
             <ImageView
                 android:id="@+id/logo_mandiri"
                 android:layout_width="40dp"
                 android:layout_height="13dp"
                 android:layout_marginTop="18dp"
-                android:src="@drawable/mandiri"
-                />
-
+                android:src="@drawable/mandiri" />
 
             <RadioButton
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-
+                android:layout_height="20dp"
+                android:layout_marginTop="13dp"
                 android:fontFamily="@font/inter_regular"
-                android:textSize="16sp"
-
-                android:text="@string/bca" />
+                android:text="@string/bca"
+                android:textSize="16sp" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/inter_regular"
-                android:textSize="16sp"
-                android:text="@string/mandiri" />
+                android:text="@string/mandiri"
+                android:textSize="16sp" />
 
         </GridLayout>
 
     </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/e_walet"
+        android:layout_width="340dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/grid_recycler_history"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_bank_transfer">
+
+        <TextView
+            android:id="@+id/text_e_wallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/e_wallet"
+            android:textColor="@color/blue"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="19dp"
+            android:columnCount="2"
+            android:orientation="vertical"
+            android:rowCount="2">
+
+
+            <ImageView
+                android:id="@+id/logo_gopay"
+                android:layout_width="40dp"
+                android:layout_height="13dp"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/ic_gopay" />
+
+            <ImageView
+                android:id="@+id/logo_ovo"
+                android:layout_width="40dp"
+                android:layout_height="13dp"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/ic_ovo" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="13dp"
+                android:fontFamily="@font/inter_regular"
+                android:text="@string/gopay"
+                android:textSize="16sp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/inter_regular"
+                android:text="@string/OVO"
+                android:textSize="16sp" />
+
+        </GridLayout>
+
+    </RadioGroup>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_pay"
+        android:layout_width="340dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/grid_recycler_home"
+        android:backgroundTint="@color/blue"
+        android:fontFamily="@font/inter_regular"
+        android:text="@string/pay_button"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/e_walet"
+
+
+        >
+
+    </androidx.appcompat.widget.AppCompatButton>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
