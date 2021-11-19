@@ -11,11 +11,16 @@
     <color name="box_home">#E4F2FF</color>
     <color name="progress_text">#0F4880</color>
     <color name="border_color">#C3E0FD</color>
-    <color name="desc_box_color">#5F5F5F</color>
+    <color name="grey">#5F5F5F</color>
     <color name="box_color_history">#0F4880</color>
     <color name="status_payment">#D99F48</color>
     <color name="hitam">#000000</color>
     <color name="status">#d99f48</color>
+    <color name="background_detail_pay">#FBD961</color>
+    <color name="background_step_by_step">#F4FAFF</color>
+
+
+
 
 
 </resources>

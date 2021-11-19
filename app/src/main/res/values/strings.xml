@@ -59,10 +59,31 @@
     <string name="pay_button">Pay</string>
 
 
-
     <string name="content_funding_needs">Currently we have an innovative project from other startups because we use the latest technology, namely using machine lensing support to be able to paint faces</string>
     <string name="content_aboutstartup">Star Track.Inc is a startup engaged in information technology by utilizing machine learning for the work of the nation\'s children</string>
     <string name="startrack">\@starttrack.inc</string>
+
+    <!--  payment deatil screen  -->
+    <string name="pay_deadline">Payment deadline</string>
+    <string name="pay_date">Saturday, 13 November 2021, 19:00 (+7)</string>
+
+    <string name="text_favor_bank">Choose your favorite bank</string>
+    <string name="text_enter_va">Enter virtual account number</string>
+    <string name="text_enter_pay">Enter payment amount</string>
+    <string name="text_enter_complete">payment completed</string>
+
+    <string name="bca_virtu">BCA Virtual Account</string>
+    <string name="text_virtue_number">Virtual Account Number</string>
+    <string name="virtue_number">1394837285038294</string>
+    <string name="text_copy">copy</string>
+    <string name="text_payment">Payment Nominal</string>
+    <string name="text_payment_amount">Rp50.000.000</string>
+    <string name="text_detail_complete_payment">Immediately complete the payment before the specified deadline to start funding the startup</string>
+    <string name="text_other_invest">Other investments</string>
+    <string name="text_invest_status">Check investment status</string>
+
+
+
 
 
 </resources>
