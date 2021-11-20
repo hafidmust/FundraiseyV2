@@ -68,7 +68,7 @@
                 android:layout_height="32dp"
                 android:fontFamily="@font/inter_regular"
                 android:text="@string/description"
-                android:textColor="@color/desc_box_color"
+                android:textColor="@color/grey"
                 android:textSize="12sp"
                 tools:layout_editor_absoluteX="16dp"
                 tools:layout_editor_absoluteY="88dp" />

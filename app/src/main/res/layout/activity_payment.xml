@@ -60,7 +60,7 @@
         android:layout_marginTop="5dp"
         android:fontFamily="@font/inter_regular"
         android:text="@string/nominal_text"
-        android:textColor="@color/desc_box_color"
+        android:textColor="@color/grey"
         android:textFontWeight="700"
         android:textSize="12sp"
         app:layout_constraintLeft_toLeftOf="parent"

@@ -15,7 +15,7 @@
         android:id="@+id/navigation_dashboard"
         android:name="app.binar.synrgy.android.finalproject.ui.homenavigation.dashboard.DashboardFragment"
         android:label="@string/portofolio"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_portofolio" />
 
     <fragment
         android:id="@+id/navigation_history"
@@ -27,5 +27,5 @@
         android:id="@+id/navigation_contacts"
         android:name="app.binar.synrgy.android.finalproject.ui.homenavigation.contact.ContactFragment"
         android:label="@string/information"
-        tools:layout="@layout/fragment_contact" />
+        tools:layout="@layout/fragment_information" />
 </navigation>

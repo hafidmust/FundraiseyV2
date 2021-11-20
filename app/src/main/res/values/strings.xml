@@ -82,6 +82,31 @@
     <string name="text_other_invest">Other investments</string>
     <string name="text_invest_status">Check investment status</string>
 
+    <!--  fragment porto  -->
+    <string name="total_balance">Total Balance</string>
+    <string name="dummy_5jt">Rp5.000.000 /</string>
+    <string name="dummy_7jt">Rp7.000.000</string>
+    <string name="button_withdraw">Withdraw</string>
+
+    <string name="detail_porto">Portfolio details</string>
+    <string name="tot_withdraw">Total withdrawn this month</string>
+    <string name="dummy_10jt">Rp 10.000.000</string>
+
+    <string name="port_detail">Portfolio details</string>
+    <string name="tot_with">Total withdrawn this month</string>
+    <string name="tot_fund">Total funding</string>
+    <string name="upcoming_ret">Upcoming returns</string>
+    <string name="loan_amount">loan amount</string>
+
+    <string name="dummy_2jt">Rp 2.000.000</string>
+    <string name="tot_startup">4 Startup</string>
+
+    <string name="loan_detail">Loan details</string>
+
+
+
+
+
 
 
 
