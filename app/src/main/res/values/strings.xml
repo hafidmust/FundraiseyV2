@@ -77,7 +77,7 @@
     <string name="virtue_number">1394837285038294</string>
     <string name="text_copy">copy</string>
     <string name="text_payment">Payment Nominal</string>
-    <string name="text_payment_amount">Rp50.000.000</string>
+    <string name="text_payment_amount">Rp50.000</string>
     <string name="text_detail_complete_payment">Immediately complete the payment before the specified deadline to start funding the startup</string>
     <string name="text_other_invest">Other investments</string>
     <string name="text_invest_status">Check investment status</string>
