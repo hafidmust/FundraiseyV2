@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject">
         <activity
+            android:name=".ui.homenavigation.home.HomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.loan.loan_details_activity"
+            android:exported="true" />
+        <activity
             android:name=".ui.history.detail.DetailHistoryActivity"
             android:exported="false" />
         <activity
