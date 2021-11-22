@@ -18,6 +18,7 @@ class HomeNavigationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityHomeNavigationBinding.inflate(layoutInflater)
+        supportActionBar?.hide()
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
@@ -26,7 +27,7 @@ class HomeNavigationActivity : AppCompatActivity() {
 
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_history
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

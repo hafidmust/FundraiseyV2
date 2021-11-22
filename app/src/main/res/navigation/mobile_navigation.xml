@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_history"
-        android:name="app.binar.synrgy.android.finalproject.ui.homenavigation.notification.NotificationFragment"
+        android:name="app.binar.synrgy.android.finalproject.ui.history.HistoryFragment"
         android:label="@string/history"
         tools:layout="@layout/fragment_history" />
 

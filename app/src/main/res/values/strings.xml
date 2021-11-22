@@ -59,10 +59,11 @@
     <string name="pay_button">Pay</string>
 
 
-
     <string name="content_funding_needs">Currently we have an innovative project from other startups because we use the latest technology, namely using machine lensing support to be able to paint faces</string>
     <string name="content_aboutstartup">Star Track.Inc is a startup engaged in information technology by utilizing machine learning for the work of the nation\'s children</string>
     <string name="startrack">\@starttrack.inc</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

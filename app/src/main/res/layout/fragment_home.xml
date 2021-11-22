@@ -36,7 +36,7 @@
             android:layout_marginTop="25dp"
             android:src="@drawable/ic_avatar"
             app:layout_constraintLeft_toLeftOf="@id/app_name"
-            app:layout_constraintRight_toRghtOf="parent" />
+            />
 
 
     </LinearLayout>
