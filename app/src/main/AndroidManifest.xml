@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="app.binar.synrgy.android.finalproject">
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -8,6 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FinalProject">
+        <activity
+            android:name=".ui.homenavigation.home.HomeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.loan.loan_details_activity"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -18,4 +25,5 @@
             </intent-filter>
         </activity>
     </application>
+
 </manifest>
