@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- heeader funraisey -->
+    <!-- header fundraisey -->
     <LinearLayout
         android:id="@+id/header_payment"
         android:layout_width="match_parent"
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="36dp"
         android:layout_marginTop="5dp"
-        android:fontFamily="@font/inter_regular"
+        android:fontFamily="@font/inter_bold"
         android:text="@string/nominal_text"
         android:textColor="@color/grey"
         android:textFontWeight="700"
@@ -68,9 +68,10 @@
 
     <EditText
         android:id="@+id/box_nominal"
-        android:layout_width="340dp"
+        android:layout_width="350dp"
         android:layout_height="54dp"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="18dp"
         android:layout_marginTop="4dp"
         android:background="@drawable/box_rectangle_grey"
         android:hint="@string/hint_text_amount"
@@ -81,10 +82,11 @@
 
     <GridLayout
         android:id="@+id/button_nominal"
-        android:layout_width="340dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20.25dp"
         android:columnCount="3"
         android:rowCount="2"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -93,39 +95,38 @@
 
         <Button
             android:id="@+id/button_50k"
-            android:layout_width="100dp"
+            android:layout_width="107dp"
             android:layout_height="55dp"
-            android:layout_marginLeft="10dp"
-            android:backgroundTint="@color/blue_primary"
-            android:fontFamily="@font/inter_regular"
-            android:text="@string/fifty"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/inter_semibold"
+            android:textColor="@color/black"
+            android:text="@string/fiftythousand"
             android:textAllCaps="false"
             android:textSize="12sp"
             app:layout_constraintLeft_toLeftOf="parent" />
 
         <Button
             android:id="@+id/button_100k"
-            android:layout_width="100dp"
+            android:layout_width="107dp"
             android:layout_height="55dp"
             android:layout_marginLeft="10dp"
-            android:backgroundTint="@color/blue_primary"
-            android:fontFamily="@font/inter_regular"
-            android:paddingLeft="12dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/inter_semibold"
+            android:textColor="@color/black"
             android:text="@string/onehundred"
             android:textAllCaps="false"
             android:textSize="12sp"
-            app:layout_constraintLeft_toRightOf="@id/button_50k"
-
-            />
+            app:layout_constraintLeft_toRightOf="@id/button_50k" />
 
         <Button
             android:id="@+id/button_200k"
-            android:layout_width="100dp"
+            android:layout_width="108dp"
             android:layout_height="55dp"
             android:layout_marginLeft="10dp"
-            android:backgroundTint="@color/blue_primary"
-            android:fontFamily="@font/inter_regular"
-            android:paddingLeft="10dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/inter_semibold"
+            android:textColor="@color/black"
             android:text="@string/twohundred"
             android:textAllCaps="false"
             android:textSize="12sp"
@@ -133,12 +134,12 @@
 
         <Button
             android:id="@+id/button_500k"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="55dp"
             android:layout_marginLeft="10dp"
-            android:paddingLeft="15dp"
-            android:backgroundTint="@color/blue_primary"
-            android:fontFamily="@font/inter_regular"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/inter_semibold"
+            android:textColor="@color/black"
             android:text="@string/fivehundred"
             android:textAllCaps="false"
             android:textSize="12sp"
@@ -146,28 +147,30 @@
 
         <Button
             android:id="@+id/button_1000k"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="55dp"
-            android:layout_marginLeft="10dp"
-            android:backgroundTint="@color/blue_primary"
-            android:fontFamily="@font/inter_regular"
-            android:paddingLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/inter_semibold"
+            android:textColor="@color/black"
+            android:paddingEnd="10dp"
+            android:paddingStart="10dp"
             android:text="@string/onemillion"
             android:textAllCaps="false"
             android:textSize="12sp"
-            app:layout_constraintLeft_toRightOf="@id/button_50k"
-
-            />
+            app:layout_constraintLeft_toRightOf="@id/button_50k" />
 
         <Button
             android:id="@+id/button_2000k"
-            android:layout_width="100dp"
+            android:layout_width="108dp"
             android:layout_height="55dp"
-            android:layout_marginLeft="10dp"
-            android:backgroundTint="@color/blue_primary"
-            android:fontFamily="@font/inter_regular"
-            android:paddingLeft="10dp"
-            android:text="@string/twomillion"
+            android:layout_marginStart="10dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/inter_semibold"
+            android:textColor="@color/black"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:text="@string/onehalfmillion"
             android:textAllCaps="false"
             android:textSize="12sp"
             app:layout_constraintLeft_toRightOf="@id/button_100k" />
@@ -193,8 +196,12 @@
         android:id="@+id/text_bank_transfer"
         android:layout_width="340dp"
         android:layout_height="130dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/grid_recycler_history"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/box_rectangle_grey"
+        android:elevation="3dp"
+        android:outlineAmbientShadowColor="@color/light_grey"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_payment_method">
@@ -203,7 +210,7 @@
             android:id="@+id/bank_transfer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="19dp"
+            android:layout_marginStart="19dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/inter_regular"
             android:text="@string/bank_trans"
@@ -212,13 +219,13 @@
             android:textStyle="bold" />
 
         <GridLayout
+            android:id="@+id/grid_bank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="19dp"
+            android:layout_marginStart="19dp"
             android:columnCount="2"
             android:orientation="vertical"
             android:rowCount="2">
-
 
             <ImageView
                 android:id="@+id/logo_bca"
@@ -235,19 +242,26 @@
                 android:src="@drawable/mandiri" />
 
             <RadioButton
+                android:id="@+id/radio_bank_bca"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_marginTop="13dp"
+                android:layout_marginStart="18dp"
                 android:fontFamily="@font/inter_regular"
                 android:text="@string/bca"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:buttonTint="@color/blue_primary"
+                android:checked="true"/>
 
             <RadioButton
+                android:id="@+id/radio_bank_mandiri"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginStart="18dp"
                 android:fontFamily="@font/inter_regular"
                 android:text="@string/mandiri"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:buttonTint="@color/blue_primary"/>
 
         </GridLayout>
 
@@ -257,8 +271,12 @@
         android:id="@+id/e_walet"
         android:layout_width="340dp"
         android:layout_height="130dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/grid_recycler_history"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/box_rectangle_grey"
+        android:elevation="4dp"
+        android:outlineAmbientShadowColor="@color/light_grey"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text_bank_transfer">
@@ -301,17 +319,22 @@
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
+                android:layout_marginStart="18dp"
                 android:layout_marginTop="13dp"
+                android:layout_row="0"
                 android:fontFamily="@font/inter_regular"
                 android:text="@string/gopay"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:buttonTint="@color/blue_primary"/>
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginStart="18dp"
                 android:fontFamily="@font/inter_regular"
                 android:text="@string/OVO"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:buttonTint="@color/blue_primary"/>
 
         </GridLayout>
 
@@ -320,7 +343,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_pay"
         android:layout_width="340dp"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/grid_recycler_home"
         android:backgroundTint="@color/blue_primary"
@@ -328,12 +351,11 @@
         android:text="@string/pay_button"
         android:textColor="@color/white"
         android:textStyle="bold"
+        android:textSize="18sp"
+        android:textAllCaps="false"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/e_walet"
-
-
-        >
+        app:layout_constraintTop_toBottomOf="@id/e_walet">
 
     </androidx.appcompat.widget.AppCompatButton>
 
