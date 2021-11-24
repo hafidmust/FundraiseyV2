@@ -5,295 +5,290 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- heeader fragment porto -->
-
-    <LinearLayout
-        android:id="@+id/app_name_header_porto"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollview_portofolio"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginTop="24dp"
-        android:background="@color/blue_primary"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/app_name_porto"
-            android:layout_width="264dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="25dp"
-            android:fontFamily="@font/inter_bold"
-            android:text="@string/app_name"
-            android:textColor="@color/white"
-            android:textFontWeight="700"
-            android:textSize="25dp"
-            app:layout_constraintTop_toTopOf="@id/app_name_header" />
-
-        <!--   Avatar     -->
-        <ImageView
-            android:layout_width="39dp"
-            android:layout_height="39dp"
-            android:layout_marginLeft="70dp"
-            android:layout_marginTop="25dp"
-            android:src="@drawable/ic_avatar"
-            app:layout_constraintLeft_toLeftOf="@id/app_name"
-             />
-    </LinearLayout>
-
-
-    <!-- total balance box -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/card_tot_balance"
-        android:layout_width="match_parent"
-        android:layout_height="170dp"
-        app:layout_constraintTop_toBottomOf="@+id/app_name_header_porto">
-
-
-        <TextView
-            android:id="@+id/text_porto_tot_balance"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_portofolio"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/total_balance"
-            android:textColor="@color/blue_primary"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tot_balance_screen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/dummy_5jt"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_porto_tot_balance" />
+            <!-- heeder fragment porto -->
 
-        <TextView
-            android:id="@+id/tot_need_balance_screen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="13dp"
-            android:layout_marginBottom="5dp"
-            android:text="@string/dummy_10jt"
-            android:textColor="@color/grey"
-            android:textSize="15sp"
-            app:layout_constraintLeft_toRightOf="@id/tot_balance_screen"
-            app:layout_constraintTop_toBottomOf="@id/text_porto_tot_balance" />
+            <LinearLayout
+                android:id="@+id/app_name_header_porto"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginTop="24dp"
+                android:background="@color/blue_primary"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/button_withdraw"
-            android:layout_width="350dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/blue_primary"
-            android:text="@string/button_withdraw"
-            android:textAllCaps="false"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tot_need_balance_screen" />
+                <TextView
+                    android:id="@+id/app_name_porto"
+                    android:layout_width="264dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textFontWeight="700"
+                    android:textSize="25sp"
+                    app:layout_constraintTop_toTopOf="@id/app_name_header" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <!--   Avatar     -->
+                <ImageView
+                    android:layout_width="39dp"
+                    android:layout_height="39dp"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/ic_avatar"
+                    app:layout_constraintLeft_toLeftOf="@id/app_name"
+                     />
+            </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/card_porto_detail"
-        android:layout_width="match_parent"
-        android:layout_height="206dp"
-        app:layout_constraintTop_toBottomOf="@id/card_tot_balance">
+            <!-- total balance box -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/card_tot_balance"
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                app:layout_constraintTop_toBottomOf="@+id/app_name_header_porto">
 
-        <TextView
-            android:id="@+id/text_porto_detail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+                <TextView
+                    android:id="@+id/text_porto_tot_balance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/total_balance"
+                    android:textColor="@color/blue_primary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            android:fontFamily="@font/inter_regular"
+                <TextView
+                    android:id="@+id/tot_balance_screen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/value_current_balance"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_porto_tot_balance" />
 
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/port_detail"
-            android:textColor="@color/blue_primary"
-            android:textSize="20sp"
+                <TextView
+                    android:id="@+id/tot_need_balance_screen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="@string/value_total_withdran"
+                    android:textColor="@color/grey"
+                    android:textSize="15sp"
+                    app:layout_constraintLeft_toRightOf="@id/tot_balance_screen"
+                    app:layout_constraintTop_toBottomOf="@id/text_porto_tot_balance" />
 
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                <Button
+                    android:id="@+id/button_withdraw"
+                    android:layout_width="350dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="20dp"
+                    android:backgroundTint="@color/blue_primary"
+                    android:text="@string/button_withdraw"
+                    android:textAllCaps="false"
+                    app:layout_constraintCircleRadius="4dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tot_need_balance_screen" />
 
-        <TextView
-            android:id="@+id/text_tot_with"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/inter_regular"
-            android:text="@string/tot_with"
-            android:textColor="@color/black"
-            android:textSize="12sp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/card_porto_detail"
+                android:layout_width="match_parent"
+                android:layout_height="206dp"
+                app:layout_constraintTop_toBottomOf="@id/card_tot_balance">
 
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_porto_detail" />
+                <TextView
+                    android:id="@+id/text_porto_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_bold"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/port_detail"
+                    android:textColor="@color/blue_primary"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/text_tot_fund"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+                <TextView
+                    android:id="@+id/text_tot_with"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="@string/tot_with"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_porto_detail" />
 
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/inter_regular"
-            android:text="@string/tot_fund"
-            android:textColor="@color/black"
-            android:textSize="12sp"
+                <TextView
+                    android:id="@+id/text_tot_fund"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="@string/tot_fund"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
 
+                    app:layout_constraintTop_toBottomOf="@id/text_tot_with" />
 
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
+                <TextView
+                    android:id="@+id/text_up_return"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="@string/upcoming_ret"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_tot_fund" />
 
-            app:layout_constraintTop_toBottomOf="@id/text_tot_with" />
+                <TextView
+                    android:id="@+id/text_loan_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="@string/loan_amount"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_up_return" />
 
-        <TextView
-            android:id="@+id/text_up_return"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+                <TextView
+                    android:id="@+id/text_dummy_10jt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="25dp"
+                    android:text="@string/value_total_withdran"
+                    android:layout_marginTop="10dp"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/inter_bold"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_porto_detail"
+                    />
 
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/inter_regular"
-            android:text="@string/upcoming_ret"
-            android:textColor="@color/black"
-            android:textSize="12sp"
+                <TextView
+                    android:id="@+id/text_dummy_7jt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/value_current_balance"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginTop="20dp"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/inter_bold"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_dummy_10jt" />
 
+                <TextView
+                    android:id="@+id/text_dummy_2jt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/value_upcoming_return"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginTop="20dp"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/inter_bold"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_dummy_7jt" />
 
-            android:textStyle="bold"
+                <TextView
+                    android:id="@+id/text_dummy_startup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tot_startup"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginTop="20dp"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/inter_bold"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/text_dummy_2jt" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_tot_fund" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/card_loan_detail"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                app:layout_constraintTop_toBottomOf="@id/card_porto_detail">
 
-        <TextView
-            android:id="@+id/text_loan_amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+                <TextView
+                    android:id="@+id/text_loan_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/blue_primary"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/inter_bold"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/loan_detail"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/inter_regular"
-            android:text="@string/loan_amount"
-            android:textColor="@color/black"
-            android:textSize="12sp"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_portofolio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginHorizontal="20dp"
+                    app:layout_constraintTop_toBottomOf="@id/text_loan_detail"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    tools:listitem="@layout/adapter_recycler_portofolio"/>
 
+                <Button
+                    android:layout_width="10dp"
+                    android:layout_height="200dp"
+                    app:layout_constraintTop_toBottomOf="@id/recycler_portofolio"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
 
-            android:textStyle="bold"
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_up_return" />
-
-        <TextView
-            android:id="@+id/text_dummy_10jt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginRight="25dp"
-            android:text="@string/dummy_10jt"
-            android:layout_marginTop="10dp"
-            android:textSize="12sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:fontFamily="@font/inter_regular"
-
-            app:layout_constraintRight_toRightOf="parent"
-
-            app:layout_constraintTop_toBottomOf="@id/text_porto_detail"
-            />
-
-        <TextView
-            android:id="@+id/text_dummy_7jt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/dummy_5jt"
-
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="20dp"
-            android:textSize="12sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:fontFamily="@font/inter_regular"
-
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_dummy_10jt"
-
-            />
-
-        <TextView
-            android:id="@+id/text_dummy_2jt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/dummy_2jt"
-
-
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="20dp"
-            android:textSize="12sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:fontFamily="@font/inter_regular"
-
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_dummy_7jt"
-
-            />
-
-        <TextView
-            android:id="@+id/text_dummy_startup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/tot_startup"
-
-            android:layout_marginRight="25dp"
-            android:layout_marginTop="20dp"
-            android:textSize="12sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:fontFamily="@font/inter_regular"
-
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_dummy_2jt"
-
-
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/card_loan_detail"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        app:layout_constraintTop_toBottomOf="@id/card_porto_detail"
-
-        >
-
-        <TextView
-            android:id="@+id/text_loan_detail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-
-            android:textColor="@color/blue_primary"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:fontFamily="@font/inter_regular"
-            android:layout_marginLeft="20dp"
-
-            android:text="@string/loan_detail"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,12 +21,12 @@
 
     <!--  recycler home  -->
     <string name="title_start_up">Star Track .Inc</string>
-    <string name="pro_funding">Project funding</string>
-    <string name="donation">RpXX.XXX.XXX</string>
-    <string name="description">we are making a machine learning-based application that can process an image.....</string>
+    <string name="pro_funding">Project Funding</string>
+    <string name="donation">Rp XX.XXX.XXX</string>
+    <string name="description">We are making a machine learning-based application that can process an image.....</string>
     <string name="collected">Collected</string>
-    <string name="total_collected">RpX.XXX.XXX</string>
-    <string name="deadline">Deadline remaining</string>
+    <string name="total_collected">Rp 500.000</string>
+    <string name="deadline">Deadline Remaining</string>
     <string name="date_deadline">29 July</string>
 
     <!--  recycler history  -->
@@ -38,12 +38,12 @@
     <string name="nominal_amount">Nominal Amounts</string>
     <string name="nominal_text">Nominal</string>
     <string name="hint_text_amount">Rp 0</string>
-    <string name="fifty">Rp50.000</string>
-    <string name="onehundred">Rp100.000</string>
-    <string name="twohundred">Rp200.000</string>
-    <string name="fivehundred">Rp500.000</string>
-    <string name="onemillion">Rp1.000.000</string>
-    <string name="twomillion">Rp2.000.000</string>
+    <string name="fiftythousand">Rp 50.000</string>
+    <string name="onehundred">Rp 100.000</string>
+    <string name="twohundred">Rp 200.000</string>
+    <string name="fivehundred">Rp 500.000</string>
+    <string name="onemillion">Rp 1.000.000</string>
+    <string name="onehalfmillion">Rp 1.500.000</string>
 
     <string name="payment_metode">Payment Method</string>
     <string name="bank_trans">Bank Transfer</string>
@@ -79,31 +79,35 @@
     <string name="virtue_number">1394837285038294</string>
     <string name="text_copy">copy</string>
     <string name="text_payment">Payment Nominal</string>
-    <string name="text_payment_amount">Rp50.000</string>
+    <string name="text_payment_amount">Rp 50.000</string>
     <string name="text_detail_complete_payment">Immediately complete the payment before the specified deadline to start funding the startup</string>
     <string name="text_other_invest">Other investments</string>
     <string name="text_invest_status">Check investment status</string>
 
     <!--  fragment porto  -->
     <string name="total_balance">Total Balance</string>
-    <string name="dummy_5jt">Rp5.000.000 /</string>
-    <string name="dummy_7jt">Rp7.000.000</string>
+    <string name="value_current_balance">Rp 5.000.000 /</string>
+    <string name="value_total_balance">Rp 7.000.000</string>
     <string name="button_withdraw">Withdraw</string>
 
     <string name="detail_porto">Portfolio details</string>
     <string name="tot_withdraw">Total withdrawn this month</string>
-    <string name="dummy_10jt">Rp 10.000.000</string>
+    <string name="value_total_withdran">Rp 10.000.000</string>
 
-    <string name="port_detail">Portfolio details</string>
-    <string name="tot_with">Total withdrawn this month</string>
-    <string name="tot_fund">Total funding</string>
-    <string name="upcoming_ret">Upcoming returns</string>
-    <string name="loan_amount">loan amount</string>
+    <string name="port_detail">Portfolio Details</string>
+    <string name="tot_with">Total Withdrawn This Month</string>
+    <string name="tot_fund">Total Funding</string>
+    <string name="upcoming_ret">Upcoming Returns</string>
+    <string name="loan_amount">Loan Amount</string>
 
-    <string name="dummy_2jt">Rp 2.000.000</string>
+    <string name="value_upcoming_return">Rp 2.000.000</string>
     <string name="tot_startup">4 Startup</string>
 
     <string name="loan_detail">Loan details</string>
+
+    <string name="text_being_funded">Being Funded</string>
+    <string name="text_paid_off">Paid Off</string>
+    <string name="text_late_payment">Late Payment</string>
 
 
 </resources>
