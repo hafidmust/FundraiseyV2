@@ -8,10 +8,12 @@ import android.os.Bundle
 import android.widget.Toast
 import app.binar.synrgy.android.finalproject.R
 import app.binar.synrgy.android.finalproject.databinding.ActivityDetailPaymentBinding
+import app.binar.synrgy.android.finalproject.ui.payment.dialog.PopupDialog
 
 class DetailPaymentActivity : AppCompatActivity() {
     private lateinit var detailPaymentViewModel: DetailPaymentViewModel
     private lateinit var binding : ActivityDetailPaymentBinding
+    private val dialog by lazy { PopupDialog(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,9 @@ class DetailPaymentActivity : AppCompatActivity() {
 
         binding.copy.setOnClickListener {
             copyVAN()
+        }
+        binding.btnOtherInvesment.setOnClickListener {
+            dialog.showDialog(true)
         }
 
 
