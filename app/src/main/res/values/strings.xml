@@ -109,5 +109,25 @@
     <string name="text_paid_off">Paid Off</string>
     <string name="text_late_payment">Late Payment</string>
 
+    <!-- fragment FAQ   -->
+    <string name="string_faq">Frequently Asked Questions</string>
+
+    <string name="faq_1">How does FundRaisey work</string>
+    <string name="faq_2">Benefits of using FundRaisey</string>
+    <string name="faq_3">Type of FundRaisey Lending</string>
+
+    <string name="string_faq_bot">Account questions</string>
+    <string name="faq_4">How to become a borrower in FundRaisey</string>
+    <string name="faq_5">What are the requirements to become a lender at FundRaisey</string>
+
+    <string name="your_question_faq">Your question has not been answered?</string>
+    <string name="button_faq">Contact FundRaisey</string>
+
+
+    
+
+
+
+
 
 </resources>
