@@ -24,7 +24,16 @@ class LoanDetailsActivity : AppCompatActivity() {
         val id = intent.getIntExtra(GET_ID,0)
         Log.d("id",id.toString())
         viewModel = ViewModelProvider(this).get(LoanDetailsViewModel::class.java)
+
         viewModel.getDataFromAPI(id)
+        viewModel.loanResponse.observe(this,{
+            binding.textFundingValue.text = it.targetValue.toString()
+            binding.tvStartup.text = it.name
+            binding.textFundingNeeds.text = it.description
+            binding.textFundingAmount.text = it.currentValue.toString()
+        })
+
+
 
 
 
