@@ -1,6 +1,7 @@
 package app.binar.synrgy.android.finalproject.data
 
 import app.binar.synrgy.android.finalproject.data.home.HomeLoanResponse
+import app.binar.synrgy.android.finalproject.data.loan.LoanResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -27,5 +28,8 @@ interface HomeAPI {
     @GET("/v1/loan/all")
 //    import ?
     suspend fun getAllLoan() : Response<HomeLoanResponse>
+
+    @GET("/v1/loan/detail/")
+    suspend fun getLoanDetail() : Response<LoanResponse>
 
 }
