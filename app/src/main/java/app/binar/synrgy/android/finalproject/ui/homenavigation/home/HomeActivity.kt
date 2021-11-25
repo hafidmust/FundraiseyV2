@@ -16,7 +16,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.fragment_home)
         binding = FragmentHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        supportActionBar?.hide()
 
     }
 }

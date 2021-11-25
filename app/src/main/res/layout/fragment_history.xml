@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.history.HistoryFragment">
 
-    <!-- header funraisey -->
     <View
         android:id="@+id/viewhistory"
         android:layout_width="match_parent"
@@ -31,7 +30,6 @@
             app:layout_constraintTop_toTopOf="@id/viewhistory"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
-        <!-- Avatar -->
         <ImageView
             android:layout_width="32dp"
             android:layout_height="32dp"
@@ -40,15 +38,12 @@
             app:layout_constraintTop_toTopOf="@id/viewhistory"
             app:layout_constraintRight_toRightOf="parent"
             android:src="@drawable/ic_avatar"
-            app:layout_constraintBottom_toBottomOf="@id/viewhistory"
-             />
-<!--    </LinearLayout>-->
+            app:layout_constraintBottom_toBottomOf="@id/viewhistory" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/viewhistory"
-        >
+        app:layout_constraintTop_toBottomOf="@id/viewhistory">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerviewHistory"
@@ -57,7 +52,7 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="vertical"
             tools:listitem="@layout/item_history"
-            />
+            tools:itemCount="5"/>
 
     </androidx.core.widget.NestedScrollView>
 

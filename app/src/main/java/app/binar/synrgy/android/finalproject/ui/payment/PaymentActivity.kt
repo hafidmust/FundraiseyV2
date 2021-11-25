@@ -6,7 +6,7 @@ import androidx.core.content.ContextCompat
 import app.binar.synrgy.android.finalproject.R
 import app.binar.synrgy.android.finalproject.databinding.ActivityPaymentBinding
 
-class payment_activity : AppCompatActivity() {
+class PaymentActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPaymentBinding
 
