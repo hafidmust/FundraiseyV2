@@ -1,6 +1,8 @@
 package app.binar.synrgy.android.finalproject.ui.payment.dialog
 
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Window
 import androidx.appcompat.app.AppCompatDialog
@@ -13,7 +15,8 @@ class PopupDialog(context : Context) : AppCompatDialog(context){
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         binding = DialogPopupPaymentBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        this.setCancelable(false)
+        this.setCanceledOnTouchOutside(true)
+        this.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
     }
 
     fun showDialog(value: Boolean) {
