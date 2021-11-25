@@ -8,7 +8,10 @@ import app.binar.synrgy.android.finalproject.data.home.HomeLoanResponse
 import app.binar.synrgy.android.finalproject.databinding.AdapterRecyclerHomeBinding
 import com.bumptech.glide.Glide
 
-class AdapterHome(var data : List<DataItem>) : RecyclerView.Adapter<AdapterHome.ViewHolder>() {
+class AdapterHome(var data : List<DataItem>, val listener : EventListener) : RecyclerView.Adapter<AdapterHome.ViewHolder>() {
+    interface EventListener{
+        fun click(item: DataItem)
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterHome.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = AdapterRecyclerHomeBinding.inflate(inflater)
@@ -33,7 +36,9 @@ class AdapterHome(var data : List<DataItem>) : RecyclerView.Adapter<AdapterHome.
             binding.textTotalDonation.text  = home.targetValue.toString()
             binding.textDescription.text = home.description
             binding.textAmountColected.text = home.currentValue.toString()
-
+            binding.root.setOnClickListener {
+                listener.click(home)
+            }
         }
     }
 }

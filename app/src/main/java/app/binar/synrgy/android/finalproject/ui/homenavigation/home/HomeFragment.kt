@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import app.binar.synrgy.android.finalproject.data.home.DataItem
 import app.binar.synrgy.android.finalproject.databinding.FragmentHomeBinding
 import app.binar.synrgy.android.finalproject.ui.loan.LoanDetailsActivity
 
@@ -29,7 +30,15 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
 
         val root: View = binding.root
-        val homeAdapter = AdapterHome(listOf())
+        val homeAdapter = AdapterHome(listOf(), object : AdapterHome.EventListener{
+            override fun click(item: DataItem) {
+                val intentSendId = Intent(activity, LoanDetailsActivity::class.java).apply {
+                    putExtra(LoanDetailsActivity.GET_ID, item.id)
+                }
+                startActivity(intentSendId)
+
+            }
+        } )
 
         binding.recyclerHome.adapter = homeAdapter
         binding.textDone.setOnClickListener {

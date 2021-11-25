@@ -1,0 +1,45 @@
+package app.binar.synrgy.android.finalproject.data.loan
+
+import com.google.gson.annotations.SerializedName
+
+data class DetailLoanResponse(
+
+	@field:SerializedName("data")
+	val data: DataDetail? = null,
+
+	@field:SerializedName("message")
+	val message: String? = null,
+
+	@field:SerializedName("status")
+	val status: Int? = null
+)
+
+data class DataDetail(
+
+	@field:SerializedName("interestRate")
+	val interestRate: Double? = null,
+
+	@field:SerializedName("endDate")
+	val endDate: String? = null,
+
+	@field:SerializedName("startup")
+	val startup: Startup? = null,
+
+	@field:SerializedName("name")
+	val name: String? = null,
+
+	@field:SerializedName("targetValue")
+	val targetValue: Int? = null,
+
+	@field:SerializedName("description")
+	val description: String? = null,
+
+	@field:SerializedName("id")
+	val id: Int? = null,
+
+	@field:SerializedName("startDate")
+	val startDate: String? = null,
+
+	@field:SerializedName("currentValue")
+	val currentValue: Int? = null
+)
