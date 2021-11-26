@@ -113,6 +113,9 @@
     <string name="string_faq">Frequently Asked Questions</string>
 
     <string name="faq_1">How does FundRaisey work</string>
+    <string name="answer_1">FundRaisey is a marketplace that is a space for borrowers and lenders to help each other. Our job is to make sure the borrowers funds are valid and eligible to be given a loan from the lender. Lenders will benefit when the borrower has benefited from the project they submitted at the beginning of the loan with a loan period of 2 years</string>
+
+
     <string name="faq_2">Benefits of using FundRaisey</string>
     <string name="faq_3">Type of FundRaisey Lending</string>
 

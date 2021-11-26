@@ -40,6 +40,7 @@
     </LinearLayout>
 
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/faq_header_text"
         android:layout_width="match_parent"
@@ -52,8 +53,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="36dp"
             android:layout_marginTop="16dp"
-
-
             android:fontFamily="@font/inter_bold"
             android:text="@string/string_faq"
             android:textColor="@color/blue_primary"
@@ -74,7 +73,6 @@
             android:textColor="@color/blue_primary"
             android:textSize="14sp"
             android:textStyle="bold"
-
             android:drawableRight="@drawable/ic_dropdown_faq"
 
             app:layout_constraintLeft_toLeftOf="parent"
@@ -158,7 +156,7 @@
             android:background="@drawable/box_rectangle_grey"
             android:fontFamily="@font/inter_regular"
             android:paddingLeft="23dp"
-            android:paddingTop="19dp"
+            android:paddingTop="10dp"
             android:text="@string/faq_5"
             android:textColor="@color/blue_primary"
             android:textSize="14sp"
