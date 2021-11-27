@@ -6,10 +6,12 @@ import android.os.Bundle
 import app.binar.synrgy.android.finalproject.R
 import app.binar.synrgy.android.finalproject.databinding.FragmentHomeBinding
 
+
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var viewModel: HomeViewModel
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var adapter: AdapterHome
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

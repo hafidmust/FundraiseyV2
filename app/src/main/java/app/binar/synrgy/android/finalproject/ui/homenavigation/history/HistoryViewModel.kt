@@ -1,4 +1,4 @@
-package app.binar.synrgy.android.finalproject.ui.history
+package app.binar.synrgy.android.finalproject.ui.homenavigation.history
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

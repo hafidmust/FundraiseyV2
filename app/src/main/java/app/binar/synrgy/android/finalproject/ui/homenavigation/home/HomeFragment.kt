@@ -16,7 +16,6 @@ import app.binar.synrgy.android.finalproject.ui.loan.LoanDetailsActivity
 class HomeFragment : Fragment() {
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
-
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -49,7 +48,6 @@ class HomeFragment : Fragment() {
         homeViewModel.homeResponse.observe(viewLifecycleOwner, {
             homeAdapter.update(it)
         })
-
         return root
     }
 

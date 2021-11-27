@@ -3,6 +3,7 @@ package app.binar.synrgy.android.finalproject.data
 import app.binar.synrgy.android.finalproject.data.home.HomeLoanResponse
 import app.binar.synrgy.android.finalproject.data.loan.DetailLoanResponse
 import app.binar.synrgy.android.finalproject.data.loan.LoanResponse
+import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -38,5 +39,7 @@ interface HomeAPI {
         id: Int
     ): Response<DetailLoanResponse>
 
+    @GET("/v1/investor/loan/portofolio")
+    suspend fun getPortofolio(): Response<PortofolioResponse>
 
 }

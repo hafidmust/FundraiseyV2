@@ -1,4 +1,4 @@
-package app.binar.synrgy.android.finalproject.ui.history.detail
+package app.binar.synrgy.android.finalproject.ui.homenavigation.history.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

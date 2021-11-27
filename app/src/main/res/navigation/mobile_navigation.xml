@@ -12,20 +12,21 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="app.binar.synrgy.android.finalproject.ui.homenavigation.dashboard.DashboardFragment"
+        android:id="@+id/navigation_portfolio"
+        android:name="app.binar.synrgy.android.finalproject.ui.homenavigation.portofolio.PortofolioFragment"
         android:label="@string/portofolio"
         tools:layout="@layout/fragment_portofolio" />
 
     <fragment
         android:id="@+id/navigation_history"
-        android:name="app.binar.synrgy.android.finalproject.ui.history.HistoryFragment"
+        android:name="app.binar.synrgy.android.finalproject.ui.homenavigation.history.HistoryFragment"
         android:label="@string/history"
         tools:layout="@layout/fragment_history" />
 
     <fragment
-        android:id="@+id/navigation_contacts"
-        android:name="app.binar.synrgy.android.finalproject.ui.homenavigation.contact.ContactFragment"
+        android:id="@+id/navigation_information"
+        android:name="app.binar.synrgy.android.finalproject.ui.homenavigation.information.InformationFragment"
         android:label="@string/information"
         tools:layout="@layout/fragment_information" />
+
 </navigation>

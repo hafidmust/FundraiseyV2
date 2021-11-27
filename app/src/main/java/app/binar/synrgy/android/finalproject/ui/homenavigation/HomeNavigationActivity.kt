@@ -22,12 +22,10 @@ class HomeNavigationActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
-
         val navController = findNavController(R.id.nav_host_fragment_activity_home_navigation)
-
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_history
+                R.id.navigation_home, R.id.navigation_portfolio, R.id.navigation_history, R.id.navigation_information
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

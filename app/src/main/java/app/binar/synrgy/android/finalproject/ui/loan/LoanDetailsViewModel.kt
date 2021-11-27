@@ -15,10 +15,6 @@ class LoanDetailsViewModel : ViewModel() {
     val loanResponse : MutableLiveData<DataDetail> = MutableLiveData()
     private lateinit var homeAPI: HomeAPI
 
-//    fun onViewLoaded(){
-//        getDataFromAPI(id : Int)
-//    }
-
     fun getDataFromAPI(id : Int){
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
         CoroutineScope(Dispatchers.IO).launch {

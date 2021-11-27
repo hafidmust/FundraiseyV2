@@ -17,7 +17,7 @@
             android:name=".ui.loan.LoanDetailsActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.history.detail.DetailHistoryActivity"
+            android:name=".ui.homenavigation.history.detail.DetailHistoryActivity"
             android:exported="false" />
         <activity
             android:name=".ui.homenavigation.HomeNavigationActivity"

@@ -1,4 +1,4 @@
-package app.binar.synrgy.android.finalproject.ui.history
+package app.binar.synrgy.android.finalproject.ui.homenavigation.history
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import app.binar.synrgy.android.finalproject.data.history.HistoryResponseDummy
 import app.binar.synrgy.android.finalproject.databinding.FragmentHistoryBinding
-import app.binar.synrgy.android.finalproject.ui.history.detail.DetailHistoryActivity
+import app.binar.synrgy.android.finalproject.ui.homenavigation.history.detail.DetailHistoryActivity
 
 
 class HistoryFragment : Fragment() {
@@ -23,9 +23,9 @@ class HistoryFragment : Fragment() {
         binding = FragmentHistoryBinding.inflate(inflater, container, false)
         viewModel = HistoryViewModel()
         val historyAdapter = AdapterHistory(listOf(),
-        object : AdapterHistory.EventListener{
+        object : AdapterHistory.EventListener {
             override fun click(item: HistoryResponseDummy) {
-                startActivity(Intent(this@HistoryFragment.context,DetailHistoryActivity::class.java))
+                startActivity(Intent(this@HistoryFragment.context, DetailHistoryActivity::class.java))
             }
         })
         binding.recyclerviewHistory.adapter = historyAdapter

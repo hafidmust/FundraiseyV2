@@ -1,4 +1,4 @@
-package app.binar.synrgy.android.finalproject.ui.history
+package app.binar.synrgy.android.finalproject.ui.homenavigation.history
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
