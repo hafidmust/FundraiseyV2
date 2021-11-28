@@ -40,25 +40,26 @@
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
-        android:id="@id/scrollview_loan_information"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/header_label"
-        app:layout_constraintLeft_toLeftOf="parent">
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:fillViewport="true"
+        >
 
-        <LinearLayout
-            android:id="@+id/scrollview_loan_information"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+<!--        <LinearLayout-->
+<!--            android:id="@+id/scrollview_loan_information"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintTop_toTopOf="@id/scrollview_loan_information"
                 app:layout_constraintLeft_toLeftOf="parent">
 
                 <TextView
@@ -555,7 +556,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </LinearLayout>
+<!--        </LinearLayout>-->
 
     </androidx.core.widget.NestedScrollView>
 
