@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import app.binar.synrgy.android.finalproject.databinding.FragmentPortofolioBinding
+import app.binar.synrgy.android.finalproject.model.PortofolioModel
 
 
 class PortofolioFragment : Fragment() {
@@ -24,11 +25,17 @@ class PortofolioFragment : Fragment() {
 
         _binding = FragmentPortofolioBinding.inflate(inflater, container, false)
         val root: View = binding.root
-        return root
-    }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        val portofolioAdapter = AdapterPortofolio(listOf(),
+            object : AdapterPortofolio.EventListener {
+                override fun click(item: PortofolioModel) {
+                }
+            })
+        binding.recyclerPortofolio.adapter = portofolioAdapter
+        portofolioViewModel.onViewLoaded()
+        portofolioViewModel.portofolioModel.observe(viewLifecycleOwner, {
+            portofolioAdapter.update(it)
+        })
+        return root
     }
 }

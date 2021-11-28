@@ -1,6 +1,7 @@
 package app.binar.synrgy.android.finalproject.data.portofolio
 
 import app.binar.synrgy.android.finalproject.data.home.DataItem
+import app.binar.synrgy.android.finalproject.model.PortofolioModel
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
@@ -26,10 +27,10 @@ data class returnInstallment(
     val totalReturnPeriod: Int? = null,
 
     @field:SerializedName("returnDate")
-    val updatedAt: Date? = null,
+    val returnDate: Date? = null,
 
     @field:SerializedName("amount")
-    val status: Int? = null,
+    val amount: Int? = null,
 
     @field:SerializedName("returnStatus")
     val returnStatus: String? = null,
@@ -60,7 +61,7 @@ data class loan(
     val endDate: Any? = null,
 
     @field:SerializedName("target_value")
-    val targetValue: Any? = null,
+    val targetValue: Int? = null,
 
     @field:SerializedName("interest_rate")
     val interestRate: Double? = null,
@@ -78,7 +79,7 @@ data class loan(
     val withdrawn: Boolean? = null,
 
     @field:SerializedName("name")
-    val name: Any? = null,
+    val name: String? = null,
 
     @field:SerializedName("id")
     val id: Int? = null,
@@ -97,7 +98,7 @@ data class returnInvoice(
     val bankAccount: Any? = null,
 
     @field:SerializedName("paymentDate")
-    val paymentDate: String? = null
+    val paymentDate: Any? = null
 
 )
 

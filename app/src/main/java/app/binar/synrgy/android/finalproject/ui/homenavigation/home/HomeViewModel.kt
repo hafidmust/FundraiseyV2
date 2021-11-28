@@ -12,7 +12,6 @@ import kotlinx.coroutines.withContext
 class HomeViewModel : ViewModel() {
     val homeResponse : MutableLiveData<List<DataItem>> = MutableLiveData()
     private lateinit var homeAPI : HomeAPI
-    private lateinit var adapter : AdapterHome
 
     fun onViewLoaded(){
         getDataFromAPI()
