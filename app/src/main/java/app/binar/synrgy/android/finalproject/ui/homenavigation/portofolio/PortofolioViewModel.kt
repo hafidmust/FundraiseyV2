@@ -15,8 +15,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class PortofolioViewModel : ViewModel() {
-    val installmentResponse: MutableLiveData<returnInstallment> = MutableLiveData()
-    val loanResponse: MutableLiveData<loan> = MutableLiveData()
+    val installmentResponse: MutableLiveData<List<returnInstallment>> = MutableLiveData()
+    val loanResponse: MutableLiveData<List<loan>> = MutableLiveData()
     private lateinit var homeAPI: HomeAPI
 
     fun onViewLoaded(){
@@ -32,7 +32,7 @@ class PortofolioViewModel : ViewModel() {
                 if (response.isSuccessful) {
                     Log.d("getDataLoan()", response.body().toString())
                     println("loan -> API -> successful")
-                    loanResponse.value = response.body()?
+                    loanResponse.value = response.body()?.data as List<loan>
                 } else {
                     Log.d("getDataLoan()", response.body().toString())
                     println("loan -> API -> failed")
@@ -49,7 +49,7 @@ class PortofolioViewModel : ViewModel() {
                 if (response.isSuccessful) {
                     Log.d("getDataInstallment()", response.body().toString())
                     println("installment -> API -> successful")
-                    installmentResponse.value = response.body()?.data?.returnInstallment
+                    installmentResponse.value = response.body()?.data as List<returnInstallment>
                 } else {
                     Log.d("getDataInstallment()", response.body().toString())
                     println("installment -> API -> failed")

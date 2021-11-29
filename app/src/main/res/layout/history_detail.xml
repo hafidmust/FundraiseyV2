@@ -14,6 +14,7 @@
         android:layout_height="56dp"
         android:background="@color/blue_primary"
         app:layout_constraintTop_toTopOf="parent"/>
+
     <ImageView
         android:id="@+id/imgBack"
         android:layout_width="wrap_content"
@@ -24,6 +25,7 @@
         android:src="@drawable/ic_back_white"
         android:layout_marginVertical="20dp"
         android:layout_marginLeft="20dp"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,6 +37,7 @@
         android:textColor="@color/white"
         app:layout_constraintTop_toTopOf="@id/header_label"
         app:layout_constraintBottom_toBottomOf="@id/header_label"/>
+
     <TextView
         android:id="@+id/nameProjectFunding"
         android:layout_width="wrap_content"
@@ -48,6 +51,7 @@
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:textColor="@color/blue_primary"/>
+
     <TextView
         android:id="@+id/nominal"
         android:layout_width="wrap_content"
@@ -60,6 +64,7 @@
         android:textSize="20sp"
         android:fontFamily="@font/inter_bold"
         android:textColor="@color/hitam"/>
+
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/progressFunding"
         android:layout_marginHorizontal="25dp"
@@ -71,6 +76,7 @@
         app:layout_constraintTop_toBottomOf="@id/nominal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
+
     <TextView
         android:id="@+id/tvFa"
         android:layout_width="wrap_content"
@@ -83,6 +89,7 @@
         android:textSize="14sp"
         android:fontFamily="@font/inter_bold"
         android:textColor="@color/hitam"/>
+
     <TextView
         android:id="@+id/tvStatus"
         android:layout_width="wrap_content"
@@ -94,6 +101,7 @@
         android:layout_marginTop="14dp"
         android:fontFamily="@font/inter_bold"
         android:textColor="@color/status"/>
+
     <TextView
         android:id="@+id/tvFundingAmountNominal"
         android:layout_width="wrap_content"
@@ -106,6 +114,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:textColor="@color/hitam"/>
+
     <TextView
         android:id="@+id/tvDate"
         android:layout_width="wrap_content"
@@ -118,6 +127,7 @@
         android:layout_marginRight="20dp"
         android:fontFamily="@font/inter_bold"
         android:textSize="12sp"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -129,6 +139,7 @@
         android:fontFamily="@font/inter_bold"
         app:layout_constraintLeft_toLeftOf="parent"
         android:textColor="@color/hitam"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -223,6 +234,7 @@
             android:textSize="18sp"/>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_upload_receipt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/blue_primary"
@@ -398,6 +410,7 @@
                     android:textColor="#3e3e3e"
                     />
                 <TextView
+                    android:id="@+id/text_history_start_up_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Star Track.inc"

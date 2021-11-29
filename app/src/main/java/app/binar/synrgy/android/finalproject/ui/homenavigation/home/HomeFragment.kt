@@ -41,10 +41,6 @@ class HomeFragment : Fragment() {
         } )
 
         binding.recyclerHome.adapter = homeAdapter
-        binding.textDone.setOnClickListener {
-            startActivity(Intent(this.context, LoanDetailsActivity::class.java))
-        }
-
         homeViewModel.onViewLoaded()
         homeViewModel.homeResponse.observe(viewLifecycleOwner, {
             homeAdapter.update(it)
