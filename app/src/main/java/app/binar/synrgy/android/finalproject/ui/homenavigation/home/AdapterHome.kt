@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import app.binar.synrgy.android.finalproject.data.home.DataItem
 import app.binar.synrgy.android.finalproject.databinding.AdapterRecyclerHomeBinding
+import java.util.*
 
 
 class AdapterHome(var data : List<DataItem>, val listener : EventListener) : RecyclerView.Adapter<AdapterHome.ViewHolder>() {
@@ -28,7 +29,6 @@ class AdapterHome(var data : List<DataItem>, val listener : EventListener) : Rec
     override fun getItemCount(): Int {
         return data.size
     }
-
     inner class ViewHolder(val binding : AdapterRecyclerHomeBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(home : DataItem){
             binding.textStartUpTitle.text = home.name
