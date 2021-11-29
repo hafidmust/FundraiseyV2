@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import app.binar.synrgy.android.finalproject.data.portofolio.loan
 import app.binar.synrgy.android.finalproject.databinding.FragmentPortofolioBinding
 import app.binar.synrgy.android.finalproject.model.PortofolioModel
 
@@ -20,22 +21,27 @@ class PortofolioFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        portofolioViewModel =
-            ViewModelProvider(this).get(PortofolioViewModel::class.java)
-
-        _binding = FragmentPortofolioBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        val portofolioAdapter = AdapterPortofolio(listOf(),
+        val adapterPortofolio = AdapterPortofolio(listOf(),
             object : AdapterPortofolio.EventListener {
-                override fun click(item: PortofolioModel) {
+                override fun click(item: loan) {
                 }
             })
-        binding.recyclerPortofolio.adapter = portofolioAdapter
+
+        portofolioViewModel =
+            ViewModelProvider(this).get(PortofolioViewModel::class.java)
+        binding.recyclerPortofolio.adapter = adapterPortofolio
+        _binding = FragmentPortofolioBinding.inflate(inflater, container, false)
+
         portofolioViewModel.onViewLoaded()
-        portofolioViewModel.portofolioModel.observe(viewLifecycleOwner, {
-            portofolioAdapter.update(it)
+        portofolioViewModel.loanResponse.observe(viewLifecycleOwner, {
+            adapterPortofolio.update(it)
         })
         return root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

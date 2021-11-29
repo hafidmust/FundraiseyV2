@@ -7,25 +7,36 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import app.binar.synrgy.android.finalproject.R
+import app.binar.synrgy.android.finalproject.databinding.FragmentHomeBinding
+import app.binar.synrgy.android.finalproject.databinding.FragmentInformationBinding
+import android.content.Intent
+import android.net.Uri
+
 
 class InformationFragment : Fragment() {
-    companion object {
-        fun newInstance() = InformationFragment()
-    }
-
-    private lateinit var viewModel: InformationViewModel
+    private lateinit var informationViewModel: InformationViewModel
+    private var _binding: FragmentInformationBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_information, container, false)
-    }
+    )
+    : View? {
+        informationViewModel =
+            ViewModelProvider(this).get(InformationViewModel::class.java)
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(InformationViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+        _binding = FragmentInformationBinding.inflate(inflater, container, false)
 
+        val root: View = binding.root
+        binding.buttonContactFaq.setOnClickListener {
+            val number = "+62 82362035167"
+            val url = "https://api.whatsapp.com/send?phone=$number"
+            val i = Intent(Intent.ACTION_VIEW)
+            i.data = Uri.parse(url)
+            startActivity(i)
+        }
+        return root
+    }
 }

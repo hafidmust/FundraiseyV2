@@ -145,8 +145,8 @@
         android:id="@+id/constraintpembayaran"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvReturningMethod"
-        >
+        app:layout_constraintTop_toBottomOf="@id/tvReturningMethod">
+
         <TextView
             android:id="@+id/tvBca"
             android:layout_width="0dp"
@@ -160,6 +160,7 @@
             android:fontFamily="@font/inter_bold"
             android:textColor="@color/blue_primary"
             android:textSize="18sp"/>
+
         <TextView
             android:id="@+id/tvVAN"
             android:layout_width="match_parent"
@@ -170,6 +171,7 @@
             android:text="Virtual Account Number"
             android:layout_marginLeft="20dp"
             android:fontFamily="@font/inter_bold"/>
+
         <TextView
             android:id="@+id/tvvirtualnumber"
             android:layout_width="wrap_content"
@@ -195,6 +197,7 @@
             android:fontFamily="@font/inter_regular"
             android:textSize="14sp"
             android:textColor="@color/blue_primary"/>
+
         <TextView
             android:id="@+id/tvTagihan"
             android:layout_width="match_parent"
@@ -205,6 +208,7 @@
             android:text="Tagihan"
             android:layout_marginLeft="20dp"
             android:fontFamily="@font/inter_bold"/>
+
         <TextView
             android:id="@+id/tvjumlahtagihan"
             android:layout_width="wrap_content"
@@ -217,6 +221,7 @@
             android:fontFamily="@font/inter_bold"
             android:textColor="@color/hitam"
             android:textSize="18sp"/>
+
         <com.google.android.material.button.MaterialButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -360,7 +365,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
-            app:cardElevation="10dp"
+            app:cardElevation="5dp"
+            app:cardCornerRadius="10dp"
             app:layout_constraintTop_toBottomOf="@id/tvLoanInformation">
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -413,11 +419,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20dp">
+
                 <TextView
                     android:id="@+id/tvfundingneed"
                     android:layout_width="wrap_content"
@@ -429,6 +439,7 @@
                     android:fontFamily="@font/inter_bold"
                     android:textSize="20sp"
                     android:textColor="@color/blue_primary"/>
+
                 <TextView
                     android:id="@+id/tvcontentaboutstartup"
                     android:layout_width="wrap_content"
@@ -444,6 +455,7 @@
                     android:fontFamily="@font/inter_regular"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -452,11 +464,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="5dp">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20dp">
+
                 <TextView
                     android:id="@+id/tvAboutStartup"
                     android:layout_width="wrap_content"
@@ -468,6 +484,7 @@
                     android:fontFamily="@font/inter_bold"
                     android:textSize="20sp"
                     android:textColor="@color/blue_primary"/>
+
                 <TextView
                     android:id="@+id/tvDetailAboutStartup"
                     android:layout_width="wrap_content"
@@ -479,17 +496,21 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     android:fontFamily="@font/inter_regular"/>
+
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cardview_addressstartup"
                     app:layout_constraintTop_toBottomOf="@id/tvDetailAboutStartup"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="65dp"
                     android:layout_marginHorizontal="20dp"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginVertical="10dp"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="5dp">
+
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        >
+                        android:layout_height="match_parent">
+
                         <TextView
                             android:id="@+id/tvaddress"
                             android:layout_width="wrap_content"
@@ -500,6 +521,7 @@
                             android:layout_marginLeft="14dp"
                             app:layout_constraintLeft_toLeftOf="parent"
                             android:fontFamily="@font/inter_regular"/>
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -509,6 +531,7 @@
                             android:layout_marginRight="16dp"
                             app:layout_constraintRight_toRightOf="parent"
                             android:fontFamily="@font/inter_regular"/>
+
                         <TextView
                             android:id="@+id/tvsince"
                             android:layout_width="wrap_content"
@@ -519,6 +542,7 @@
                             app:layout_constraintTop_toBottomOf="@id/tvaddress"
                             app:layout_constraintLeft_toLeftOf="parent"
                             android:fontFamily="@font/inter_regular"/>
+
                         <TextView
                             android:id="@+id/addressstartup"
                             android:layout_width="wrap_content"
@@ -529,16 +553,17 @@
                             android:layout_marginRight="16dp"
                             app:layout_constraintRight_toRightOf="parent"
                             android:fontFamily="@font/inter_regular"/>
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             app:layout_constraintTop_toBottomOf="@id/addressstartup"
                             android:layout_marginTop="8dp"
+                            android:layout_marginBottom="10dp"
                             android:text="2019"
                             android:layout_marginRight="16dp"
                             app:layout_constraintRight_toRightOf="parent"
                             android:fontFamily="@font/inter_regular"/>
-
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
@@ -560,13 +585,17 @@
                 android:id="@+id/cardview_contact"
                 app:layout_constraintTop_toBottomOf="@id/cardview_aboutstartup"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="204dp"
                 android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                app:cardElevation="5dp"
+                app:cardCornerRadius="10dp">
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp">
+
                     <TextView
                         android:id="@+id/tvContactLabel"
                         android:layout_width="match_parent"
@@ -578,6 +607,7 @@
                         android:fontFamily="@font/inter_bold"
                         android:textSize="20sp"
                         android:textColor="@color/blue_primary"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -586,14 +616,17 @@
                         android:text="Website"
                         android:layout_marginTop="8dp"
                         app:layout_constraintLeft_toLeftOf="parent"/>
+
                      <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                         android:layout_marginTop="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="20dp"
                         app:layout_constraintTop_toBottomOf="@id/tvContactLabel"
                         android:id="@+id/tvContentWeb"
                         android:text="www.starttrack.com"
                         app:layout_constraintRight_toRightOf="parent"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -602,6 +635,7 @@
                         android:text="Phone"
                         android:layout_marginTop="8dp"
                         app:layout_constraintLeft_toLeftOf="parent"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -609,7 +643,9 @@
                         app:layout_constraintTop_toBottomOf="@id/tvContentWeb"
                         android:id="@+id/tvContentPhone"
                         android:text="081234567890"
+                        android:layout_marginEnd="20dp"
                         app:layout_constraintRight_toRightOf="parent"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -618,14 +654,17 @@
                         android:text="LinkedIn"
                         android:layout_marginTop="8dp"
                         app:layout_constraintLeft_toLeftOf="parent"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:layout_marginEnd="20dp"
                         app:layout_constraintTop_toBottomOf="@id/tvContentPhone"
                         android:id="@+id/tvContentLinkedin"
                         android:text="@string/startrack"
                         app:layout_constraintRight_toRightOf="parent"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -634,14 +673,17 @@
                         android:text="Instagram"
                         android:layout_marginTop="8dp"
                         app:layout_constraintLeft_toLeftOf="parent"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:layout_marginEnd="20dp"
                         app:layout_constraintTop_toBottomOf="@id/tvContentLinkedin"
                         android:id="@+id/tvContentInstagram"
                         android:text="@string/startrack"
                         app:layout_constraintRight_toRightOf="parent"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -650,17 +692,31 @@
                         android:text="Facebook"
                         android:layout_marginTop="8dp"
                         app:layout_constraintLeft_toLeftOf="parent"/>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:layout_marginEnd="20dp"
                         app:layout_constraintTop_toBottomOf="@id/tvContentInstagram"
                         android:id="@+id/tvContentfb"
                         android:text="@string/startrack"
                         app:layout_constraintRight_toRightOf="parent"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
             </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                app:layout_constraintTop_toBottomOf="@id/cardview_contact"
+                app:layout_constraintLeft_toLeftOf="parent">
+
+            </androidx.cardview.widget.CardView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.core.widget.NestedScrollView>

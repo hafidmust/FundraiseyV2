@@ -36,6 +36,8 @@
             android:layout_height="39dp"
             android:layout_marginStart="70dp"
             android:layout_marginTop="25dp"
+            android:layout_marginRight="18dp"
+            android:layout_marginBottom="14dp"
             app:layout_constraintTop_toTopOf="@id/viewhistory"
             app:layout_constraintRight_toRightOf="parent"
             android:src="@drawable/ic_avatar"
@@ -52,8 +54,7 @@
             android:layout_height="wrap_content"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="vertical"
-            tools:listitem="@layout/item_history"
-            tools:itemCount="5"/>
+            tools:listitem="@layout/item_history"/>
 
     </androidx.core.widget.NestedScrollView>
 
