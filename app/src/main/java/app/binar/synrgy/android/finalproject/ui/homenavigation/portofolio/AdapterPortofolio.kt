@@ -4,17 +4,19 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponse
+import app.binar.synrgy.android.finalproject.data.portofolio.loan
+import app.binar.synrgy.android.finalproject.data.portofolio.returnInstallment
 import app.binar.synrgy.android.finalproject.databinding.AdapterRecyclerPortofolioBinding
 import app.binar.synrgy.android.finalproject.model.PortofolioModel
 
 class AdapterPortofolio(
-    var data: List<PortofolioModel>,
+    var dataLoan: List<loan>,
     val listener: EventListener
 ) : RecyclerView.Adapter<AdapterPortofolio.ViewHolder>() {
 
     inner class ViewHolder(val binding: AdapterRecyclerPortofolioBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(portofolioLoan: PortofolioModel) {
+        fun bind(portofolioLoan: loan) {
             binding.textHistoryStartUpName.text = portofolioLoan.name
             binding.textHistoryTotalTarget.text = portofolioLoan.targetValue.toString()
 //            binding.textHistoryStatusPayment.text = portofolioData.returnStatus
@@ -28,7 +30,7 @@ class AdapterPortofolio(
     }
 
     interface EventListener {
-        fun click(item: PortofolioModel)
+        fun click(item: loan)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterPortofolio.ViewHolder {
@@ -37,21 +39,21 @@ class AdapterPortofolio(
         return ViewHolder(binding)
     }
 
-    fun update(data: List<PortofolioModel>) {
-        this.data = data
+    fun update(loandata: List<loan>) {
+        this.dataLoan = loandata
         notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: AdapterPortofolio.ViewHolder, position: Int) {
-        holder.bind(data[position])
+        holder.bind(dataLoan[position])
     }
 
     override fun getItemCount(): Int {
-        return data.size
+        return dataLoan.size
     }
 
 }
 
-private fun progress(targetValue: Int?, amount: Int?): Int {
-    return amount!!.div(targetValue!!).times(100)
-}
+//private fun progress(targetValue: Int?, amount: Int?): Int {
+//    return amount!!.div(targetValue!!).times(10)
+//}
