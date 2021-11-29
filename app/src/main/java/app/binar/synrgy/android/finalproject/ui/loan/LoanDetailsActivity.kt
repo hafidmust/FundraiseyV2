@@ -1,12 +1,13 @@
 package app.binar.synrgy.android.finalproject.ui.loan
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
-import app.binar.synrgy.android.finalproject.R
-import app.binar.synrgy.android.finalproject.databinding.ActivityLoanDetailsBinding
 import app.binar.synrgy.android.finalproject.databinding.DetailLoanBinding
+
+import app.binar.synrgy.android.finalproject.ui.payment.PaymentActivity
 
 class LoanDetailsActivity : AppCompatActivity() {
     private lateinit var binding : DetailLoanBinding
@@ -24,13 +25,24 @@ class LoanDetailsActivity : AppCompatActivity() {
 
         val id = intent.getIntExtra(GET_ID,0)
         Log.d("id",id.toString())
-//        viewModel = ViewModelProvider(this).get(LoanDetailsViewModel::class.java)
-//        viewModel.getDataFromAPI(id)
-//        viewModel.loanResponse.observe(this,{
-//            binding.textFundingValue.text = it.targetValue.toString()
-//            binding.tvStartup.text = it.name
-//            binding.textFundingNeeds.text = it.description
-//            binding.textFundingAmount.text = it.currentValue.toString()
-//        })
+        viewModel = ViewModelProvider(this).get(LoanDetailsViewModel::class.java)
+        viewModel.getDataFromAPI(id)
+        viewModel.loanResponse.observe(this,{
+            binding.nameProjectFunding.text = it.name
+            binding.nominal.text = it.targetValue.toString()
+            binding.loanapp.text = it.name
+            binding.tvcontentaboutstartup.text = it.description.toString()
+            binding.textFundingAmount.text = it.currentValue.toString()
+
+        })
+        viewModel.getDataStartup(id)
+        viewModel.startupResponse.observe(this,{
+            binding.startupcontentname.text = it.name.toString()
+            binding.tvDetailAboutStartup.text = it.description.toString()
+
+        })
+        binding.buttonFundNow.setOnClickListener {
+            startActivity(Intent(this,PaymentActivity::class.java))
+        }
     }
 }

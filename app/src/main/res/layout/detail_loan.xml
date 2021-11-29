@@ -175,6 +175,7 @@
                         android:textColor="#3e3e3e"
                         />
                     <TextView
+                        android:id="@+id/startupcontentname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Star Track.inc"

@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import app.binar.synrgy.android.finalproject.data.home.DataItem
 import app.binar.synrgy.android.finalproject.databinding.FragmentHomeBinding
+
 import app.binar.synrgy.android.finalproject.ui.loan.LoanDetailsActivity
 
 class HomeFragment : Fragment() {
