@@ -26,12 +26,12 @@ class PortofolioActivity : AppCompatActivity() {
                 }
             })
         binding.recyclerPortofolio.adapter = adapterPortofolio
-        viewModel = ViewModelProvider(this).get(PortofolioViewModel::class.java)
-        viewModel.getDataLoan()
-        viewModel.loanResponse.observe(this,{
-        })
-        viewModel.getDataInstallment()
-        viewModel.installmentResponse.observe(this,{
-        })
+//        viewModel = ViewModelProvider(this).get(PortofolioViewModel::class.java)
+////        viewModel.getDataLoan()
+//        viewModel.loanResponse.observe(this,{
+//        })
+//        viewModel.getDataInstallment()
+//        viewModel.installmentResponse.observe(this,{
+//        })
     }
 }

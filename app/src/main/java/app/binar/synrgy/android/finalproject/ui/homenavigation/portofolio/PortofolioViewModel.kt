@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModel
 import app.binar.synrgy.android.finalproject.data.HomeAPI
 import app.binar.synrgy.android.finalproject.data.portofolio.PorofolioTestResponse
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponse
+import app.binar.synrgy.android.finalproject.data.portofolio.loan
+import app.binar.synrgy.android.finalproject.data.portofolio.returnInstallment
 import app.binar.synrgy.android.finalproject.model.PortofolioModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -21,13 +23,13 @@ class PortofolioViewModel : ViewModel() {
     fun onViewLoaded(){
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
         CoroutineScope(Dispatchers.IO).launch {
-//            val response = homeAPI.getPortofolio()
-            val response = homeAPI.getPortofolioTest()
+            val response = homeAPI.getPortofolio()
+//            val response = homeAPI.getPortofolioTest()
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     Log.d("getDataLoan()", response.body().toString())
                     println("loan -> API -> successful")
-                    loanResponse.value = response.body()?
+//                    loanResponse.value = response.body().
                 } else {
                     Log.d("getDataLoan()", response.body().toString())
                     println("loan -> API -> failed")
@@ -44,7 +46,7 @@ class PortofolioViewModel : ViewModel() {
                 if (response.isSuccessful) {
                     Log.d("getDataInstallment()", response.body().toString())
                     println("installment -> API -> successful")
-                    installmentResponse.value = response.body()?.data?.returnInstallment
+//                    installmentResponse.value = response.body()?.data?.returnInstallment
                 } else {
                     Log.d("getDataInstallment()", response.body().toString())
                     println("installment -> API -> failed")

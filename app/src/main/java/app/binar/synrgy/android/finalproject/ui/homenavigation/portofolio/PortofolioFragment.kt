@@ -32,9 +32,9 @@ class PortofolioFragment : Fragment() {
             })
         binding.recyclerPortofolio.adapter = adapterPortofolio
         portofolioViewModel.onViewLoaded()
-        portofolioViewModel.loanResponse.observe(viewLifecycleOwner, {
-            adapterPortofolio.update(it)
-        })
+//        portofolioViewModel.loanResponse.observe(viewLifecycleOwner, {
+//            adapterPortofolio.update(it)
+//        })
         return binding.root
     }
 

@@ -43,7 +43,4 @@ interface HomeAPI {
     @GET("/v1/investor/loan/portofolio")
     suspend fun getPortofolio(): Response<PortofolioResponse>
 
-    @GET("/v1/investor/loan/portofolio")
-    suspend fun getPortofolioTest(): Response<PorofolioTestResponse>
-
 }
