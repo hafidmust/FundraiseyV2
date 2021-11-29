@@ -32,9 +32,9 @@ class AdapterHome(var data : List<DataItem>, val listener : EventListener) : Rec
     inner class ViewHolder(val binding : AdapterRecyclerHomeBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(home : DataItem){
             binding.textStartUpTitle.text = home.name
-            binding.textTotalDonation.text  = home.targetValue.toString()
+            binding.textTotalDonation.text  = "Rp. " + home.targetValue.toString()
             binding.textDescription.text = home.description
-            binding.textAmountColected.text = home.currentValue.toString()
+            binding.textAmountColected.text = "Rp. " + home.currentValue.toString()
             binding.root.setOnClickListener {
                 listener.click(home)
             }

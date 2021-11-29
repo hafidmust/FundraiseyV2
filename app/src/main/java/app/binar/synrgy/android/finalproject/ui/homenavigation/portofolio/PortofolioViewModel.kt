@@ -5,11 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import app.binar.synrgy.android.finalproject.data.HomeAPI
-import app.binar.synrgy.android.finalproject.data.portofolio.PorofolioTestResponse
-import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponse
+import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponseDummy
 import app.binar.synrgy.android.finalproject.data.portofolio.loan
 import app.binar.synrgy.android.finalproject.data.portofolio.returnInstallment
-import app.binar.synrgy.android.finalproject.model.PortofolioModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -20,7 +18,48 @@ class PortofolioViewModel : ViewModel() {
     val loanResponse: MutableLiveData<loan> = MutableLiveData()
     private lateinit var homeAPI: HomeAPI
 
+    val responseDummy: MutableLiveData<List<PortofolioResponseDummy>> = MutableLiveData()
+
+    val portofolio = listOf(
+        PortofolioResponseDummy(
+            namaStartup = "Star Track.Inc",
+            totalDonasi = "500.000",
+            campaignDeadline = "Sunday, 19 Oct 2022",
+            nominalDonasi = "Rp. 500.000",
+            statusPayment = "Payment process"
+        ),
+        PortofolioResponseDummy(
+            namaStartup = "Star Track.Inc",
+            totalDonasi = "1.500.000",
+            campaignDeadline = "Sunday, 19 Oct 2022",
+            nominalDonasi = "Rp. 1.500.000",
+            statusPayment = "Paid off"
+        ),
+        PortofolioResponseDummy(
+            namaStartup = "Star Track.Inc",
+            totalDonasi = "1.000.000",
+            campaignDeadline = "",
+            nominalDonasi = "Rp. 1.000.000",
+            statusPayment = "Being Funded"
+        ),
+        PortofolioResponseDummy(
+            namaStartup = "Star Track.Inc",
+            totalDonasi = "500.000",
+            campaignDeadline = "Sunday, 19 Oct 2022",
+            nominalDonasi = "Rp. 500.000",
+            statusPayment = "Late return"
+        ),
+        PortofolioResponseDummy(
+            namaStartup = "Star Track.Inc",
+            totalDonasi = "250.000",
+            campaignDeadline = "",
+            nominalDonasi = "Rp. 250.000",
+            statusPayment = "Has returned"
+        ),
+    )
+
     fun onViewLoaded(){
+        responseDummy.value = portofolio
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
         CoroutineScope(Dispatchers.IO).launch {
             val response = homeAPI.getPortofolio()

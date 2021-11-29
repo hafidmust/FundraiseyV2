@@ -5,9 +5,7 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import app.binar.synrgy.android.finalproject.R
 import app.binar.synrgy.android.finalproject.data.history.HistoryResponseDummy
-import app.binar.synrgy.android.finalproject.databinding.AdapterRecyclerHistoryBinding
 import app.binar.synrgy.android.finalproject.databinding.ItemHistoryBinding
 
 class AdapterHistory(var data: List<HistoryResponseDummy>, val listener : EventListener) :

@@ -29,10 +29,10 @@ class LoanDetailsActivity : AppCompatActivity() {
         viewModel.getDataFromAPI(id)
         viewModel.loanResponse.observe(this,{
             binding.nameProjectFunding.text = it.name
-            binding.nominal.text = it.targetValue.toString()
+            binding.nominal.text = "Rp. " + it.targetValue.toString()
             binding.loanapp.text = it.name
             binding.tvcontentaboutstartup.text = it.description.toString()
-            binding.textFundingAmount.text = it.currentValue.toString()
+            binding.textFundingAmount.text = "Rp. " + it.currentValue.toString()
 
         })
         viewModel.getDataStartup(id)
@@ -41,6 +41,9 @@ class LoanDetailsActivity : AppCompatActivity() {
             binding.tvDetailAboutStartup.text = it.description.toString()
 
         })
+        binding.cardviewAddressstartup.setOnClickListener{
+            // TODO: 11/29/2021
+        }
         binding.buttonFundNow.setOnClickListener {
             startActivity(Intent(this,PaymentActivity::class.java))
         }

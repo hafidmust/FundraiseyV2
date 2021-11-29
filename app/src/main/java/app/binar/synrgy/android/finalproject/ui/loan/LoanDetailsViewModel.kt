@@ -28,6 +28,7 @@ class LoanDetailsViewModel : ViewModel() {
             }
         }
     }
+    
     fun getDataStartup(id : Int){
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
         CoroutineScope(Dispatchers.IO).launch {

@@ -19,7 +19,9 @@
             android:layout_marginEnd="21dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/grid_recycler_home">
+            android:background="@drawable/grid_recycler_home"
+            android:elevation="3dp"
+            android:outlineSpotShadowColor="@color/blue_secondary">
 
             <ImageView
                 android:id="@+id/imageView_startup"

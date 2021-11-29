@@ -53,6 +53,7 @@ class DetailHistoryActivity : AppCompatActivity() {
 //            dialog.uploadReceiptDialog(true)
 //            Handler(Looper.getMainLooper()).postDelayed({
 //                finish()
-//            },3000)
+//            },5000)
+//        }
     }
 }
