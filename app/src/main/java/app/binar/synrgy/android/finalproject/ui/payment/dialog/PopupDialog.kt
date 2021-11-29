@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Window
 import androidx.appcompat.app.AppCompatDialog
+import app.binar.synrgy.android.finalproject.R
 import app.binar.synrgy.android.finalproject.databinding.DialogPopupPaymentBinding
 
 class PopupDialog(context : Context) : AppCompatDialog(context){
@@ -25,6 +26,21 @@ class PopupDialog(context : Context) : AppCompatDialog(context){
                 this.show()
             }
         } else {
+            if (isShowing) {
+                this.dismiss()
+            }
+        }
+    }
+
+    fun uploadReceiptDialog(value: Boolean) {
+        if (value) {
+            if (!isShowing) {
+                binding.imgSuccess.setImageResource(R.drawable.ic_coins_flat)
+                binding.textNotification.text = "Your receipt has been uploaded."
+                this.show()
+            }
+        }
+        else {
             if (isShowing) {
                 this.dismiss()
             }
