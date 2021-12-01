@@ -151,7 +151,7 @@
     <string name="text_website">Website</string>
     <string name="website">www.starttrack.com</string>
     <string name="text_phone">Phone</string>
-    <string name="phone">Contact</string>
+    <string name="phone">012345678910</string>
     <string name="text_linkedin">LinkedIn</string>
     <string name="text_instagram">Instagram</string>
     <string name="text_facebook">Facebook</string>
