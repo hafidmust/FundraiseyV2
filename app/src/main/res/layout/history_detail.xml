@@ -146,18 +146,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="29dp"
                 android:layout_marginTop="15dp"
-                android:textSize="12sp"
                 android:fontFamily="@font/inter_bold"
                 android:text="@string/return_meth"
                 android:textColor="@color/hitam"
+                android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvFundingAmountNominal" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
                 android:layout_marginLeft="140dp"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/inter_regular"
                 android:text="@string/six_months_instal"
                 android:textColor="@color/hitam"
@@ -263,7 +263,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/tvjumlahtagihan"
                 app:layout_constraintTop_toBottomOf="@id/tvTagihan" />
-
 
 
             <com.google.android.material.button.MaterialButton
@@ -474,7 +473,8 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="20dp">
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp">
 
                     <TextView
                         android:id="@+id/tvfundingneed"
@@ -490,13 +490,14 @@
 
                     <TextView
                         android:id="@+id/tvcontentaboutstartup"
-                        android:layout_width="wrap_content"
+                        android:layout_width="330dp"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="20dp"
                         android:fontFamily="@font/inter_regular"
                         android:text="@string/content_funding_needs"
+                        android:textSize="14sp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
@@ -519,7 +520,8 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="20dp">
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp">
 
                     <TextView
                         android:id="@+id/tvAboutStartup"
@@ -535,19 +537,20 @@
 
                     <TextView
                         android:id="@+id/tvDetailAboutStartup"
-                        android:layout_width="wrap_content"
+                        android:layout_width="330dp"
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="8dp"
                         android:fontFamily="@font/inter_regular"
                         android:text="@string/content_aboutstartup"
+                        android:textSize="14sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvAboutStartup" />
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cardview_addressstartup"
-                        android:layout_width="match_parent"
+                        android:layout_width="330dp"
                         android:layout_height="65dp"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginVertical="10dp"
@@ -557,7 +560,8 @@
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent">
+                            android:layout_height="match_parent"
+                            android:background="@drawable/grid_nominal_amount">
 
                             <TextView
                                 android:id="@+id/tvaddress"
@@ -662,7 +666,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:fontFamily="@font/inter_regular"
                         android:text="@string/text_website"
+                        android:textColor="@color/black"
+
+                        android:textSize="14sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvContactLabel" />
 
@@ -672,7 +680,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="20dp"
+                        android:fontFamily="@font/inter_regular"
                         android:text="@string/website"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvContactLabel" />
 
@@ -681,7 +692,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:fontFamily="@font/inter_regular"
                         android:text="@string/text_phone"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvCweb" />
 
@@ -691,7 +705,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="20dp"
+                        android:fontFamily="@font/inter_regular"
                         android:text="@string/phone"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvContentWeb" />
 
@@ -700,7 +717,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:fontFamily="@font/inter_regular"
                         android:text="@string/text_linkedin"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvCPhone" />
 
@@ -710,7 +730,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="20dp"
+                        android:fontFamily="@font/inter_regular"
                         android:text="@string/startrack"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvContentPhone" />
 
@@ -719,7 +742,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:fontFamily="@font/inter_regular"
                         android:text="@string/text_instagram"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvclinkedin" />
 
@@ -729,7 +755,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="20dp"
+                        android:fontFamily="@font/inter_regular"
                         android:text="@string/startrack"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvContentLinkedin" />
 
@@ -738,7 +767,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
+                        android:fontFamily="@font/inter_regular"
                         android:text="@string/text_facebook"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvcinstagram" />
 
@@ -748,7 +780,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="20dp"
+                        android:fontFamily="@font/inter_regular"
                         android:text="@string/startrack"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvContentInstagram" />
 
