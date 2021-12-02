@@ -20,7 +20,7 @@
             android:paddingBottom="15dp"
             android:layout_marginVertical="15dp"
             android:layout_marginHorizontal="15dp"
-            android:background="@drawable/box_rectangel_payment_history"
+            android:background="@color/white"
             android:backgroundTint="#F7FBFF">
 
             <TextView

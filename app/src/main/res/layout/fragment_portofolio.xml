@@ -69,6 +69,7 @@
                     android:text="@string/total_balance"
                     android:textColor="@color/blue_primary"
                     android:textSize="20sp"
+                    android:fontFamily="@font/inter_bold"
                     android:textStyle="bold"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -81,9 +82,25 @@
                     android:text="@string/value_current_balance"
                     android:textColor="@color/black"
                     android:textSize="18sp"
+                    android:fontFamily="@font/inter_bold"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/text_porto_tot_balance" />
+
+                <TextView
+                    android:id="@+id/tot_slash_balance_screen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/slash"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/inter_bold"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toRightOf="@id/tot_balance_screen"
+                    app:layout_constraintTop_toBottomOf="@id/text_porto_tot_balance" />
+
 
                 <TextView
                     android:id="@+id/tot_need_balance_screen"
@@ -95,16 +112,18 @@
                     android:text="@string/value_total_withdran"
                     android:textColor="@color/grey"
                     android:textSize="15sp"
-                    app:layout_constraintLeft_toRightOf="@id/tot_balance_screen"
+                    app:layout_constraintLeft_toRightOf="@id/tot_slash_balance_screen"
                     app:layout_constraintTop_toBottomOf="@id/text_porto_tot_balance" />
 
                 <Button
                     android:id="@+id/button_withdraw"
-                    android:layout_width="350dp"
+                    android:layout_width="368dp"
                     android:layout_height="48dp"
                     android:layout_marginTop="20dp"
                     android:backgroundTint="@color/blue_primary"
                     android:text="@string/button_withdraw"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/inter_bold"
                     android:textAllCaps="false"
                     app:layout_constraintCircleRadius="4dp"
                     app:layout_constraintLeft_toLeftOf="parent"
