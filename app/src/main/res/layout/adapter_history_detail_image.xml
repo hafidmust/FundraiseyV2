@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="195dp"
-    android:paddingStart="12dp"
+    android:paddingRight="12dp"
     android:layout_height="110dp">
 
     <ImageView
@@ -10,4 +10,8 @@
         android:layout_height="match_parent"
         android:src="@drawable/img_detail"/>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/adapter_home_recycler" />
 </LinearLayout>

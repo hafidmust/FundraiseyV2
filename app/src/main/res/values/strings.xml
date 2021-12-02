@@ -127,7 +127,41 @@
     <string name="button_faq">Contact FundRaisey</string>
 
 
-    
+    <!--  History details screen  -->
+    <string name="fifty_history">Rp 50.000</string>
+    <string name="six_months_instal">6 months installment</string>
+    <string name="return_meth">Returning Method</string>
+    <string name="bca_VA">BCA Virtual Account</string>
+    <string name="text_pay_nominal">Payment Nominal</string>
+    <string name="button_upload_receipt">Upload receipt of payment</string>
+    <string name="text_return_info">Return Information</string>
+    <string name="text_loan_refun">Loan Refund</string>
+    <string name="text_refund_method">Refund Method</string>
+    <string name="text_late_pay">Late Payment</string>
+    <string name="text_loan_info">Loan Information</string>
+    <string name="text_loan_app">Loan Application</string>
+    <string name="name_startup">Star Track.inc</string>
+    <string name="text_fund_need">Funding Needs</string>
+    <string name="text_about_startup">About Startup</string>
+    <string name="text_address">Address</string>
+    <string name="address">4rd Sudirman St., Jakarta</string>
+    <string name="text_since">Since</string>
+    <string name="since">2019</string>
+    <string name="text_contact">Contact</string>
+    <string name="text_website">Website</string>
+    <string name="website">www.starttrack.com</string>
+    <string name="text_phone">Phone</string>
+    <string name="phone">012345678910</string>
+    <string name="text_linkedin">LinkedIn</string>
+    <string name="text_instagram">Instagram</string>
+    <string name="text_facebook">Facebook</string>
+
+
+
+
+
+
+
 
 
 
