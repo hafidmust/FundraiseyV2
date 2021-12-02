@@ -1,13 +1,18 @@
 package app.binar.synrgy.android.finalproject.ui.loan
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import app.binar.synrgy.android.finalproject.databinding.DetailLoanBinding
 
 import app.binar.synrgy.android.finalproject.ui.payment.PaymentActivity
+import app.binar.synrgy.android.finalproject.utils.CurrencyHelper
+import app.binar.synrgy.android.finalproject.utils.DaysHelper
+import com.bumptech.glide.Glide
 
 class LoanDetailsActivity : AppCompatActivity() {
     private lateinit var binding : DetailLoanBinding
@@ -17,6 +22,7 @@ class LoanDetailsActivity : AppCompatActivity() {
         const val GET_ID = "get_id"
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DetailLoanBinding.inflate(layoutInflater)
@@ -29,10 +35,23 @@ class LoanDetailsActivity : AppCompatActivity() {
         viewModel.getDataFromAPI(id)
         viewModel.loanResponse.observe(this,{
             binding.nameProjectFunding.text = it.name
-            binding.nominal.text = "Rp. " + it.targetValue.toString()
+//            nominal
+            binding.nominal.text = CurrencyHelper.toIdrCurrency(it.targetValue)
+            binding.textFundingAmount.text = CurrencyHelper.toIdrCurrency(it.currentValue)
             binding.loanapp.text = it.name
             binding.tvcontentaboutstartup.text = it.description.toString()
-            binding.textFundingAmount.text = "Rp. " + it.currentValue.toString()
+//            get remaining day
+            binding.tvremainingday.text = DaysHelper.getDaysHelper(it.startDate.toString(), it.endDate.toString()) +" day left"
+//            progress
+            binding.progressFunding.max = it.targetValue!!
+            binding.progressFunding.progress = it.currentValue!!
+            Glide.with(binding.root)
+                .load(it.startup?.logo.toString())
+                .into(binding.icLogoLoaninformation)
+            binding.addressstartup.text = it.startup?.address.toString()
+            binding.tvContentWeb.text = it.startup?.web.toString()
+            binding.tvContentPhone.text = it.startup?.phoneNumber.toString()
+            binding.contentsince.text = it.startup?.foundedDate.toString()
 
         })
         viewModel.getDataStartup(id)

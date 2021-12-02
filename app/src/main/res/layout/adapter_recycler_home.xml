@@ -3,99 +3,97 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="199dp"
-            android:layout_marginStart="21dp"
-            android:layout_marginEnd="21dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/grid_recycler_home"
-            android:elevation="3dp"
-            android:outlineSpotShadowColor="@color/blue_secondary">
+            android:layout_height="match_parent"
+
+            >
 
             <ImageView
                 android:id="@+id/imageView_startup"
                 android:layout_width="120dp"
                 android:layout_height="68dp"
-                app:srcCompat="@drawable/adapter_home_recycler"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="13dp"/>
+                android:layout_marginTop="13dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/adapter_home_recycler" />
 
             <TextView
                 android:id="@+id/text_start_up_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="15dp"
                 android:fontFamily="@font/inter_medium"
                 android:text="@string/title_start_up"
                 android:textColor="@color/blue_primary"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toRightOf="@id/imageView_startup"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="13dp"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/text_projectfunding"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="1dp"
                 android:fontFamily="@font/inter_regular"
                 android:text="@string/pro_funding"
                 android:textColor="@color/black"
                 android:textSize="14sp"
-                android:layout_marginStart="13dp"
-                android:layout_marginTop="1dp"
-                app:layout_constraintTop_toBottomOf="@id/text_start_up_title"
-                app:layout_constraintLeft_toRightOf="@id/imageView_startup"/>
+                app:layout_constraintLeft_toRightOf="@id/imageView_startup"
+                app:layout_constraintTop_toBottomOf="@id/text_start_up_title" />
 
             <TextView
                 android:id="@+id/text_total_donation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="@font/inter_regular"
                 android:text="@string/donation"
                 android:textColor="@color/black"
                 android:textSize="14sp"
-                android:layout_marginStart="13dp"
-                android:layout_marginTop="5dp"
-                app:layout_constraintTop_toBottomOf="@id/text_projectfunding"
-                app:layout_constraintLeft_toRightOf="@id/imageView_startup"/>
+                app:layout_constraintLeft_toRightOf="@id/imageView_startup"
+                app:layout_constraintTop_toBottomOf="@id/text_projectfunding" />
 
             <TextView
                 android:id="@+id/text_description"
-                android:layout_width="288dp"
-                android:layout_height="32dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="7dp"
                 android:fontFamily="@font/inter_regular"
+                android:maxLines="2"
                 android:text="@string/description"
                 android:textColor="@color/grey"
                 android:textSize="12sp"
-                android:layout_marginTop="7dp"
-                android:layout_marginHorizontal="15dp"
-                app:layout_constraintTop_toBottomOf="@id/imageView_startup"
-                app:layout_constraintLeft_toLeftOf="parent"/>
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageView_startup" />
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/indicator_adapter"
-                android:layout_width="290dp"
-                android:layout_height="4dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginStart="27dp"
-                android:layout_marginEnd="31dp"
                 android:progress="70"
                 app:indicatorColor="@color/blue_primary"
-                app:indicatorDirectionLinear="leftToRight"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/text_description"
@@ -107,42 +105,37 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/inter_regular"
+                android:paddingLeft="15dp"
                 android:text="@string/collected"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/indicator_adapter"
-                tools:layout_marginStart="27dp"
-                android:layout_marginEnd="237dp"/>
+                app:layout_constraintTop_toBottomOf="@id/indicator_adapter" />
 
             <TextView
                 android:id="@+id/text_amount_colected"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter_regular"
+                android:paddingLeft="15dp"
+                android:paddingBottom="15dp"
                 android:text="@string/total_collected"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_colected"
-                tools:layout_marginStart="7dp"
-                android:layout_marginEnd="237dp"/>
+                app:layout_constraintTop_toBottomOf="@id/text_colected" />
 
             <TextView
                 android:id="@+id/text_deadline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="31dp"
-                android:layout_marginStart="178dp"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/inter_regular"
+                android:paddingRight="15dp"
                 android:text="@string/deadline"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/indicator_adapter" />
 
             <TextView
@@ -150,14 +143,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter_regular"
+                android:paddingRight="15dp"
+                android:paddingBottom="15dp"
                 android:text="@string/date_deadline"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_deadline"
-                app:layout_constraintLeft_toLeftOf="parent"
-                tools:layout_marginEnd="31dp"
-                android:layout_marginStart="220dp"/>
+                app:layout_constraintTop_toBottomOf="@id/text_deadline" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

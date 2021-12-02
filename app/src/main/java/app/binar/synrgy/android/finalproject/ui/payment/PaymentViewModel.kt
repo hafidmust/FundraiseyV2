@@ -46,13 +46,12 @@ class PaymentViewModel : AppCompatActivity(), View.OnClickListener {
             R.id.button_2000k -> binding.button50k.setBackgroundColor(R.drawable.button_blue_primary);
             else -> secondFun()
         }
-        when (v?.getId()) {
-            R.id.button_50k -> binding.button50k.setBackgroundColor(R.drawable.button_border_blue);
-            R.id.button_100k -> binding.button50k.setBackgroundColor(R.drawable.button_border_blue);
-            R.id.button_200k -> binding.button50k.setBackgroundColor(R.drawable.button_border_blue);
-            R.id.button_500k -> binding.button50k.setBackgroundColor(R.drawable.button_border_blue);
-            R.id.button_1000k -> binding.button50k.setBackgroundColor(R.drawable.button_border_blue);
-            R.id.button_2000k -> binding.button50k.setBackgroundColor(R.drawable.button_border_blue);
+        when (v?.getId()) { //            R.id.button_50k -> binding.button50k.setBackgroundColor(R.drawable.button_border_blue);
+//            R.id.button_100k -> binding.button50k.setBackgroundColor(R.drawable.button_border_blue);
+//            R.id.button_200k -> binding.button50k.setBackgroundColor(R.drawable.button_border_blue);
+//            R.id.button_500k -> binding.button50k.setBackgroundColor(R.drawable.button_border_blue);
+//            R.id.button_1000k -> binding.button50k.setBackgroundColor(R.drawable.button_border_blue);
+//            R.id.button_2000k -> binding.button50k.setBackgroundColor(R.drawable.button_border_blue);
         }
     }
 

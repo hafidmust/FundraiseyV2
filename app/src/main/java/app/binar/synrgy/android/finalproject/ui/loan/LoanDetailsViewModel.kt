@@ -15,7 +15,9 @@ import kotlinx.coroutines.withContext
 class LoanDetailsViewModel : ViewModel() {
     val loanResponse : MutableLiveData<DataDetail> = MutableLiveData()
     val startupResponse : MutableLiveData<Startup> = MutableLiveData()
+    val isLoanAvailable : MutableLiveData<Boolean> = MutableLiveData(false)
     private lateinit var homeAPI: HomeAPI
+
 
     fun getDataFromAPI(id : Int){
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
@@ -40,4 +42,5 @@ class LoanDetailsViewModel : ViewModel() {
             }
         }
     }
+
 }

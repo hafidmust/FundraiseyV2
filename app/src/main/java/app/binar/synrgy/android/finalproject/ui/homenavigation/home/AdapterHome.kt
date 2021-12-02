@@ -1,11 +1,17 @@
 package app.binar.synrgy.android.finalproject.ui.homenavigation.home
 
+import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import app.binar.synrgy.android.finalproject.data.home.DataItem
 import app.binar.synrgy.android.finalproject.databinding.AdapterRecyclerHomeBinding
+import java.text.NumberFormat
 import java.util.*
+import org.joda.time.Days
+import java.text.SimpleDateFormat
+import java.util.concurrent.TimeUnit
 
 
 class AdapterHome(var data : List<DataItem>, val listener : EventListener) : RecyclerView.Adapter<AdapterHome.ViewHolder>() {
@@ -30,11 +36,26 @@ class AdapterHome(var data : List<DataItem>, val listener : EventListener) : Rec
         return data.size
     }
     inner class ViewHolder(val binding : AdapterRecyclerHomeBinding) : RecyclerView.ViewHolder(binding.root){
+        @SuppressLint("SetTextI18n", "SimpleDateFormat")
         fun bind(home : DataItem){
-            binding.textStartUpTitle.text = home.name
-            binding.textTotalDonation.text  = "Rp. " + home.targetValue.toString()
+            binding.textStartUpTitle.text = home.startup?.name as CharSequence?
+            binding.textProjectfunding.text = home.name
+
+            val format: NumberFormat = NumberFormat.getCurrencyInstance()
+            format.maximumFractionDigits = 0
+            format.currency = Currency.getInstance("IDR")
+
+            binding.textTotalDonation.text  = "${format.format(home.targetValue)}"
             binding.textDescription.text = home.description
-            binding.textAmountColected.text = "Rp. " + home.currentValue.toString()
+            binding.textAmountColected.text = "${format.format(home.currentValue)}"
+            binding.indicatorAdapter.max = home.targetValue!!
+            binding.indicatorAdapter.progress = home.currentValue!!
+            val startdate = SimpleDateFormat("dd-MM-yyyy").parse(home.startDate)
+            val endDate = SimpleDateFormat("dd-MM-yyyy").parse(home.endDate)
+            val getDays = endDate.time - startdate.time
+            val remainingDays = TimeUnit.DAYS.convert(getDays, TimeUnit.MILLISECONDS)
+            binding.textDeadlineDate.text = "$remainingDays day"
+
             binding.root.setOnClickListener {
                 listener.click(home)
             }
