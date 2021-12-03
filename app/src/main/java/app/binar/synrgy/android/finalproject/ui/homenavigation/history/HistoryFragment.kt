@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import app.binar.synrgy.android.finalproject.data.history.ContentItem
 import app.binar.synrgy.android.finalproject.data.history.HistoryResponseDummy
 import app.binar.synrgy.android.finalproject.databinding.FragmentHistoryBinding
 import app.binar.synrgy.android.finalproject.ui.homenavigation.history.detail.DetailHistoryActivity
@@ -24,13 +25,16 @@ class HistoryFragment : Fragment() {
         viewModel = HistoryViewModel()
         val historyAdapter = AdapterHistory(listOf(),
         object : AdapterHistory.EventListener {
-            override fun click(item: HistoryResponseDummy) {
-                startActivity(Intent(this@HistoryFragment.context, DetailHistoryActivity::class.java))
+            override fun click(item: ContentItem) {
+                val intentSendId = Intent(activity, DetailHistoryActivity::class.java).apply {
+                    putExtra(DetailHistoryActivity.GET_ID, item.id)
+                }
+                startActivity(intentSendId)
             }
         })
         binding.recyclerviewHistory.adapter = historyAdapter
         viewModel.onViewLoaded()
-        viewModel.responseDummy.observe(viewLifecycleOwner,{
+        viewModel.history.observe(viewLifecycleOwner,{
             historyAdapter.update(it)
         })
         val root : View = binding.root

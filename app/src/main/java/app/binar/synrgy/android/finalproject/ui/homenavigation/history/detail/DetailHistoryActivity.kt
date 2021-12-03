@@ -43,12 +43,6 @@ class DetailHistoryActivity : AppCompatActivity() {
             binding.nominal.text = it.currentValue.toString()
 
         })
-        viewModel.getDataStartup(id)
-        viewModel.startupResponse.observe(this, {
-            binding.textHistoryStartUpName.text = it.name.toString()
-            binding.tvDetailAboutStartup.text = it.description.toString()
-
-        })
 //        binding.buttonUploadReceipt.setOnClickListener {
 //            dialog.uploadReceiptDialog(true)
 //            Handler(Looper.getMainLooper()).postDelayed({

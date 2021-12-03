@@ -1,5 +1,7 @@
 package app.binar.synrgy.android.finalproject.data
 
+import app.binar.synrgy.android.finalproject.data.history.HistoryDetailResponse
+import app.binar.synrgy.android.finalproject.data.history.HistoryResponse
 import app.binar.synrgy.android.finalproject.data.home.HomeLoanResponse
 import app.binar.synrgy.android.finalproject.data.loan.DetailLoanResponse
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponse
@@ -8,8 +10,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface HomeAPI {
     companion object {
@@ -40,5 +41,20 @@ interface HomeAPI {
 
     @GET("/v1/investor/loan/portofolio")
     suspend fun getPortofolio(): Response<PortofolioResponse>
+
+
+    @GET("v1/investor/transaction/all")
+    suspend fun getHistory(
+        @Header("Authorization") auth : String,
+        @Query("page") page : Int,
+        @Query("size") size : Int,
+        @Query("sort-by") sortBy : String,
+        @Query("sort-type") sortType : String
+    ) : Response<HistoryResponse>
+
+    @GET("/v1/investor/transaction/{id}")
+    suspend fun getHistoryDetail(
+        @Path("id") id : Int
+    ) : Response<HistoryDetailResponse>
 
 }
