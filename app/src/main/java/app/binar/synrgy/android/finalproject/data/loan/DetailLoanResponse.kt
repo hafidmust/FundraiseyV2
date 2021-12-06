@@ -41,5 +41,8 @@ data class DataDetail(
 	val startDate: String? = null,
 
 	@field:SerializedName("currentValue")
-	val currentValue: Int? = null
+	val currentValue: Int? = null,
+
+	@field:SerializedName("lenderCount")
+	val lenderCount: Int? = null
 )

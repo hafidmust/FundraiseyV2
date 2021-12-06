@@ -52,6 +52,7 @@ class LoanDetailsActivity : AppCompatActivity() {
             binding.tvContentWeb.text = it.startup?.web.toString()
             binding.tvContentPhone.text = it.startup?.phoneNumber.toString()
             binding.contentsince.text = it.startup?.foundedDate.toString()
+            binding.tvFundingAmountNominal.text = it.lenderCount.toString()
 
         })
         viewModel.getDataStartup(id)

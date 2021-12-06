@@ -25,6 +25,9 @@
     <color name="background_detail_pay">#FBD961</color>
     <color name="background_step_by_step">#F4FAFF</color>
     <color name="green">#319800</color>
+    <color name="pending">#D99F48</color>
+    <color name="paid">#3692ED</color>
+    <color name="late">#C62828</color>
 
 
 </resources>
