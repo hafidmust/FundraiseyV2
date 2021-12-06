@@ -19,6 +19,9 @@ data class DataItem(
 	@field:SerializedName("interestRate")
 	val interestRate: Double? = null,
 
+	@field:SerializedName("startupName")
+	val startupName: String? = null,
+
 	@field:SerializedName("endDate")
 	val endDate: String? = null,
 

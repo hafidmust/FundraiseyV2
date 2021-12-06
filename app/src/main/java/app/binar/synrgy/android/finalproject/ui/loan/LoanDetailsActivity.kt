@@ -55,11 +55,11 @@ class LoanDetailsActivity : AppCompatActivity() {
 
         })
         viewModel.getDataStartup(id)
-        viewModel.startupResponse.observe(this,{
-            binding.startupcontentname.text = it.name.toString()
-            binding.tvDetailAboutStartup.text = it.description.toString()
-
-        })
+//        viewModel.startupResponse.observe(this,{
+//            binding.startupcontentname.text = it.name.toString()
+//            binding.tvDetailAboutStartup.text = it.description.toString()
+//
+//        })
         binding.cardviewAddressstartup.setOnClickListener{
             // TODO: 11/29/2021
         }

@@ -14,9 +14,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="20dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
@@ -28,23 +29,22 @@
                 android:layout_height="68dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="13dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_alignParentTop="true"
                 app:srcCompat="@drawable/adapter_home_recycler" />
 
             <TextView
                 android:id="@+id/text_start_up_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
                 android:layout_marginStart="13dp"
                 android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/imageView_startup"
                 android:fontFamily="@font/inter_medium"
                 android:text="@string/title_start_up"
                 android:textColor="@color/blue_primary"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toRightOf="@id/imageView_startup"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/text_projectfunding"
@@ -56,8 +56,8 @@
                 android:text="@string/pro_funding"
                 android:textColor="@color/black"
                 android:textSize="14sp"
-                app:layout_constraintLeft_toRightOf="@id/imageView_startup"
-                app:layout_constraintTop_toBottomOf="@id/text_start_up_title" />
+                android:layout_toRightOf="@id/imageView_startup"
+                android:layout_below="@id/text_start_up_title" />
 
             <TextView
                 android:id="@+id/text_total_donation"
@@ -69,8 +69,8 @@
                 android:text="@string/donation"
                 android:textColor="@color/black"
                 android:textSize="14sp"
-                app:layout_constraintLeft_toRightOf="@id/imageView_startup"
-                app:layout_constraintTop_toBottomOf="@id/text_projectfunding" />
+                android:layout_toRightOf="@id/imageView_startup"
+                android:layout_below="@id/text_projectfunding" />
 
             <TextView
                 android:id="@+id/text_description"
@@ -83,20 +83,17 @@
                 android:text="@string/description"
                 android:textColor="@color/grey"
                 android:textSize="12sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageView_startup" />
+                android:layout_below="@id/imageView_startup" />
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/indicator_adapter"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="15dp"
                 android:progress="70"
                 app:indicatorColor="@color/blue_primary"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_description"
+                android:layout_below="@id/text_description"
                 app:trackColor="@color/blue_secondary" />
 
             <TextView
@@ -109,8 +106,7 @@
                 android:text="@string/collected"
                 android:textColor="@color/black"
                 android:textSize="12sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/indicator_adapter" />
+                android:layout_below="@id/indicator_adapter" />
 
             <TextView
                 android:id="@+id/text_amount_colected"
@@ -122,8 +118,7 @@
                 android:text="@string/total_collected"
                 android:textColor="@color/black"
                 android:textSize="12sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_colected" />
+                android:layout_below="@id/text_colected" />
 
             <TextView
                 android:id="@+id/text_deadline"
@@ -135,8 +130,8 @@
                 android:text="@string/deadline"
                 android:textColor="@color/black"
                 android:textSize="12sp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/indicator_adapter" />
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/indicator_adapter" />
 
             <TextView
                 android:id="@+id/text_deadline_date"
@@ -148,11 +143,11 @@
                 android:text="@string/date_deadline"
                 android:textColor="@color/black"
                 android:textSize="12sp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/text_deadline" />
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/text_deadline" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
 
