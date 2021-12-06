@@ -1,6 +1,6 @@
 package app.binar.synrgy.android.finalproject.data
 
-import app.binar.synrgy.android.finalproject.data.history.HistoryDetailResponse
+import app.binar.synrgy.android.finalproject.data.history.DetailHistoryResponse
 import app.binar.synrgy.android.finalproject.data.history.HistoryResponse
 import app.binar.synrgy.android.finalproject.data.home.HomeLoanResponse
 import app.binar.synrgy.android.finalproject.data.loan.DetailLoanResponse
@@ -54,7 +54,8 @@ interface HomeAPI {
 
     @GET("/v1/investor/transaction/{id}")
     suspend fun getHistoryDetail(
+        @Header("Authorization") auth : String,
         @Path("id") id : Int
-    ) : Response<HistoryDetailResponse>
+    ) : Response<DetailHistoryResponse>
 
 }
