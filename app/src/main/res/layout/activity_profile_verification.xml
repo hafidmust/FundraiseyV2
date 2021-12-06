@@ -11,32 +11,35 @@
         android:background="@color/blue_primary"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/inter_bold"
-        android:text="@string/"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@id/header_label"
+    <ImageView
+        android:id="@+id/arrow_back"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="18dp"
+        android:src="@drawable/ic_back_arrow"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@id/header_label" />
 
-    <ImageView
-        android:layout_width="39dp"
-        android:layout_height="39dp"
-        android:layout_marginEnd="18dp"
-        android:src="@drawable/ic_avatar"
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="@string/text_profile"
+        android:textColor="@color/white"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@id/header_label"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/arrow_back"
         app:layout_constraintTop_toTopOf="@id/header_label" />
 
-
+    <!-- hellow fund raise   -->
     <LinearLayout
         android:id="@+id/section_balance"
         android:layout_width="match_parent"
-        android:layout_height="81dp"
+        android:layout_height="86dp"
         android:background="@color/blue_primary"
         android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -48,27 +51,41 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/inter_bold"
-            android:text="@string/balance"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/text_fundraiser"
             android:textColor="@color/white"
             android:textFontWeight="700"
-            android:textSize="18sp"
+            android:textSize="14sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/amount_balance"
+            android:id="@+id/email_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="0dp"
             android:fontFamily="@font/inter_bold"
-            android:text="@string/dummy"
+            android:text="@string/text_username_email"
             android:textColor="@color/white"
             android:textFontWeight="700"
-            android:textSize="18sp"
+            android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_total_balance" />
+
+        <TextView
+            android:id="@+id/email_username_bot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="7dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/text_username_email"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/email_username" />
+
 
     </LinearLayout>
 
@@ -76,7 +93,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/box_progress"
         android:layout_width="match_parent"
-        android:layout_height="115dp"
+        android:layout_height="100dp"
         android:background="@color/blue_primary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/section_balance">
@@ -85,6 +102,7 @@
             android:layout_width="match_parent"
             android:layout_height="85dp"
             android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/box_rectangle_fragment_home"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -162,7 +180,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/card_lender_personal_data"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/box_progress">
 
 
@@ -178,69 +196,140 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/text_update_personal"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/box_data"
             android:layout_width="340dp"
             android:layout_height="60dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginVertical="20dp"
             android:background="@drawable/box_rectangle_grey"
-            android:drawableRight="@drawable/ic_information"
             android:elevation="5dp"
-            android:fontFamily="@font/inter_regular"
-            android:paddingLeft="23dp"
-            android:paddingTop="19dp"
-            android:paddingEnd="20.5dp"
-            android:text="@string/text_update_perso"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12.5dp"
+            android:paddingBottom="20dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_lender_personal" />
+            app:layout_constraintTop_toBottomOf="@id/text_lender_personal">
 
-        <TextView
-            android:id="@+id/text_change_pwd"
+            <TextView
+                android:id="@+id/text_update_personal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="20dp"
+                android:fontFamily="@font/inter_regular"
+                android:lineHeight="20sp"
+                android:text="@string/text_update_perso"
+                android:textColor="@color/black"
+                android:textFontWeight="700"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@id/box_data" />
+
+            <ImageView
+                android:id="@+id/button_drop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/ic_information"
+                app:layout_constraintLeft_toRightOf="@id/text_update_personal"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/box_data" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/box_data_2"
             android:layout_width="340dp"
             android:layout_height="60dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginVertical="20dp"
             android:background="@drawable/box_rectangle_grey"
-            android:drawableRight="@drawable/ic_information"
             android:elevation="5dp"
-            android:fontFamily="@font/inter_regular"
-            android:paddingLeft="23dp"
-            android:paddingTop="19dp"
-            android:paddingEnd="20.5dp"
-            android:text="@string/text_change_pass"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12.5dp"
+            android:paddingBottom="20dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_update_personal" />
+            app:layout_constraintTop_toBottomOf="@id/box_data">
 
-        <TextView
-            android:id="@+id/text_download_tnc"
+            <TextView
+                android:id="@+id/text_change_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="20dp"
+                android:fontFamily="@font/inter_regular"
+                android:lineHeight="20sp"
+                android:text="@string/text_change_pass"
+                android:textColor="@color/black"
+                android:textFontWeight="700"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@id/box_data_2" />
+
+            <!--            <ImageView-->
+            <!--                android:id="@+id/ic_info_2"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="18dp"-->
+            <!--                android:src="@drawable/ic_information"-->
+            <!--                app:layout_constraintLeft_toRightOf="@id/text_change_pwd"-->
+            <!--                app:layout_constraintRight_toRightOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="@id/box_data_2" />-->
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/box_data_3"
             android:layout_width="340dp"
             android:layout_height="60dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginVertical="20dp"
             android:background="@drawable/box_rectangle_grey"
-            android:drawableRight="@drawable/ic_information"
             android:elevation="5dp"
-            android:fontFamily="@font/inter_regular"
-            android:paddingLeft="23dp"
-            android:paddingTop="19dp"
-            android:paddingEnd="20.5dp"
-            android:text="@string/text_download_tnc"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12.5dp"
+            android:paddingBottom="20dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_change_pwd" />
+            app:layout_constraintTop_toBottomOf="@id/box_data_2">
 
+            <TextView
+                android:id="@+id/text_download_tnc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="20dp"
+                android:fontFamily="@font/inter_regular"
+                android:lineHeight="20sp"
+                android:text="@string/text_download_tnc"
+                android:textColor="@color/black"
+                android:textFontWeight="700"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@id/box_data_3" />
+
+            <!--            <ImageView-->
+            <!--                android:id="@+id/ic_info_3"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="18dp"-->
+            <!--                android:src="@drawable/ic_information"-->
+            <!--                app:layout_constraintLeft_toRightOf="@id/text_download_tnc"-->
+            <!--                app:layout_constraintRight_toRightOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="@id/box_data_3" />-->
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/text_account"
@@ -249,17 +338,62 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/inter_bold"
-            android:text="@string/text_lender_perso"
+            android:text="@string/text_account"
             android:textColor="@color/blue_primary"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            />
+            app:layout_constraintTop_toBottomOf="@id/box_data_3" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/box_data_4"
+            android:layout_width="340dp"
+            android:layout_height="60dp"
+            android:layout_marginVertical="20dp"
+            android:background="@drawable/box_rectangle_grey"
+            android:elevation="5dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12.5dp"
+            android:paddingBottom="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_account">
+
+            <TextView
+                android:id="@+id/text_register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="20dp"
+                android:fontFamily="@font/inter_regular"
+                android:lineHeight="20sp"
+                android:text="@string/text_register_as_borrower"
+                android:textColor="@color/black"
+                android:textFontWeight="700"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="@id/box_data_4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/button_logout_verif"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/text_logout"
+            android:textAllCaps="false"
+            android:textColor="@color/blue_primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/box_data_4" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
