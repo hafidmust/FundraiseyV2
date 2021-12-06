@@ -157,7 +157,20 @@
     <string name="text_instagram">Instagram</string>
     <string name="text_facebook">Facebook</string>
 
-
+    <!--  profile screen verification  -->
+    <string name="text_fundraiser">Hello Fundriser</string>
+    <string name="text_username_email">username@email.com</string>
+    <string name="text_lender_perso">Lenders personal data</string>
+    <string name="text_update_perso">Update personal data</string>
+    <string name="text_change_pass">Change Password</string>
+    <string name="text_download_tnc">Download terms and privacy</string>
+    <string name="text_account">Account</string>
+    <string name="text_register_as_borrower">Register as a borrower</string>
+    <string name="text_logout">Logout</string>
+    <string name="xx"></string>
+    <string name="xx"></string>
+    <string name="xx"></string>
+    <string name="xx"></string>
 
 
 
