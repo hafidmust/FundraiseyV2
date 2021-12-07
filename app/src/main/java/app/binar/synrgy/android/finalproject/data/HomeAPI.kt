@@ -2,6 +2,7 @@ package app.binar.synrgy.android.finalproject.data
 
 import app.binar.synrgy.android.finalproject.data.history.DetailHistoryResponse
 import app.binar.synrgy.android.finalproject.data.history.HistoryResponse
+import app.binar.synrgy.android.finalproject.data.home.HomeBalanceResponse
 import app.binar.synrgy.android.finalproject.data.home.HomeLoanResponse
 import app.binar.synrgy.android.finalproject.data.loan.DetailLoanResponse
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponse
@@ -57,5 +58,10 @@ interface HomeAPI {
         @Header("Authorization") auth : String,
         @Path("id") id : Int
     ) : Response<DetailHistoryResponse>
+
+    @GET("/v1/investor/loan/portofolio-summary")
+    suspend fun getBalanceHome(
+        @Header("Authorization") authorization : String
+    ) : Response<HomeBalanceResponse>
 
 }

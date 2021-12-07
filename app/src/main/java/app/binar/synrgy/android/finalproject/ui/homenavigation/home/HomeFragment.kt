@@ -13,6 +13,7 @@ import app.binar.synrgy.android.finalproject.data.home.DataItem
 import app.binar.synrgy.android.finalproject.databinding.FragmentHomeBinding
 
 import app.binar.synrgy.android.finalproject.ui.loan.LoanDetailsActivity
+import app.binar.synrgy.android.finalproject.utils.CurrencyHelper
 
 class HomeFragment : Fragment() {
     private lateinit var homeViewModel: HomeViewModel
@@ -42,8 +43,12 @@ class HomeFragment : Fragment() {
 
         binding.recyclerHome.adapter = homeAdapter
         homeViewModel.onViewLoaded()
+        homeViewModel.getDataBalance()
         homeViewModel.homeResponse.observe(viewLifecycleOwner, {
             homeAdapter.update(it)
+        })
+        homeViewModel.balanceResponse.observe(viewLifecycleOwner,{
+            binding.amountBalance.text = CurrencyHelper.toIdrCurrency(it.totalReturn)
         })
         return root
     }
