@@ -32,5 +32,9 @@ data class Data(
 	val totalWithdrawnThisMonth: Int,
 
 	@field:SerializedName("totalFunding")
-	val totalFunding: Int
+	val totalFunding: Int,
+
+	@field:SerializedName("balance")
+	val balance: Int,
+
 )

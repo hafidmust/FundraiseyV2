@@ -6,6 +6,7 @@ import app.binar.synrgy.android.finalproject.data.HomeAPI
 import app.binar.synrgy.android.finalproject.data.home.Data
 import app.binar.synrgy.android.finalproject.data.home.DataItem
 import app.binar.synrgy.android.finalproject.data.home.HomeBalanceResponse
+import app.binar.synrgy.android.finalproject.utils.DummyBearer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -36,7 +37,7 @@ class HomeViewModel : ViewModel() {
     fun getDataBalance(){
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
         CoroutineScope(Dispatchers.IO).launch {
-            val responseBalance = homeAPI.getBalanceHome("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsib2F1dGgyLXJlc291cmNlIl0sInVzZXJfbmFtZSI6ImludmVzdG9yQGZ1bmRyYWlzZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTYzODg2ODEyNCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9JTlZFU1RPUiJdLCJqdGkiOiJjZTQ1NTBmNC1jZWNiLTQyMDAtYTIzNy1lY2MyODAzMmVmMWMiLCJjbGllbnRfaWQiOiJjbGllbnQtd2ViIn0.upfl0n25kdNV9QdVm8Q_TuXdl4k6fcmZ6B5JgAR547E")
+            val responseBalance = homeAPI.getBalanceHome("Bearer ${DummyBearer.auth}")
 
             withContext(Dispatchers.Main){
                 if (responseBalance.isSuccessful){

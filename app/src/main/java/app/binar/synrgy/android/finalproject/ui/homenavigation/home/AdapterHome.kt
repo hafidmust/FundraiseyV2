@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import app.binar.synrgy.android.finalproject.data.home.DataItem
 import app.binar.synrgy.android.finalproject.databinding.AdapterRecyclerHomeBinding
 import app.binar.synrgy.android.finalproject.utils.DaysHelper
+import com.bumptech.glide.Glide
 import java.text.NumberFormat
 import java.util.*
 import org.joda.time.Days
@@ -39,7 +40,10 @@ class AdapterHome(var data : List<DataItem>, val listener : EventListener) : Rec
     inner class ViewHolder(val binding : AdapterRecyclerHomeBinding) : RecyclerView.ViewHolder(binding.root){
         @SuppressLint("SetTextI18n", "SimpleDateFormat")
         fun bind(home : DataItem){
-            binding.textStartUpTitle.text = home.startupName
+            Glide.with(binding.root)
+                .load(home.startup?.logo)
+                .into(binding.imageViewStartup)
+            binding.textStartUpTitle.text = home.startup?.name.toString()
             binding.textProjectfunding.text = home.name
 
             val format: NumberFormat = NumberFormat.getCurrencyInstance()

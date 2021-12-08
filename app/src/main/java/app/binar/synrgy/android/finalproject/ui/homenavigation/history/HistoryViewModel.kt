@@ -6,6 +6,7 @@ import app.binar.synrgy.android.finalproject.data.HomeAPI
 import app.binar.synrgy.android.finalproject.data.history.ContentItem
 import app.binar.synrgy.android.finalproject.data.history.HistoryResponse
 import app.binar.synrgy.android.finalproject.data.history.HistoryResponseDummy
+import app.binar.synrgy.android.finalproject.utils.DummyBearer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -62,7 +63,7 @@ class HistoryViewModel : ViewModel() {
     fun getDataHistory(){
      homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
      CoroutineScope(Dispatchers.IO).launch {
-         val responseHistory = homeAPI.getHistory("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsib2F1dGgyLXJlc291cmNlIl0sInVzZXJfbmFtZSI6ImludmVzdG9yQGZ1bmRyYWlzZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTYzODc4NjY4NiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9JTlZFU1RPUiJdLCJqdGkiOiI2MDJiODNlMS1kM2VjLTQyNDctYmE5MS0xMWM0NjY4NzVkOWQiLCJjbGllbnRfaWQiOiJjbGllbnQtd2ViIn0.r9B736XAFWGVdxJPOTD9zfrcdFQeUdee0w4sAmZTGAs",0,20,"id","desc")
+         val responseHistory = homeAPI.getHistory("Bearer ${DummyBearer.auth}",0,20,"id","desc")
          withContext(Dispatchers.Main){
              if (responseHistory.isSuccessful){
                  history.value = responseHistory.body()?.data?.content

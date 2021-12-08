@@ -48,7 +48,7 @@ class HomeFragment : Fragment() {
             homeAdapter.update(it)
         })
         homeViewModel.balanceResponse.observe(viewLifecycleOwner,{
-            binding.amountBalance.text = CurrencyHelper.toIdrCurrency(it.totalReturn)
+            binding.amountBalance.text = CurrencyHelper.toIdrCurrency(it.balance)
         })
         return root
     }

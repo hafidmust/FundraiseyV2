@@ -14,6 +14,7 @@ import app.binar.synrgy.android.finalproject.ui.homenavigation.HomeNavigationAct
 import app.binar.synrgy.android.finalproject.ui.loan.LoanDetailsViewModel
 import app.binar.synrgy.android.finalproject.ui.payment.PaymentActivity
 import app.binar.synrgy.android.finalproject.ui.payment.dialog.PopupDialog
+import app.binar.synrgy.android.finalproject.utils.CopyHelper
 import app.binar.synrgy.android.finalproject.utils.CurrencyHelper
 import com.bumptech.glide.Glide
 import okhttp3.internal.wait
@@ -59,6 +60,9 @@ class DetailHistoryActivity : AppCompatActivity() {
             binding.tvContentPhone.text = it.loan.startup.phoneNumber
             binding.tvContentLinkedin.text = it.loan.startup.linkedin
             binding.tvContentInstagram.text = it.loan.startup.instagram
+            binding.tvCopyVa.setOnClickListener {
+
+            }
 
 
 

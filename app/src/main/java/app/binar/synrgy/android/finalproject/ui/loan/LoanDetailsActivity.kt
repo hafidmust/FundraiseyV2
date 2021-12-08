@@ -39,7 +39,9 @@ class LoanDetailsActivity : AppCompatActivity() {
             binding.nominal.text = CurrencyHelper.toIdrCurrency(it.targetValue)
             binding.textFundingAmount.text = CurrencyHelper.toIdrCurrency(it.currentValue)
             binding.loanapp.text = it.name
+            binding.startupcontentname.text = it.startup?.name.toString()
             binding.tvcontentaboutstartup.text = it.description.toString()
+            binding.tvDetailAboutStartup.text = it.startup?.description.toString()
 //            get remaining day
             binding.tvremainingday.text = DaysHelper.getDaysHelper(it.startDate.toString(), it.endDate.toString()) +" day left"
 //            progress

@@ -155,8 +155,8 @@
 
                     <ImageView
                         android:id="@+id/ic_logo_loaninformation"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
                         android:layout_marginLeft="22dp"
                         android:layout_marginTop="22dp"
                         android:layout_marginBottom="22dp"
