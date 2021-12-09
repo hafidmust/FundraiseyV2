@@ -6,7 +6,6 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Window
 import androidx.appcompat.app.AppCompatDialog
-import app.binar.synrgy.android.finalproject.R
 import app.binar.synrgy.android.finalproject.databinding.DialogPopupPaymentBinding
 
 class PopupDialog(context : Context) : AppCompatDialog(context){
