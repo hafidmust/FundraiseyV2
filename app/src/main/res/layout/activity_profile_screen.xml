@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/header_label_profile"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/blue_primary"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/arrow_back"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="18dp"
+        android:src="@drawable/ic_back_arrow"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/header_label_profile" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="@string/text_profile"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/header_label_profile"
+        app:layout_constraintLeft_toLeftOf="@id/arrow_back"
+        app:layout_constraintTop_toTopOf="@id/header_label_profile" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_label_profile">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/card_disclaimer"
+                android:layout_width="340dp"
+                android:layout_height="82dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/grid_blue_box_screenprofile"
+                android:fontFamily="@font/inter_bold"
+                android:paddingLeft="20dp"
+                android:paddingTop="9dp"
+                android:paddingRight="20dp"
+                android:text="@string/text_disclaimer"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <!-- email   -->
+            <TextView
+                android:id="@+id/email_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/text_email"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_disclaimer" />
+
+            <EditText
+                android:id="@+id/edit_email"
+                android:layout_width="340dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/grid_recycler_home"
+
+                android:fontFamily="@font/inter_regular"
+                android:paddingLeft="8dp"
+                android:text="@string/text_username_email"
+                android:textColor="@color/grey"
+                android:textSize="14sp"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email_profile" />
+
+            <!--  password  -->
+            <TextView
+                android:id="@+id/pass_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/text_pass"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_email" />
+
+            <EditText
+                android:id="@+id/edit_pass"
+                android:layout_width="340dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/grid_recycler_home"
+                android:fontFamily="@font/inter_regular"
+                android:paddingLeft="8dp"
+                android:text="@string/text_star"
+                android:textColor="@color/grey"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pass_profile" />
+
+            <!--  ID numb  -->
+
+            <TextView
+                android:id="@+id/id_num_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/text_id_num"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_pass" />
+
+            <EditText
+                android:id="@+id/edit_id_num"
+                android:layout_width="340dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/grid_recycler_home"
+
+
+                android:fontFamily="@font/inter_regular"
+                android:paddingLeft="8dp"
+
+                android:text="@string/text_id_num"
+                android:textColor="@color/grey"
+                android:textSize="14sp"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/id_num_profile" />
+
+            <!--  full name  -->
+            <TextView
+                android:id="@+id/full_name_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/text_full_name"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_id_num" />
+
+            <EditText
+                android:id="@+id/edit_full_name"
+                android:layout_width="340dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/grid_recycler_home"
+
+
+                android:fontFamily="@font/inter_regular"
+                android:paddingLeft="8dp"
+
+                android:text="@string/text_id_num"
+                android:textColor="@color/grey"
+                android:textSize="14sp"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/full_name_profile" />
+
+            <!--  bank  -->
+
+            <TextView
+                android:id="@+id/bank_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/text_bank_account"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_full_name" />
+
+            <EditText
+                android:id="@+id/edit_bank"
+                android:layout_width="340dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/grid_recycler_home"
+
+
+                android:fontFamily="@font/inter_regular"
+                android:paddingLeft="8dp"
+
+                android:text="@string/text_bank_account"
+                android:textColor="@color/grey"
+                android:textSize="14sp"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bank_profile" />
+
+            <!--  Phone Numb  -->
+
+            <TextView
+                android:id="@+id/phone_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/text_ph"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_bank" />
+
+            <EditText
+                android:id="@+id/edit_phone"
+                android:layout_width="340dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/grid_recycler_home"
+
+
+                android:fontFamily="@font/inter_regular"
+                android:paddingLeft="8dp"
+
+                android:text="@string/text_ph"
+                android:textColor="@color/grey"
+                android:textSize="14sp"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/phone_profile" />
+
+            <!--  date of birth  -->
+
+            <TextView
+                android:id="@+id/birth_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/text_date_birth"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_phone" />
+
+            <EditText
+                android:id="@+id/edit_birth_profile"
+                android:layout_width="340dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/grid_recycler_home"
+                android:fontFamily="@font/inter_regular"
+                android:paddingLeft="8dp"
+                android:text="@string/text_date_birth"
+                android:textColor="@color/grey"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/birth_profile" />
+
+            <!--    Gender    -->
+            <TextView
+                android:id="@+id/gender_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/text_gender"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_birth_profile" />
+
+            <EditText
+                android:id="@+id/edit_gender"
+                android:layout_width="340dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/grid_recycler_home"
+                android:fontFamily="@font/inter_regular"
+                android:paddingLeft="8dp"
+                android:text="@string/text_gender"
+                android:textColor="@color/grey"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gender_profile" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/upload_photo_section"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/edit_gender">
+
+                <TextView
+                    android:id="@+id/upload_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="@string/text_upload_photo"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <EditText
+                    android:id="@+id/edit_upload"
+                    android:layout_width="340dp"
+                    android:layout_height="132dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/grid_recycler_home"
+                    android:fontFamily="@font/inter_regular"
+                    android:paddingLeft="8dp"
+                    android:drawableStart=""
+                    android:textColor="@color/grey"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/upload_profile" />
+
+
+                <TextView
+                    android:id="@+id/selfie_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="@string/text_upload_selfie"
+                    android:textColor="@color/grey"
+                    android:textSize="12sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/edit_upload"/>
+
+
+                <EditText
+                    android:id="@+id/edit_selfie"
+                    android:layout_width="340dp"
+                    android:layout_height="132dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@drawable/grid_recycler_home"
+                    android:fontFamily="@font/inter_regular"
+                    android:paddingLeft="8dp"
+                    android:drawableStart=""
+                    android:textColor="@color/grey"
+                    android:textSize="14sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/upload_profile" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/grey"
+                android:backgroundTint="@color/blue_primary"
+                android:text="@string/text_save_pro"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/inter_regular"
+
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/upload_photo_section">
+
+
+            </androidx.appcompat.widget.AppCompatButton>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
