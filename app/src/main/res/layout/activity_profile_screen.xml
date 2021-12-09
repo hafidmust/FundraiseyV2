@@ -47,8 +47,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
 
             <TextView
                 android:id="@+id/card_disclaimer"
@@ -88,6 +88,7 @@
                 android:layout_height="46dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/grid_recycler_home"
+                android:backgroundTint="@color/grey_light"
 
                 android:fontFamily="@font/inter_regular"
                 android:paddingLeft="8dp"
@@ -119,6 +120,7 @@
                 android:layout_height="46dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/grid_recycler_home"
+                android:backgroundTint="@color/grey_light"
                 android:fontFamily="@font/inter_regular"
                 android:paddingLeft="8dp"
                 android:text="@string/text_star"
@@ -284,9 +286,10 @@
                 android:layout_height="46dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/grid_recycler_home"
+                android:backgroundTint="@color/grey_light"
                 android:fontFamily="@font/inter_regular"
                 android:paddingLeft="8dp"
-                android:text="@string/text_date_birth"
+                android:text="@string/example_date_birth"
                 android:textColor="@color/grey"
                 android:textSize="14sp"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -322,71 +325,76 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/gender_profile" />
 
+            <TextView
+                android:id="@+id/upload_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/text_upload_photo"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_gender" />
+
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/upload_photo_section"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/edit_gender">
+                android:layout_width="340dp"
+                android:layout_height="132dp"
+                android:background="@drawable/box_rectangle_photo_upload"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/upload_profile">
 
-                <TextView
-                    android:id="@+id/upload_profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="35dp"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/inter_bold"
-                    android:text="@string/text_upload_photo"
-                    android:textColor="@color/grey"
-                    android:textSize="12sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-                <EditText
-                    android:id="@+id/edit_upload"
-                    android:layout_width="340dp"
-                    android:layout_height="132dp"
-                    android:layout_marginTop="4dp"
-                    android:background="@drawable/grid_recycler_home"
-                    android:fontFamily="@font/inter_regular"
-                    android:paddingLeft="8dp"
-                    android:drawableStart=""
-                    android:textColor="@color/grey"
-                    android:textSize="14sp"
+                <ImageView
+                    android:id="@+id/image_upload"
+                    android:layout_width="75dp"
+                    android:layout_height="73dp"
+                    android:layout_marginTop="43dp"
+                    android:src="@drawable/ic_image_upload"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/upload_profile" />
-
-
-                <TextView
-                    android:id="@+id/selfie_profile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="35dp"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/inter_bold"
-                    android:text="@string/text_upload_selfie"
-                    android:textColor="@color/grey"
-                    android:textSize="12sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/edit_upload"/>
-
-
-                <EditText
-                    android:id="@+id/edit_selfie"
-                    android:layout_width="340dp"
-                    android:layout_height="132dp"
-                    android:layout_marginTop="4dp"
-                    android:background="@drawable/grid_recycler_home"
-                    android:fontFamily="@font/inter_regular"
-                    android:paddingLeft="8dp"
-                    android:drawableStart=""
-                    android:textColor="@color/grey"
-                    android:textSize="14sp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/upload_profile" />
-
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/selfie_profile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="@string/text_upload_selfie"
+                android:textColor="@color/grey"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/upload_photo_section" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/upload_photo_section_selfie"
+                android:layout_width="340dp"
+                android:layout_height="132dp"
+                android:background="@drawable/box_rectangle_photo_upload"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/selfie_profile">
+
+                <ImageView
+                    android:id="@+id/image_upload_selfie"
+                    android:layout_width="75dp"
+                    android:layout_height="73dp"
+                    android:layout_marginTop="43dp"
+                    android:src="@drawable/ic_image_upload"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_save"
@@ -395,18 +403,17 @@
                 android:layout_marginTop="20dp"
                 android:background="@color/grey"
                 android:backgroundTint="@color/blue_primary"
-                android:text="@string/text_save_pro"
-                android:textSize="14sp"
-                android:textColor="@color/white"
                 android:fontFamily="@font/inter_regular"
+                android:text="@string/text_save_pro"
+                android:textColor="@color/white"
+                android:textSize="14sp"
 
-                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/upload_photo_section">
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/upload_photo_section_selfie">
 
 
             </androidx.appcompat.widget.AppCompatButton>
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

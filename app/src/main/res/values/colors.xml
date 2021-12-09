@@ -28,6 +28,7 @@
     <color name="pending">#D99F48</color>
     <color name="paid">#3692ED</color>
     <color name="late">#C62828</color>
+    <color name="grey_light">#EBEBEB</color>
 
 
 </resources>
