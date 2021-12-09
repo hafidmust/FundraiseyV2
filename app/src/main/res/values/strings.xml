@@ -194,9 +194,25 @@
     <string name="text_register_as_borrower">Register as a borrower</string>
     <string name="text_logout">Logout</string>
     <string name="text_profile">Profile</string>
-    <string name="xx"></string>
-    <string name="xx"></string>
-    <string name="xx"></string>
+
+
+
+
+    <!--  profile screen  -->
+    <string name="text_disclaimer">The data you provide will be used by us to verify against the data registered with the civil registration office to ensure the suitability of the data</string>
+    <string name="text_email">Email</string>
+    <string name="text_pass">Password</string>
+    <string name="text_star">*********</string>
+    <string name="text_id_num">ID Number</string>
+    <string name="text_full_name">Full Name</string>
+    <string name="text_bank_account">Bank Account Number</string>
+    <string name="text_ph">Phone</string>
+    <string name="text_date_birth">Date of Birth</string>
+    <string name="date_birth_example">12/11/1989</string>
+    <string name="text_gender">Gender</string>
+    <string name="text_upload_photo">Upload Photo ID</string>
+    <string name="text_upload_selfie">Upload Selfie</string>
+    <string name="text_save_pro">Save Profile</string>
 
 
 
