@@ -37,13 +37,13 @@
     <string name="page_payment_screen">Payment</string>
     <string name="nominal_amount">Nominal Amounts</string>
     <string name="nominal_text">Nominal</string>
-    <string name="hint_text_amount">Rp 0</string>
-    <string name="fiftythousand">Rp 50.000</string>
-    <string name="onehundred">Rp 100.000</string>
-    <string name="twohundred">Rp 200.000</string>
-    <string name="fivehundred">Rp 500.000</string>
-    <string name="onemillion">Rp 1.000.000</string>
-    <string name="onehalfmillion">Rp 1.500.000</string>
+    <string name="hint_text_amount">IDR 0</string>
+    <integer name="fiftythousand">50000</integer>
+    <integer name="onehundred">100000</integer>
+    <integer name="twohundred">200000</integer>
+    <integer name="fivehundred">500000</integer>
+    <integer name="onemillion">1000000</integer>
+    <integer name="onehalfmillion">1500000</integer>
 
     <string name="payment_metode">Payment Method</string>
     <string name="bank_trans">Bank Transfer</string>
@@ -116,13 +116,39 @@
     <string name="faq_1">How does FundRaisey work</string>
     <string name="answer_1">FundRaisey is a marketplace that is a space for borrowers and lenders to help each other. Our job is to make sure the borrowers funds are valid and eligible to be given a loan from the lender. Lenders will benefit when the borrower has benefited from the project they submitted at the beginning of the loan with a loan period of 2 years</string>
 
-
     <string name="faq_2">Benefits of using FundRaisey</string>
+    <string name="answer_2">
+        There are many benefits that you can get with one app.
+
+    Benefit of Borrower:
+    • Competitive loan interest
+    • An easy and simple process
+    • Product promotion of the application
+
+    Benefit of Lender :
+    • Interesting yields
+    • Easy and simple investment process
+    • Can choose your own startup you want to fund
+    • Customer support that is always ready to serve
+    </string>
+
     <string name="faq_3">Type of FundRaisey Lending</string>
+    <string name="answer_3">
+        FundRaisey is a P2P Lending platform, which has a business focus on financing businesses for the startup segment with digital products. which brings together startup owners (Borrowers) and Investors (Lenders).
+
+        Peer-to-peer Lending (P2P Lending) is bringing together people who want to fund and people who want to apply for lending through online platforms.
+    </string>
 
     <string name="string_faq_bot">Account questions</string>
     <string name="faq_4">How to become a borrower in FundRaisey</string>
+    <string name="answer_4">
+
+        If you want to borrow funding from FundRaisey, you can register your startup on our website or go to profile and choose to register as a borrower.
+
+    </string>
+
     <string name="faq_5">What are the requirements to become a lender at FundRaisey</string>
+    <string name="answer_5">To become a lender you only have to be over 18 years old and already have an ID card. And for those of you who are very interested in investment we very welcome you</string>
 
     <string name="your_question_faq">Your question has not been answered?</string>
     <string name="button_faq">Contact FundRaisey</string>

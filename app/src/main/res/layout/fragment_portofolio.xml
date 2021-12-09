@@ -5,60 +5,59 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <View
+        android:id="@+id/view_portofolio"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@color/blue_primary"/>
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textFontWeight="700"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="@id/view_portofolio"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/view_portofolio"/>
+
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginRight="18dp"
+        app:layout_constraintTop_toTopOf="@id/view_portofolio"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@drawable/ic_avatar"
+        app:layout_constraintBottom_toBottomOf="@id/view_portofolio" />
+
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollview_portofolio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_name"
         app:layout_constraintLeft_toLeftOf="parent"
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_portofolio"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <!-- header fragment porto -->
-
-            <LinearLayout
-                android:id="@+id/app_name_header_porto"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-
-                android:background="@color/blue_primary"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/app_name_porto"
-                    android:layout_width="264dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="25dp"
-                    android:fontFamily="@font/inter_bold"
-                    android:text="@string/app_name"
-                    android:textColor="@color/white"
-                    android:textFontWeight="700"
-                    android:textSize="25sp"
-                    app:layout_constraintTop_toTopOf="@id/app_name_header" />
-
-                <!--   Avatar     -->
-                <ImageView
-                    android:layout_width="39dp"
-                    android:layout_height="39dp"
-                    android:layout_marginStart="70dp"
-                    android:layout_marginTop="25dp"
-                    android:src="@drawable/ic_avatar"
-                    app:layout_constraintLeft_toLeftOf="@id/app_name"
-                     />
-            </LinearLayout>
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp">
 
             <!-- total balance box -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/card_tot_balance"
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
-                app:layout_constraintTop_toBottomOf="@+id/app_name_header_porto">
+                app:layout_constraintTop_toBottomOf="@+id/packed">
 
                 <TextView
                     android:id="@+id/text_porto_tot_balance"

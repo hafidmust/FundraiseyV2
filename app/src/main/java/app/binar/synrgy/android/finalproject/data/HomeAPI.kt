@@ -40,7 +40,13 @@ interface HomeAPI {
     ): Response<DetailLoanResponse>
 
     @GET("/v1/investor/loan/portofolio")
-    suspend fun getPortofolio(): Response<PortofolioResponse>
+    suspend fun getPortofolio(
+        @Header("Authorization") auth : String,
+        @Query("page") page : Int,
+        @Query("size") size : Int,
+        @Query("sort-by") sortBy : String,
+        @Query("sort-type") sortType : String
+    ): Response<PortofolioResponse>
 
 
     @GET("v1/investor/transaction/all")
