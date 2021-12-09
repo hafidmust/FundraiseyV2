@@ -1,7 +1,6 @@
 package app.binar.synrgy.android.finalproject.ui.homenavigation.home
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -10,9 +9,6 @@ import app.binar.synrgy.android.finalproject.databinding.AdapterRecyclerHomeBind
 import app.binar.synrgy.android.finalproject.utils.DaysHelper
 import java.text.NumberFormat
 import java.util.*
-import org.joda.time.Days
-import java.text.SimpleDateFormat
-import java.util.concurrent.TimeUnit
 
 
 class AdapterHome(var data : List<DataItem>, val listener : EventListener) : RecyclerView.Adapter<AdapterHome.ViewHolder>() {

@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class HistoryViewModel : ViewModel() {
-    val history : MutableLiveData<List<ContentItem>> = MutableLiveData()
+    val history: MutableLiveData<List<ContentItem>> = MutableLiveData()
     private lateinit var homeAPI: HomeAPI
     val responseDummy: MutableLiveData<List<HistoryResponseDummy>> = MutableLiveData()
 
@@ -59,15 +59,21 @@ class HistoryViewModel : ViewModel() {
         getDataHistory()
     }
 
-    fun getDataHistory(){
-     homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
-     CoroutineScope(Dispatchers.IO).launch {
-         val responseHistory = homeAPI.getHistory("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsib2F1dGgyLXJlc291cmNlIl0sInVzZXJfbmFtZSI6ImludmVzdG9yQGZ1bmRyYWlzZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTYzODc4NjY4NiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9JTlZFU1RPUiJdLCJqdGkiOiI2MDJiODNlMS1kM2VjLTQyNDctYmE5MS0xMWM0NjY4NzVkOWQiLCJjbGllbnRfaWQiOiJjbGllbnQtd2ViIn0.r9B736XAFWGVdxJPOTD9zfrcdFQeUdee0w4sAmZTGAs",0,20,"id","desc")
-         withContext(Dispatchers.Main){
-             if (responseHistory.isSuccessful){
-                 history.value = responseHistory.body()?.data?.content
-             }
-         }
-     }
+    fun getDataHistory() {
+        homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
+        CoroutineScope(Dispatchers.IO).launch {
+            val responseHistory = homeAPI.getHistory(
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsib2F1dGgyLXJlc291cmNlIl0sInVzZXJfbmFtZSI6ImludmVzdG9yQGZ1bmRyYWlzZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTYzODk4OTUwMiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9JTlZFU1RPUiJdLCJqdGkiOiI4MjY2NmM4My0wZDRhLTRkZWYtOTQwNi1jMTU2Yzk1NTdlYTkiLCJjbGllbnRfaWQiOiJjbGllbnQtd2ViIn0.9YsOc6ZNousIpQn3rG4aK6AWUy-vpfkd6mYeQ46R7p8",
+                0,
+                20,
+                "id",
+                "desc"
+            )
+            withContext(Dispatchers.Main) {
+                if (responseHistory.isSuccessful) {
+                    history.value = responseHistory.body()?.data?.content
+                }
+            }
+        }
     }
 }

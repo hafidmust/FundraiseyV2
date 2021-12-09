@@ -48,7 +48,7 @@ class DetailHistoryActivity : AppCompatActivity() {
             binding.tvjumlahtagihan.text = it.amount.toString()
             binding.tvAmountLoan.text = it.amount.toString()
             binding.loanapp.text = it.loan.name
-            binding.textHistoryStartUpName.text = it.loan.startup.name
+            binding.textStartUpName.text = it.loan.startup.name
             binding.tvcontentaboutstartup.text = it.loan.description
             binding.tvDetailAboutStartup.text = it.loan.startup.description
             binding.addressstartup.text = it.loan.startup.address
