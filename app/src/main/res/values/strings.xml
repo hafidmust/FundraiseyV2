@@ -182,6 +182,12 @@
     <string name="example_date_birth">12/11/1989</string>
     <string name="text_ph">Phone Number</string>
     <string name="text_gender">Gender</string>
+    <string-array name="gender_radio">
+        <item>Gender</item>
+        <item>Female</item>
+        <item>Male</item>
+    </string-array>
+
     <string name="text_upload_photo">Upload Photo ID</string>
     <string name="text_upload_selfie">Upload selfies</string>
     <string name="text_save_pro">Save Profile</string>
