@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class HistoryViewModel : ViewModel() {
-    val history : MutableLiveData<List<ContentItem>> = MutableLiveData()
+    val history: MutableLiveData<List<ContentItem>> = MutableLiveData()
     private lateinit var homeAPI: HomeAPI
     val responseDummy: MutableLiveData<List<HistoryResponseDummy>> = MutableLiveData()
 

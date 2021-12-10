@@ -112,13 +112,13 @@
                 android:id="@+id/text_amount_colected"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/text_colected"
                 android:fontFamily="@font/inter_regular"
-                android:paddingLeft="15dp"
                 android:paddingBottom="15dp"
+                android:paddingLeft="15dp"
                 android:text="@string/total_collected"
                 android:textColor="@color/black"
-                android:textSize="12sp"
-                android:layout_below="@id/text_colected" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/text_deadline"

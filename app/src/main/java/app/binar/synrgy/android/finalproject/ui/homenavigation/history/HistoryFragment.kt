@@ -5,13 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import app.binar.synrgy.android.finalproject.data.history.ContentItem
 import app.binar.synrgy.android.finalproject.data.history.HistoryResponseDummy
 import app.binar.synrgy.android.finalproject.databinding.FragmentHistoryBinding
 import app.binar.synrgy.android.finalproject.ui.homenavigation.history.detail.DetailHistoryActivity
-
 
 class HistoryFragment : Fragment() {
     private lateinit var binding : FragmentHistoryBinding

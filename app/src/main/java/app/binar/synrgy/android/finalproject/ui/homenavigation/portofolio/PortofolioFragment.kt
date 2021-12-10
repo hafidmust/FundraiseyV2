@@ -1,15 +1,13 @@
 package app.binar.synrgy.android.finalproject.ui.homenavigation.portofolio
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponseDummy
+import app.binar.synrgy.android.finalproject.data.portofolio.Data
 import app.binar.synrgy.android.finalproject.databinding.FragmentPortofolioBinding
-import app.binar.synrgy.android.finalproject.ui.homenavigation.history.detail.DetailHistoryActivity
 
 
 class PortofolioFragment : Fragment() {
@@ -29,13 +27,13 @@ class PortofolioFragment : Fragment() {
 
         val adapterPortofolio = AdapterPortofolio(listOf(),
             object : AdapterPortofolio.EventListener {
-                override fun click(item: PortofolioResponseDummy) {
-                    startActivity(Intent(this@PortofolioFragment.context, DetailHistoryActivity::class.java))
+                override fun click(item: Data) {
+
                 }
             })
         binding.recyclerPortofolio.adapter = adapterPortofolio
         portofolioViewModel.onViewLoaded()
-        portofolioViewModel.responseDummy.observe(viewLifecycleOwner, {
+        portofolioViewModel.loanResponse.observe(viewLifecycleOwner, {
             adapterPortofolio.update(it)
         })
         return binding.root

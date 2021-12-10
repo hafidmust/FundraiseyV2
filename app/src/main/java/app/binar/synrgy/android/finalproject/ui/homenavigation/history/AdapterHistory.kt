@@ -24,7 +24,7 @@ class AdapterHistory(var data: List<ContentItem>, val listener : EventListener) 
                 binding.tvDeadline.text = DaysHelper.dateFormatter(ContentItem.paymentDeadline)
                 binding.tvContentCampaigndeadline.text = ContentItem.loan.endDate
                 binding.statuspayment.text = ContentItem.transactionStatus
-                binding.textHistoryStartUpName.text = ContentItem.loan.name
+                binding.textStartUpName.text = ContentItem.loan.name
                 binding.tvNominalHistory.text = CurrencyHelper.toIdrCurrency(ContentItem.amount)
 
                     when(ContentItem.transactionStatus){

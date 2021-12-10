@@ -3,15 +3,20 @@ package app.binar.synrgy.android.finalproject.ui.payment
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import androidx.core.content.ContextCompat
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Toast
 import app.binar.synrgy.android.finalproject.R
 import app.binar.synrgy.android.finalproject.databinding.ActivityPaymentBinding
+import java.text.NumberFormat
+import java.util.*
 
 
 class PaymentActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityPaymentBinding
+    var radioGroup : RadioGroup? = null
+    lateinit var radioButton: RadioButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +24,46 @@ class PaymentActivity : AppCompatActivity() {
         binding = ActivityPaymentBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
+
+        val format: NumberFormat = NumberFormat.getCurrencyInstance()
+        format.maximumFractionDigits = 0
+        format.currency = Currency.getInstance("IDR")
+
+        binding.button50k.text = "${format.format(50_000)}"
+        binding.button100k.text = "${format.format(100_000)}"
+        binding.button200k.text = "${format.format(200_000)}"
+        binding.button500k.text = "${format.format(500_000)}"
+        binding.button1000k.text = "${format.format(1000_000)}"
+        binding.button1500k.text = "${format.format(1500_000)}"
+
+        binding.button50k.setOnClickListener {
+            binding.boxNominal.setText(format.format(50_000))
+        }
+
+        binding.button100k.setOnClickListener {
+            binding.boxNominal.setText(format.format(100_000))
+        }
+
+        binding.button200k.setOnClickListener {
+            binding.boxNominal.setText(format.format(200_000))
+        }
+
+        binding.button500k.setOnClickListener {
+            binding.boxNominal.setText(format.format(500_000))
+        }
+
+        binding.button1000k.setOnClickListener {
+            binding.boxNominal.setText(format.format(1000_000))
+        }
+
+        binding.button1500k.setOnClickListener {
+            binding.boxNominal.setText(format.format(1500_000))
+        }
+
+        binding.boxNominal.setOnClickListener {
+            binding.boxNominal.setText(format.format(10))
+        }
+
 
 //        var clicked: Boolean
 //

@@ -21,9 +21,13 @@
             android:exported="false" />
         <activity
             android:name=".ui.homenavigation.HomeNavigationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Splashscreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -36,3 +40,4 @@
     </application>
 
 </manifest>
+

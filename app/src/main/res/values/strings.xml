@@ -170,6 +170,23 @@
     <string name="text_profile">Profile</string>
 
 
+    <!-- profile screen -->
+    <string name="text_disclaimer">The data you provide will be used by us to verify against the data registered with the civil registration office to ensure the suitability of the data</string>
+    <string name="text_email">Email</string>
+    <string name="text_pass">Password</string>
+    <string name="text_star">*********</string>
+    <string name="text_id_num">ID Number</string>
+    <string name="text_full_name">Full name</string>
+    <string name="text_bank_account">Bank account number</string>
+    <string name="text_date_birth">Date of birth</string>
+    <string name="example_date_birth">12/11/1989</string>
+    <string name="text_ph">Phone Number</string>
+    <string name="text_gender">Gender</string>
+    <string name="text_upload_photo">Upload Photo ID</string>
+    <string name="text_upload_selfie">Upload selfies</string>
+    <string name="text_save_pro">Save Profile</string>
+
+
 
 
 
