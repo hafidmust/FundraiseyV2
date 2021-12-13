@@ -134,7 +134,7 @@
     <string name="return_meth">Returning Method</string>
     <string name="bca_VA">BCA Virtual Account</string>
     <string name="text_pay_nominal">Payment Nominal</string>
-    <string name="button_upload_receipt">Upload receipt of payment</string>
+    <string name="button_upload_receipt">Upload receipt of payment (optional)</string>
     <string name="text_return_info">Return Information</string>
     <string name="text_loan_refun">Loan Refund</string>
     <string name="text_refund_method">Refund Method</string>

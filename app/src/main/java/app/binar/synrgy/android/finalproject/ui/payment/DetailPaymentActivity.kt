@@ -9,8 +9,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
-import app.binar.synrgy.android.finalproject.R
 import app.binar.synrgy.android.finalproject.databinding.ActivityDetailPaymentBinding
+
 import app.binar.synrgy.android.finalproject.ui.homenavigation.HomeNavigationActivity
 import app.binar.synrgy.android.finalproject.ui.payment.dialog.PopupDialog
 

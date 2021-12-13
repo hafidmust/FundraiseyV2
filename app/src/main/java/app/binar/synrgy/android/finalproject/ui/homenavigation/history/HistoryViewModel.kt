@@ -1,60 +1,23 @@
 package app.binar.synrgy.android.finalproject.ui.homenavigation.history
 
+import app.binar.synrgy.android.finalproject.data.local.HistoryCache
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import app.binar.synrgy.android.finalproject.data.HomeAPI
 import app.binar.synrgy.android.finalproject.data.history.ContentItem
-import app.binar.synrgy.android.finalproject.data.history.HistoryResponse
 import app.binar.synrgy.android.finalproject.data.history.HistoryResponseDummy
+import app.binar.synrgy.android.finalproject.data.local.AppDatabase
 import app.binar.synrgy.android.finalproject.utils.DummyBearer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class HistoryViewModel : ViewModel() {
+class HistoryViewModel(private val appDatabase: AppDatabase) : ViewModel() {
     val history: MutableLiveData<List<ContentItem>> = MutableLiveData()
     private lateinit var homeAPI: HomeAPI
     val responseDummy: MutableLiveData<List<HistoryResponseDummy>> = MutableLiveData()
 
-//    val history = listOf(
-//        HistoryResponseDummy(
-//            namaStartup = "Star Track.Inc",
-//            paymentDeadline = "Sunday, 12 july 2022",
-//            campaignDeadline = "Sunday, 19 Oct 2022",
-//            nominalDonasi = "Rp. 500.000",
-//            statusPayment = "Payment process"
-//        ),
-//        HistoryResponseDummy(
-//            namaStartup = "Star Track.Inc",
-//            paymentDeadline = "Sunday, 12 july 2022",
-//            campaignDeadline = "Sunday, 19 Oct 2022",
-//            nominalDonasi = "Rp. 500.000",
-//            statusPayment = "Paid off"
-//        ),
-//        HistoryResponseDummy(
-//            namaStartup = "Star Track.Inc",
-//            paymentDeadline = "Sunday, 12 july 2022",
-//            campaignDeadline = "",
-//            nominalDonasi = "Rp. 500.000",
-//            statusPayment = "Being Funded"
-//        ),
-//        HistoryResponseDummy(
-//            namaStartup = "Star Track.Inc",
-//            paymentDeadline = "Sunday, 12 july 2022",
-//            campaignDeadline = "Sunday, 19 Oct 2022",
-//            nominalDonasi = "Rp. 500.000",
-//            statusPayment = "Late return"
-//        ),
-//        HistoryResponseDummy(
-//            namaStartup = "Star Track.Inc",
-//            paymentDeadline = "",
-//            campaignDeadline = "",
-//            nominalDonasi = "Rp. 500.000",
-//            statusPayment = "Has returned"
-//        ),
-//
-//        )
 
     fun onViewLoaded() {
         getDataHistory()
@@ -67,8 +30,26 @@ class HistoryViewModel : ViewModel() {
          withContext(Dispatchers.Main){
              if (responseHistory.isSuccessful){
                  history.value = responseHistory.body()?.data?.content
+                 responseHistory.body()?.data?.content?.let { insertHistory(it) }
              }
          }
      }
+    }
+    fun insertHistory(response: List<ContentItem>){
+        response?.let {
+            CoroutineScope(Dispatchers.IO).launch {
+                val history : List<HistoryCache> = it.map { history ->
+                    HistoryCache(
+                        id = history.id.toString(),
+                        nameLoan = history.loan.name,
+                    amountFund = history.amount,
+                    paymentDeadline = history.paymentDeadline,
+                    campaignDeadline = history.loan.endDate,
+                    statusPayment = history.transactionStatus,
+                    nameStartup = history.loan.startup.name)
+                }
+                appDatabase.homeDao().insertAllHistory(*history.toTypedArray())
+            }
+        }
     }
 }

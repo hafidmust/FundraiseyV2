@@ -16,6 +16,7 @@ import app.binar.synrgy.android.finalproject.ui.payment.PaymentActivity
 import app.binar.synrgy.android.finalproject.ui.payment.dialog.PopupDialog
 import app.binar.synrgy.android.finalproject.utils.CopyHelper
 import app.binar.synrgy.android.finalproject.utils.CurrencyHelper
+import app.binar.synrgy.android.finalproject.utils.DaysHelper
 import com.bumptech.glide.Glide
 import okhttp3.internal.wait
 
@@ -42,17 +43,18 @@ class DetailHistoryActivity : AppCompatActivity() {
         viewModel.loanResponse.observe(this, {
             binding.nameProjectFunding.text = it.loan.name
             binding.nominal.text = CurrencyHelper.toIdrCurrency(it.amount)
-            binding.progressFunding.max = it.loan.targetValue
-            binding.tvFundingAmountNominal.text = it.loan.targetValue.toString()
-            binding.tvDate.text = it.paymentDeadline
+//            binding.progressFunding.max = it.loan.targetValue
+//            binding.progressFunding.progress = it.amount
+            binding.tvfundingall.text = CurrencyHelper.toIdrCurrency(it.loan.targetValue)
+            binding.tvDate.text = DaysHelper.dateFormatter(it.paymentDeadline)
             binding.tvvirtualnumber.text = it.accountNumber
-            binding.tvjumlahtagihan.text = it.amount.toString()
+            binding.tvjumlahtagihan.text = CurrencyHelper.toIdrCurrency(it.amount)
             binding.tvAmountLoan.text = it.amount.toString()
             binding.loanapp.text = it.loan.name
             binding.textStartUpName.text = it.loan.startup.name
             binding.tvcontentaboutstartup.text = it.loan.description
             binding.tvDetailAboutStartup.text = it.loan.startup.description
-            binding.addressstartup.text = it.loan.startup.address
+            binding.contentaddress.text = it.loan.startup.address
             Glide.with(binding.root)
                 .load(it.loan.startup.logo)
                 .into(binding.icLogoLoaninformation)
@@ -60,6 +62,7 @@ class DetailHistoryActivity : AppCompatActivity() {
             binding.tvContentPhone.text = it.loan.startup.phoneNumber
             binding.tvContentLinkedin.text = it.loan.startup.linkedin
             binding.tvContentInstagram.text = it.loan.startup.instagram
+            binding.tvNamaBank.text = it.paymentAgent.name
             binding.tvCopyVa.setOnClickListener {
 
             }

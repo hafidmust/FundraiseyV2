@@ -67,17 +67,17 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/nameProjectFunding" />
 
-        <com.google.android.material.progressindicator.LinearProgressIndicator
-            android:id="@+id/progressFunding"
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="6dp"
-            android:progress="75"
-            app:indicatorColor="@color/blue_primary"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/nominal" />
+<!--        <com.google.android.material.progressindicator.LinearProgressIndicator-->
+<!--            android:id="@+id/progressFunding"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="4dp"-->
+<!--            android:layout_marginHorizontal="20dp"-->
+<!--            android:layout_marginTop="6dp"-->
+<!--            android:progress="75"-->
+<!--            app:indicatorColor="@color/blue_primary"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/nominal" />-->
 
         <TextView
             android:id="@+id/tvFa"
@@ -86,11 +86,11 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="14dp"
             android:fontFamily="@font/inter_bold"
-            android:text="Funding amount"
+            android:text="Funding request"
             android:textColor="@color/hitam"
             android:textSize="14sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/progressFunding" />
+            app:layout_constraintTop_toBottomOf="@id/nominal" />
 
         <TextView
             android:id="@+id/tvStatus"
@@ -102,10 +102,10 @@
             android:text="Payment process"
             android:textColor="@color/status"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/progressFunding" />
+            app:layout_constraintTop_toBottomOf="@id/nominal" />
 
         <TextView
-            android:id="@+id/tvFundingAmountNominal"
+            android:id="@+id/tvfundingall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -124,59 +124,79 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="20dp"
             android:fontFamily="@font/inter_bold"
-            android:text="Sunday, 12 July 2022"
+
             android:textColor="@color/status"
             android:textSize="12sp"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvStatus" />
 
-        <LinearLayout
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
             android:id="@+id/retuning_method"
-            android:layout_width="430dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/grid_nominal_amount"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-
-            app:layout_constraintTop_toBottomOf="@id/tvDate">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="29dp"
-                android:layout_marginTop="15dp"
-                android:fontFamily="@font/inter_bold"
-                android:text="@string/return_meth"
-                android:textColor="@color/hitam"
-                android:textSize="12sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvFundingAmountNominal" />
-
-            <TextView
+            android:background="@color/blue_primary"
+            app:layout_constraintTop_toBottomOf="@id/tvDate"
+            android:layout_marginTop="20dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/inter_bold"
+                        android:text="@string/return_meth"
+                        android:textColor="@color/hitam"
+                        android:textSize="12sp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/retuning_method" />
+        <TextView
                 android:id="@+id/contentreturningmethod"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="140dp"
+            android:layout_marginRight="20dp"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/inter_regular"
                 android:text="@string/six_months_instal"
                 android:textColor="@color/hitam"
                 android:textSize="12sp"
-                app:layout_constraintTop_toBottomOf="@id/tvDate" />
+                app:layout_constraintTop_toBottomOf="@id/retuning_method"
+            app:layout_constraintRight_toRightOf="parent"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:id="@+id/viewcontent"
+            android:background="@color/blue_primary"
+            app:layout_constraintTop_toBottomOf="@id/contentreturningmethod"
+            android:layout_marginTop="15dp"/>
 
 
-        </LinearLayout>
+
+<!--        <LinearLayout-->
+<!--            android:id="@+id/retuning_method"-->
+<!--            android:layout_width="430dp"-->
+<!--            android:layout_height="45dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:background="@drawable/grid_nominal_amount"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+
+<!--            app:layout_constraintTop_toBottomOf="@id/tvDate">-->
+
+
+
+
+
+
+<!--        </LinearLayout>-->
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintpembayaran"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/retuning_method">
+            app:layout_constraintTop_toBottomOf="@id/viewcontent">
 
             <TextView
-                android:id="@+id/tvBca"
+                android:id="@+id/tvNamaBank"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -198,7 +218,7 @@
                 android:fontFamily="@font/inter_bold"
                 android:text="@string/text_virtue_number"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvBca" />
+                app:layout_constraintTop_toBottomOf="@id/tvNamaBank" />
 
             <TextView
                 android:id="@+id/tvvirtualnumber"
@@ -421,8 +441,8 @@
 
                     <ImageView
                         android:id="@+id/ic_logo_loaninformation"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
                         android:layout_marginLeft="22dp"
                         android:layout_marginTop="22dp"
                         android:layout_marginBottom="22dp"
@@ -455,7 +475,8 @@
                         android:textColor="@color/blue_primary"
                         android:textSize="20sp"
                         app:layout_constraintLeft_toRightOf="@id/ic_logo_loaninformation"
-                        app:layout_constraintTop_toBottomOf="@id/loanapp" />
+                        app:layout_constraintTop_toBottomOf="@id/loanapp"
+                        android:layout_marginBottom="12dp"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -578,14 +599,14 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
+                                android:id="@+id/contentaddress"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
                                 android:layout_marginRight="16dp"
                                 android:fontFamily="@font/inter_regular"
-                                android:text="@string/address"
-                                app:layout_constraintRight_toRightOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/tvaddress" />
 
                             <TextView
                                 android:id="@+id/tvsince"
@@ -596,16 +617,16 @@
                                 android:fontFamily="@font/inter_regular"
                                 android:text="@string/text_since"
                                 app:layout_constraintLeft_toLeftOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/tvaddress" />
+                                app:layout_constraintTop_toBottomOf="@id/contentaddress" />
 
                             <TextView
                                 android:id="@+id/addressstartup"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:layout_marginRight="16dp"
+
                                 android:fontFamily="@font/inter_regular"
-                                android:text="@string/address"
+
                                 app:layout_constraintRight_toRightOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 

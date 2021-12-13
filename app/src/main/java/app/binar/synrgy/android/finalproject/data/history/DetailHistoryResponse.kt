@@ -14,7 +14,7 @@ data class DetailHistoryResponse(
 	val status: Int
 )
 
-data class Startup(
+data class StartupDetail(
 
 	@field:SerializedName("youtube")
 	val youtube: String,
@@ -23,7 +23,7 @@ data class Startup(
 	val address: String,
 
 	@field:SerializedName("credentials")
-	val credentials: List<CredentialsItem>,
+	val credentials: List<CredentialsItemDetail>,
 
 	@field:SerializedName("foundedDate")
 	val foundedDate: Any,
@@ -44,7 +44,7 @@ data class Startup(
 	val deletedAt: Any,
 
 	@field:SerializedName("products")
-	val products: List<ProductsItem>,
+	val products: List<ProductsItemDetail>,
 
 	@field:SerializedName("phoneNumber")
 	val phoneNumber: String,
@@ -101,7 +101,7 @@ data class LoanDetail(
 	val updatedAt: String,
 
 	@field:SerializedName("startup")
-	val startup: Startup,
+	val startup: StartupDetail,
 
 	@field:SerializedName("name")
 	val name: String,
@@ -194,13 +194,13 @@ data class DataDetail(
 	val id: Int
 )
 
-data class CredentialsItem(
+data class CredentialsItemDetail(
 
 	@field:SerializedName("credentialUrl")
 	val credentialUrl: String,
 
 	@field:SerializedName("documents")
-	val documents: List<DocumentsItem>,
+	val documents: List<DocumentsItemDetail>,
 
 	@field:SerializedName("created_at")
 	val createdAt: String,
@@ -212,7 +212,7 @@ data class CredentialsItem(
 	val deletedAt: Any,
 
 	@field:SerializedName("credentialType")
-	val credentialType: CredentialType,
+	val credentialType: CredentialTypeDetail,
 
 	@field:SerializedName("updated_at")
 	val updatedAt: String,
@@ -239,7 +239,7 @@ data class CredentialsItem(
 	val status: String
 )
 
-data class DocumentsItem(
+data class DocumentsItemDetail(
 
 	@field:SerializedName("updated_at")
 	val updatedAt: String,
@@ -272,7 +272,7 @@ data class TransactionMethodDetail(
 	val name: String
 )
 
-data class CredentialType(
+data class CredentialTypeDetail(
 
 	@field:SerializedName("updated_at")
 	val updatedAt: String,
@@ -290,13 +290,13 @@ data class CredentialType(
 	val deletedAt: Any
 )
 
-data class ProductsItem(
+data class ProductsItemDetail(
 
 	@field:SerializedName("updated_at")
 	val updatedAt: String,
 
 	@field:SerializedName("productPhotos")
-	val productPhotos: List<ProductPhotosItem>,
+	val productPhotos: List<ProductPhotosItemDetail>,
 
 	@field:SerializedName("name")
 	val name: String,
@@ -329,7 +329,7 @@ data class PaymentAgentDetail(
 	val id: Int
 )
 
-data class ProductPhotosItem(
+data class ProductPhotosItemDetail(
 
 	@field:SerializedName("updated_at")
 	val updatedAt: String,
