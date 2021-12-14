@@ -611,7 +611,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_fund_now"
             android:layout_width="350dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/grid_recycler_home"
@@ -622,7 +622,8 @@
             android:textSize="14sp"
             app:layout_constraintLeft_toLeftOf="@id/layout_footer"
             app:layout_constraintRight_toRightOf="@id/layout_footer"
-            app:layout_constraintTop_toBottomOf="@id/text_funding_amount">
+            app:layout_constraintTop_toBottomOf="@id/text_funding_amount"
+            tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,TouchTargetSizeCheck">
 
         </androidx.appcompat.widget.AppCompatButton>
 
