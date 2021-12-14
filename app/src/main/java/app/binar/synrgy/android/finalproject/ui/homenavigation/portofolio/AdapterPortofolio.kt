@@ -22,6 +22,8 @@ class AdapterPortofolio(
             binding.textTotalAmount.text = CurrencyHelper.toIdrCurrency(portofolioLoan.currentLoanValue)
             binding.textTotalTarget.text = CurrencyHelper.toIdrCurrency(portofolioLoan.targetLoanValue)
             binding.textPaymentDeadline.text = DaysHelper.dateReverse(portofolioLoan.endDate)
+            binding.indicatorPortofolio.max = portofolioLoan.targetLoanValue!!
+            binding.indicatorPortofolio.progress = portofolioLoan.currentLoanValue!!
             portofolioLoan.returnInstallment.forEach {
                 binding.textStatusPayment.text = it.returnStatus
                 when(it.returnStatus){
