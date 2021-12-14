@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 data class PortofolioSummaryResponse(
 
     @field:SerializedName("data")
-    val data: List<summary?>? = null,
+    val data: summary? = null,
 
     @field:SerializedName("message")
     val message: String? = null,

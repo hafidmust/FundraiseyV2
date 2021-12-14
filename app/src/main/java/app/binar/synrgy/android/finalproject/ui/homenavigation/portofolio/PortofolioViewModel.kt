@@ -4,9 +4,11 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import app.binar.synrgy.android.finalproject.data.HomeAPI
+import app.binar.synrgy.android.finalproject.data.home.Data
 import app.binar.synrgy.android.finalproject.data.portofolio.DataItem
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponseDummy
-import app.binar.synrgy.android.finalproject.data.portofolio.returnInstallment
+import app.binar.synrgy.android.finalproject.data.portofolio.ReturnInstallmentItem
+import app.binar.synrgy.android.finalproject.data.portofolio.summary
 import app.binar.synrgy.android.finalproject.utils.DummyBearer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,6 +17,8 @@ import kotlinx.coroutines.withContext
 
 class PortofolioViewModel : ViewModel() {
     val loanResponse: MutableLiveData<List<DataItem>> = MutableLiveData()
+    val summaryResponse : MutableLiveData<summary> = MutableLiveData()
+    val balanceResponse: MutableLiveData<Data> = MutableLiveData()
     private lateinit var homeAPI: HomeAPI
 
     val portofolio = listOf(
@@ -56,43 +60,51 @@ class PortofolioViewModel : ViewModel() {
     )
 
     fun onViewLoaded() {
-        //responseDummy.value = portofolio
+        getDataBalance()
+        getDataSummary()
+        getDataAdapter()
+    }
+
+    fun getDataAdapter(){
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
         CoroutineScope(Dispatchers.IO).launch {
             val response = homeAPI.getPortofolio(
-                "Bearer ${DummyBearer.auth}",
-                0,
-                20,
-                "id",
-                "desc"
+                "Bearer ${DummyBearer.auth}"
             )
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
-                    Log.d("getDataLoan()", response.body().toString())
                     println("loan -> API -> successful")
                     loanResponse.value = response.body()?.data as List<DataItem>
                 } else {
-                    Log.d("getDataLoan()", response.body().toString())
                     println("loan -> API -> failed")
                 }
             }
         }
     }
 
-//    fun getDataInstallment() {
-//        homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
-//        CoroutineScope(Dispatchers.IO).launch {
-//            val response = homeAPI.getPortofolio("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsib2F1dGgyLXJlc291cmNlIl0sInVzZXJfbmFtZSI6ImludmVzdG9yQGZ1bmRyYWlzZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTYzODg5NDY2NCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9JTlZFU1RPUiJdLCJqdGkiOiJiZmMxYWU2NS02OWM5LTRlYmItODc0Mi0xM2Y3ODA5NzU0NDgiLCJjbGllbnRfaWQiOiJjbGllbnQtd2ViIn0.4abQPwy1tYJ0-sG2P0gipx8c_VL_R0BOrOMooCLNNQM",0,20,"id","desc")
-//            withContext(Dispatchers.Main) {
-//                if (response.isSuccessful) {
-//                    Log.d("getDataInstallment()", response.body().toString())
-//                    println("installment -> API -> successful")
-//                    installmentResponse.value = response.body()?.data as List<returnInstallment>
-//                } else {
-//                    Log.d("getDataInstallment()", response.body().toString())
-//                    println("installment -> API -> failed")
-//                }
-//            }
-//        }
-//    }
+    fun getDataSummary(){
+        homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
+        CoroutineScope(Dispatchers.IO).launch {
+            val responseSummary = homeAPI.getPortofolioSummary("Bearer ${DummyBearer.auth}")
+
+            withContext(Dispatchers.Main){
+                if (responseSummary.isSuccessful){
+                    summaryResponse.value = responseSummary.body()?.data
+                }
+            }
+        }
+    }
+
+    fun getDataBalance(){
+        homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
+        CoroutineScope(Dispatchers.IO).launch {
+            val responseBalance = homeAPI.getBalanceHome("Bearer ${DummyBearer.auth}")
+
+            withContext(Dispatchers.Main){
+                if (responseBalance.isSuccessful){
+                    balanceResponse.value = responseBalance.body()?.data
+                }
+            }
+        }
+    }
 }

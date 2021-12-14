@@ -3,9 +3,10 @@ package app.binar.synrgy.android.finalproject.ui.homenavigation.portofolio
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import app.binar.synrgy.android.finalproject.data.portofolio.Data
+import app.binar.synrgy.android.finalproject.R
 import app.binar.synrgy.android.finalproject.data.portofolio.DataItem
 import app.binar.synrgy.android.finalproject.databinding.AdapterRecyclerPortofolioBinding
+import app.binar.synrgy.android.finalproject.utils.CurrencyHelper
 import app.binar.synrgy.android.finalproject.utils.DaysHelper
 
 class AdapterPortofolio(
@@ -18,11 +19,15 @@ class AdapterPortofolio(
         fun bind(portofolioLoan: DataItem) {
             binding.textStartUpName.text = portofolioLoan.startupName
             binding.textProjectFunding.text = portofolioLoan.loanName
-            binding.textTotalAmount.text = portofolioLoan.currentLoanValue.toString()
-            binding.textTotalTarget.text = portofolioLoan.targetLoanValue.toString()
+            binding.textTotalAmount.text = CurrencyHelper.toIdrCurrency(portofolioLoan.currentLoanValue)
+            binding.textTotalTarget.text = CurrencyHelper.toIdrCurrency(portofolioLoan.targetLoanValue)
             binding.textPaymentDeadline.text = DaysHelper.dateReverse(portofolioLoan.endDate)
             portofolioLoan.returnInstallment.forEach {
                 binding.textStatusPayment.text = it.returnStatus
+                when(it.returnStatus){
+                    "unpaid" -> binding.textStatusPayment.setBackgroundResource(R.drawable.box_rectangle_porto_adapter_late)
+                    "paid" -> binding.textStatusPayment.setBackgroundResource(R.drawable.box_rectangle_porto_adapter_paid)
+                }
             }
             binding.root.setOnClickListener {
                 listener.click(portofolioLoan)

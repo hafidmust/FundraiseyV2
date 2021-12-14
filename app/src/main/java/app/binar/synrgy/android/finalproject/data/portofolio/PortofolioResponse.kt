@@ -1,82 +1,105 @@
 package app.binar.synrgy.android.finalproject.data.portofolio
 
 import com.google.gson.annotations.SerializedName
-import java.util.*
 
 data class PortofolioResponse(
 
-    @field:SerializedName("data")
-    val data: List<Data?>? = null,
+	@field:SerializedName("data")
+	val data: List<DataItem>,
 
-    @field:SerializedName("message")
-    val message: String? = null,
+	@field:SerializedName("message")
+	val message: String,
 
-    @field:SerializedName("status")
-    val status: Int? = null
+	@field:SerializedName("status")
+	val status: Int
+)
+
+data class Payment(
+
+	@field:SerializedName("returnDate")
+	val returnDate: String,
+
+	@field:SerializedName("returnPeriod")
+	val returnPeriod: Int,
+
+	@field:SerializedName("status")
+	val status: String
+)
+
+data class PaymentInvoice(
+
+	@field:SerializedName("amount")
+	val amount: Int,
+
+	@field:SerializedName("id")
+	val id: Int,
+
+	@field:SerializedName("paymentDate")
+	val paymentDate: String
 
 )
 
-data class Data(
+data class DataItem(
 
-    @field:SerializedName("transactionId")
-    val transactionId: Int? = null,
+	@field:SerializedName("loanName")
+	val loanName: String,
 
-    @field:SerializedName("startupId")
-    val startupId: Int? = null,
+	@field:SerializedName("endDate")
+	val endDate: String,
 
-    @field:SerializedName("startupName")
-    val startupName: String? = null,
+	@field:SerializedName("currentLoanValue")
+	val currentLoanValue: Int,
 
-    @field:SerializedName("loanId")
-    val loanId: Int? = null,
+	@field:SerializedName("paymentPlanName")
+	val paymentPlanName: String,
 
-    @field:SerializedName("loanName")
-    val loanName: String? = null,
+	@field:SerializedName("startupName")
+	val startupName: String,
 
-    @field:SerializedName("startDate")
-    val startDate: Date? = null,
+	@field:SerializedName("targetLoanValue")
+	val targetLoanValue: Int,
 
-    @field:SerializedName("endDate")
-    val endDate: Date? = null,
+	@field:SerializedName("returnInstallment")
+	val returnInstallment: List<ReturnInstallmentItem>,
 
-    @field:SerializedName("currentLoanValue")
-    val currentLoanValue: Int? = null,
+	@field:SerializedName("startupId")
+	val startupId: Int,
 
-    @field:SerializedName("targetLoanValue")
-    val targetLoanValue: Int? = null,
+	@field:SerializedName("paymentPlanId")
+	val paymentPlanId: Int,
 
-    @field:SerializedName("paymentPlanId")
-    val paymentPlanId: Int? = null,
+	@field:SerializedName("transactionId")
+	val transactionId: Int,
 
-    @field:SerializedName("paymentPlanName")
-    val paymentPlanName: String? = null,
+	@field:SerializedName("loanId")
+	val loanId: Int,
+
+	@field:SerializedName("startDate")
+	val startDate: String
 
 )
 
-data class returnInstallment(
+data class ReturnInstallmentItem(
 
-    @field:SerializedName("id")
-    val id: Int? = null,
+	@field:SerializedName("amount")
+	val amount: Int,
 
-    @field:SerializedName("returnPeriod")
-    val returnPeriod: Int? = null,
+	@field:SerializedName("returnInvoice")
+	val returnInvoice: Any,
 
-    @field:SerializedName("totalReturnPeriod")
-    val totalReturnPeriod: Date? = null,
+	@field:SerializedName("withdrawn")
+	val withdrawn: Boolean,
 
-    @field:SerializedName("amount")
-    val amount: Int? = null,
+	@field:SerializedName("returnStatus")
+	val returnStatus: String,
 
-    @field:SerializedName("returnStatus")
-    val returnStatus: String? = null,
+	@field:SerializedName("paymentInvoice")
+	val paymentInvoice: Any,
 
-    @field:SerializedName("returnDate")
-    val returnDate: Date? = null,
+	@field:SerializedName("payment")
+	val payment: Payment,
 
-    @field:SerializedName("withdrawn")
-    val withdrawn: Boolean? = null,
-
-    @field:SerializedName("returnInvoice")
-    val returnInvoice: Any? = null,
+	@field:SerializedName("id")
+	val id: Int
 
 )

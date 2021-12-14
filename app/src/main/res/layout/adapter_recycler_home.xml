@@ -18,9 +18,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            >
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/imageView_startup"
@@ -62,27 +60,27 @@
                 android:id="@+id/text_total_donation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/text_projectfunding"
                 android:layout_marginStart="13dp"
                 android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/imageView_startup"
                 android:fontFamily="@font/inter_regular"
                 android:text="@string/donation"
                 android:textColor="@color/black"
-                android:textSize="14sp"
-                android:layout_toRightOf="@id/imageView_startup"
-                android:layout_below="@id/text_projectfunding" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/text_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/text_total_donation"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="7dp"
                 android:fontFamily="@font/inter_regular"
                 android:maxLines="2"
                 android:text="@string/description"
                 android:textColor="@color/grey"
-                android:textSize="12sp"
-                android:layout_below="@id/imageView_startup" />
+                android:textSize="12sp" />
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/indicator_adapter"

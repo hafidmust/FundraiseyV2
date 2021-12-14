@@ -6,9 +6,10 @@ import app.binar.synrgy.android.finalproject.data.home.HomeBalanceResponse
 import app.binar.synrgy.android.finalproject.data.home.HomeLoanResponse
 import app.binar.synrgy.android.finalproject.data.loan.DetailLoanResponse
 import app.binar.synrgy.android.finalproject.data.payment.*
-import app.binar.synrgy.android.finalproject.data.portofolio.PortoResponse
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponse
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioSummaryResponse
+import app.binar.synrgy.android.finalproject.ui.homenavigation.portofolio.AdapterPortofolio
+import app.binar.synrgy.android.finalproject.ui.homenavigation.portofolio.PortofolioViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -45,21 +46,13 @@ interface HomeAPI {
 
     @GET("/v1/investor/loan/portofolio")
     suspend fun getPortofolio(
-        @Header("Authorization") auth : String,
-        @Query("page") page : Int,
-        @Query("size") size : Int,
-        @Query("sort-by") sortBy : String,
-        @Query("sort-type") sortType : String
-    ): Response<PortoResponse>
+        @Header("Authorization") auth : String
+    ): Response<PortofolioResponse>
 
 
     @GET("v1/investor/transaction/all")
     suspend fun getHistory(
-        @Header("Authorization") auth : String,
-        @Query("page") page : Int,
-        @Query("size") size : Int,
-        @Query("sort-by") sortBy : String,
-        @Query("sort-type") sortType : String
+        @Header("Authorization") auth : String
     ) : Response<HistoryResponse>
 
     @GET("/v1/investor/transaction/{id}")

@@ -1,14 +1,10 @@
 package app.binar.synrgy.android.finalproject.ui.homenavigation.home
 
-import android.content.SharedPreferences
-import androidx.core.content.edit
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import app.binar.synrgy.android.finalproject.data.HomeAPI
 import app.binar.synrgy.android.finalproject.data.home.Data
 import app.binar.synrgy.android.finalproject.data.home.DataItem
-import app.binar.synrgy.android.finalproject.data.home.HomeBalanceResponse
-import app.binar.synrgy.android.finalproject.utils.Const
 import app.binar.synrgy.android.finalproject.utils.DummyBearer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

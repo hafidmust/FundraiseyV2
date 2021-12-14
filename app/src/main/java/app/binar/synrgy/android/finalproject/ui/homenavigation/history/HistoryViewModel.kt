@@ -26,7 +26,7 @@ class HistoryViewModel(private val appDatabase: AppDatabase) : ViewModel() {
     fun getDataHistory(){
      homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
      CoroutineScope(Dispatchers.IO).launch {
-         val responseHistory = homeAPI.getHistory("Bearer ${DummyBearer.auth}",0,20,"id","desc")
+         val responseHistory = homeAPI.getHistory("Bearer ${DummyBearer.auth}")
          withContext(Dispatchers.Main){
              if (responseHistory.isSuccessful){
                  history.value = responseHistory.body()?.data?.content
