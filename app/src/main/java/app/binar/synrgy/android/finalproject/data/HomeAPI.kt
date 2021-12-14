@@ -5,7 +5,9 @@ import app.binar.synrgy.android.finalproject.data.history.HistoryResponse
 import app.binar.synrgy.android.finalproject.data.home.HomeBalanceResponse
 import app.binar.synrgy.android.finalproject.data.home.HomeLoanResponse
 import app.binar.synrgy.android.finalproject.data.loan.DetailLoanResponse
+import app.binar.synrgy.android.finalproject.data.payment.*
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponse
+import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioSummaryResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -69,5 +71,25 @@ interface HomeAPI {
     suspend fun getBalanceHome(
         @Header("Authorization") authorization : String
     ) : Response<HomeBalanceResponse>
+
+    @GET("/v1/investor/loan/portofolio-summary")
+    suspend fun getPortofolioSummary(
+        @Header("Authorization") authorization : String
+    ) : Response<PortofolioSummaryResponse>
+
+    @GET("/v1/startup/loan/withdraw/bank-list")
+    suspend fun getBankList(
+        @Header("Authorization") authorization : String
+    ) : Response<BankListResponse>
+
+    @POST("/v1/investor/transaction/insert")
+    suspend fun postPaymentTransaction(
+        @Header("Authorization") authorization : String,
+        @Body request : PaymentTransactionRequest) : Response<PaymentTransactionResponse>
+
+    @POST("/v1/investor/transaction/pay")
+    suspend fun postTransactionStatus(
+        @Header("Authorization") authorization : String,
+        @Body request : TransactionStatusRequest) : Response<TransactionStatusResponse>
 
 }

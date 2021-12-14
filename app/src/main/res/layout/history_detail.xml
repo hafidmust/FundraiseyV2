@@ -80,7 +80,7 @@
 <!--            app:layout_constraintTop_toBottomOf="@id/nominal" />-->
 
         <TextView
-            android:id="@+id/tvFa"
+            android:id="@+id/tvTotalDonor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -115,7 +115,7 @@
             android:textColor="@color/hitam"
             android:textSize="12sp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvFa" />
+            app:layout_constraintTop_toBottomOf="@id/tvTotalDonor" />
 
         <TextView
             android:id="@+id/tvDate"

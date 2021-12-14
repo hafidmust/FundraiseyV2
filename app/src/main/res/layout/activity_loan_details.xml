@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@id/header_label"
         app:layout_constraintLeft_toLeftOf="parent"
         android:fillViewport="true"
-        >
+        app:layout_behavior="com.github.wrdlbrnft.testapp.OverScrollBounceBehavior">
 
 <!--        <LinearLayout-->
 <!--            android:id="@+id/scrollview_loan_information"-->
