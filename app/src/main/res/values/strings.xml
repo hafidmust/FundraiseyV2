@@ -138,7 +138,7 @@
     <string name="text_return_info">Return Information</string>
     <string name="text_loan_refun">Loan Refund</string>
     <string name="text_refund_method">Refund Method</string>
-    <string name="text_late_pay">Late Payment</string>
+    <string name="text_late_pay">Unfinished Payment</string>
     <string name="text_loan_info">Loan Information</string>
     <string name="text_loan_app">Loan Application</string>
     <string name="name_startup">Star Track.inc</string>

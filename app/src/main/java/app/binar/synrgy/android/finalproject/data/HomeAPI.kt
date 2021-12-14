@@ -8,8 +8,6 @@ import app.binar.synrgy.android.finalproject.data.loan.DetailLoanResponse
 import app.binar.synrgy.android.finalproject.data.payment.*
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponse
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioSummaryResponse
-import app.binar.synrgy.android.finalproject.ui.homenavigation.portofolio.AdapterPortofolio
-import app.binar.synrgy.android.finalproject.ui.homenavigation.portofolio.PortofolioViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -48,7 +46,6 @@ interface HomeAPI {
     suspend fun getPortofolio(
         @Header("Authorization") auth : String
     ): Response<PortofolioResponse>
-
 
     @GET("v1/investor/transaction/all")
     suspend fun getHistory(

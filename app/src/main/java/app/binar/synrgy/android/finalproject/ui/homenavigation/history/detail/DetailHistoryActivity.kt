@@ -1,19 +1,11 @@
 package app.binar.synrgy.android.finalproject.ui.homenavigation.history.detail
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
-import app.binar.synrgy.android.finalproject.R
-import app.binar.synrgy.android.finalproject.databinding.DetailLoanBinding
 import app.binar.synrgy.android.finalproject.databinding.HistoryDetailBinding
-import app.binar.synrgy.android.finalproject.ui.homenavigation.HomeNavigationActivity
-import app.binar.synrgy.android.finalproject.ui.loan.LoanDetailsViewModel
-import app.binar.synrgy.android.finalproject.ui.payment.PaymentActivity
 import app.binar.synrgy.android.finalproject.ui.payment.dialog.PopupDialog
 import app.binar.synrgy.android.finalproject.utils.CopyHelper
 import app.binar.synrgy.android.finalproject.utils.CurrencyHelper
@@ -54,7 +46,7 @@ class DetailHistoryActivity : AppCompatActivity() {
             binding.tvDate.text = it.paymentDeadline
             binding.tvvirtualnumber.text = it.accountNumber
             binding.tvjumlahtagihan.text = CurrencyHelper.toIdrCurrency(it.amount)
-            binding.tvAmountLoan.text = it.amount.toString()
+            binding.tvAmountLoan.text = CurrencyHelper.toIdrCurrency(it.amount)
             binding.loanapp.text = it.loan.name
             binding.textStartUpName.text = it.loan.startup.name
             binding.tvcontentaboutstartup.text = it.loan.description
@@ -73,8 +65,6 @@ class DetailHistoryActivity : AppCompatActivity() {
 
             }
 
-
-
 //            binding.loanapp.text = it.name
 //            binding.tvcontentaboutstartup.text = it.description.toString()
 //            binding.nominal.text = it.currentValue.toString()
@@ -90,7 +80,13 @@ class DetailHistoryActivity : AppCompatActivity() {
                 binding.viewlate.visibility = View.GONE
                 binding.tvlatepayment.visibility = View.GONE
             }
+            "unpaid" -> {
+                binding.constraintpembayaran.visibility = View.VISIBLE
+                binding.viewlate.visibility = View.VISIBLE
+                binding.tvlatepayment.visibility = View.VISIBLE
+            }
         }
+
 //        binding.buttonUploadReceipt.setOnClickListener {
 //            dialog.uploadReceiptDialog(true)
 //            Handler(Looper.getMainLooper()).postDelayed({

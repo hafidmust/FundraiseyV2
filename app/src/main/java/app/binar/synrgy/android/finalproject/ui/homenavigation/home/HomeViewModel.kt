@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import app.binar.synrgy.android.finalproject.data.HomeAPI
 import app.binar.synrgy.android.finalproject.data.home.Data
-import app.binar.synrgy.android.finalproject.data.home.DataItem
+import app.binar.synrgy.android.finalproject.data.home.homeDataItem
 import app.binar.synrgy.android.finalproject.utils.DummyBearer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class HomeViewModel : ViewModel() {
-    val homeResponse : MutableLiveData<List<DataItem>> = MutableLiveData()
+    val homeResponse : MutableLiveData<List<homeDataItem>> = MutableLiveData()
     val balanceResponse : MutableLiveData<Data> = MutableLiveData()
     private lateinit var homeAPI : HomeAPI
 
@@ -27,7 +27,7 @@ class HomeViewModel : ViewModel() {
 
             withContext(Dispatchers.Main){
                 if (responseAllLoan.isSuccessful){
-                    homeResponse.value = responseAllLoan.body()?.data as List<DataItem>?
+                    homeResponse.value = responseAllLoan.body()?.data as List<homeDataItem>?
                 }
             }
         }

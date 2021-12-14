@@ -1,13 +1,13 @@
 package app.binar.synrgy.android.finalproject.data.loan
 
-import app.binar.synrgy.android.finalproject.data.home.DataItem
-import app.binar.synrgy.android.finalproject.data.home.Startup
+import app.binar.synrgy.android.finalproject.data.home.homeDataItem
+import app.binar.synrgy.android.finalproject.data.home.homeStartup
 import com.google.gson.annotations.SerializedName
 
 data class LoanResponse(
 
     @field:SerializedName("data")
-    val data: List<DataItem?>? = null,
+    val data: List<homeDataItem?>? = null,
 
     @field:SerializedName("message")
     val message: String? = null,
@@ -26,7 +26,7 @@ data class DataItem(
     val endDate: String? = null,
 
     @field:SerializedName("startup")
-    val startup: Startup? = null,
+    val startup: homeStartup? = null,
 
     @field:SerializedName("name")
     val name: String? = null,
