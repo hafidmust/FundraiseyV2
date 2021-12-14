@@ -49,11 +49,6 @@
         android:fillViewport="true"
         app:layout_behavior="com.github.wrdlbrnft.testapp.OverScrollBounceBehavior">
 
-<!--        <LinearLayout-->
-<!--            android:id="@+id/scrollview_loan_information"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="vertical">-->
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/layout_header"
@@ -634,3 +629,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+<!--bikin const layout lalu di dalamnya ada 2 constrain layout yang sebelumnya -->

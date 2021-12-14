@@ -15,7 +15,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layout_history_adapter"
-            android:layout_width="match_parent"
+            android:layout_width="360dp"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="15dp"
             android:layout_marginVertical="15dp"
@@ -52,7 +52,7 @@
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/indicator_portofolio"
-                android:layout_width="300dp"
+                android:layout_width="320dp"
                 android:layout_height="4dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
@@ -125,7 +125,7 @@
                 android:layout_marginStart="20dp"
                 android:background="@drawable/box_rectangle_porto_adapter_funded"
                 android:paddingHorizontal="25dp"
-                android:paddingVertical="5dp"
+                android:paddingVertical="4dp"
                 android:text="@string/text_being_funded"
                 android:textColor="@color/white"
                 android:textSize="12sp"
