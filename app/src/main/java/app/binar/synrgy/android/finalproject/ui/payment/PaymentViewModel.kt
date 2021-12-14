@@ -1,62 +1,98 @@
 package app.binar.synrgy.android.finalproject.ui.payment
 
-import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
-import app.binar.synrgy.android.finalproject.R
-import app.binar.synrgy.android.finalproject.databinding.ActivityPaymentBinding
+import android.content.SharedPreferences
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import app.binar.synrgy.android.finalproject.data.HomeAPI
+import app.binar.synrgy.android.finalproject.data.payment.PaymentTransactionRequest
+import app.binar.synrgy.android.finalproject.data.payment.TransactionStatusRequest
+import app.binar.synrgy.android.finalproject.data.payment.bankList
+import app.binar.synrgy.android.finalproject.model.ErrorModel
+import app.binar.synrgy.android.finalproject.utils.Const
+import app.binar.synrgy.android.finalproject.utils.DummyBearer
+import com.google.gson.Gson
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-class PaymentViewModel : AppCompatActivity(), View.OnClickListener {
-    private lateinit var binding: ActivityPaymentBinding
+class PaymentViewModel(sharedPreferences: SharedPreferences) : ViewModel() {
+    val bankList: MutableLiveData<List<bankList>> = MutableLiveData()
+    val showMessageAPI: MutableLiveData<String> = MutableLiveData()
+    val showMessageAmount: MutableLiveData<String> = MutableLiveData()
+    val showLoading: MutableLiveData<Boolean> = MutableLiveData(false)
+    val paymentSuccess: MutableLiveData<Boolean> = MutableLiveData(false)
+    val enableTransaction: MutableLiveData<Boolean> = MutableLiveData()
+    var paymentAgentId: Int = 1
+    var paymentAgentCode: String = ""
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        binding = ActivityPaymentBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        supportActionBar?.hide()
-        super.onCreate(savedInstanceState)
+    private lateinit var homeAPI: HomeAPI
+    private var amount: Int = 0
+    private var transactionId = (10_000..90_000).random()
+    private var fundingID: Int = sharedPreferences.getInt(Const.FUNDING_ID, 2)
 
-        val button50k = findViewById<Button>(R.id.button_50k)
-        val button100k = findViewById<Button>(R.id.button_100k)
-        val button200k = findViewById<Button>(R.id.button_200k)
-        val button500k = findViewById<Button>(R.id.button_500k)
-        val button1000k = findViewById<Button>(R.id.button_1000k)
-        val button2000k = findViewById<Button>(R.id.button_1500k)
-
-        button50k.setOnClickListener(this)
-        button100k.setOnClickListener(this)
-        button200k.setOnClickListener(this)
-        button500k.setOnClickListener(this)
-        button1000k.setOnClickListener(this)
-        button2000k.setOnClickListener(this)
-    }
-
-    override fun onClick(v: View?) {
-
-
-        when (v?.getId()) {
-            R.id.button_50k -> binding.button50k.setBackgroundColor(R.drawable.button_blue_primary)
-            R.id.button_100k -> binding.button50k.setBackgroundColor(R.drawable.button_blue_primary);
-            R.id.button_200k -> binding.button50k.setBackgroundColor(R.drawable.button_blue_primary);
-            R.id.button_500k -> binding.button50k.setBackgroundColor(R.drawable.button_blue_primary);
-            R.id.button_1000k -> binding.button50k.setBackgroundColor(R.drawable.button_blue_primary);
-            R.id.button_1500k -> binding.button50k.setBackgroundColor(R.drawable.button_blue_primary);
-            else -> secondFun()
-        }
-        when (v?.getId()) { //            R.id.button_50k -> binding.button50k.setBackgroundColor(R.drawable.button_border_blue);
-//            R.id.button_100k -> binding.button50k.setBackgroundColor(R.drawable.button_border_blue);
-//            R.id.button_200k -> binding.button50k.setBackgroundColor(R.drawable.button_border_blue);
-//            R.id.button_500k -> binding.button50k.setBackgroundColor(R.drawable.button_border_blue);
-//            R.id.button_1000k -> binding.button50k.setBackgroundColor(R.drawable.button_border_blue);
-//            R.id.button_2000k -> binding.button50k.setBackgroundColor(R.drawable.button_border_blue);
+    fun onChangeAmount(amount: Int) {
+        this.amount = amount
+        if (!validateAmount()) {
+            showMessageAmount.value = "Your minimum amount must be at least IDR 50.000"
+        } else {
+            validateAmount()
         }
     }
 
-    private fun firstFun() {
-
+    private fun validateAmount(amount: Int = this.amount): Boolean {
+        enableTransaction.value = amount >= 50_000
+        return enableTransaction.value == true
     }
 
-    private fun secondFun() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    fun doPayment() {
+        homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
+        showLoading.value = true
+        CoroutineScope(Dispatchers.IO).launch {
+            val request = PaymentTransactionRequest(
+                loanId = fundingID,
+                amount = amount,
+                paymentAgentId = paymentAgentId
+            )
+            val response = homeAPI.postPaymentTransaction("Bearer ${DummyBearer.auth}", request)
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    if (response.body()?.status == 403) {
+                        showMessageAPI.value = response.body()!!.message
+                        showLoading.value = false
+                    }
+                } else {
+                    val error =
+                        Gson().fromJson(response.errorBody()?.string(), ErrorModel::class.java)
+                    showMessageAPI.value = error.message
+                    showLoading.value = false
+                }
+            }
+        }
+    }
+
+    fun doPaymentStatus() {
+        homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
+        showLoading.value = true
+        CoroutineScope(Dispatchers.IO).launch {
+            val request = TransactionStatusRequest(
+                transactionId = transactionId
+            )
+            val response = homeAPI.postTransactionStatus("Bearer ${DummyBearer.auth}", request)
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    if (response.body()?.status == 403) {
+                        showMessageAPI.value = response.body()!!.message
+                        paymentSuccess.value = true
+                        showLoading.value = false
+                    }
+                } else {
+                    val error =
+                        Gson().fromJson(response.errorBody()?.string(), ErrorModel::class.java)
+                    showMessageAPI.value = error.message
+                    showLoading.value = false
+                }
+            }
+        }
     }
 }

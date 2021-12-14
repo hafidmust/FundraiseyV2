@@ -96,7 +96,6 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="0dp"
             android:fontFamily="@font/inter_bold"
-
             android:textColor="@color/white"
             android:textFontWeight="700"
             android:textSize="18sp"
@@ -215,7 +214,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:listitem="@layout/adapter_recycler_home" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </androidx.core.widget.NestedScrollView>
 

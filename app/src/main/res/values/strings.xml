@@ -37,13 +37,13 @@
     <string name="page_payment_screen">Payment</string>
     <string name="nominal_amount">Nominal Amounts</string>
     <string name="nominal_text">Nominal</string>
-    <string name="hint_text_amount">Rp 0</string>
-    <string name="fiftythousand">Rp 50.000</string>
-    <string name="onehundred">Rp 100.000</string>
-    <string name="twohundred">Rp 200.000</string>
-    <string name="fivehundred">Rp 500.000</string>
-    <string name="onemillion">Rp 1.000.000</string>
-    <string name="onehalfmillion">Rp 1.500.000</string>
+    <string name="hint_text_amount">Rp. 0</string>
+    <string name="fiftythousand">50000</string>
+    <string name="onehundred">100000</string>
+    <string name="twohundred">200000</string>
+    <string name="fivehundred">500000</string>
+    <string name="onemillion">1000000</string>
+    <string name="onehalfmillion">1500000</string>
 
     <string name="payment_metode">Payment Method</string>
     <string name="bank_trans">Bank Transfer</string>

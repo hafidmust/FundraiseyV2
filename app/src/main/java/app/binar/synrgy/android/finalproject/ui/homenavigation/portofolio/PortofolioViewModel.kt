@@ -7,6 +7,7 @@ import app.binar.synrgy.android.finalproject.data.HomeAPI
 import app.binar.synrgy.android.finalproject.data.portofolio.Data
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponseDummy
 import app.binar.synrgy.android.finalproject.data.portofolio.returnInstallment
+import app.binar.synrgy.android.finalproject.utils.DummyBearer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -59,7 +60,7 @@ class PortofolioViewModel : ViewModel() {
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
         CoroutineScope(Dispatchers.IO).launch {
             val response = homeAPI.getPortofolio(
-                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsib2F1dGgyLXJlc291cmNlIl0sInVzZXJfbmFtZSI6ImludmVzdG9yQGZ1bmRyYWlzZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTYzODk4OTUwMiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9JTlZFU1RPUiJdLCJqdGkiOiI4MjY2NmM4My0wZDRhLTRkZWYtOTQwNi1jMTU2Yzk1NTdlYTkiLCJjbGllbnRfaWQiOiJjbGllbnQtd2ViIn0.9YsOc6ZNousIpQn3rG4aK6AWUy-vpfkd6mYeQ46R7p8",
+                "Bearer ${DummyBearer.auth}",
                 0,
                 20,
                 "id",
