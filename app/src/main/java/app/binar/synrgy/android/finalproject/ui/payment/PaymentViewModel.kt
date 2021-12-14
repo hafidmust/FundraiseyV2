@@ -76,14 +76,13 @@ class PaymentViewModel(sharedPreferences: SharedPreferences) : ViewModel() {
         showLoading.value = true
         CoroutineScope(Dispatchers.IO).launch {
             val request = TransactionStatusRequest(
-                transactionId = transactionId
+                transactionId = fundingID
             )
             val response = homeAPI.postTransactionStatus("Bearer ${DummyBearer.auth}", request)
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     if (response.body()?.status == 403) {
                         showMessageAPI.value = response.body()!!.message
-                        paymentSuccess.value = true
                         showLoading.value = false
                     }
                 } else {
@@ -92,6 +91,7 @@ class PaymentViewModel(sharedPreferences: SharedPreferences) : ViewModel() {
                     showMessageAPI.value = error.message
                     showLoading.value = false
                 }
+                paymentSuccess.value = true
             }
         }
     }

@@ -53,27 +53,27 @@ class PaymentActivity : AppCompatActivity() {
         binding.button1500k.text = "${format.format(1500_000)}"
 
         binding.button50k.setOnClickListener {
-            binding.boxNominal.setText("${formatter.format(50000)}")
+            binding.boxNominal.setText("50000")
         }
 
         binding.button100k.setOnClickListener {
-            binding.boxNominal.setText("${formatter.format(100000)}")
+            binding.boxNominal.setText("100000")
         }
 
         binding.button200k.setOnClickListener {
-            binding.boxNominal.setText("${formatter.format(50000)}")
+            binding.boxNominal.setText("200000")
         }
 
         binding.button500k.setOnClickListener {
-            binding.boxNominal.setText("${formatter.format(200000)}")
+            binding.boxNominal.setText("500000")
         }
 
         binding.button1000k.setOnClickListener {
-            binding.boxNominal.setText("${formatter.format(1000000)}")
+            binding.boxNominal.setText("1000000")
         }
 
         binding.button1500k.setOnClickListener {
-            binding.boxNominal.setText("${formatter.format(1500000)}")
+            binding.boxNominal.setText("1500000")
         }
 
         binding.buttonPay.setOnClickListener {
@@ -81,7 +81,12 @@ class PaymentActivity : AppCompatActivity() {
             viewModel.doPaymentStatus()
         }
 
-        binding.boxNominal.addTextChangedListener(MoneyTextWatcher(binding.boxNominal))
+        binding.boxNominal.doAfterTextChanged {
+            var amount : Int = binding.boxNominal.text.toString().toInt()
+            viewModel.onChangeAmount(amount)
+        }
+
+        //binding.boxNominal.addTextChangedListener(MoneyTextWatcher(binding.boxNominal))
         binding.boxNominal.addTextChangedListener(object : TextWatcher {
 
             override fun afterTextChanged(s: Editable) {
@@ -99,71 +104,71 @@ class PaymentActivity : AppCompatActivity() {
         })
 
 
-//        binding.radiogroupBankTransfer.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener{
-//                radiogroupBankTransfer, id ->
-//            //val id: Int = radiogroupBankTransfer.checkedRadioButtonId
-//            when (id) {
-//                binding.radioBankBca.id -> {
-//                    binding.radiogroupEWalet.clearCheck()
-//                    viewModel.paymentAgentCode = "014"
-//                    viewModel.paymentAgentId = 1
-//                }
-//                binding.radioBankMandiri.id -> {
-//                    binding.radiogroupEWalet.clearCheck()
-//                    viewModel.paymentAgentCode = "008"
-//                    viewModel.paymentAgentId = 2
-//                }
-//            }
-//        })
+        binding.radiogroupBankTransfer.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener{
+                radiogroupBankTransfer, id ->
+            //val id: Int = radiogroupBankTransfer.checkedRadioButtonId
+            when (id) {
+                binding.radioBankBca.id -> {
+                    binding.radiogroupEWalet.clearCheck()
+                    viewModel.paymentAgentCode = "014"
+                    viewModel.paymentAgentId = 1
+                }
+                binding.radioBankMandiri.id -> {
+                    binding.radiogroupEWalet.clearCheck()
+                    viewModel.paymentAgentCode = "008"
+                    viewModel.paymentAgentId = 2
+                }
+            }
+        })
+
+        binding.radiogroupEWalet.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener{
+                radiogroupEWalet, id ->
+            //val id: Int = radiogroupEWalet.checkedRadioButtonId
+            when (id) {
+                binding.radioGopay.id -> {
+                    binding.radiogroupBankTransfer.clearCheck()
+                    viewModel.paymentAgentCode = phoneNumber!!
+                    viewModel.paymentAgentId = 3
+                }
+                binding.radioOvo.id -> {
+                    binding.radiogroupBankTransfer.clearCheck()
+                    viewModel.paymentAgentCode = phoneNumber!!
+                    viewModel.paymentAgentId = 4
+                }
+            }
+        })
+
+//        var radioGroupBank: RadioGroup = findViewById(R.id.radiogroup_bank_transfer)
+//        var radioGroupEWalet: RadioGroup = findViewById(R.id.radiogroup_e_walet)
 //
-//        binding.radiogroupEWalet.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener{
-//                radiogroupEWalet, id ->
-//            //val id: Int = radiogroupEWalet.checkedRadioButtonId
-//            when (id) {
-//                binding.radioGopay.id -> {
-//                    binding.radiogroupBankTransfer.clearCheck()
-//                    viewModel.paymentAgentCode = phoneNumber!!
-//                    viewModel.paymentAgentId = 3
-//                }
-//                binding.radioOvo.id -> {
-//                    binding.radiogroupBankTransfer.clearCheck()
-//                    viewModel.paymentAgentCode = phoneNumber!!
-//                    viewModel.paymentAgentId = 4
-//                }
+//        var radioBCA: RadioButton = findViewById(R.id.radio_bank_bca)
+//        var radioMandiri: RadioButton = findViewById(R.id.radio_bank_mandiri)
+//        var radioOVO: RadioButton = findViewById(R.id.radio_ovo)
+//        var radioGopay: RadioButton = findViewById(R.id.radio_gopay)
+//
+//        radioGroupBank.setOnCheckedChangeListener { group, checkedId ->
+//            if (checkedId == radioBCA.id) {
+//                radioGroupEWalet.clearCheck()
+//                viewModel.paymentAgentCode = "014"
+//                viewModel.paymentAgentId = 1
+//            } else if (checkedId == radioMandiri.id) {
+//                radioGroupEWalet.clearCheck()
+//                viewModel.paymentAgentCode = "008"
+//                viewModel.paymentAgentId = 2
 //            }
-//        })
-
-        var radioGroupBank: RadioGroup = findViewById(R.id.radiogroup_bank_transfer)
-        var radioGroupEWalet: RadioGroup = findViewById(R.id.radiogroup_e_walet)
-
-        var radioBCA: RadioButton = findViewById(R.id.radio_bank_bca)
-        var radioMandiri: RadioButton = findViewById(R.id.radio_bank_mandiri)
-        var radioOVO: RadioButton = findViewById(R.id.radio_ovo)
-        var radioGopay: RadioButton = findViewById(R.id.radio_gopay)
-
-        radioGroupBank.setOnCheckedChangeListener { group, checkedId ->
-            if (checkedId == radioBCA.id) {
-                radioGroupEWalet.clearCheck()
-                viewModel.paymentAgentCode = "014"
-                viewModel.paymentAgentId = 1
-            } else if (checkedId == radioMandiri.id) {
-                radioGroupEWalet.clearCheck()
-                viewModel.paymentAgentCode = "008"
-                viewModel.paymentAgentId = 2
-            }
-        }
-
-        radioGroupEWalet.setOnCheckedChangeListener { group, checkedId ->
-            if (checkedId == radioGopay.id) {
-                radioGroupBank.clearCheck()
-                viewModel.paymentAgentCode = phoneNumber!!
-                viewModel.paymentAgentId = 3
-            } else if (checkedId == radioOVO.id) {
-                radioGroupBank.clearCheck()
-                viewModel.paymentAgentCode = phoneNumber!!
-                viewModel.paymentAgentId = 4
-            }
-        }
+//        }
+//
+//        radioGroupEWalet.setOnCheckedChangeListener { group, checkedId ->
+//            if (checkedId == radioGopay.id) {
+//                radioGroupBank.clearCheck()
+//                viewModel.paymentAgentCode = phoneNumber!!
+//                viewModel.paymentAgentId = 3
+//            } else if (checkedId == radioOVO.id) {
+//                radioGroupBank.clearCheck()
+//                viewModel.paymentAgentCode = phoneNumber!!
+//                viewModel.paymentAgentId = 4
+//            }
+//        }
 
 //        radioBCA.setOnCheckedChangeListener { buttonView, isChecked ->
 //            radioBCA.isChecked

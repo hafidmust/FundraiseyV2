@@ -1,7 +1,5 @@
 package app.binar.synrgy.android.finalproject.data.portofolio
 
-import app.binar.synrgy.android.finalproject.data.home.DataItem
-import app.binar.synrgy.android.finalproject.model.PortofolioModel
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
