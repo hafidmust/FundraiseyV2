@@ -28,6 +28,7 @@ class HistoryFragment : Fragment() {
             override fun click(item: ContentItem) {
                 val intentSendId = Intent(activity, DetailHistoryActivity::class.java).apply {
                     putExtra(DetailHistoryActivity.GET_ID, item.id)
+                    putExtra(DetailHistoryActivity.GET_STATUS, item.transactionStatus)
                 }
                 startActivity(intentSendId)
             }

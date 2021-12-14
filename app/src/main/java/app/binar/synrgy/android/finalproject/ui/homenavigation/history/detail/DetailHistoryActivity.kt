@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import app.binar.synrgy.android.finalproject.R
 import app.binar.synrgy.android.finalproject.databinding.DetailLoanBinding
@@ -28,6 +29,7 @@ class DetailHistoryActivity : AppCompatActivity() {
 
     companion object {
         const val GET_ID = "get_id"
+        const val GET_STATUS = "get_status"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +40,9 @@ class DetailHistoryActivity : AppCompatActivity() {
 
         val id = intent.getIntExtra(GET_ID, 0)
         Log.d("id", id.toString())
+        val statusPay = intent.getStringExtra(GET_STATUS)
+        Log.d("coba", statusPay.toString())
+
         viewModel = ViewModelProvider(this).get(DetailHistoryViewModel::class.java)
         viewModel.getDataFromAPI(id)
         viewModel.loanResponse.observe(this, {
@@ -46,7 +51,7 @@ class DetailHistoryActivity : AppCompatActivity() {
 //            binding.progressFunding.max = it.loan.targetValue
 //            binding.progressFunding.progress = it.amount
             binding.tvfundingall.text = CurrencyHelper.toIdrCurrency(it.loan.targetValue)
-            binding.tvDate.text = DaysHelper.dateFormatter(it.paymentDeadline)
+            binding.tvDate.text = it.paymentDeadline
             binding.tvvirtualnumber.text = it.accountNumber
             binding.tvjumlahtagihan.text = CurrencyHelper.toIdrCurrency(it.amount)
             binding.tvAmountLoan.text = it.amount.toString()
@@ -60,8 +65,9 @@ class DetailHistoryActivity : AppCompatActivity() {
                 .into(binding.icLogoLoaninformation)
             binding.tvContentWeb.text = it.loan.startup.web
             binding.tvContentPhone.text = it.loan.startup.phoneNumber
-            binding.tvContentLinkedin.text = it.loan.startup.linkedin
-            binding.tvContentInstagram.text = it.loan.startup.instagram
+            binding.tvContentLinkedin.text = "-"
+            binding.tvContentInstagram.text = "-"
+            binding.tvContentfb.text = "-"
             binding.tvNamaBank.text = it.paymentAgent.name
             binding.tvCopyVa.setOnClickListener {
 
@@ -74,6 +80,17 @@ class DetailHistoryActivity : AppCompatActivity() {
 //            binding.nominal.text = it.currentValue.toString()
 
         })
+        when(statusPay){
+            "pending" ->{
+                binding.viewlate.visibility = View.GONE
+                binding.tvlatepayment.visibility = View.GONE
+            }
+            "paid" -> {
+                binding.constraintpembayaran.visibility = View.GONE
+                binding.viewlate.visibility = View.GONE
+                binding.tvlatepayment.visibility = View.GONE
+            }
+        }
 //        binding.buttonUploadReceipt.setOnClickListener {
 //            dialog.uploadReceiptDialog(true)
 //            Handler(Looper.getMainLooper()).postDelayed({
