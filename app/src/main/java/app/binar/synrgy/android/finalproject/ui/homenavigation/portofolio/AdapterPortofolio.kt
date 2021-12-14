@@ -4,21 +4,26 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import app.binar.synrgy.android.finalproject.data.portofolio.Data
+import app.binar.synrgy.android.finalproject.data.portofolio.DataItem
 import app.binar.synrgy.android.finalproject.databinding.AdapterRecyclerPortofolioBinding
+import app.binar.synrgy.android.finalproject.utils.DaysHelper
 
 class AdapterPortofolio(
-    var data: List<Data>,
+    var data: List<DataItem>,
     val listener: EventListener,
     ) : RecyclerView.Adapter<AdapterPortofolio.ViewHolder>() {
 
     inner class ViewHolder(val binding: AdapterRecyclerPortofolioBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(portofolioLoan: Data) {
+        fun bind(portofolioLoan: DataItem) {
             binding.textStartUpName.text = portofolioLoan.startupName
             binding.textProjectFunding.text = portofolioLoan.loanName
             binding.textTotalAmount.text = portofolioLoan.currentLoanValue.toString()
             binding.textTotalTarget.text = portofolioLoan.targetLoanValue.toString()
-            binding.textPaymentDeadline.text = portofolioLoan.endDate.toString()
+            binding.textPaymentDeadline.text = DaysHelper.dateReverse(portofolioLoan.endDate)
+            portofolioLoan.returnInstallment.forEach {
+                binding.textStatusPayment.text = it.returnStatus
+            }
             binding.root.setOnClickListener {
                 listener.click(portofolioLoan)
             }
@@ -47,7 +52,7 @@ class AdapterPortofolio(
     }
 
     interface EventListener {
-        fun click(item: Data)
+        fun click(item: DataItem)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterPortofolio.ViewHolder {
@@ -56,7 +61,7 @@ class AdapterPortofolio(
         return ViewHolder(binding)
     }
 
-    fun update(data: List<Data>) {
+    fun update(data: List<DataItem>) {
         this.data = data
         notifyDataSetChanged()
     }

@@ -215,7 +215,6 @@
 
     <RadioGroup
         android:id="@+id/radiogroup_bank_transfer"
-        android:checkedButton="@id/radio_bank_bca"
         android:layout_width="340dp"
         android:layout_height="130dp"
         android:layout_marginStart="20dp"

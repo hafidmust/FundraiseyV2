@@ -19,4 +19,10 @@ object DaysHelper {
         val formatter : SimpleDateFormat = SimpleDateFormat("HH:mm dd-MM-yyyy")
         return formatter.format(parser.parse(time))
     }
+    fun dateReverse(time : String): String {
+        val parser : SimpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
+        val formatter : SimpleDateFormat = SimpleDateFormat("EEE, dd MMM yyyy")
+        return formatter.format(parser.parse(time))
+    }
+
 }

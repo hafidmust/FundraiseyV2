@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import app.binar.synrgy.android.finalproject.data.portofolio.Data
+import app.binar.synrgy.android.finalproject.data.portofolio.DataItem
 import app.binar.synrgy.android.finalproject.databinding.FragmentPortofolioBinding
 
 
@@ -27,7 +28,7 @@ class PortofolioFragment : Fragment() {
 
         val adapterPortofolio = AdapterPortofolio(listOf(),
             object : AdapterPortofolio.EventListener {
-                override fun click(item: Data) {
+                override fun click(item: DataItem) {
 
                 }
             })

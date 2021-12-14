@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import app.binar.synrgy.android.finalproject.data.HomeAPI
-import app.binar.synrgy.android.finalproject.data.portofolio.Data
+import app.binar.synrgy.android.finalproject.data.portofolio.DataItem
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponseDummy
 import app.binar.synrgy.android.finalproject.data.portofolio.returnInstallment
 import app.binar.synrgy.android.finalproject.utils.DummyBearer
@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class PortofolioViewModel : ViewModel() {
-    val loanResponse: MutableLiveData<List<Data>> = MutableLiveData()
+    val loanResponse: MutableLiveData<List<DataItem>> = MutableLiveData()
     private lateinit var homeAPI: HomeAPI
 
     val portofolio = listOf(
@@ -70,7 +70,7 @@ class PortofolioViewModel : ViewModel() {
                 if (response.isSuccessful) {
                     Log.d("getDataLoan()", response.body().toString())
                     println("loan -> API -> successful")
-                    loanResponse.value = response.body()?.data as List<Data>
+                    loanResponse.value = response.body()?.data as List<DataItem>
                 } else {
                     Log.d("getDataLoan()", response.body().toString())
                     println("loan -> API -> failed")

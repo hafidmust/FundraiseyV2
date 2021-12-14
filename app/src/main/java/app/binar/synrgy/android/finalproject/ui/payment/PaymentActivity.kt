@@ -103,23 +103,34 @@ class PaymentActivity : AppCompatActivity() {
             }
         })
 
-
-        binding.radiogroupBankTransfer.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener{
-                radiogroupBankTransfer, id ->
-            //val id: Int = radiogroupBankTransfer.checkedRadioButtonId
-            when (id) {
-                binding.radioBankBca.id -> {
-                    binding.radiogroupEWalet.clearCheck()
-                    viewModel.paymentAgentCode = "014"
-                    viewModel.paymentAgentId = 1
-                }
-                binding.radioBankMandiri.id -> {
-                    binding.radiogroupEWalet.clearCheck()
-                    viewModel.paymentAgentCode = "008"
-                    viewModel.paymentAgentId = 2
-                }
-            }
-        })
+        binding.radiogroupBankTransfer.setOnCheckedChangeListener { group, checkedId ->
+         when(checkedId){
+             binding.radioBankBca.id -> {
+                 viewModel.paymentAgentCode = "014"
+                 viewModel.paymentAgentId = 1
+             }
+             binding.radioBankMandiri.id ->{
+                 viewModel.paymentAgentCode = "008"
+                 viewModel.paymentAgentId = 2
+             }
+         }
+        }
+//        binding.radiogroupBankTransfer.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener{
+//                radiogroupBankTransfer, id ->
+//            //val id: Int = radiogroupBankTransfer.checkedRadioButtonId
+//            when (id) {
+//                binding.radioBankBca.id -> {
+//                    binding.radiogroupEWalet.clearCheck()
+//                    viewModel.paymentAgentCode = "014"
+//                    viewModel.paymentAgentId = 1
+//                }
+//                binding.radioBankMandiri.id -> {
+//                    binding.radiogroupEWalet.clearCheck()
+//                    viewModel.paymentAgentCode = "008"
+//                    viewModel.paymentAgentId = 2
+//                }
+//            }
+//        })
 
         binding.radiogroupEWalet.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener{
                 radiogroupEWalet, id ->

@@ -136,14 +136,14 @@
                 android:id="@+id/text_deadline_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/text_deadline"
+                android:layout_alignParentRight="true"
                 android:fontFamily="@font/inter_regular"
                 android:paddingRight="15dp"
                 android:paddingBottom="15dp"
                 android:text="@string/date_deadline"
                 android:textColor="@color/black"
-                android:textSize="12sp"
-                android:layout_alignParentRight="true"
-                android:layout_below="@id/text_deadline" />
+                android:textSize="12sp" />
 
 
         </RelativeLayout>

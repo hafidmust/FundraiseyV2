@@ -6,6 +6,7 @@ import app.binar.synrgy.android.finalproject.data.home.HomeBalanceResponse
 import app.binar.synrgy.android.finalproject.data.home.HomeLoanResponse
 import app.binar.synrgy.android.finalproject.data.loan.DetailLoanResponse
 import app.binar.synrgy.android.finalproject.data.payment.*
+import app.binar.synrgy.android.finalproject.data.portofolio.PortoResponse
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponse
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioSummaryResponse
 import okhttp3.OkHttpClient
@@ -49,7 +50,7 @@ interface HomeAPI {
         @Query("size") size : Int,
         @Query("sort-by") sortBy : String,
         @Query("sort-type") sortType : String
-    ): Response<PortofolioResponse>
+    ): Response<PortoResponse>
 
 
     @GET("v1/investor/transaction/all")
