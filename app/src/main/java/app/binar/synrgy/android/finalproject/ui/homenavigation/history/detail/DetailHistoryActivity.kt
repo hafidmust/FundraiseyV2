@@ -7,12 +7,8 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import app.binar.synrgy.android.finalproject.databinding.HistoryDetailBinding
 import app.binar.synrgy.android.finalproject.ui.payment.dialog.PopupDialog
-import app.binar.synrgy.android.finalproject.utils.CopyHelper
 import app.binar.synrgy.android.finalproject.utils.CurrencyHelper
-import app.binar.synrgy.android.finalproject.utils.DaysHelper
 import com.bumptech.glide.Glide
-import okhttp3.internal.wait
-
 
 class DetailHistoryActivity : AppCompatActivity() {
     private lateinit var binding: HistoryDetailBinding

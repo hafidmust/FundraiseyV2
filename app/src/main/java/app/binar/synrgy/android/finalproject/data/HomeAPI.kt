@@ -74,11 +74,6 @@ interface HomeAPI {
         @Header("Authorization") authorization : String
     ) : Response<PortofolioSummaryResponse>
 
-    @GET("/v1/startup/loan/withdraw/bank-list")
-    suspend fun getBankList(
-        @Header("Authorization") authorization : String
-    ) : Response<BankListResponse>
-
     @POST("/v1/investor/transaction/insert")
     suspend fun postPaymentTransaction(
         @Header("Authorization") authorization : String,

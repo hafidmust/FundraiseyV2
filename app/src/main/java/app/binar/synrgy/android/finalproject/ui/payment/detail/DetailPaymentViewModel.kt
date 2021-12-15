@@ -1,4 +1,4 @@
-package app.binar.synrgy.android.finalproject.ui.payment
+package app.binar.synrgy.android.finalproject.ui.payment.detail
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

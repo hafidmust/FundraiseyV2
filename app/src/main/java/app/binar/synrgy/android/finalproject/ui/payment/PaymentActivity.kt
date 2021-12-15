@@ -7,19 +7,13 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.widget.RadioButton
 import android.widget.RadioGroup
-import android.widget.Toast
-import androidx.core.view.isVisible
-import androidx.core.view.marginStart
 import androidx.core.widget.doAfterTextChanged
 import app.binar.synrgy.android.finalproject.R
 import app.binar.synrgy.android.finalproject.databinding.ActivityPaymentBinding
-import app.binar.synrgy.android.finalproject.ui.homenavigation.history.detail.DetailHistoryActivity
+import app.binar.synrgy.android.finalproject.ui.payment.detail.DetailPaymentActivity
 import app.binar.synrgy.android.finalproject.utils.Const
 import com.google.android.material.snackbar.Snackbar
-import org.kodejava.android.MoneyTextWatcher
-import java.math.BigDecimal
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
@@ -144,7 +138,6 @@ class PaymentActivity : AppCompatActivity() {
             if (it) {
                 startActivity(
                     Intent(this, DetailPaymentActivity::class.java).apply {
-                        putExtra(DetailPaymentActivity.GET_ID, sharedPreferences.getInt(Const.FUNDING_ID, 2))
                         this.addFlags(
                             Intent.FLAG_ACTIVITY_CLEAR_TOP or
                                     Intent.FLAG_ACTIVITY_CLEAR_TASK or
