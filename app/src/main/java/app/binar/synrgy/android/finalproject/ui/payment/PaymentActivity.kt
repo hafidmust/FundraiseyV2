@@ -102,33 +102,36 @@ class PaymentActivity : AppCompatActivity() {
             }
         })
 
-        binding.radiogroupBankTransfer.setOnCheckedChangeListener { group, checkedId ->
-            when (checkedId) {
-                binding.radioBankBca.id -> {
+        binding.rgBank.setOnCheckedChangeListener { group, checkedId ->
+            when(checkedId){
+                binding.rbBca.id -> {
                     viewModel.paymentAgentCode = "014"
                     viewModel.paymentAgentId = 1
+                    binding.rgWallet.clearCheck()
                 }
-                binding.radioBankMandiri.id -> {
+                binding.rbMandiri.id ->{
                     viewModel.paymentAgentCode = "008"
                     viewModel.paymentAgentId = 2
+                    binding.rgWallet.clearCheck()
+                }
+
+            }
+        }
+        binding.rgWallet.setOnCheckedChangeListener { group, checkedId ->
+            when(checkedId){
+                binding.rbGopay.id ->{
+                    viewModel.paymentAgentCode = phoneNumber!!
+                    viewModel.paymentAgentId = 3
+                    binding.rgBank.clearCheck()
+                }
+                binding.rbObo.id ->{
+                    viewModel.paymentAgentCode = phoneNumber!!
+                    viewModel.paymentAgentId = 4
+                    binding.rgBank.clearCheck()
                 }
             }
         }
 
-        binding.radiogroupEWalet.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { radiogroupEWalet, id ->
-            when (id) {
-                binding.radioGopay.id -> {
-                    binding.radiogroupBankTransfer.clearCheck()
-                    viewModel.paymentAgentCode = phoneNumber!!
-                    viewModel.paymentAgentId = 3
-                }
-                binding.radioOvo.id -> {
-                    binding.radiogroupBankTransfer.clearCheck()
-                    viewModel.paymentAgentCode = phoneNumber!!
-                    viewModel.paymentAgentId = 4
-                }
-            }
-        })
 
         viewModel.showMessageAPI.observe(this, {
             Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
