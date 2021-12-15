@@ -58,6 +58,12 @@ interface HomeAPI {
         @Path("id") id : Int
     ) : Response<DetailHistoryResponse>
 
+    @GET("/v1/investor/transaction/{id}")
+    suspend fun getPaymentDetail(
+        @Header("Authorization") auth : String,
+        @Path("id") id : Int
+    ) : Response<PaymentDetailResponse>
+
     @GET("/v1/investor/loan/portofolio-summary")
     suspend fun getBalanceHome(
         @Header("Authorization") authorization : String
@@ -82,5 +88,10 @@ interface HomeAPI {
     suspend fun postTransactionStatus(
         @Header("Authorization") authorization : String,
         @Body request : TransactionStatusRequest) : Response<TransactionStatusResponse>
+
+    @POST("/v1/investor/loan/withdraw-all")
+    suspend fun withdrawAllFunds(
+        @Header("Authorization") authorization : String,
+    )
 
 }

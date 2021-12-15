@@ -5,11 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import app.binar.synrgy.android.finalproject.data.HomeAPI
 import app.binar.synrgy.android.finalproject.data.home.Data
-import app.binar.synrgy.android.finalproject.data.portofolio.DataItem
-import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponseDummy
-import app.binar.synrgy.android.finalproject.data.portofolio.ReturnInstallmentItem
-import app.binar.synrgy.android.finalproject.data.portofolio.summary
+import app.binar.synrgy.android.finalproject.data.payment.TransactionStatusRequest
+import app.binar.synrgy.android.finalproject.data.portofolio.*
+import app.binar.synrgy.android.finalproject.model.ErrorModel
 import app.binar.synrgy.android.finalproject.utils.DummyBearer
+import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,7 +17,7 @@ import kotlinx.coroutines.withContext
 
 class PortofolioViewModel : ViewModel() {
     val loanResponse: MutableLiveData<List<DataItem>> = MutableLiveData()
-    val summaryResponse : MutableLiveData<summary> = MutableLiveData()
+    val summaryResponse: MutableLiveData<summary> = MutableLiveData()
     val balanceResponse: MutableLiveData<Data> = MutableLiveData()
     private lateinit var homeAPI: HomeAPI
 
@@ -65,7 +65,16 @@ class PortofolioViewModel : ViewModel() {
         getDataAdapter()
     }
 
-    fun getDataAdapter(){
+    fun withdrawAllFunds() {
+        homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
+        CoroutineScope(Dispatchers.IO).launch {
+            withContext(Dispatchers.Main) {
+                homeAPI.withdrawAllFunds("Bearer ${DummyBearer.auth}")
+            }
+        }
+    }
+
+    fun getDataAdapter() {
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
         CoroutineScope(Dispatchers.IO).launch {
             val response = homeAPI.getPortofolio(
@@ -82,26 +91,26 @@ class PortofolioViewModel : ViewModel() {
         }
     }
 
-    fun getDataSummary(){
+    fun getDataSummary() {
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
         CoroutineScope(Dispatchers.IO).launch {
             val responseSummary = homeAPI.getPortofolioSummary("Bearer ${DummyBearer.auth}")
 
-            withContext(Dispatchers.Main){
-                if (responseSummary.isSuccessful){
+            withContext(Dispatchers.Main) {
+                if (responseSummary.isSuccessful) {
                     summaryResponse.value = responseSummary.body()?.data
                 }
             }
         }
     }
 
-    fun getDataBalance(){
+    fun getDataBalance() {
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
         CoroutineScope(Dispatchers.IO).launch {
             val responseBalance = homeAPI.getBalanceHome("Bearer ${DummyBearer.auth}")
 
-            withContext(Dispatchers.Main){
-                if (responseBalance.isSuccessful){
+            withContext(Dispatchers.Main) {
+                if (responseBalance.isSuccessful) {
                     balanceResponse.value = responseBalance.body()?.data
                 }
             }

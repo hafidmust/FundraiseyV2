@@ -37,6 +37,7 @@ class HistoryFragment : Fragment() {
         viewModel.history.observe(viewLifecycleOwner,{
             historyAdapter.update(it)
         })
+
         val root : View = binding.root
         return root
     }

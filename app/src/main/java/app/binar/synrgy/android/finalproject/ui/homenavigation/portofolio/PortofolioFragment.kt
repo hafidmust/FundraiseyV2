@@ -61,6 +61,10 @@ class PortofolioFragment : Fragment() {
             binding.textDummyStartup.text = "${it.loanTransactionCount} Startup"
         })
 
+        binding.buttonWithdraw.setOnClickListener {
+            portofolioViewModel.withdrawAllFunds()
+        }
+
         return binding.root
     }
 
