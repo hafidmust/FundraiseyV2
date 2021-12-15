@@ -103,17 +103,34 @@ class PaymentActivity : AppCompatActivity() {
             }
         })
 
-        binding.radiogroupBankTransfer.setOnCheckedChangeListener { group, checkedId ->
+        binding.rgBank.setOnCheckedChangeListener { group, checkedId ->
          when(checkedId){
-             binding.radioBankBca.id -> {
+             binding.rbBca.id -> {
                  viewModel.paymentAgentCode = "014"
                  viewModel.paymentAgentId = 1
+                 binding.rgWallet.clearCheck()
              }
-             binding.radioBankMandiri.id ->{
+             binding.rbMandiri.id ->{
                  viewModel.paymentAgentCode = "008"
                  viewModel.paymentAgentId = 2
+                 binding.rgWallet.clearCheck()
              }
+
          }
+        }
+        binding.rgWallet.setOnCheckedChangeListener { group, checkedId ->
+            when(checkedId){
+                binding.rbGopay.id ->{
+                    viewModel.paymentAgentCode = phoneNumber!!
+                    viewModel.paymentAgentId = 3
+                    binding.rgBank.clearCheck()
+                }
+                binding.rbObo.id ->{
+                    viewModel.paymentAgentCode = phoneNumber!!
+                    viewModel.paymentAgentId = 4
+                    binding.rgBank.clearCheck()
+                }
+            }
         }
 //        binding.radiogroupBankTransfer.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener{
 //                radiogroupBankTransfer, id ->
@@ -132,22 +149,22 @@ class PaymentActivity : AppCompatActivity() {
 //            }
 //        })
 
-        binding.radiogroupEWalet.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener{
-                radiogroupEWalet, id ->
-            //val id: Int = radiogroupEWalet.checkedRadioButtonId
-            when (id) {
-                binding.radioGopay.id -> {
-                    binding.radiogroupBankTransfer.clearCheck()
-                    viewModel.paymentAgentCode = phoneNumber!!
-                    viewModel.paymentAgentId = 3
-                }
-                binding.radioOvo.id -> {
-                    binding.radiogroupBankTransfer.clearCheck()
-                    viewModel.paymentAgentCode = phoneNumber!!
-                    viewModel.paymentAgentId = 4
-                }
-            }
-        })
+//        binding.radiogroupEWalet.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener{
+//                radiogroupEWalet, id ->
+//            //val id: Int = radiogroupEWalet.checkedRadioButtonId
+//            when (id) {
+//                binding.radioGopay.id -> {
+//                    binding.radiogroupBankTransfer.clearCheck()
+//                    viewModel.paymentAgentCode = phoneNumber!!
+//                    viewModel.paymentAgentId = 3
+//                }
+//                binding.radioOvo.id -> {
+//                    binding.radiogroupBankTransfer.clearCheck()
+//                    viewModel.paymentAgentCode = phoneNumber!!
+//                    viewModel.paymentAgentId = 4
+//                }
+//            }
+//        })
 
 //        var radioGroupBank: RadioGroup = findViewById(R.id.radiogroup_bank_transfer)
 //        var radioGroupEWalet: RadioGroup = findViewById(R.id.radiogroup_e_walet)
