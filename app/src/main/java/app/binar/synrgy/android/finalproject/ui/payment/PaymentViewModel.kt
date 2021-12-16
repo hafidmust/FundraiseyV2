@@ -153,9 +153,9 @@ class PaymentViewModel(sharedPreferences: SharedPreferences) : ViewModel() {
 //            withContext(Dispatchers.Main) {
 //                if (response.isSuccessful) {
 //                    if (response.body()?.status == 403) {
-////                        sharedPreferences.edit {
-////                            putInt(Const.TRANSACTION_ID, response.body()?.data!!.idData)
-////                        }
+//                        sharedPreferences.edit {
+//                            putInt(Const.TRANSACTION_ID, response.body()?.data!!.idData)
+//                        }
 //                        showMessageAPI.value = response.body()!!.message
 ////                        doPaymentStatus(sharedPreferences.getInt(Const.TRANSACTION_ID, 0))
 //                    }

@@ -28,7 +28,6 @@ class HomeViewModel : ViewModel() {
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
         CoroutineScope(Dispatchers.IO).launch {
             val responseAllLoan = homeAPI.getAllLoan()
-
             withContext(Dispatchers.Main){
                 if (responseAllLoan.isSuccessful){
                     homeResponse.value = responseAllLoan.body()?.data as List<homeDataItem>?

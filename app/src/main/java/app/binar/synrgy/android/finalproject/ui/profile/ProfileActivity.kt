@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.lifecycle.ViewModelProvider
 import app.binar.synrgy.android.finalproject.databinding.ActivityProfileVerificationBinding
 import app.binar.synrgy.android.finalproject.ui.payment.dialog.PopupDialog
@@ -45,8 +46,15 @@ class ProfileActivity : AppCompatActivity() {
                 })
 
             val alert = dialogBuilder.create()
-            alert.setTitle("AlertDialogExample")
+            alert.setTitle("")
             alert.show()
+        }
+
+        binding.buttonLogoutVerif.setOnClickListener {
+            sharedPreferences.edit {
+                putBoolean(Const.IS_LOGIN, false)
+                apply()
+            }
         }
 
         viewModel.getVerification()

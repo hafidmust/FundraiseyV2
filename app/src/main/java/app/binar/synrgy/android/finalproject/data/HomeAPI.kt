@@ -96,5 +96,4 @@ interface HomeAPI {
     suspend fun withdrawAllFunds(
         @Header("Authorization") authorization : String,
     )
-
 }

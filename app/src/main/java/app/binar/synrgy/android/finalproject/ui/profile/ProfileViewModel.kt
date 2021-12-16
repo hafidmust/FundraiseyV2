@@ -1,17 +1,19 @@
 package app.binar.synrgy.android.finalproject.ui.profile
 
 import android.content.SharedPreferences
+import androidx.core.content.edit
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import app.binar.synrgy.android.finalproject.data.HomeAPI
 import app.binar.synrgy.android.finalproject.data.profile.VerificationData
+import app.binar.synrgy.android.finalproject.utils.Const
 import app.binar.synrgy.android.finalproject.utils.DummyBearer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class ProfileViewModel : ViewModel() {
+class ProfileViewModel() : ViewModel() {
     val verificationResponse : MutableLiveData<VerificationData> = MutableLiveData()
     private lateinit var homeAPI: HomeAPI
 

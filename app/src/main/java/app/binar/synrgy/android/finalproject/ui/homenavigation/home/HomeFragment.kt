@@ -58,7 +58,7 @@ class HomeFragment : Fragment() {
                         })
 
                     val alert = dialogBuilder.create()
-                    alert.setTitle("AlertDialogExample")
+                    alert.setTitle("")
                     alert.show()
                 } else {
                     val intentSendId = Intent(activity, LoanDetailsActivity::class.java).apply {
@@ -82,6 +82,21 @@ class HomeFragment : Fragment() {
         })
         homeViewModel.balanceResponse.observe(viewLifecycleOwner,{
             binding.amountBalance.text = CurrencyHelper.toIdrCurrency(it.balance)
+        })
+        homeViewModel.verificationResponse.observe(viewLifecycleOwner, {
+            when (isLogin) {
+                true -> {
+                    when (it.verified) {
+                        true -> {
+                            binding.indicatorHeader.progress = 100
+                        }
+                        false -> {
+                            binding.indicatorHeader.progress = 50
+                        }
+                    }
+                }
+                false -> binding.indicatorHeader.progress = 0
+            }
         })
         return root
     }
