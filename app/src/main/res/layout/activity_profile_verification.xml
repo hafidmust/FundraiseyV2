@@ -40,7 +40,8 @@
     <LinearLayout
         android:id="@+id/section_balance"
         android:layout_width="match_parent"
-        android:layout_height="86dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
         android:background="@color/blue_primary"
         android:orientation="vertical"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -79,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="7dp"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/inter_regular"
             android:text="@string/text_username_email"
             android:textColor="@color/white"
@@ -88,23 +89,23 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/email_username" />
 
-
     </LinearLayout>
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/box_progress"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
         android:background="@color/blue_primary"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/section_balance">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="85dp"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="8dp"
+            android:paddingBottom="12dp"
             android:background="@drawable/box_rectangle_fragment_home"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -130,7 +131,6 @@
                 android:layout_marginTop="9dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="49dp"
-                android:progress="50"
                 app:indicatorColor="@color/blue_primary"
                 app:indicatorDirectionLinear="leftToRight"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -185,7 +185,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/box_progress">
 
-
         <TextView
             android:id="@+id/text_lender_personal"
             android:layout_width="wrap_content"
@@ -200,14 +199,13 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/box_data"
             android:layout_width="340dp"
             android:layout_height="60dp"
             android:layout_marginVertical="20dp"
             android:background="@drawable/box_rectangle_grey"
-            android:elevation="5dp"
+            android:elevation="2dp"
             android:orientation="horizontal"
             android:paddingHorizontal="12.5dp"
             android:paddingBottom="20dp"

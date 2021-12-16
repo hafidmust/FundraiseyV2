@@ -160,7 +160,6 @@
                 android:layout_marginTop="9dp"
                 android:layout_marginEnd="30dp"
                 android:layout_marginBottom="49dp"
-                android:progress="50"
                 app:indicatorColor="@color/blue_primary"
                 app:indicatorDirectionLinear="leftToRight"
                 app:layout_constraintLeft_toLeftOf="parent"

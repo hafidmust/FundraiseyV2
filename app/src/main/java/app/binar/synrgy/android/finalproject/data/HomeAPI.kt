@@ -9,6 +9,7 @@ import app.binar.synrgy.android.finalproject.data.loan.DetailLoanResponse
 import app.binar.synrgy.android.finalproject.data.payment.*
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponse
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioSummaryResponse
+import app.binar.synrgy.android.finalproject.data.profile.VerificationResponse
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -75,6 +76,11 @@ interface HomeAPI {
     suspend fun getPortofolioSummary(
         @Header("Authorization") authorization : String
     ) : Response<PortofolioSummaryResponse>
+
+    @GET("/v1/user/investor/detail")
+    suspend fun getVerificationData(
+        @Header("Authorization") authorization: String
+    ) : Response<VerificationResponse>
 
     @POST("/v1/investor/transaction/insert")
     suspend fun postPaymentTransaction(

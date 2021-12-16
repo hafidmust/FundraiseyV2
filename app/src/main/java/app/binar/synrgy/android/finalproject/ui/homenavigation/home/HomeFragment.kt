@@ -1,5 +1,6 @@
 package app.binar.synrgy.android.finalproject.ui.homenavigation.home
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -35,23 +36,41 @@ class HomeFragment : Fragment() {
             }
             startActivity(intentSendId)
         }
+        binding.shimmerAdapterHome.startShimmerAnimation()
 
         val sharedPreferences = requireActivity().getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
         val root: View = binding.root
-//        shimmer
-        binding.shimmerAdapterHome.startShimmerAnimation()
-//        binding.shimmerBalance.startShimmerAnimation()
+        val isLogin = sharedPreferences.getBoolean(Const.IS_LOGIN, false)
         val homeAdapter = AdapterHome(listOf(), object : AdapterHome.EventListener{
             override fun click(item: homeDataItem) {
-                val intentSendId = Intent(activity, LoanDetailsActivity::class.java).apply {
-                    putExtra(LoanDetailsActivity.GET_ID, item.id)
-                    sharedPreferences.edit {
-                        this.putInt(Const.FUNDING_ID, item.id!!)
+                if (isLogin == false) {
+                    val dialogBuilder = AlertDialog.Builder(activity)
+
+                    dialogBuilder.setMessage("This activity requires you to sign in, would you like to sign in first?")
+                        .setTitle("")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", { dialog, id ->
+                            //Goto Register Page
+                            dialog.dismiss()
+                        })
+                        .setNegativeButton("No", { dialog, id ->
+                            dialog.dismiss()
+                        })
+
+                    val alert = dialogBuilder.create()
+                    alert.setTitle("AlertDialogExample")
+                    alert.show()
+                } else {
+                    val intentSendId = Intent(activity, LoanDetailsActivity::class.java).apply {
+                        putExtra(LoanDetailsActivity.GET_ID, item.id)
+                        sharedPreferences.edit {
+                            this.putInt(Const.FUNDING_ID, item.id!!)
+                        }
                     }
+                    startActivity(intentSendId)
                 }
-                startActivity(intentSendId)
             }
-        } )
+        })
 
         binding.recyclerHome.adapter = homeAdapter
         homeViewModel.onViewLoaded()
@@ -59,8 +78,6 @@ class HomeFragment : Fragment() {
         homeViewModel.homeResponse.observe(viewLifecycleOwner, {
             binding.shimmerAdapterHome.stopShimmerAnimation()
             binding.shimmerAdapterHome.visibility = View.GONE
-//            binding.shimmerBalance.stopShimmerAnimation()
-//            binding.shimmerBalance.visibility = View.GONE
             homeAdapter.update(it)
         })
         homeViewModel.balanceResponse.observe(viewLifecycleOwner,{
@@ -73,5 +90,4 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

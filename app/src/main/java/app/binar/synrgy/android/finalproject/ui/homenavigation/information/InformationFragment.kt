@@ -1,5 +1,6 @@
 package app.binar.synrgy.android.finalproject.ui.homenavigation.information
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -39,11 +40,25 @@ class InformationFragment : Fragment() {
         binding.recyclerFaq1.adapter = informationAdapter
         binding.recyclerFaq2.adapter = informationAdapter2
         binding.buttonContactFaq.setOnClickListener {
-            val number = "+62 82362035167"
-            val url = "https://api.whatsapp.com/send?phone=$number"
-            val i = Intent(Intent.ACTION_VIEW)
-            i.data = Uri.parse(url)
-            startActivity(i)
+
+            val dialogBuilder = AlertDialog.Builder(activity)
+
+            dialogBuilder.setMessage("This action will take you to our Whatsapp Contact, continue?")
+                .setCancelable(false)
+                .setPositiveButton("Proceed", { dialog, id ->
+                    val number = "+62 82362035167"
+                    val url = "https://api.whatsapp.com/send?phone=$number"
+                    val i = Intent(Intent.ACTION_VIEW)
+                    i.data = Uri.parse(url)
+                    startActivity(i)
+                })
+                .setNegativeButton("Stay Here", {
+                        dialog, id -> dialog.dismiss()
+                })
+
+            val alert = dialogBuilder.create()
+            alert.setTitle("AlertDialogExample")
+            alert.show()
         }
 
         viewModel.onViewLoaded()

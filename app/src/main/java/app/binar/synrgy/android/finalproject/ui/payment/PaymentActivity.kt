@@ -114,7 +114,6 @@ class PaymentActivity : AppCompatActivity() {
                     viewModel.paymentAgentId = 2
                     binding.rgWallet.clearCheck()
                 }
-
             }
         }
         binding.rgWallet.setOnCheckedChangeListener { group, checkedId ->
@@ -131,7 +130,6 @@ class PaymentActivity : AppCompatActivity() {
                 }
             }
         }
-
 
         viewModel.showMessageAPI.observe(this, {
             Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()

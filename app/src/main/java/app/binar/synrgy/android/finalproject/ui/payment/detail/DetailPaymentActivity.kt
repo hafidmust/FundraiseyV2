@@ -39,7 +39,12 @@ class DetailPaymentActivity() : AppCompatActivity() {
             binding.tvvirtualnumber.text = it.accountNumber
             binding.tvjumlahtagihan.text = CurrencyHelper.toIdrCurrency(it.amount)
             binding.tvDeadlineTimestamp.text = it.paymentDeadline
-            binding.tvBca.text = "${it.paymentAgent.name} Virtual Account"
+            when{
+                it.paymentAgent.equals(1) -> binding.tvBca.text = "BCA Virtual Account"
+                it.paymentAgent.equals(2) -> binding.tvBca.text = "Mandiri Virtual Account"
+                it.paymentAgent.equals(3) -> binding.tvBca.text = "OVO Virtual Account"
+                it.paymentAgent.equals(4) -> binding.tvBca.text = "GOPAY Virtual Account"
+            }
             status = it.transactionStatus
         })
 

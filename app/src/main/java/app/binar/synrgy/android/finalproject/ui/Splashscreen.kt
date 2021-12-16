@@ -28,6 +28,8 @@ class Splashscreen : AppCompatActivity() {
 
         sharedPreferences.edit {
             this.putString(Const.PHONE_NUMBER, "0876543210")
+            this.putBoolean(Const.IS_LOGIN, true)
+            this.putString(Const.EMAIL, "fundraisey_dev@gmail.com")
             apply()
         }
 

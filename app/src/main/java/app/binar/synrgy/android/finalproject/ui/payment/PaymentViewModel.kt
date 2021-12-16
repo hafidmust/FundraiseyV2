@@ -1,5 +1,6 @@
 package app.binar.synrgy.android.finalproject.ui.payment
 
+import android.app.AlertDialog
 import android.content.SharedPreferences
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -26,7 +27,6 @@ class PaymentViewModel(sharedPreferences: SharedPreferences) : ViewModel() {
 
     private lateinit var homeAPI: HomeAPI
     private var amount: Int = 0
-    private var transactionId = (10_000..90_000).random()
     private var fundingID: Int = sharedPreferences.getInt(Const.FUNDING_ID, 2)
 
     fun onChangeAmount(amount: Int) {

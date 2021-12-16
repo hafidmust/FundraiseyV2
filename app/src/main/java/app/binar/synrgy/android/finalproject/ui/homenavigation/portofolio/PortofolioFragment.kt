@@ -1,10 +1,13 @@
 package app.binar.synrgy.android.finalproject.ui.homenavigation.portofolio
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import app.binar.synrgy.android.finalproject.data.portofolio.DataItem
@@ -36,9 +39,9 @@ class PortofolioFragment : Fragment() {
                     val intentSendId = Intent(activity, DetailHistoryActivity::class.java).apply {
                         putExtra(DetailHistoryActivity.GET_ID, item.transactionId)
                         item.returnInstallment.forEach {
-                                putExtra(DetailHistoryActivity.GET_STATUS, it.returnStatus)
-                            }
+                            putExtra(DetailHistoryActivity.GET_STATUS, it.returnStatus)
                         }
+                    }
                     startActivity(intentSendId)
                 }
             })
@@ -52,8 +55,44 @@ class PortofolioFragment : Fragment() {
             binding.totBalanceScreen.text = CurrencyHelper.toIdrCurrency(it.balance)
             binding.totNeedBalanceScreen.text = CurrencyHelper.toIdrCurrency(it.totalFunding)
             binding.totSlashBalanceScreen.text = "/"
-        })
+            val balance = it.balance
+            binding.buttonWithdraw.setOnClickListener {
+                if (balance == 0) {
+                    binding.buttonWithdraw.setOnClickListener {
+                        val dialogBuilder = AlertDialog.Builder(activity)
 
+                        dialogBuilder.setMessage("You have an insufficient amount of fund")
+                            .setTitle("")
+                            .setCancelable(false)
+                            .setPositiveButton("Ok", { dialog, id ->
+                                dialog.dismiss()
+                            })
+
+                        val alert = dialogBuilder.create()
+                        alert.setTitle("AlertDialogExample")
+                        alert.show()
+                    }
+                } else {
+                    val dialogBuilder = AlertDialog.Builder(activity)
+
+                    dialogBuilder.setMessage("Do you want withdraw all your remaining balance?")
+                        .setTitle("")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", { dialog, id ->
+                            binding.buttonWithdraw.setOnClickListener {
+                                portofolioViewModel.withdrawAllFunds()
+                                Toast.makeText(activity, "Your balance has succesfully been withdrawn",Toast.LENGTH_SHORT).show()
+                            }
+                        })
+                        .setNegativeButton("No", { dialog, id ->
+                            dialog.cancel()
+                        })
+                    val alert = dialogBuilder.create()
+                    alert.setTitle("AlertDialogExample")
+                    alert.show()
+                }
+            }
+        })
         portofolioViewModel.summaryResponse.observe(viewLifecycleOwner, {
             binding.textDummy10jt.text = CurrencyHelper.toIdrCurrency(it.totalWithdrawnThisMonth)
             binding.textDummy7jt.text = CurrencyHelper.toIdrCurrency(it.totalFunding)
@@ -61,13 +100,8 @@ class PortofolioFragment : Fragment() {
             binding.textDummyStartup.text = "${it.loanTransactionCount} Startup"
         })
 
-        binding.buttonWithdraw.setOnClickListener {
-            portofolioViewModel.withdrawAllFunds()
-        }
-
         return binding.root
     }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

@@ -5,19 +5,23 @@ import androidx.lifecycle.ViewModel
 import app.binar.synrgy.android.finalproject.data.HomeAPI
 import app.binar.synrgy.android.finalproject.data.home.Data
 import app.binar.synrgy.android.finalproject.data.home.homeDataItem
+import app.binar.synrgy.android.finalproject.data.profile.VerificationData
 import app.binar.synrgy.android.finalproject.utils.DummyBearer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import retrofit2.create
 
 class HomeViewModel : ViewModel() {
     val homeResponse : MutableLiveData<List<homeDataItem>> = MutableLiveData()
     val balanceResponse : MutableLiveData<Data> = MutableLiveData()
+    val verificationResponse : MutableLiveData<VerificationData> = MutableLiveData()
     private lateinit var homeAPI : HomeAPI
 
     fun onViewLoaded(){
         getDataFromAPI()
+        getVerification()
     }
 
     fun getDataFromAPI(){
@@ -41,6 +45,19 @@ class HomeViewModel : ViewModel() {
             withContext(Dispatchers.Main){
                 if (responseBalance.isSuccessful){
                     balanceResponse.value = responseBalance.body()?.data
+                }
+            }
+        }
+    }
+
+    fun getVerification(){
+        homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
+        CoroutineScope(Dispatchers.IO).launch {
+            val responseVerification = homeAPI.getVerificationData("Bearer ${DummyBearer.auth}")
+
+            withContext(Dispatchers.Main){
+                if (responseVerification.isSuccessful){
+                    verificationResponse.value = responseVerification.body()?.data
                 }
             }
         }
