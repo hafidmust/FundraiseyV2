@@ -38,6 +38,8 @@ class HomeFragment : Fragment() {
 
         val sharedPreferences = requireActivity().getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
         val root: View = binding.root
+//        shimmer
+        binding.shimmerAdapterHome.startShimmerAnimation()
         val homeAdapter = AdapterHome(listOf(), object : AdapterHome.EventListener{
             override fun click(item: homeDataItem) {
                 val intentSendId = Intent(activity, LoanDetailsActivity::class.java).apply {
@@ -54,6 +56,8 @@ class HomeFragment : Fragment() {
         homeViewModel.onViewLoaded()
         homeViewModel.getDataBalance()
         homeViewModel.homeResponse.observe(viewLifecycleOwner, {
+            binding.shimmerAdapterHome.stopShimmerAnimation()
+            binding.shimmerAdapterHome.visibility = View.GONE
             homeAdapter.update(it)
         })
         homeViewModel.balanceResponse.observe(viewLifecycleOwner,{
