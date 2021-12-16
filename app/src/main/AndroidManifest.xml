@@ -23,6 +23,9 @@
             android:name=".ui.signup.SignupActivity"
             android:exported="true"/>
         <activity
+            android:name=".ui.signin.SignInActivity"
+            android:exported="true"/>
+        <activity
             android:name=".ui.homenavigation.HomeNavigationActivity"
             android:exported="true"/>
         <activity

@@ -11,6 +11,7 @@ import app.binar.synrgy.android.finalproject.constant.Const
 import app.binar.synrgy.android.finalproject.databinding.ActivitySignInBinding
 import app.binar.synrgy.android.finalproject.ui.homenavigation.HomeNavigationActivity
 import app.binar.synrgy.android.finalproject.ui.loading.LoadingDialog
+import app.binar.synrgy.android.finalproject.ui.signup.SignupActivity
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -27,6 +28,11 @@ class SignInActivity : AppCompatActivity() {
         // inisialisasi sharedpreferences
         val sharedPreferences : SharedPreferences =
             applicationContext.getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
+
+        binding.register.setOnClickListener {
+            startActivity(Intent(this, SignupActivity::class.java))
+            finish()
+        }
 
         // viewmodel initial
         viewModel = SignInViewModel(sharedPreferences)

@@ -1,10 +1,12 @@
 package app.binar.synrgy.android.finalproject.ui.homenavigation.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -12,7 +14,6 @@ import app.binar.synrgy.android.finalproject.constant.Const
 import app.binar.synrgy.android.finalproject.databinding.FragmentHomeBinding
 import app.binar.synrgy.android.finalproject.ui.signin.SignInActivity
 import app.binar.synrgy.android.finalproject.ui.signup.SignupActivity
-import app.binar.synrgy.android.finalproject.ui.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
