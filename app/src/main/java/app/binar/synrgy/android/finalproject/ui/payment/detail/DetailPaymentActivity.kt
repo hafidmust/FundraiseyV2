@@ -27,9 +27,9 @@ class DetailPaymentActivity() : AppCompatActivity() {
         binding = ActivityDetailPaymentBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
-        detailPaymentViewModel = DetailPaymentViewModel()
 
         val sharedPreferences = getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
+        detailPaymentViewModel = DetailPaymentViewModel()
         val id = sharedPreferences.getInt(Const.FUNDING_ID,  0)
         Log.d("id", id.toString())
 
@@ -58,7 +58,6 @@ class DetailPaymentActivity() : AppCompatActivity() {
             },5000)
         }
         binding.btnCheckInvestmentStatus.setOnClickListener {
-            dialog.showDialog(true)
             startActivity(
                 Intent(this, DetailHistoryActivity::class.java).apply {
                     putExtra(DetailHistoryActivity.GET_ID, sharedPreferences.getInt(Const.FUNDING_ID, 2))

@@ -2,6 +2,7 @@ package app.binar.synrgy.android.finalproject.data
 
 import app.binar.synrgy.android.finalproject.data.history.DetailHistoryResponse
 import app.binar.synrgy.android.finalproject.data.history.HistoryResponse
+import app.binar.synrgy.android.finalproject.data.history.PaymentTransactionResponseSuccess
 import app.binar.synrgy.android.finalproject.data.home.HomeBalanceResponse
 import app.binar.synrgy.android.finalproject.data.home.HomeLoanResponse
 import app.binar.synrgy.android.finalproject.data.loan.DetailLoanResponse
@@ -32,7 +33,7 @@ interface HomeAPI {
         }
     }
 
-    @GET("/v1/loan/all")
+    @GET("/v1/loan/all?page=0&size=20&sort-by=id&sort-type=desc")
 //    import ?
     suspend fun getAllLoan(): Response<HomeLoanResponse>
 
@@ -42,14 +43,15 @@ interface HomeAPI {
         id: Int
     ): Response<DetailLoanResponse>
 
-    @GET("/v1/investor/loan/portofolio")
+    @GET("/v1/investor/loan/portofolio?page=0&size=20&sort-by=id&sort-type=desc")
     suspend fun getPortofolio(
-        @Header("Authorization") auth : String
+        @Header("Authorization")
+        auth : String,
     ): Response<PortofolioResponse>
 
-    @GET("v1/investor/transaction/all")
+    @GET("v1/investor/transaction/all?page=0&size=20&sort-by=id&sort-type=desc")
     suspend fun getHistory(
-        @Header("Authorization") auth : String
+        @Header("Authorization", ) auth : String
     ) : Response<HistoryResponse>
 
     @GET("/v1/investor/transaction/{id}")
@@ -77,7 +79,7 @@ interface HomeAPI {
     @POST("/v1/investor/transaction/insert")
     suspend fun postPaymentTransaction(
         @Header("Authorization") authorization : String,
-        @Body request : PaymentTransactionRequest) : Response<PaymentTransactionResponse>
+        @Body request : PaymentTransactionRequest) : Response<PaymentTransactionResponseSuccess>
 
     @POST("/v1/investor/transaction/pay")
     suspend fun postTransactionStatus(

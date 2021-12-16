@@ -7,5 +7,6 @@ object Const {
     const val IS_VERIFIED = false
     const val PHONE_NUMBER = "PHONE_NUMBER"
     const val FUNDING_ID = "FUNDING_ID"
+    const val TRANSACTION_ID = "TRANSACTION_ID"
 
 }

@@ -1,5 +1,7 @@
 package app.binar.synrgy.android.finalproject.ui.profile
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import app.binar.synrgy.android.finalproject.databinding.ActivityProfileVerificationBinding
@@ -16,6 +18,11 @@ class ProfileActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
-        binding
+        binding.buttonRegister.setOnClickListener {
+            val url = "https://fundraisey-final-project.vercel.app/startup/login"
+            val i = Intent(Intent.ACTION_VIEW)
+            i.data = Uri.parse(url)
+            startActivity(i)
+        }
     }
 }
