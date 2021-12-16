@@ -7,13 +7,12 @@ import androidx.core.widget.doAfterTextChanged
 import app.binar.synrgy.android.finalproject.databinding.ActivitySignUpBinding
 import com.google.android.material.snackbar.Snackbar
 import android.R
+import android.app.DatePickerDialog
 import android.content.Intent
-import android.view.View
-import android.widget.CheckBox
-import android.widget.RadioButton
-import android.widget.RadioGroup
 import app.binar.synrgy.android.finalproject.ui.homenavigation.HomeNavigationActivity
 import app.binar.synrgy.android.finalproject.ui.loading.LoadingDialog
+import app.binar.synrgy.android.finalproject.ui.signin.SignInActivity
+import java.util.*
 
 
 class SignupActivity : AppCompatActivity() {
@@ -62,20 +61,33 @@ class SignupActivity : AppCompatActivity() {
             Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
         })
 
-        binding.radioGroup.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { radioGroup, id ->
-            when (id) {
-                binding.rbMale.id ->
-                    viewmodel.gender = "male"
-                binding.rbFemale.id ->
-                    viewmodel.gender = "female"
-            }
-        })
+        binding.tvlogin.setOnClickListener {
+            startActivity(Intent(this, SignInActivity::class.java))
+            finish()
+        }
+
         binding.checkboxPrivacy.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){
                 viewmodel.isPPChecked = true
-            }else{
+            } else{
                 viewmodel.isPPChecked = false
             }
+        }
+
+        binding.datepicker.setOnClickListener {
+            val c = Calendar.getInstance()
+            val year = c.get(Calendar.YEAR)
+            val month = c.get(Calendar.MONTH)
+            val day = c.get(Calendar.DAY_OF_MONTH)
+            val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, timeOfYear, monthOfYear, dayOfMonth ->
+
+                // Display Selected date in textbox
+                binding.datepicker.text = ("$dayOfMonth / ${monthOfYear + 1} / $timeOfYear")
+
+            }, year, month, day)
+
+            dpd.show()
+            viewmodel.onChangeDateOfBirth(binding.datepicker.text as String)
         }
         viewmodel.showLoading.observe(this,{
             loading.showLoading(it)
