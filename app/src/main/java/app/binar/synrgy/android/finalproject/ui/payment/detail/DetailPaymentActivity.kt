@@ -24,6 +24,7 @@ class DetailPaymentActivity() : AppCompatActivity() {
 
     companion object{
         const val GET_TRANSACTION_ID = "get_transaction_id"
+        const val GET_LOAN_ID = "get_loan_id"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,26 +33,19 @@ class DetailPaymentActivity() : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
-        val sharedPreferences = getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
-        detailPaymentViewModel = DetailPaymentViewModel(sharedPreferences)
-//        val id = sharedPreferences.getString(Const.FUNDING_ID)
-//        Log.d("id", id.toString())
-
         val transactionId = intent.getIntExtra(GET_TRANSACTION_ID,0)
         Log.v("YUK",transactionId.toString())
 
+        val loanId = intent.getIntExtra(GET_LOAN_ID,0)
+        Log.v("YUK",loanId.toString())
 
+        val sharedPreferences = getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
+        detailPaymentViewModel = DetailPaymentViewModel(sharedPreferences)
         detailPaymentViewModel.loanResponse.observe(this, {
             binding.tvvirtualnumber.text = it.accountNumber
             binding.tvjumlahtagihan.text = CurrencyHelper.toIdrCurrency(it.amount)
             binding.tvDeadlineTimestamp.text = it.paymentDeadline
-//            when{
-//                it.paymentAgent.equals(1) -> binding.tvBca.text = "BCA Virtual Account"
-//                it.paymentAgent.equals(2) -> binding.tvBca.text = "Mandiri Virtual Account"
-//                it.paymentAgent.equals(3) -> binding.tvBca.text = "OVO Virtual Account"
-//                it.paymentAgent.equals(4) -> binding.tvBca.text = "GOPAY Virtual Account"
-//            }
-//            status = it.transactionStatus
+            binding.tvBca.text = it.paymentAgent.name
         })
 
         binding.copy.setOnClickListener {

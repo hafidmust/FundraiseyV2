@@ -1,11 +1,16 @@
 package app.binar.synrgy.android.finalproject.ui.homenavigation.home
 
 import android.content.SharedPreferences
+import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.webkit.WebResourceRequest
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import app.binar.synrgy.android.finalproject.MyFirebaseMessagingService
 import app.binar.synrgy.android.finalproject.R
 import app.binar.synrgy.android.finalproject.databinding.FragmentHomeBinding
-
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeActivity : AppCompatActivity() {
 

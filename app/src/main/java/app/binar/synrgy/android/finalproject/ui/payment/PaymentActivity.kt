@@ -83,6 +83,10 @@ class PaymentActivity : AppCompatActivity() {
         }
 
         binding.buttonPay.setOnClickListener {
+            Intent(this, PaymentActivity::class.java).apply {
+                putExtra(DetailPaymentActivity.GET_LOAN_ID, getLoanId)
+                Log.d("LoanId", getLoanId.toString())
+            }
             viewModel.doPayment(getLoanId)
 //            viewModel.doPaymentStatus()
         }
@@ -141,6 +145,7 @@ class PaymentActivity : AppCompatActivity() {
                 }
             }
         }
+
         viewModel.transcationIdMut.observe(this,{
             startActivity(
                 Intent(this, DetailPaymentActivity::class.java).apply {
@@ -153,7 +158,6 @@ class PaymentActivity : AppCompatActivity() {
                 }
             )
         })
-
 
         viewModel.showMessageAPI.observe(this, {
             Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
