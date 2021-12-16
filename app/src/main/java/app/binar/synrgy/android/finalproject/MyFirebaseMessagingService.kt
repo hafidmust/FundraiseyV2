@@ -94,7 +94,6 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
                     )
                     notificationManager.notify(NotificationID.iD, notificationBuilder.build())
                 }
-
                 override fun onLoadCleared(placeholder: Drawable?) {}
             })
     }
