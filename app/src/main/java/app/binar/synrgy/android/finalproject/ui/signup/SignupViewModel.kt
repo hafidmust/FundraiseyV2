@@ -29,7 +29,7 @@ class SignupViewModel : ViewModel() {
     private var phone: String = ""
     var gender : String = ""
     var isPPChecked : Boolean ? = false
-    
+
     fun onChangeEmail(email: String) {
         this.email = email
         if (!validateEmail(email)) {
