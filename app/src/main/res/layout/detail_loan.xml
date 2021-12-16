@@ -31,17 +31,43 @@
         android:textColor="@color/white"
         app:layout_constraintTop_toTopOf="@id/header_label"
         app:layout_constraintBottom_toBottomOf="@id/header_label"/>
+
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
         android:fillViewport="true"
         app:layout_constraintTop_toBottomOf="@id/header_label"
         app:layout_constraintBottom_toBottomOf="parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintdetail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             android:paddingBottom="15dp">
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerprojectfunding"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/colorGrey"
+                android:fontFamily="@font/inter_bold"
+                android:textFontWeight="700"
+                android:textSize="20sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:textColor="@color/blue_primary"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
             <TextView
                 android:id="@+id/nameProjectFunding"
                 android:layout_width="wrap_content"
@@ -55,6 +81,26 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:textColor="@color/blue_primary"
                 app:layout_constraintTop_toTopOf="parent"/>
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmernominal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/nameProjectFunding"
+                >
+                <TextView
+
+                    android:layout_width="136dp"
+                    android:background="@color/colorGrey"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/name"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="6dp"
+
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/inter_bold"
+                    android:textColor="@color/hitam"/>
+            </com.facebook.shimmer.ShimmerFrameLayout>
             <TextView
                 android:id="@+id/nominal"
                 android:layout_width="wrap_content"
@@ -67,6 +113,23 @@
                 android:textSize="20sp"
                 android:fontFamily="@font/inter_bold"
                 android:textColor="@color/hitam"/>
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerprogres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/nominal">
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:layout_marginHorizontal="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="@color/colorGrey"
+                    android:layout_marginTop="6dp"
+
+                    app:layout_constraintTop_toBottomOf="@id/nominall"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"/>
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
             <com.google.android.material.progressindicator.LinearProgressIndicator
                 android:id="@+id/progressFunding"
                 android:layout_marginHorizontal="25dp"
@@ -90,6 +153,23 @@
                 android:textSize="14sp"
                 android:fontFamily="@font/inter_bold"
                 android:textColor="@color/hitam"/>
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerdonor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/tvTotalDonor">
+                <TextView
+                    android:layout_width="58dp"
+                    android:background="@color/colorGrey"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_bold"
+                    android:textSize="12sp"
+                    app:layout_constraintTop_toBottomOf="@id/tvTotalDonorr"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    />
+            </com.facebook.shimmer.ShimmerFrameLayout>
             <TextView
                 android:id="@+id/tvFundingAmountNominal"
                 android:layout_width="wrap_content"
@@ -113,6 +193,26 @@
                 android:textSize="14sp"
                 android:fontFamily="@font/inter_bold"
                 android:textColor="@color/hitam"/>
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmerremaining"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvlabelremaining">
+                <TextView
+                    android:id="@+id/tvremainingdayy"
+                    android:layout_width="61dp"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorGrey"
+                    android:fontFamily="@font/inter_bold"
+                    android:textSize="12sp"
+                    app:layout_constraintTop_toBottomOf="@id/tvlabelremainingg"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    />
+
+            </com.facebook.shimmer.ShimmerFrameLayout>
             <TextView
                 android:id="@+id/tvremainingday"
                 android:layout_width="wrap_content"
@@ -153,6 +253,42 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/shimmerlogo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+                        <ImageView
+                            android:id="@+id/ic_logo_loaninformationn"
+                            android:layout_width="46dp"
+                            android:layout_height="46dp"
+                            android:layout_marginLeft="22dp"
+                            android:layout_marginTop="22dp"
+                            android:layout_marginBottom="22dp"
+                            android:background="@color/colorGrey"/>
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/shimmerloanapp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/ic_logo_loaninformation"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="21dp">
+                        <TextView
+                            android:id="@+id/loanappp"
+                            android:layout_width="104dp"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorGrey"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toRightOf="@id/ic_logo_loaninformationn"
+                            android:fontFamily="@font/inter_regular"
+                            android:textSize="14sp"
+                            android:textColor="@color/black" />
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
                     <ImageView
                         android:id="@+id/ic_logo_loaninformation"
                         android:layout_width="46dp"
@@ -177,6 +313,23 @@
                         android:fontFamily="@font/inter_regular"
                         android:textSize="14sp"
                         android:textColor="@color/black" />
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/shimmernamestart"
+                        android:layout_width="137dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toRightOf="@id/ic_logo_loaninformation"
+                        app:layout_constraintTop_toBottomOf="@id/loanapp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="20dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorGrey"/>
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+
 
                     <TextView
                         android:id="@+id/startupcontentname"
@@ -206,34 +359,57 @@
                 android:layout_marginTop="10dp"
                 app:cardCornerRadius="10dp"
                 app:cardElevation="5dp">
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="20dp">
+
                     <TextView
                         android:id="@+id/tvfundingneed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Funding Needs"
-                        app:layout_constraintTop_toTopOf="parent"
                         android:layout_marginTop="20dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
                         android:fontFamily="@font/inter_bold"
+                        android:text="Funding Needs"
+                        android:textColor="@color/blue_primary"
                         android:textSize="20sp"
-                        android:textColor="@color/blue_primary"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/shimmercontentabout"
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvfundingneed"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginBottom="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorGrey" />
+
+                    </com.facebook.shimmer.ShimmerFrameLayout>
+
                     <TextView
                         android:id="@+id/tvcontentaboutstartup"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintTop_toBottomOf="@id/tvfundingneed"
+                        android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="8dp"
 
-                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:fontFamily="@font/inter_regular"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        android:layout_marginBottom="20dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        android:fontFamily="@font/inter_regular"/>
+                        app:layout_constraintTop_toBottomOf="@id/tvfundingneed" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
@@ -259,10 +435,23 @@
                         android:layout_marginTop="20dp"
                         android:fontFamily="@font/inter_bold"
                         android:text="About Startup"
-                        android:textColor="#A1887F"
+                        android:textColor="@color/blue_primary"
                         android:textSize="20sp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.facebook.shimmer.ShimmerFrameLayout
+                        android:id="@+id/shimmerstartupt"
+                        android:layout_width="274dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvAboutStartup">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/colorGrey"/>
+                    </com.facebook.shimmer.ShimmerFrameLayout>
                     <TextView
                         android:id="@+id/tvDetailAboutStartup"
                         android:layout_width="wrap_content"

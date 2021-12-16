@@ -28,12 +28,16 @@ class LoanDetailsActivity : AppCompatActivity() {
         binding = DetailLoanBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
-
+        showShimmer()
         val id = intent.getIntExtra(GET_ID,0)
         Log.d("id",id.toString())
         viewModel = ViewModelProvider(this).get(LoanDetailsViewModel::class.java)
         viewModel.getDataFromAPI(id)
+
         viewModel.loanResponse.observe(this,{
+            hideShimmer()
+
+
             binding.nameProjectFunding.text = it.name
 //            nominal
             binding.nominal.text = CurrencyHelper.toIdrCurrency(it.targetValue)
@@ -57,6 +61,8 @@ class LoanDetailsActivity : AppCompatActivity() {
             binding.tvFundingAmountNominal.text = it.lenderCount.toString()
 
         })
+        binding.nested.visibility = View.VISIBLE
+
         viewModel.getDataStartup(id)
 //        viewModel.startupResponse.observe(this,{
 //            binding.startupcontentname.text = it.name.toString()
@@ -69,5 +75,41 @@ class LoanDetailsActivity : AppCompatActivity() {
         binding.buttonFundNow.setOnClickListener {
             startActivity(Intent(this,PaymentActivity::class.java))
         }
+    }
+
+    private fun hideShimmer() {
+        binding.shimmerprojectfunding.stopShimmerAnimation()
+        binding.shimmerprojectfunding.visibility = View.GONE
+        binding.shimmernominal.stopShimmerAnimation()
+        binding.shimmernominal.visibility = View.GONE
+        binding.shimmerremaining.stopShimmerAnimation()
+        binding.shimmerremaining.visibility = View.GONE
+        binding.shimmerprogres.stopShimmerAnimation()
+        binding.shimmerprogres.visibility = View.GONE
+        binding.shimmerdonor.stopShimmerAnimation()
+        binding.shimmerdonor.visibility = View.GONE
+        binding.shimmerstartupt.stopShimmerAnimation()
+        binding.shimmerstartupt.visibility = View.GONE
+        binding.shimmerlogo.stopShimmerAnimation()
+        binding.shimmerlogo.visibility = View.GONE
+        binding.shimmerloanapp.stopShimmerAnimation()
+        binding.shimmerloanapp.visibility = View.GONE
+        binding.shimmercontentabout.stopShimmerAnimation()
+        binding.shimmercontentabout.visibility = View.GONE
+        binding.shimmernamestart.stopShimmerAnimation()
+        binding.shimmernamestart.visibility = View.GONE
+    }
+
+    private fun showShimmer() {
+        binding.shimmerprojectfunding.startShimmerAnimation()
+        binding.shimmernominal.startShimmerAnimation()
+        binding.shimmerremaining.startShimmerAnimation()
+        binding.shimmerdonor.startShimmerAnimation()
+        binding.shimmerprogres.startShimmerAnimation()
+        binding.shimmerlogo.startShimmerAnimation()
+        binding.shimmerloanapp.startShimmerAnimation()
+        binding.shimmercontentabout.startShimmerAnimation()
+        binding.shimmerstartupt.startShimmerAnimation()
+        binding.shimmernamestart.startShimmerAnimation()
     }
 }
