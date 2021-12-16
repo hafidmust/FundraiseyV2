@@ -19,10 +19,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class DetailPaymentViewModel() : ViewModel() {
+class DetailPaymentViewModel(var sharedPreferences: SharedPreferences) : ViewModel() {
 
     val detailPaymentGuide: MutableLiveData<List<PaymentGuideResponse>> = MutableLiveData()
     val loanResponse : MutableLiveData<DataDetail> = MutableLiveData()
+    val successPay : MutableLiveData<Boolean> = MutableLiveData(false)
 
     private lateinit var homeAPI: HomeAPI
 
@@ -48,6 +49,34 @@ class DetailPaymentViewModel() : ViewModel() {
             withContext(Dispatchers.Main){
                 if (responseLoanDetail.isSuccessful){
                     loanResponse.value = responseLoanDetail.body()?.data
+                }
+            }
+        }
+    }
+    fun doPaymentStatus(transa : Int) {
+        homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val request = TransactionStatusRequest(
+                transactionId = transa
+            )
+            val response = homeAPI.postTransactionStatus("Bearer ${DummyBearer.auth}", request)
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    if (response.body()?.status == 200){
+                        successPay.value = true
+                    }
+
+//                    if (response.body()?.status == 403) {
+//                        showMessageAPI.value = response.body()!!.message
+//                        showLoading.value = false
+//                    }
+
+                } else {
+                    val error =
+                        Gson().fromJson(response.errorBody()?.string(), ErrorModel::class.java)
+//                    showMessageAPI.value = error.message
+//                    showLoading.value = false
                 }
             }
         }

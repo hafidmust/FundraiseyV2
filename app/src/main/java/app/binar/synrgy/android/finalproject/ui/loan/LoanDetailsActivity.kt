@@ -73,7 +73,12 @@ class LoanDetailsActivity : AppCompatActivity() {
             // TODO: 11/29/2021
         }
         binding.buttonFundNow.setOnClickListener {
-            startActivity(Intent(this,PaymentActivity::class.java))
+//            startActivity(Intent(this,PaymentActivity::class.java))
+            val intentSendLoanId = Intent(this, PaymentActivity::class.java).apply {
+                putExtra(PaymentActivity.GET_LOAN_ID, id)
+
+            }
+            startActivity(intentSendLoanId)
         }
     }
 

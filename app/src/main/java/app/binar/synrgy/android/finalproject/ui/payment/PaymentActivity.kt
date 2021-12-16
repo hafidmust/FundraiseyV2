@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.RadioGroup
 import androidx.core.widget.doAfterTextChanged
@@ -17,15 +18,23 @@ import com.google.android.material.snackbar.Snackbar
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
+import kotlin.properties.Delegates
 
 
 class PaymentActivity : AppCompatActivity() {
 
+
     private lateinit var binding: ActivityPaymentBinding
     private lateinit var viewModel: PaymentViewModel
+    private var transactionIdMut : Int? = null
+
+    companion object{
+        const val GET_LOAN_ID = "get_loan_id"
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_payment)
         binding = ActivityPaymentBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -34,6 +43,8 @@ class PaymentActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
         val phoneNumber = sharedPreferences.getString(Const.PHONE_NUMBER, "")
         viewModel = PaymentViewModel(sharedPreferences)
+        val getLoanId = intent.getIntExtra(GET_LOAN_ID,0)
+        Log.d("getLoanId",getLoanId.toString())
 
         val formatter: NumberFormat = DecimalFormat("#,###")
         val format: NumberFormat = NumberFormat.getCurrencyInstance()
@@ -72,8 +83,8 @@ class PaymentActivity : AppCompatActivity() {
         }
 
         binding.buttonPay.setOnClickListener {
-            viewModel.doPayment()
-            viewModel.doPaymentStatus()
+            viewModel.doPayment(getLoanId)
+//            viewModel.doPaymentStatus()
         }
 
         binding.boxNominal.doAfterTextChanged {
@@ -130,24 +141,39 @@ class PaymentActivity : AppCompatActivity() {
                 }
             }
         }
+        viewModel.transcationIdMut.observe(this,{
+            startActivity(
+                Intent(this, DetailPaymentActivity::class.java).apply {
+                    this.putExtra(DetailPaymentActivity.GET_TRANSACTION_ID, it)
+//                        this.addFlags(
+//                            Intent.FLAG_ACTIVITY_CLEAR_TOP or
+//                                    Intent.FLAG_ACTIVITY_CLEAR_TASK or
+//                                    Intent.FLAG_ACTIVITY_NEW_TASK
+//                        )
+                }
+            )
+        })
+
 
         viewModel.showMessageAPI.observe(this, {
             Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
         })
 
-        viewModel.paymentSuccess.observe(this, {
-            if (it) {
-                startActivity(
-                    Intent(this, DetailPaymentActivity::class.java).apply {
-                        this.addFlags(
-                            Intent.FLAG_ACTIVITY_CLEAR_TOP or
-                                    Intent.FLAG_ACTIVITY_CLEAR_TASK or
-                                    Intent.FLAG_ACTIVITY_NEW_TASK
-                        )
-                    }
-                )
-            }
-        })
+
+//        viewModel.paymentSuccess.observe(this, {
+//            if (it) {
+//                startActivity(
+//                    Intent(this, DetailPaymentActivity::class.java).apply {
+//                        this.putExtra(DetailPaymentActivity.GET_TRANSACTION_ID, viewModel.idtransaksi)
+////                        this.addFlags(
+////                            Intent.FLAG_ACTIVITY_CLEAR_TOP or
+////                                    Intent.FLAG_ACTIVITY_CLEAR_TASK or
+////                                    Intent.FLAG_ACTIVITY_NEW_TASK
+////                        )
+//                    }
+//                )
+//            }
+//        })
     }
 }
 

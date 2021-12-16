@@ -33,13 +33,13 @@ data class DataSuccess(
     val amount: Int,
 
     @field:SerializedName("accountNumber")
-    val accountNumber: Int,
+    val accountNumber: Long,
 
     @field:SerializedName("paymentVerificationUrl")
     val paymentVerificationUrl: String,
 
     @field:SerializedName("paymentDeadline")
-    val paymentDeadline: Date,
+    val paymentDeadline: String,
 
     @field:SerializedName("returnInstallments")
     val returnInstallments: Any,

@@ -1,7 +1,8 @@
 package app.binar.synrgy.android.finalproject.ui.payment
 
-import android.app.AlertDialog
 import android.content.SharedPreferences
+import android.util.Log
+import androidx.core.content.edit
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import app.binar.synrgy.android.finalproject.data.HomeAPI
@@ -16,17 +17,19 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class PaymentViewModel(sharedPreferences: SharedPreferences) : ViewModel() {
+class PaymentViewModel(var sharedPreferences: SharedPreferences) : ViewModel() {
     val showMessageAPI: MutableLiveData<String> = MutableLiveData()
     val showMessageAmount: MutableLiveData<String> = MutableLiveData()
     val showLoading: MutableLiveData<Boolean> = MutableLiveData(false)
     val paymentSuccess: MutableLiveData<Boolean> = MutableLiveData(false)
     val enableTransaction: MutableLiveData<Boolean> = MutableLiveData()
+    val transcationIdMut : MutableLiveData<Int> = MutableLiveData()
     var paymentAgentId: Int = 1
     var paymentAgentCode: String = ""
+    var idtransaksi : Int? = null
 
     private lateinit var homeAPI: HomeAPI
-    private var amount: Int = 0
+    private var amount: Int ?= null
     private var fundingID: Int = sharedPreferences.getInt(Const.FUNDING_ID, 2)
 
     fun onChangeAmount(amount: Int) {
@@ -38,27 +41,37 @@ class PaymentViewModel(sharedPreferences: SharedPreferences) : ViewModel() {
         }
     }
 
-    private fun validateAmount(amount: Int = this.amount): Boolean {
-        enableTransaction.value = amount >= 50_000
+    private fun validateAmount(amount: Int? = this.amount): Boolean {
+        if (amount != null) {
+            enableTransaction.value = amount >= 50_000
+        }
         return enableTransaction.value == true
     }
 
-    fun doPayment() {
+    fun doPayment(id : Int) {
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
         showLoading.value = true
         CoroutineScope(Dispatchers.IO).launch {
             val request = PaymentTransactionRequest(
-                loanId = fundingID,
+                loanId = id,
                 amount = amount,
                 paymentAgentId = paymentAgentId
             )
             val response = homeAPI.postPaymentTransaction("Bearer ${DummyBearer.auth}", request)
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
-                    if (response.body()?.status == 403) {
-                        showMessageAPI.value = response.body()!!.message
-                        showLoading.value = false
-                    }
+//                    paymentSuccess.value = true
+                    transcationIdMut.value = response.body()?.data?.idData
+//                    transcationIdMut.value = response.body()?.data?.idData
+                    Log.d("cek",response.body()?.data?.idData.toString())
+                    sharedPreferences.edit {
+                        response.body()?.data?.idData?.let { putInt(Const.TRANSACTION_ID, it) }
+                        }
+
+//                    if (response.body()?.status == 403) {
+//                        showMessageAPI.value = response.body()!!.message
+//                        showLoading.value = false
+//                    }
                 } else {
                     val error =
                         Gson().fromJson(response.errorBody()?.string(), ErrorModel::class.java)

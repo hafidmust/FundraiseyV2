@@ -10,6 +10,8 @@ import app.binar.synrgy.android.finalproject.data.payment.*
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponse
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioSummaryResponse
 import app.binar.synrgy.android.finalproject.data.profile.VerificationResponse
+import com.google.gson.GsonBuilder
+import com.google.gson.internal.GsonBuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -28,6 +30,7 @@ interface HomeAPI {
 
             return Retrofit.Builder()
                 .baseUrl("https://fundraisey-api-staging.herokuapp.com")
+
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(httpClient)
                 .build()
