@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import app.binar.synrgy.android.finalproject.data.home.homeDataItem
 import app.binar.synrgy.android.finalproject.databinding.FragmentHomeBinding
 import app.binar.synrgy.android.finalproject.ui.loan.LoanDetailsActivity
+import app.binar.synrgy.android.finalproject.ui.profile.ProfileActivity
 import app.binar.synrgy.android.finalproject.utils.Const
 import app.binar.synrgy.android.finalproject.utils.CurrencyHelper
 
@@ -29,6 +30,11 @@ class HomeFragment : Fragment() {
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding.logoProfile.setOnClickListener {
+            val intentSendId = Intent(activity, ProfileActivity::class.java).apply {
+            }
+            startActivity(intentSendId)
+        }
 
         val sharedPreferences = requireActivity().getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
         val root: View = binding.root

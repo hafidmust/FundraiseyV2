@@ -84,6 +84,7 @@
             android:text="@string/text_username_email"
             android:textColor="@color/white"
             android:textSize="16sp"
+            android:visibility="invisible"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/email_username" />
 
@@ -251,7 +252,7 @@
             android:layout_height="60dp"
             android:layout_marginVertical="20dp"
             android:background="@drawable/box_rectangle_grey"
-            android:elevation="5dp"
+            android:elevation="2dp"
             android:orientation="horizontal"
             android:paddingHorizontal="12.5dp"
             android:paddingBottom="20dp"
@@ -295,7 +296,7 @@
             android:layout_height="60dp"
             android:layout_marginVertical="20dp"
             android:background="@drawable/box_rectangle_grey"
-            android:elevation="5dp"
+            android:elevation="2dp"
             android:orientation="horizontal"
             android:paddingHorizontal="12.5dp"
             android:paddingBottom="20dp"
@@ -347,12 +348,12 @@
             app:layout_constraintTop_toBottomOf="@id/box_data_3" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/box_data_4"
+            android:id="@+id/buttonRegister"
             android:layout_width="340dp"
             android:layout_height="60dp"
             android:layout_marginVertical="20dp"
             android:background="@drawable/box_rectangle_grey"
-            android:elevation="5dp"
+            android:elevation="2dp"
             android:orientation="horizontal"
             android:paddingHorizontal="12.5dp"
             android:paddingBottom="20dp"
@@ -374,7 +375,7 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="@id/box_data_4" />
+                app:layout_constraintTop_toTopOf="@id/buttonRegister" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -392,7 +393,7 @@
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/box_data_4" />
+            app:layout_constraintTop_toBottomOf="@+id/buttonRegister" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

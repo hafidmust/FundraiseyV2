@@ -3,6 +3,7 @@ package app.binar.synrgy.android.finalproject.ui
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -15,6 +16,7 @@ import app.binar.synrgy.android.finalproject.utils.Const
 
 class Splashscreen : AppCompatActivity() {
     private lateinit var binding: ActivitySplashcreenBinding
+    private var mediaPlayer: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,10 +33,11 @@ class Splashscreen : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
 
+//                mediaPlayer = MediaPlayer.create(this,)
+
                 startActivity(Intent(this, HomeNavigationActivity::class.java))
                 finish()
 
         }, 3000)
-
     }
 }

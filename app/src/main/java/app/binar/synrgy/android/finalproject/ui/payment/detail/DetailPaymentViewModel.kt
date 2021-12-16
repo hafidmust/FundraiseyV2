@@ -1,21 +1,29 @@
 package app.binar.synrgy.android.finalproject.ui.payment.detail
 
+import android.content.Context
+import android.content.SharedPreferences
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import app.binar.synrgy.android.finalproject.R
 import app.binar.synrgy.android.finalproject.data.HomeAPI
 import app.binar.synrgy.android.finalproject.data.payment.DataDetail
 import app.binar.synrgy.android.finalproject.data.payment.PaymentGuideResponse
+import app.binar.synrgy.android.finalproject.data.payment.TransactionStatusRequest
+import app.binar.synrgy.android.finalproject.model.ErrorModel
+import app.binar.synrgy.android.finalproject.utils.Const
 import app.binar.synrgy.android.finalproject.utils.DummyBearer
+import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class DetailPaymentViewModel : ViewModel() {
+class DetailPaymentViewModel() : ViewModel() {
 
     val detailPaymentGuide: MutableLiveData<List<PaymentGuideResponse>> = MutableLiveData()
     val loanResponse : MutableLiveData<DataDetail> = MutableLiveData()
+
     private lateinit var homeAPI: HomeAPI
 
     val dataDummyGuide = listOf(
