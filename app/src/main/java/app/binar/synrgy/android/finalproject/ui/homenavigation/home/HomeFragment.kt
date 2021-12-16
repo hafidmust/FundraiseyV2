@@ -2,7 +2,6 @@ package app.binar.synrgy.android.finalproject.ui.homenavigation.home
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,13 +9,13 @@ import android.view.ViewGroup
 import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import app.binar.synrgy.android.finalproject.data.home.DataItem
+import app.binar.synrgy.android.finalproject.data.home.homeDataItem
 import app.binar.synrgy.android.finalproject.databinding.FragmentHomeBinding
 import app.binar.synrgy.android.finalproject.ui.loan.LoanDetailsActivity
 import app.binar.synrgy.android.finalproject.utils.Const
 import app.binar.synrgy.android.finalproject.utils.CurrencyHelper
 
-class HomeFragment() : Fragment() {
+class HomeFragment : Fragment() {
     private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -34,7 +33,7 @@ class HomeFragment() : Fragment() {
         val sharedPreferences = requireActivity().getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
         val root: View = binding.root
         val homeAdapter = AdapterHome(listOf(), object : AdapterHome.EventListener{
-            override fun click(item: DataItem) {
+            override fun click(item: homeDataItem) {
                 val intentSendId = Intent(activity, LoanDetailsActivity::class.java).apply {
                     putExtra(LoanDetailsActivity.GET_ID, item.id)
                     sharedPreferences.edit {

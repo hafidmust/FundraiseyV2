@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import app.binar.synrgy.android.finalproject.data.home.DataItem
+import app.binar.synrgy.android.finalproject.data.home.homeDataItem
 import app.binar.synrgy.android.finalproject.databinding.AdapterRecyclerHomeBinding
 import app.binar.synrgy.android.finalproject.utils.DaysHelper
 import com.bumptech.glide.Glide
@@ -12,16 +12,16 @@ import java.text.NumberFormat
 import java.util.*
 
 
-class AdapterHome(var data : List<DataItem>, val listener : EventListener) : RecyclerView.Adapter<AdapterHome.ViewHolder>() {
+class AdapterHome(var data : List<homeDataItem>, val listener : EventListener) : RecyclerView.Adapter<AdapterHome.ViewHolder>() {
     interface EventListener{
-        fun click(item: DataItem)
+        fun click(item: homeDataItem)
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterHome.ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = AdapterRecyclerHomeBinding.inflate(inflater)
         return ViewHolder(binding)
     }
-    fun update(data : List<DataItem>){
+    fun update(data : List<homeDataItem>){
         this.data = data
         notifyDataSetChanged()
     }
@@ -35,7 +35,7 @@ class AdapterHome(var data : List<DataItem>, val listener : EventListener) : Rec
     }
     inner class ViewHolder(val binding : AdapterRecyclerHomeBinding) : RecyclerView.ViewHolder(binding.root){
         @SuppressLint("SetTextI18n", "SimpleDateFormat")
-        fun bind(home : DataItem){
+        fun bind(home : homeDataItem){
             Glide.with(binding.root)
                 .load(home.startup?.logo)
                 .into(binding.imageViewStartup)

@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import app.binar.synrgy.android.finalproject.data.history.ContentItem
-import app.binar.synrgy.android.finalproject.data.history.HistoryResponseDummy
 import app.binar.synrgy.android.finalproject.data.local.AppDatabase
 import app.binar.synrgy.android.finalproject.databinding.FragmentHistoryBinding
 import app.binar.synrgy.android.finalproject.ui.homenavigation.history.detail.DetailHistoryActivity
@@ -38,6 +37,7 @@ class HistoryFragment : Fragment() {
         viewModel.history.observe(viewLifecycleOwner,{
             historyAdapter.update(it)
         })
+
         val root : View = binding.root
         return root
     }

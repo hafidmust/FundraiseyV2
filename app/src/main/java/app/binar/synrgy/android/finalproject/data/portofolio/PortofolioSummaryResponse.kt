@@ -1,6 +1,5 @@
 package app.binar.synrgy.android.finalproject.data.portofolio
 
-import app.binar.synrgy.android.finalproject.data.home.DataItem
 import com.google.gson.annotations.SerializedName
 
 data class PortofolioSummaryResponse(

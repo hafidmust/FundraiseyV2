@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.payment.DetailPaymentActivity">
+    tools:context=".ui.payment.detail.DetailPaymentActivity">
 
     <View
         android:id="@+id/viewDetailPayment"
@@ -57,12 +57,12 @@
         app:layout_constraintTop_toTopOf="@id/viewPaymentDeadline" />
 
     <TextView
+        android:id="@+id/tv_deadline_timestamp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/inter_regular"
-        android:text="Saturday, 13 November 2021, 19:00 (+7)"
         android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/labelPaymentDeadline" />
@@ -150,7 +150,6 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/inter_bold"
-        android:text="1394837285038294"
         android:textColor="@color/hitam"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -188,7 +187,6 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/inter_bold"
-        android:text="50.000"
         android:textColor="@color/hitam"
         android:textSize="18sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -232,6 +230,7 @@
         app:layout_constraintTop_toBottomOf="@id/labelPay" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCheckInvestmentStatus"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

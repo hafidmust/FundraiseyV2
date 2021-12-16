@@ -191,7 +191,7 @@ data class Payment(
 	val status: String
 )
 
-data class Startup(
+data class historyStartup(
 
 	@field:SerializedName("youtube")
 	val youtube: String,
@@ -353,7 +353,7 @@ data class Loan(
 	val updatedAt: String,
 
 	@field:SerializedName("startup")
-	val startup: Startup,
+	val startup: historyStartup,
 
 	@field:SerializedName("name")
 	val name: String,

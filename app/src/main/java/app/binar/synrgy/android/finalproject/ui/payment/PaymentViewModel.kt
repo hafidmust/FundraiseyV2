@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import app.binar.synrgy.android.finalproject.data.HomeAPI
 import app.binar.synrgy.android.finalproject.data.payment.PaymentTransactionRequest
 import app.binar.synrgy.android.finalproject.data.payment.TransactionStatusRequest
-import app.binar.synrgy.android.finalproject.data.payment.bankList
 import app.binar.synrgy.android.finalproject.model.ErrorModel
 import app.binar.synrgy.android.finalproject.utils.Const
 import app.binar.synrgy.android.finalproject.utils.DummyBearer
@@ -17,7 +16,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class PaymentViewModel(sharedPreferences: SharedPreferences) : ViewModel() {
-    val bankList: MutableLiveData<List<bankList>> = MutableLiveData()
     val showMessageAPI: MutableLiveData<String> = MutableLiveData()
     val showMessageAmount: MutableLiveData<String> = MutableLiveData()
     val showLoading: MutableLiveData<Boolean> = MutableLiveData(false)

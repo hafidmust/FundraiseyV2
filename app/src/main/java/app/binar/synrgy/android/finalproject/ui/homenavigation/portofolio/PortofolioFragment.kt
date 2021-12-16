@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import app.binar.synrgy.android.finalproject.R
 import app.binar.synrgy.android.finalproject.data.portofolio.DataItem
 import app.binar.synrgy.android.finalproject.databinding.FragmentPortofolioBinding
 import app.binar.synrgy.android.finalproject.ui.homenavigation.history.detail.DetailHistoryActivity
@@ -35,8 +34,8 @@ class PortofolioFragment : Fragment() {
             object : AdapterPortofolio.EventListener {
                 override fun click(item: DataItem) {
                     val intentSendId = Intent(activity, DetailHistoryActivity::class.java).apply {
-                            item.returnInstallment.forEach {
-                                putExtra(DetailHistoryActivity.GET_ID, it.id)
+                        putExtra(DetailHistoryActivity.GET_ID, item.transactionId)
+                        item.returnInstallment.forEach {
                                 putExtra(DetailHistoryActivity.GET_STATUS, it.returnStatus)
                             }
                         }
@@ -61,6 +60,10 @@ class PortofolioFragment : Fragment() {
             binding.textDummy2jt.text = CurrencyHelper.toIdrCurrency(it.upcomingReturn)
             binding.textDummyStartup.text = "${it.loanTransactionCount} Startup"
         })
+
+        binding.buttonWithdraw.setOnClickListener {
+            portofolioViewModel.withdrawAllFunds()
+        }
 
         return binding.root
     }

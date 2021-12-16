@@ -8,8 +8,6 @@ import app.binar.synrgy.android.finalproject.data.loan.DetailLoanResponse
 import app.binar.synrgy.android.finalproject.data.payment.*
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponse
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioSummaryResponse
-import app.binar.synrgy.android.finalproject.ui.homenavigation.portofolio.AdapterPortofolio
-import app.binar.synrgy.android.finalproject.ui.homenavigation.portofolio.PortofolioViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -49,7 +47,6 @@ interface HomeAPI {
         @Header("Authorization") auth : String
     ): Response<PortofolioResponse>
 
-
     @GET("v1/investor/transaction/all")
     suspend fun getHistory(
         @Header("Authorization") auth : String
@@ -61,6 +58,12 @@ interface HomeAPI {
         @Path("id") id : Int
     ) : Response<DetailHistoryResponse>
 
+    @GET("/v1/investor/transaction/{id}")
+    suspend fun getPaymentDetail(
+        @Header("Authorization") auth : String,
+        @Path("id") id : Int
+    ) : Response<PaymentDetailResponse>
+
     @GET("/v1/investor/loan/portofolio-summary")
     suspend fun getBalanceHome(
         @Header("Authorization") authorization : String
@@ -71,11 +74,6 @@ interface HomeAPI {
         @Header("Authorization") authorization : String
     ) : Response<PortofolioSummaryResponse>
 
-    @GET("/v1/startup/loan/withdraw/bank-list")
-    suspend fun getBankList(
-        @Header("Authorization") authorization : String
-    ) : Response<BankListResponse>
-
     @POST("/v1/investor/transaction/insert")
     suspend fun postPaymentTransaction(
         @Header("Authorization") authorization : String,
@@ -85,5 +83,10 @@ interface HomeAPI {
     suspend fun postTransactionStatus(
         @Header("Authorization") authorization : String,
         @Body request : TransactionStatusRequest) : Response<TransactionStatusResponse>
+
+    @POST("/v1/investor/loan/withdraw-all")
+    suspend fun withdrawAllFunds(
+        @Header("Authorization") authorization : String,
+    )
 
 }

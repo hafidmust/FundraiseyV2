@@ -5,16 +5,17 @@ import com.google.gson.annotations.SerializedName
 data class HomeLoanResponse(
 
 	@field:SerializedName("data")
-	val data: List<DataItem?>? = null,
+	val data: List<homeDataItem?>? = null,
 
 	@field:SerializedName("message")
 	val message: String? = null,
 
 	@field:SerializedName("status")
 	val status: Int? = null
+
 )
 
-data class DataItem(
+data class homeDataItem(
 
 	@field:SerializedName("interestRate")
 	val interestRate: Double? = null,
@@ -26,7 +27,7 @@ data class DataItem(
 	val endDate: String? = null,
 
 	@field:SerializedName("startup")
-	val startup: Startup? = null,
+	val startup: homeStartup? = null,
 
 	@field:SerializedName("name")
 	val name: String? = null,
@@ -45,9 +46,10 @@ data class DataItem(
 
 	@field:SerializedName("currentValue")
 	val currentValue: Int? = null
+
 )
 
-data class Startup(
+data class homeStartup(
 
 	@field:SerializedName("address")
 	val address: Any? = null,
@@ -93,4 +95,5 @@ data class Startup(
 
 	@field:SerializedName("id")
 	val id: Int? = null
+
 )
