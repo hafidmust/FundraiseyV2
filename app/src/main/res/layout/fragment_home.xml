@@ -3,26 +3,253 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.homenavigation.home.HomeFragment">
+    android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_signout"
+    <View
+        android:id="@+id/header_label"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/blue_primary"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/header_label"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="Sign Out"/>
+        app:layout_constraintTop_toTopOf="@id/header_label" />
 
-<!--    <Button-->
-<!--        android:id="@+id/btn_require_access"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/btn_signout"-->
-<!--        app:layout_constraintRight_toRightOf="parent"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        android:background="@color/colorBlueSecondary"-->
-<!--        android:text="This activity require users to login" />-->
+    <ImageView
+        android:id="@+id/logo_profile"
+        android:layout_width="39dp"
+        android:layout_height="39dp"
+        android:layout_marginEnd="18dp"
+        android:src="@drawable/ic_avatar"
+        app:layout_constraintBottom_toBottomOf="@id/header_label"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/header_label" />
+
+
+    <!--    <LinearLayout-->
+    <!--        android:id="@+id/app_name_header"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="80dp"-->
+    <!--        android:background="@color/blue_primary"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/app_name"-->
+    <!--            android:layout_width="264dp"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginStart="20dp"-->
+    <!--            android:layout_marginTop="25dp"-->
+    <!--            android:fontFamily="@font/inter_bold"-->
+    <!--            android:text="@string/app_name"-->
+    <!--            android:textColor="@color/white"-->
+    <!--            android:textFontWeight="700"-->
+    <!--            android:textSize="25dp"-->
+    <!--            app:layout_constraintTop_toTopOf="@id/app_name_header" />-->
+
+    <!--        <ImageView-->
+    <!--            android:layout_width="39dp"-->
+    <!--            android:layout_height="39dp"-->
+    <!--            android:layout_marginStart="70dp"-->
+    <!--            android:layout_marginEnd="58dp"-->
+    <!--            android:layout_marginTop="25dp"-->
+    <!--            android:src="@drawable/ic_avatar"-->
+    <!--            app:layout_constraintLeft_toLeftOf="@id/app_name"/>-->
+
+    <!--    </LinearLayout>-->
+
+    <LinearLayout
+        android:id="@+id/section_balance"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:background="@color/blue_primary"
+        android:orientation="vertical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_label">
+
+        <TextView
+            android:id="@+id/text_total_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/balance"
+            android:textColor="@color/white"
+            android:textFontWeight="700"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+<!--        <com.facebook.shimmer.ShimmerFrameLayout-->
+<!--            android:id="@+id/shimmer_balance"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
+<!--            <TextView-->
+<!--                android:layout_width="250dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="20dp"-->
+<!--                android:layout_marginTop="0dp"-->
+<!--                android:fontFamily="@font/inter_bold"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textFontWeight="700"-->
+<!--                android:textSize="18sp"-->
+<!--                android:background="@color/colorGrey"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/text_total_balance" />-->
+<!--        </com.facebook.shimmer.ShimmerFrameLayout>-->
+
+        <TextView
+            android:id="@+id/amount_balance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="0dp"
+            android:fontFamily="@font/inter_bold"
+            android:textColor="@color/white"
+            android:textFontWeight="700"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_total_balance" />
+
+    </LinearLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/box_total_balance"
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:background="@color/blue_primary"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/section_balance">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@drawable/box_rectangle_fragment_home"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/text_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/progress"
+                android:textColor="@color/progress_text"
+                android:textSize="16sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/indicator_header"
+                android:layout_width="305dp"
+                android:layout_height="4dp"
+                android:layout_marginStart="27dp"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="49dp"
+                app:indicatorColor="@color/blue_primary"
+                app:indicatorDirectionLinear="leftToRight"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_progress"
+                app:trackColor="@color/blue_secondary" />
+
+            <TextView
+                android:id="@+id/text_registration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:layout_marginEnd="232dp"
+                android:text="@string/regis"
+                android:textColor="@color/progress_text"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/indicator_header" />
+
+            <TextView
+                android:id="@+id/text_verif"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="63dp"
+                android:layout_marginTop="9dp"
+                android:text="@string/verif"
+                android:textColor="@color/progress_text"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toRightOf="@id/text_registration"
+                app:layout_constraintTop_toBottomOf="@id/indicator_header" />
+
+            <TextView
+                android:id="@+id/text_done"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="63dp"
+                android:layout_marginTop="9dp"
+                android:text="@string/done"
+                android:textColor="@color/progress_text"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toRightOf="@id/text_verif"
+                app:layout_constraintTop_toBottomOf="@id/indicator_header" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/box_total_balance">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/shimmer_adapter_home">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <include
+                        layout="@layout/shimmer_home"/>
+                    <include
+                        layout="@layout/shimmer_home"/>
+
+
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_home"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="70dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/adapter_recycler_home" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

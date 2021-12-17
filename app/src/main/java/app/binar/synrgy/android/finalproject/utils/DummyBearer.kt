@@ -1,0 +1,5 @@
+package app.binar.synrgy.android.finalproject.utils
+
+object DummyBearer {
+    val auth = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsib2F1dGgyLXJlc291cmNlIl0sInVzZXJfbmFtZSI6ImludmVzdG9yQGZ1bmRyYWlzZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImV4cCI6MTYzOTY4NTI0NywiYXV0aG9yaXRpZXMiOlsiUk9MRV9JTlZFU1RPUiJdLCJqdGkiOiJhZThiMzNjNy0yYWE4LTQ1NjAtOWMyZS05MzYzNTNjNTJmNWYiLCJjbGllbnRfaWQiOiJjbGllbnQtd2ViIn0.aUDfpI_jDJ332-kl6f_DbtbxGvJ-5A--uizUKrIuxBM"
+}

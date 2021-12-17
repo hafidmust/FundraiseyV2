@@ -6,25 +6,30 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="grey">#5F5F5F</color>
+    <color name="medium_grey">#9F9F9F</color>
+    <color name="light_grey">#E3E2E2</color>
     <color name="white">#FFFFFFFF</color>
-
-<!--Log in-->
-    <color name="blue">#1976D2</color>
-    <color name="purple">#6200EE</color>
-    <color name="grey_border">#DADADA</color>
-
-<!--Custom-made-->
-    <color name="colorAccent">#03DAC5</color>
-    <color name="colorPrimary">#FAC110</color>
-    <color name="colorPrimaryDark">#FAC110</color>
-    <color name="colorWhite">#ffff</color>
-    <color name="colorBlack">#121111</color>
-    <color name="colorGrey">#676060</color>
-    <color name="colorlightGrey">#9F9F9F</color>
-    <color name="colorBluePrimary">#1976D2</color>
-    <color name="colorBlueSecondary">#68ABEC</color>
-    <color name="colorBlueTertiary">#E4F2FF</color>
-    <color name="color_button_disable">#EDEEF0</color>
+    <color name="blue_primary">#1976D2</color>
+    <color name="blue_secondary">#3E1976D2</color>
+    <color name="blue_tertiary">#E4F2FF</color>
+    <color name="progress_text">#0F4880</color>
+    <color name="border_color">#C3E0FD</color>
+    <color name="desc_box_color">#5F5F5F</color>
+    <color name="status_being_funded">#0F4880</color>
+    <color name="status_late_payment">#C62828</color>
+    <color name="status_paid_off">#3692ED</color>
+    <color name="status_payment">#D99F48</color>
+    <color name="hitam">#000000</color>
+    <color name="status">#d99f48</color>
+    <color name="background_detail_pay">#FBD961</color>
+    <color name="background_step_by_step">#F4FAFF</color>
+    <color name="green">#319800</color>
+    <color name="pending">#D99F48</color>
+    <color name="paid">#3692ED</color>
+    <color name="late">#C62828</color>
+    <color name="grey_light">#EBEBEB</color>
+    <color name="colorGrey">#dddddd</color>
 
 
 </resources>

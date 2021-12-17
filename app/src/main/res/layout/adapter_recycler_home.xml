@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView_startup"
+                android:layout_width="120dp"
+                android:layout_height="68dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="13dp"
+                app:srcCompat="@drawable/adapter_home_recycler" />
+
+            <TextView
+                android:id="@+id/text_start_up_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@id/imageView_startup"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/title_start_up"
+                android:textColor="@color/blue_primary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/text_projectfunding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="1dp"
+                android:fontFamily="@font/inter_regular"
+                android:text="@string/pro_funding"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:layout_toRightOf="@id/imageView_startup"
+                android:layout_below="@id/text_start_up_title" />
+
+            <TextView
+                android:id="@+id/text_total_donation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_projectfunding"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/imageView_startup"
+                android:fontFamily="@font/inter_regular"
+                android:text="@string/donation"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/text_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_total_donation"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="7dp"
+                android:fontFamily="@font/inter_regular"
+                android:maxLines="2"
+                android:text="@string/description"
+                android:textColor="@color/grey"
+                android:textSize="12sp" />
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/indicator_adapter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="15dp"
+                android:progress="70"
+                app:indicatorColor="@color/blue_primary"
+                android:layout_below="@id/text_description"
+                app:trackColor="@color/blue_secondary" />
+
+            <TextView
+                android:id="@+id/text_colected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/inter_regular"
+                android:paddingLeft="15dp"
+                android:text="@string/collected"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:layout_below="@id/indicator_adapter" />
+
+            <TextView
+                android:id="@+id/text_amount_colected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_colected"
+                android:fontFamily="@font/inter_regular"
+                android:paddingBottom="15dp"
+                android:paddingLeft="15dp"
+                android:text="@string/total_collected"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/text_deadline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/inter_regular"
+                android:paddingRight="15dp"
+                android:text="@string/deadline"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/indicator_adapter" />
+
+            <TextView
+                android:id="@+id/text_deadline_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_deadline"
+                android:layout_alignParentRight="true"
+                android:fontFamily="@font/inter_regular"
+                android:paddingRight="15dp"
+                android:paddingBottom="15dp"
+                android:text="@string/date_deadline"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
