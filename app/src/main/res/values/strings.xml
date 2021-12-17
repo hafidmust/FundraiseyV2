@@ -16,10 +16,9 @@
     <string name="title_contacts">Contacts</string>
 
 
-
     <!--Sign Up page-->
     <string name="register">Register</string>
-    
+
     <string name="phone">Phone Number</string>
     <string name="gender">Gender</string>
     <string name="aggree">I agree to the</string>
