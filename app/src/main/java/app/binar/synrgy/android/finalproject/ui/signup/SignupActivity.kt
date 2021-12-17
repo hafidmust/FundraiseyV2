@@ -64,9 +64,7 @@ class SignupActivity : AppCompatActivity() {
 
         })
 
-        binding.textPrivacyPolicy.setOnClickListener {
-            // still in progress
-        }
+
 
         viewmodel.showMessageEmail.observe(this, {
             binding.textEmail.error = it
@@ -87,13 +85,7 @@ class SignupActivity : AppCompatActivity() {
         viewmodel.showMessageAPI.observe(this, {
             Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
         })
-        binding.checkboxPrivacy.setOnCheckedChangeListener { buttonView, isChecked ->
-            if(isChecked){
-                viewmodel.isPPChecked = true
-            }else{
-                viewmodel.isPPChecked = false
-            }
-        }
+
         viewmodel.showLoading.observe(this,{
             loading.showLoading(it)
         })
@@ -130,4 +122,19 @@ class SignupActivity : AppCompatActivity() {
 //            }
 //        }
 //    }
+
+//    binding.checkboxPrivacy.setOnCheckedChangeListener { buttonView, isChecked ->
+//        if(isChecked){
+//            viewmodel.isPPChecked = true
+//        }else{
+//            viewmodel.isPPChecked = false
+//        }
+//    } di line 90
+
+//    binding.textPrivacyPolicy.setOnClickListener {
+//        // still in progress
+//    } di line 67
+//
+
+
 }
