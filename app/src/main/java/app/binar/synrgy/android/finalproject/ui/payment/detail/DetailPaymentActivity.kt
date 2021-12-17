@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import app.binar.synrgy.android.finalproject.databinding.ActivityDetailPaymentBinding
@@ -42,8 +43,11 @@ class DetailPaymentActivity() : AppCompatActivity() {
 
         detailPaymentViewModel.getTransaction(transactionId)
 
+        showShimmer()
+
 
         detailPaymentViewModel.loanResponse.observe(this, {
+            hideShimmer()
             binding.tvvirtualnumber.text = it.accountNumber
             binding.tvjumlahtagihan.text = CurrencyHelper.toIdrCurrency(it.amount)
             binding.tvDeadlineTimestamp.text = it.paymentDeadline
@@ -83,6 +87,26 @@ class DetailPaymentActivity() : AppCompatActivity() {
                 }
             )
         }
+    }
+
+    private fun hideShimmer() {
+        binding.shimmerDeadline.stopShimmerAnimation()
+        binding.dhimmerNamebank.stopShimmerAnimation()
+        binding.shimmerVa.stopShimmerAnimation()
+        binding.shimmerNominal.stopShimmerAnimation()
+
+        binding.shimmerDeadline.visibility = View.GONE
+        binding.dhimmerNamebank.visibility = View.GONE
+        binding.shimmerVa.visibility = View.GONE
+        binding.shimmerNominal.visibility = View.GONE
+
+    }
+
+    private fun showShimmer() {
+        binding.shimmerDeadline.startShimmerAnimation()
+        binding.dhimmerNamebank.startShimmerAnimation()
+        binding.shimmerVa.startShimmerAnimation()
+        binding.shimmerNominal.startShimmerAnimation()
     }
 
     private fun copyVAN() {
