@@ -40,17 +40,19 @@ class DetailPaymentActivity() : AppCompatActivity() {
         val transactionId = intent.getIntExtra(GET_TRANSACTION_ID,0)
         Log.v("YUK",transactionId.toString())
 
+        detailPaymentViewModel.getTransaction(transactionId)
+
 
         detailPaymentViewModel.loanResponse.observe(this, {
             binding.tvvirtualnumber.text = it.accountNumber
             binding.tvjumlahtagihan.text = CurrencyHelper.toIdrCurrency(it.amount)
             binding.tvDeadlineTimestamp.text = it.paymentDeadline
-//            when{
-//                it.paymentAgent.equals(1) -> binding.tvBca.text = "BCA Virtual Account"
-//                it.paymentAgent.equals(2) -> binding.tvBca.text = "Mandiri Virtual Account"
-//                it.paymentAgent.equals(3) -> binding.tvBca.text = "OVO Virtual Account"
-//                it.paymentAgent.equals(4) -> binding.tvBca.text = "GOPAY Virtual Account"
-//            }
+            when{
+                it.paymentAgent.equals(1) -> binding.tvBca.text = "BCA Virtual Account"
+                it.paymentAgent.equals(2) -> binding.tvBca.text = "Mandiri Virtual Account"
+                it.paymentAgent.equals(3) -> binding.tvBca.text = "OVO Virtual Account"
+                it.paymentAgent.equals(4) -> binding.tvBca.text = "GOPAY Virtual Account"
+            }
 //            status = it.transactionStatus
         })
 

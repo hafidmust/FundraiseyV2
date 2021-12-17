@@ -64,9 +64,7 @@ class PaymentViewModel(var sharedPreferences: SharedPreferences) : ViewModel() {
                     transcationIdMut.value = response.body()?.data?.idData
 //                    transcationIdMut.value = response.body()?.data?.idData
                     Log.d("cek",response.body()?.data?.idData.toString())
-                    sharedPreferences.edit {
-                        response.body()?.data?.idData?.let { putInt(Const.TRANSACTION_ID, it) }
-                        }
+
 
 //                    if (response.body()?.status == 403) {
 //                        showMessageAPI.value = response.body()!!.message

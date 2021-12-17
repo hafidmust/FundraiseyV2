@@ -42,7 +42,7 @@ class DetailPaymentViewModel(var sharedPreferences: SharedPreferences) : ViewMod
         ),
         )
 
-    fun getDataFromAPI(id : Int){
+    fun getTransaction(id : Int){
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
         CoroutineScope(Dispatchers.IO).launch {
             val responseLoanDetail = homeAPI.getPaymentDetail("Bearer ${DummyBearer.auth}",id)
