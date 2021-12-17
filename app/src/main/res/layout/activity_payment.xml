@@ -35,501 +35,487 @@
 
     </LinearLayout>
 
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/nested_payment"
+    <!-- Nominal amounts   -->
+    <TextView
+        android:id="@+id/text_nominal_amount_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="@string/nominal_amount"
+        android:textColor="@color/blue_primary"
+        android:textFontWeight="700"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header_payment" />
+
+    <TextView
+        android:id="@+id/text_nominal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/inter_bold"
+        android:text="@string/nominal_text"
+        android:textColor="@color/grey"
+        android:textFontWeight="700"
+        android:textSize="10sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_nominal_amount_page" />
+
+    <LinearLayout
+        android:id="@+id/container_nominal"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:fillViewport="true"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_payment"
-        tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck">
-
-
-        <!-- Nominal amounts   -->
-        <TextView
-            android:id="@+id/text_nominal_amount_page"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="36dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/inter_bold"
-            android:text="@string/nominal_amount"
-            android:textColor="@color/blue_primary"
-            android:textFontWeight="700"
-            android:textSize="20sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/header_payment" />
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="28dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/box_rectangle_grey"
+        android:elevation="3dp"
+        android:paddingBottom="5dp"
+        app:layout_constraintTop_toBottomOf="@id/text_nominal">
 
         <TextView
-            android:id="@+id/text_nominal"
+            android:id="@+id/text_currency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="36dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="5dp"
-            android:fontFamily="@font/inter_bold"
-            android:text="@string/nominal_text"
-            android:textColor="@color/grey"
-            android:textFontWeight="700"
-            android:textSize="10sp"
+            android:fontFamily="@font/inter_medium"
+            android:text="IDR  | "
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:visibility="gone"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_nominal_amount_page" />
+            app:layout_constraintTop_toTopOf="@id/container_nominal" />
 
-        <LinearLayout
-            android:id="@+id/container_nominal"
+        <EditText
+            android:id="@+id/box_nominal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="28dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/box_rectangle_grey"
-            android:elevation="3dp"
-            android:paddingBottom="5dp"
-            app:layout_constraintTop_toBottomOf="@id/text_nominal">
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/inter_regular"
+            android:hint="@string/hint_text_amount"
+            android:inputType="number"
+            android:textColorHighlight="@color/blue_primary"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/container_nominal" />
+
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/button_nominal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:columnCount="3"
+        android:rowCount="2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/container_nominal">
+
+        <Button
+            android:id="@+id/button_50k"
+            android:layout_width="113dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/button_nominal_payment"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/fiftythousand"
+            android:textAllCaps="false"
+            android:textColor="@drawable/text_nominal_payment"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <Button
+            android:id="@+id/button_100k"
+            android:layout_width="113dp"
+            android:layout_height="55dp"
+            android:background="@drawable/button_nominal_payment"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/onehundred"
+            android:textAllCaps="false"
+            android:textColor="@drawable/text_nominal_payment"
+            android:textSize="11sp"
+            app:layout_constraintLeft_toRightOf="@id/button_50k" />
+
+        <Button
+            android:id="@+id/button_200k"
+            android:layout_width="113dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/button_nominal_payment"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/twohundred"
+            android:textAllCaps="false"
+            android:textColor="@drawable/text_nominal_payment"
+            android:textSize="11sp"
+            app:layout_constraintLeft_toRightOf="@id/button_100k" />
+
+        <Button
+            android:id="@+id/button_500k"
+            android:layout_width="113dp"
+            android:layout_height="55dp"
+            android:background="@drawable/button_nominal_payment"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/fivehundred"
+            android:textAllCaps="false"
+            android:textColor="@drawable/text_nominal_payment"
+            android:textSize="11sp"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <Button
+            android:id="@+id/button_1000k"
+            android:layout_width="113dp"
+            android:layout_height="55dp"
+            android:background="@drawable/button_nominal_payment"
+            android:fontFamily="@font/inter_semibold"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/onemillion"
+            android:textAllCaps="false"
+            android:textColor="@drawable/text_nominal_payment"
+            android:textSize="11sp"
+            app:layout_constraintLeft_toRightOf="@id/button_50k" />
+
+        <Button
+            android:id="@+id/button_1500k"
+            android:layout_width="113dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/button_nominal_payment"
+            android:fontFamily="@font/inter_semibold"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:text="@string/onehalfmillion"
+            android:textAllCaps="false"
+            android:textColor="@drawable/text_nominal_payment"
+            android:textSize="11sp"
+            app:layout_constraintLeft_toRightOf="@id/button_100k" />
+
+
+    </GridLayout>
+
+    <!--  Payment Method  -->
+    <TextView
+        android:id="@+id/text_payment_method"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/payment_metode"
+        android:textColor="@color/blue_primary"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_nominal" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_bank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/text_payment_method">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
 
             <TextView
-                android:id="@+id/text_currency"
+                android:id="@+id/labelbank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="Bank Virtual Account"
+                android:textColor="@color/blue_primary"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/imgbankbca"
+                android:layout_width="39dp"
+                android:layout_height="12dp"
+                android:layout_below="@id/labelbank"
+                android:layout_marginLeft="19dp"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/bcaa" />
+
+            <ImageView
+                android:id="@+id/imgbankmandiri"
+                android:layout_width="39dp"
+                android:layout_height="12dp"
+                android:layout_below="@id/imgbankbca"
+                android:layout_marginLeft="19dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/mandiri" />
+
+            <RadioGroup
+                android:id="@+id/rg_bank"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/inter_medium"
-                android:text="IDR  | "
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:visibility="gone"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="@id/container_nominal" />
+                android:layout_below="@id/labelbank"
+                android:layout_toRightOf="@id/imgbankbca">
 
-            <EditText
-                android:id="@+id/box_nominal"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="20dp"
-                android:fontFamily="@font/inter_regular"
-                android:hint="@string/hint_text_amount"
-                android:inputType="number"
-                android:textColorHighlight="@color/blue_primary"
-                android:textSize="16sp"
-                app:layout_constraintTop_toBottomOf="@id/container_nominal" />
-
-        </LinearLayout>
-
-        <GridLayout
-            android:id="@+id/button_nominal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:columnCount="3"
-            android:rowCount="2"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/container_nominal">
-
-            <Button
-                android:id="@+id/button_50k"
-                android:layout_width="113dp"
-                android:layout_height="55dp"
-                android:layout_marginEnd="5dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/button_nominal_payment"
-                android:fontFamily="@font/inter_semibold"
-                android:text="@string/fiftythousand"
-                android:textAllCaps="false"
-                android:textColor="@drawable/text_nominal_payment"
-                android:textSize="12sp"
-                app:layout_constraintLeft_toLeftOf="parent" />
-
-            <Button
-                android:id="@+id/button_100k"
-                android:layout_width="113dp"
-                android:layout_height="55dp"
-                android:background="@drawable/button_nominal_payment"
-                android:fontFamily="@font/inter_semibold"
-                android:text="@string/onehundred"
-                android:textAllCaps="false"
-                android:textColor="@drawable/text_nominal_payment"
-                android:textSize="11sp"
-                app:layout_constraintLeft_toRightOf="@id/button_50k" />
-
-            <Button
-                android:id="@+id/button_200k"
-                android:layout_width="113dp"
-                android:layout_height="55dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/button_nominal_payment"
-                android:fontFamily="@font/inter_semibold"
-                android:text="@string/twohundred"
-                android:textAllCaps="false"
-                android:textColor="@drawable/text_nominal_payment"
-                android:textSize="11sp"
-                app:layout_constraintLeft_toRightOf="@id/button_100k" />
-
-            <Button
-                android:id="@+id/button_500k"
-                android:layout_width="113dp"
-                android:layout_height="55dp"
-                android:background="@drawable/button_nominal_payment"
-                android:fontFamily="@font/inter_semibold"
-                android:text="@string/fivehundred"
-                android:textAllCaps="false"
-                android:textColor="@drawable/text_nominal_payment"
-                android:textSize="11sp"
-                app:layout_constraintLeft_toLeftOf="parent" />
-
-            <Button
-                android:id="@+id/button_1000k"
-                android:layout_width="113dp"
-                android:layout_height="55dp"
-                android:background="@drawable/button_nominal_payment"
-                android:fontFamily="@font/inter_semibold"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:text="@string/onemillion"
-                android:textAllCaps="false"
-                android:textColor="@drawable/text_nominal_payment"
-                android:textSize="11sp"
-                app:layout_constraintLeft_toRightOf="@id/button_50k" />
-
-            <Button
-                android:id="@+id/button_1500k"
-                android:layout_width="113dp"
-                android:layout_height="55dp"
-                android:layout_marginStart="5dp"
-                android:background="@drawable/button_nominal_payment"
-                android:fontFamily="@font/inter_semibold"
-                android:paddingStart="5dp"
-                android:paddingEnd="5dp"
-                android:text="@string/onehalfmillion"
-                android:textAllCaps="false"
-                android:textColor="@drawable/text_nominal_payment"
-                android:textSize="11sp"
-                app:layout_constraintLeft_toRightOf="@id/button_100k" />
-
-
-        </GridLayout>
-
-        <!--  Payment Method  -->
-        <TextView
-            android:id="@+id/text_payment_method"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/payment_metode"
-            android:textColor="@color/blue_primary"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_nominal" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardview_bank"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@id/text_payment_method">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-
-                <TextView
-                    android:id="@+id/labelbank"
+                <RadioButton
+                    android:id="@+id/rb_bca"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/inter_bold"
-                    android:text="Bank Virtual Account"
-                    android:textColor="@color/blue_primary"
-                    android:textSize="20sp" />
+                    android:text="@string/bca" />
 
-                <ImageView
-                    android:id="@+id/imgbankbca"
-                    android:layout_width="39dp"
-                    android:layout_height="12dp"
-                    android:layout_below="@id/labelbank"
-                    android:layout_marginLeft="19dp"
-                    android:layout_marginTop="18dp"
-                    android:src="@drawable/bcaa" />
-
-                <ImageView
-                    android:id="@+id/imgbankmandiri"
-                    android:layout_width="39dp"
-                    android:layout_height="12dp"
-                    android:layout_below="@id/imgbankbca"
-                    android:layout_marginLeft="19dp"
-                    android:layout_marginTop="30dp"
-                    android:src="@drawable/mandiri" />
-
-                <RadioGroup
-                    android:id="@+id/rg_bank"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/labelbank"
-                    android:layout_toRightOf="@id/imgbankbca">
-
-                    <RadioButton
-                        android:id="@+id/rb_bca"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/bca" />
-
-                    <RadioButton
-                        android:id="@+id/rb_mandiri"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/mandiri" />
-                </RadioGroup>
-
-
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardview_wallet"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/cardview_bank">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/labelwallet"
+                <RadioButton
+                    android:id="@+id/rb_mandiri"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/inter_bold"
-                    android:text="E-Wallet Transfer"
-                    android:textColor="@color/blue_primary"
-                    android:textSize="20sp" />
-
-                <ImageView
-                    android:id="@+id/imggopay"
-                    android:layout_width="39dp"
-                    android:layout_height="12dp"
-                    android:layout_below="@id/labelwallet"
-                    android:layout_marginLeft="19dp"
-                    android:layout_marginTop="18dp"
-                    android:src="@drawable/ic_gopay" />
-
-                <ImageView
-                    android:id="@+id/imgovo"
-                    android:layout_width="39dp"
-                    android:layout_height="12dp"
-                    android:layout_below="@id/imggopay"
-                    android:layout_marginLeft="19dp"
-                    android:layout_marginTop="30dp"
-                    android:src="@drawable/ic_ovo" />
+                    android:text="@string/mandiri" />
+            </RadioGroup>
 
 
-                <RadioGroup
-                    android:id="@+id/rg_wallet"
-                    android:layout_width="wrap_content"
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_wallet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/cardview_bank">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/labelwallet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="E-Wallet Transfer"
+                android:textColor="@color/blue_primary"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:id="@+id/imggopay"
+                android:layout_width="39dp"
+                android:layout_height="12dp"
+                android:layout_below="@id/labelwallet"
+                android:layout_marginLeft="19dp"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/ic_gopay" />
+
+            <ImageView
+                android:id="@+id/imgovo"
+                android:layout_width="39dp"
+                android:layout_height="12dp"
+                android:layout_below="@id/imggopay"
+                android:layout_marginLeft="19dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/ic_ovo" />
+
+
+            <RadioGroup
+                android:id="@+id/rg_wallet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/labelwallet"
+                android:layout_toRightOf="@id/imggopay">
+
+                <RadioButton
+                    android:id="@+id/rb_gopay"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/labelwallet"
-                    android:layout_toRightOf="@id/imggopay">
+                    android:text="@string/gopay" />
 
-                    <RadioButton
-                        android:id="@+id/rb_gopay"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/gopay" />
-
-                    <RadioButton
-                        android:id="@+id/rb_obo"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Ovo" />
+                <RadioButton
+                    android:id="@+id/rb_obo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ovo" />
 
 
-                </RadioGroup>
+            </RadioGroup>
 
 
-            </RelativeLayout>
-        </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
-        <!--    <RadioGroup-->
-        <!--        android:id="@+id/radiogroup_bank_transfer"-->
-        <!--        android:layout_width="340dp"-->
-        <!--        android:layout_height="130dp"-->
-        <!--        android:layout_marginStart="20dp"-->
-        <!--        android:layout_marginTop="8dp"-->
-        <!--        android:layout_marginEnd="21dp"-->
-        <!--        android:background="@drawable/box_rectangle_grey"-->
-        <!--        android:elevation="3dp"-->
-        <!--        android:outlineAmbientShadowColor="@color/light_grey"-->
-        <!--        app:layout_constraintLeft_toLeftOf="parent"-->
-        <!--        app:layout_constraintRight_toRightOf="parent"-->
-        <!--        app:layout_constraintTop_toBottomOf="@id/text_payment_method">-->
+    <!--    <RadioGroup-->
+    <!--        android:id="@+id/radiogroup_bank_transfer"-->
+    <!--        android:layout_width="340dp"-->
+    <!--        android:layout_height="130dp"-->
+    <!--        android:layout_marginStart="20dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:layout_marginEnd="21dp"-->
+    <!--        android:background="@drawable/box_rectangle_grey"-->
+    <!--        android:elevation="3dp"-->
+    <!--        android:outlineAmbientShadowColor="@color/light_grey"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/text_payment_method">-->
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/text_bank_transfer"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginStart="19dp"-->
-        <!--            android:layout_marginTop="10dp"-->
-        <!--            android:fontFamily="@font/inter_regular"-->
-        <!--            android:text="@string/bank_trans"-->
-        <!--            android:textColor="@color/blue_primary"-->
-        <!--            android:textSize="20sp"-->
-        <!--            android:textStyle="bold" />-->
+    <!--        <TextView-->
+    <!--            android:id="@+id/text_bank_transfer"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginStart="19dp"-->
+    <!--            android:layout_marginTop="10dp"-->
+    <!--            android:fontFamily="@font/inter_regular"-->
+    <!--            android:text="@string/bank_trans"-->
+    <!--            android:textColor="@color/blue_primary"-->
+    <!--            android:textSize="20sp"-->
+    <!--            android:textStyle="bold" />-->
 
-        <!--        <GridLayout-->
-        <!--            android:id="@+id/grid_bank"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginStart="19dp"-->
-        <!--            android:columnCount="2"-->
-        <!--            android:orientation="vertical"-->
-        <!--            android:rowCount="2">-->
+    <!--        <GridLayout-->
+    <!--            android:id="@+id/grid_bank"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginStart="19dp"-->
+    <!--            android:columnCount="2"-->
+    <!--            android:orientation="vertical"-->
+    <!--            android:rowCount="2">-->
 
-        <!--            <ImageView-->
-        <!--                android:id="@+id/logo_bca"-->
-        <!--                android:layout_width="40dp"-->
-        <!--                android:layout_height="13dp"-->
-        <!--                android:layout_marginTop="18dp"-->
-        <!--                android:src="@drawable/bcaa" />-->
+    <!--            <ImageView-->
+    <!--                android:id="@+id/logo_bca"-->
+    <!--                android:layout_width="40dp"-->
+    <!--                android:layout_height="13dp"-->
+    <!--                android:layout_marginTop="18dp"-->
+    <!--                android:src="@drawable/bcaa" />-->
 
-        <!--            <ImageView-->
-        <!--                android:id="@+id/logo_mandiri"-->
-        <!--                android:layout_width="40dp"-->
-        <!--                android:layout_height="13dp"-->
-        <!--                android:layout_marginTop="18dp"-->
-        <!--                android:src="@drawable/mandiri" />-->
+    <!--            <ImageView-->
+    <!--                android:id="@+id/logo_mandiri"-->
+    <!--                android:layout_width="40dp"-->
+    <!--                android:layout_height="13dp"-->
+    <!--                android:layout_marginTop="18dp"-->
+    <!--                android:src="@drawable/mandiri" />-->
 
-        <!--            <RadioButton-->
-        <!--                android:id="@+id/radio_bank_bca"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="20dp"-->
-        <!--                android:layout_marginStart="18dp"-->
-        <!--                android:layout_marginTop="13dp"-->
-        <!--                android:buttonTint="@color/blue_primary"-->
-        <!--                android:fontFamily="@font/inter_regular"-->
-        <!--                android:text="@string/bca"-->
-        <!--                android:textSize="16sp" />-->
+    <!--            <RadioButton-->
+    <!--                android:id="@+id/radio_bank_bca"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="20dp"-->
+    <!--                android:layout_marginStart="18dp"-->
+    <!--                android:layout_marginTop="13dp"-->
+    <!--                android:buttonTint="@color/blue_primary"-->
+    <!--                android:fontFamily="@font/inter_regular"-->
+    <!--                android:text="@string/bca"-->
+    <!--                android:textSize="16sp" />-->
 
-        <!--            <RadioButton-->
-        <!--                android:id="@+id/radio_bank_mandiri"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="match_parent"-->
-        <!--                android:layout_marginStart="18dp"-->
-        <!--                android:buttonTint="@color/blue_primary"-->
-        <!--                android:fontFamily="@font/inter_regular"-->
-        <!--                android:text="@string/mandiri"-->
-        <!--                android:checked="false"-->
-        <!--                android:textSize="16sp" />-->
+    <!--            <RadioButton-->
+    <!--                android:id="@+id/radio_bank_mandiri"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_marginStart="18dp"-->
+    <!--                android:buttonTint="@color/blue_primary"-->
+    <!--                android:fontFamily="@font/inter_regular"-->
+    <!--                android:text="@string/mandiri"-->
+    <!--                android:checked="false"-->
+    <!--                android:textSize="16sp" />-->
 
-        <!--        </GridLayout>-->
+    <!--        </GridLayout>-->
 
-        <!--    </RadioGroup>-->
+    <!--    </RadioGroup>-->
 
-        <!--    <RadioGroup-->
-        <!--        android:id="@+id/radiogroup_e_walet"-->
-        <!--        android:layout_width="340dp"-->
-        <!--        android:layout_height="130dp"-->
-        <!--        android:layout_marginStart="20dp"-->
-        <!--        android:layout_marginTop="10dp"-->
-        <!--        android:layout_marginEnd="21dp"-->
-        <!--        android:background="@drawable/box_rectangle_grey"-->
-        <!--        android:elevation="4dp"-->
-        <!--        android:outlineAmbientShadowColor="@color/light_grey"-->
-        <!--        app:layout_constraintLeft_toLeftOf="parent"-->
-        <!--        app:layout_constraintRight_toRightOf="parent"-->
-        <!--        app:layout_constraintTop_toBottomOf="@id/radiogroup_bank_transfer">-->
+    <!--    <RadioGroup-->
+    <!--        android:id="@+id/radiogroup_e_walet"-->
+    <!--        android:layout_width="340dp"-->
+    <!--        android:layout_height="130dp"-->
+    <!--        android:layout_marginStart="20dp"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:layout_marginEnd="21dp"-->
+    <!--        android:background="@drawable/box_rectangle_grey"-->
+    <!--        android:elevation="4dp"-->
+    <!--        android:outlineAmbientShadowColor="@color/light_grey"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/radiogroup_bank_transfer">-->
 
-        <!--        <TextView-->
-        <!--            android:id="@+id/text_e_wallet"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginLeft="19dp"-->
-        <!--            android:layout_marginTop="10dp"-->
-        <!--            android:fontFamily="@font/inter_regular"-->
-        <!--            android:text="@string/e_wallet"-->
-        <!--            android:textColor="@color/blue_primary"-->
-        <!--            android:textSize="20sp"-->
-        <!--            android:textStyle="bold" />-->
+    <!--        <TextView-->
+    <!--            android:id="@+id/text_e_wallet"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginLeft="19dp"-->
+    <!--            android:layout_marginTop="10dp"-->
+    <!--            android:fontFamily="@font/inter_regular"-->
+    <!--            android:text="@string/e_wallet"-->
+    <!--            android:textColor="@color/blue_primary"-->
+    <!--            android:textSize="20sp"-->
+    <!--            android:textStyle="bold" />-->
 
-        <!--        <GridLayout-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginLeft="19dp"-->
-        <!--            android:columnCount="2"-->
-        <!--            android:orientation="vertical"-->
-        <!--            android:rowCount="2">-->
+    <!--        <GridLayout-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginLeft="19dp"-->
+    <!--            android:columnCount="2"-->
+    <!--            android:orientation="vertical"-->
+    <!--            android:rowCount="2">-->
 
 
-        <!--            <ImageView-->
-        <!--                android:id="@+id/logo_gopay"-->
-        <!--                android:layout_width="40dp"-->
-        <!--                android:layout_height="13dp"-->
-        <!--                android:layout_marginTop="18dp"-->
-        <!--                android:src="@drawable/ic_gopay" />-->
+    <!--            <ImageView-->
+    <!--                android:id="@+id/logo_gopay"-->
+    <!--                android:layout_width="40dp"-->
+    <!--                android:layout_height="13dp"-->
+    <!--                android:layout_marginTop="18dp"-->
+    <!--                android:src="@drawable/ic_gopay" />-->
 
-        <!--            <ImageView-->
-        <!--                android:id="@+id/logo_ovo"-->
-        <!--                android:layout_width="40dp"-->
-        <!--                android:layout_height="13dp"-->
-        <!--                android:layout_marginTop="18dp"-->
-        <!--                android:src="@drawable/ic_ovo" />-->
+    <!--            <ImageView-->
+    <!--                android:id="@+id/logo_ovo"-->
+    <!--                android:layout_width="40dp"-->
+    <!--                android:layout_height="13dp"-->
+    <!--                android:layout_marginTop="18dp"-->
+    <!--                android:src="@drawable/ic_ovo" />-->
 
-        <!--            <RadioButton-->
-        <!--                android:id="@+id/radio_gopay"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="20dp"-->
-        <!--                android:layout_row="0"-->
-        <!--                android:layout_marginStart="18dp"-->
-        <!--                android:layout_marginTop="13dp"-->
-        <!--                android:buttonTint="@color/blue_primary"-->
-        <!--                android:fontFamily="@font/inter_regular"-->
-        <!--                android:text="@string/gopay"-->
-        <!--                android:checked="false"-->
-        <!--                android:textSize="16sp" />-->
+    <!--            <RadioButton-->
+    <!--                android:id="@+id/radio_gopay"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="20dp"-->
+    <!--                android:layout_row="0"-->
+    <!--                android:layout_marginStart="18dp"-->
+    <!--                android:layout_marginTop="13dp"-->
+    <!--                android:buttonTint="@color/blue_primary"-->
+    <!--                android:fontFamily="@font/inter_regular"-->
+    <!--                android:text="@string/gopay"-->
+    <!--                android:checked="false"-->
+    <!--                android:textSize="16sp" />-->
 
-        <!--            <RadioButton-->
-        <!--                android:id="@+id/radio_ovo"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="match_parent"-->
-        <!--                android:layout_marginStart="18dp"-->
-        <!--                android:buttonTint="@color/blue_primary"-->
-        <!--                android:fontFamily="@font/inter_regular"-->
-        <!--                android:text="@string/OVO"-->
-        <!--                android:checked="false"-->
-        <!--                android:textSize="16sp" />-->
+    <!--            <RadioButton-->
+    <!--                android:id="@+id/radio_ovo"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:layout_marginStart="18dp"-->
+    <!--                android:buttonTint="@color/blue_primary"-->
+    <!--                android:fontFamily="@font/inter_regular"-->
+    <!--                android:text="@string/OVO"-->
+    <!--                android:checked="false"-->
+    <!--                android:textSize="16sp" />-->
 
-        <!--        </GridLayout>-->
+    <!--        </GridLayout>-->
 
-        <!--    </RadioGroup>-->
+    <!--    </RadioGroup>-->
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/button_pay"
-            android:layout_width="340dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/grid_recycler_home"
-            android:backgroundTint="@color/blue_primary"
-            android:fontFamily="@font/inter_regular"
-            android:text="@string/pay_button"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardview_wallet">
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_pay"
+        android:layout_width="340dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/grid_recycler_home"
+        android:backgroundTint="@color/blue_primary"
+        android:fontFamily="@font/inter_regular"
+        android:text="@string/pay_button"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardview_wallet">
 
-        </androidx.appcompat.widget.AppCompatButton>
-
-    </androidx.core.widget.NestedScrollView>
-
+    </androidx.appcompat.widget.AppCompatButton>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
