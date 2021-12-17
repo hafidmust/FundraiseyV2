@@ -79,8 +79,7 @@ class DetailPaymentActivity() : AppCompatActivity() {
         binding.btnCheckInvestmentStatus.setOnClickListener {
             startActivity(
                 Intent(this, DetailHistoryActivity::class.java).apply {
-                    putExtra(DetailHistoryActivity.GET_ID, sharedPreferences.getInt(Const.FUNDING_ID, 0))
-                    putExtra(DetailHistoryActivity.GET_STATUS, status)
+                    putExtra(DetailHistoryActivity.GET_ID, transactionId)
                 }
             )
         }
