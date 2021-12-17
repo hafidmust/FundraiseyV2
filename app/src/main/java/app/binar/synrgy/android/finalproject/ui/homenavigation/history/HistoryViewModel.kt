@@ -18,7 +18,6 @@ class HistoryViewModel(private val appDatabase: AppDatabase) : ViewModel() {
     private lateinit var homeAPI: HomeAPI
     val responseDummy: MutableLiveData<List<HistoryResponseDummy>> = MutableLiveData()
 
-
     fun onViewLoaded() {
         getDataHistory()
     }

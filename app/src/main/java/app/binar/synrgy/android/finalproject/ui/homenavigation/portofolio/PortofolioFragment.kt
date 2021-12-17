@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import app.binar.synrgy.android.finalproject.data.portofolio.DataItem
 import app.binar.synrgy.android.finalproject.databinding.FragmentPortofolioBinding
 import app.binar.synrgy.android.finalproject.ui.homenavigation.history.detail.DetailHistoryActivity
 import app.binar.synrgy.android.finalproject.utils.CurrencyHelper
+import com.google.firebase.messaging.FirebaseMessaging
 
 
 class PortofolioFragment : Fragment() {
@@ -59,6 +61,14 @@ class PortofolioFragment : Fragment() {
             binding.buttonWithdraw.setOnClickListener {
                 if (balance == 0) {
                     binding.buttonWithdraw.setOnClickListener {
+                        FirebaseMessaging.getInstance().token
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    if (task.result != null && !TextUtils.isEmpty(task.result)) {
+                                        val token: String = task.result!!
+                                    }
+                                }
+                            }
                         val dialogBuilder = AlertDialog.Builder(activity)
 
                         dialogBuilder.setMessage("You have an insufficient amount of fund")
@@ -67,9 +77,8 @@ class PortofolioFragment : Fragment() {
                             .setPositiveButton("Ok", { dialog, id ->
                                 dialog.dismiss()
                             })
-
                         val alert = dialogBuilder.create()
-                        alert.setTitle("AlertDialogExample")
+                        alert.setTitle("")
                         alert.show()
                     }
                 } else {
@@ -88,7 +97,7 @@ class PortofolioFragment : Fragment() {
                             dialog.cancel()
                         })
                     val alert = dialogBuilder.create()
-                    alert.setTitle("AlertDialogExample")
+                    alert.setTitle("")
                     alert.show()
                 }
             }

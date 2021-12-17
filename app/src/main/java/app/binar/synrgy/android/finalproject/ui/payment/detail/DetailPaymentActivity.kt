@@ -25,6 +25,7 @@ class DetailPaymentActivity() : AppCompatActivity() {
 
     companion object{
         const val GET_TRANSACTION_ID = "get_transaction_id"
+        const val GET_LOAN_ID = "get_loan_id"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,11 +33,6 @@ class DetailPaymentActivity() : AppCompatActivity() {
         binding = ActivityDetailPaymentBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.hide()
-
-        val sharedPreferences = getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
-        detailPaymentViewModel = DetailPaymentViewModel(sharedPreferences)
-//        val id = sharedPreferences.getString(Const.FUNDING_ID)
-//        Log.d("id", id.toString())
 
         val transactionId = intent.getIntExtra(GET_TRANSACTION_ID,0)
         Log.v("YUK",transactionId.toString())
@@ -46,6 +42,8 @@ class DetailPaymentActivity() : AppCompatActivity() {
         showShimmer()
 
 
+        val sharedPreferences = getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
+        detailPaymentViewModel = DetailPaymentViewModel(sharedPreferences)
         detailPaymentViewModel.loanResponse.observe(this, {
             hideShimmer()
             binding.tvvirtualnumber.text = it.accountNumber
@@ -58,6 +56,7 @@ class DetailPaymentActivity() : AppCompatActivity() {
                 it.paymentAgent.equals(4) -> binding.tvBca.text = "GOPAY Virtual Account"
             }
 //            status = it.transactionStatus
+            binding.tvBca.text = it.paymentAgent.name
         })
 
         binding.copy.setOnClickListener {

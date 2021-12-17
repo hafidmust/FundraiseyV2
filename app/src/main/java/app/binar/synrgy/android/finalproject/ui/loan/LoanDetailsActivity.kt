@@ -87,7 +87,6 @@ class LoanDetailsActivity : AppCompatActivity() {
 //            startActivity(Intent(this,PaymentActivity::class.java))
             val intentSendLoanId = Intent(this, PaymentActivity::class.java).apply {
                 putExtra(PaymentActivity.GET_LOAN_ID, id)
-
             }
             startActivity(intentSendLoanId)
         }
