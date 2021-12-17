@@ -1,5 +1,8 @@
 package app.binar.synrgy.android.finalproject.ui.signup
 
+import android.app.DatePickerDialog
+import android.widget.Button
+import android.widget.EditText
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import app.binar.synrgy.android.finalproject.constant.Const
@@ -11,6 +14,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.*
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -18,6 +22,7 @@ class SignupViewModel : ViewModel() {
     val showMessageEmail: MutableLiveData<String> = MutableLiveData()
     val showMessagePassword: MutableLiveData<String> = MutableLiveData()
     val showMessagePhone: MutableLiveData<String> = MutableLiveData()
+    val showMessageDate: MutableLiveData<String> = MutableLiveData()
     val isButtonEnable: MutableLiveData<Boolean> = MutableLiveData(false)
     val showMessageAPI: MutableLiveData<String> = MutableLiveData()
     val isLoginSuccess: MutableLiveData<Boolean> = MutableLiveData(false)
@@ -27,15 +32,13 @@ class SignupViewModel : ViewModel() {
     private var email: String = ""
     private var password: String = ""
     private var phone: String = ""
-    var gender : String = ""
+    private var dateOfBirth: String = ""
     var isPPChecked : Boolean ? = false
-
-
 
     fun onChangeEmail(email: String) {
         this.email = email
         if (!validateEmail(email)) {
-            showMessageEmail.value = "format email harus benar"
+            showMessageEmail.value = "Incorrect Email Format"
         } else {
             validateEmail(email)
 
@@ -46,7 +49,7 @@ class SignupViewModel : ViewModel() {
     fun onChangePassword(password: String) {
         this.password = password
         if (!validatePassword(password)) {
-            showMessagePassword.value = "Password minimal 6 karakter & kombinasi huruf"
+            showMessagePassword.value = "Password must be Alphanumeric with at least 6 characters"
         } else {
             validatePassword(password)
 
@@ -57,10 +60,17 @@ class SignupViewModel : ViewModel() {
     fun onChangePhone(phone: String) {
         this.phone = phone
         if (!validatePhone(phone)) {
-            showMessagePhone.value = "Pastikan nomer hp 10-13 digit"
+            showMessagePhone.value = "Phone number must range from 10-13 digits"
         } else {
             validatePhone(phone)
+        }
+        validate()
+    }
 
+    fun onChangeDateOfBirth(birthDate: String) {
+        this.dateOfBirth = birthDate
+        if (birthDate == "") {
+            showMessageDate.value = "Please fill in your birth date"
         }
         validate()
     }
@@ -83,7 +93,7 @@ class SignupViewModel : ViewModel() {
     }
 
     private fun validate() {
-        isButtonEnable.value = email.isNotEmpty() && password.isNotEmpty() && phone.isNotEmpty()
+        isButtonEnable.value = email.isNotEmpty() && password.isNotEmpty() && phone.isNotEmpty() && dateOfBirth.isNotEmpty()
 //                && gender.isNotEmpty() && isPPChecked == true
     }
 
@@ -95,7 +105,7 @@ class SignupViewModel : ViewModel() {
                 email = email,
                 password = password,
                 phoneNumber = phone,
-                gender = gender
+                dateOfBirth = dateOfBirth
             )
             val response = homeAPI.postSignUp(request)
             withContext(Dispatchers.Main) {
@@ -117,4 +127,7 @@ class SignupViewModel : ViewModel() {
         }
     }
 
+    fun datePicker() {
+
+    }
 }

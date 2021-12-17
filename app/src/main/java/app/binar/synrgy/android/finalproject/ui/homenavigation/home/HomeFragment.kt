@@ -73,6 +73,19 @@ class HomeFragment : Fragment() {
             }
         })
 
+//        val sharedPreferences =
+//            activity?.getSharedPreferences(
+//                app.binar.synrgy.android.finalproject.constant.Const.PREF_NAME,
+//                AppCompatActivity.MODE_PRIVATE
+//            )
+//        homeViewModel = HomeViewModel(sharedPreferences!!)
+//
+////        binding.btnSignout.setOnClickListener {
+////            println("logout")
+////            homeViewModel.logout()
+////            startActivity(Intent(this.context, SignupActivity::class.java))
+////        }
+
         binding.recyclerHome.adapter = homeAdapter
         homeViewModel.onViewLoaded()
         homeViewModel.getDataBalance()

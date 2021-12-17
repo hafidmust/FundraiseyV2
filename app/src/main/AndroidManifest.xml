@@ -20,6 +20,9 @@
             android:name=".ui.homenavigation.history.detail.DetailHistoryActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.signin.SignInActivity"
+            android:exported="true"/>
+        <activity
             android:name=".ui.homenavigation.HomeNavigationActivity"
             android:exported="false" />
         <activity
