@@ -10,12 +10,14 @@
         android:id="@+id/log_in_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="45dp"
         android:layout_marginTop="80dp"
         android:fontFamily="@font/inter_regular"
         android:text="@string/log_in"
+        android:textStyle="bold"
         android:textColor="@color/blue"
         android:textSize="25sp"
+        app:layout_constraintRight_toRightOf="pare"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,9 +36,11 @@
         android:paddingLeft="15dp"
         android:textColorHint="@color/black"
         android:textSize="16sp"
+
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/log_in_header"
+
         tools:ignore="LabelFor" />
 
     <!-- password -->
@@ -54,6 +58,8 @@
         android:paddingLeft="15dp"
         android:textColorHint="@color/black"
         android:textSize="16sp"
+        android:paddingEnd="20dp"
+        android:drawableEnd="@drawable/ic_eye_pass"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email"
@@ -66,13 +72,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="46dp"
         android:fontFamily="@font/inter_regular"
         android:text="@string/forgot_pass"
         android:textColor="@color/blue"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/password"
-
+        android:textStyle="bold"
         tools:ignore="MissingConstraints" />
 
     <!--    button log in -->
@@ -84,6 +90,8 @@
         android:background="@drawable/bg_input_button"
         android:fontFamily="@font/inter_regular"
         android:text="@string/log_in"
+        android:textAllCaps="false"
+        android:textStyle="bold"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@id/linear"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -121,6 +129,7 @@
             android:layout_marginTop="12dp"
             android:fontFamily="@font/inter_regular"
             android:text="@string/register"
+            android:textStyle="bold"
             android:textColor="@color/blue"
             android:textSize="14sp"
             app:layout_constraintLeft_toRightOf="@id/have_an_account"
