@@ -59,6 +59,17 @@ class LoanDetailsActivity : AppCompatActivity() {
             binding.tvContentPhone.text = it.startup?.phoneNumber.toString()
             binding.contentsince.text = it.startup?.foundedDate.toString()
             binding.tvFundingAmountNominal.text = it.lenderCount.toString()
+            when(it.paymentPlan?.totalPeriod){
+                1 -> {
+                    binding.contentreturn.text = "Cash Payment"
+                }
+                2 -> {
+                    binding.contentreturn.text = "1 years installment"
+                }
+                4 -> {
+                    binding.contentreturn.text = "6 month installment"
+                }
+            }
 
         })
         binding.nested.visibility = View.VISIBLE

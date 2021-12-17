@@ -225,13 +225,55 @@
                 android:layout_marginRight="20dp"
                 android:layout_marginTop="10dp"
                 />
+            <View
+                android:id="@+id/viewreturnmethod"
+                app:layout_constraintTop_toBottomOf="@id/tvFundingAmountNominal"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/blue_primary"
+                android:layout_marginTop="18dp"/>
+
+            <TextView
+                app:layout_constraintTop_toBottomOf="@id/viewreturnmethod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Returning Method"
+                android:fontFamily="@font/inter_bold"
+                android:textSize="12sp"
+                android:layout_marginTop="14dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginLeft="20dp"
+                android:id="@+id/labelreturn"
+                android:textColor="@color/black"/>
+            <TextView
+                app:layout_constraintTop_toBottomOf="@id/viewreturnmethod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_bold"
+                android:textSize="12sp"
+                android:layout_marginTop="14dp"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginRight="20dp"
+                android:id="@+id/contentreturn"
+                android:textColor="@color/black"/>
+
+
+            <View
+                android:id="@+id/viewreturnmethod2"
+                app:layout_constraintTop_toBottomOf="@id/labelreturn"
+                android:layout_width="match_parent"
+                app:layout_goneMarginTop="14dp"
+                android:layout_height="1dp"
+                android:background="@color/blue_primary"
+                android:layout_marginTop="18dp"/>
+
             <TextView
                 android:id="@+id/tvLoanInformation"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvFundingAmountNominal"
+                app:layout_constraintTop_toBottomOf="@id/viewreturnmethod2"
                 android:text="Loan Information"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
@@ -399,9 +441,9 @@
 
                     <TextView
                         android:id="@+id/tvcontentaboutstartup"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
+
                         android:layout_marginTop="8dp"
 
                         android:layout_marginBottom="20dp"
