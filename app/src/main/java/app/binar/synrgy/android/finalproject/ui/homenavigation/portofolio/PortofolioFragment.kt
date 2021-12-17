@@ -77,7 +77,6 @@ class PortofolioFragment : Fragment() {
                             .setPositiveButton("Ok", { dialog, id ->
                                 dialog.dismiss()
                             })
-
                         val alert = dialogBuilder.create()
                         alert.setTitle("")
                         alert.show()
