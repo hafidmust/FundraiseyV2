@@ -55,4 +55,207 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
+    <string name="app_name"><b>FundRaisey</b></string>
+
+
+    <!-- home nav menu -->
+    <string name="title_home">Home</string>
+    <string name="portofolio">Portfolio</string>
+    <string name="history">History</string>
+    <string name="information">Information</string>
+
+
+    <string name="balance"><b>Total Balance</b></string>
+    <string name="dummy">Rp. 5.000.000 </string>
+
+
+    <string name="progress"><b>Your Progress</b></string>
+    <string name="regis">Registration</string>
+    <string name="verif">Verification</string>
+    <string name="done">Done</string>
+
+
+    <!--  recycler home  -->
+    <string name="title_start_up">Star Track .Inc</string>
+    <string name="pro_funding">Project Funding</string>
+    <string name="donation">Rp XX.XXX.XXX</string>
+    <string name="description">We are making a machine learning-based application that can process an image.....</string>
+    <string name="collected">Collected</string>
+    <string name="total_collected">Rp 500.000</string>
+    <string name="deadline">Deadline Remaining</string>
+    <string name="date_deadline">29 July</string>
+
+    <!--  recycler history  -->
+    <string name="day_date">Sunday, 12 July 2022</string>
+    <string name="status">Payment process</string>
+
+    <!--  Payment screen  -->
+    <string name="page_payment_screen">Payment</string>
+    <string name="nominal_amount">Nominal Amount</string>
+    <string name="nominal_text">Nominal</string>
+    <string name="hint_text_amount">Rp. 0</string>
+    <string name="fiftythousand">50000</string>
+    <string name="onehundred">100000</string>
+    <string name="twohundred">200000</string>
+    <string name="fivehundred">500000</string>
+    <string name="onemillion">1000000</string>
+    <string name="onehalfmillion">1500000</string>
+
+    <string name="payment_metode">Payment Method</string>
+    <string name="bank_trans">Bank Transfer</string>
+    <string name="payment_method">Payment Methods</string>
+    <string name="bca">Bank BCA</string>
+    <string name="mandiri">Bank Mandiri</string>
+
+
+    <string name="e_wallet">E-Wallet Transfer</string>
+    <string name="gopay">GoPay</string>
+    <string name="OVO">OVO</string>
+
+    <string name="pay_button">Pay</string>
+
+
+    <string name="content_funding_needs">Currently we have an innovative project from other startups because we use the latest technology, namely using machine lensing support to be able to paint faces</string>
+    <string name="content_aboutstartup">Star Track.Inc is a startup engaged in information technology by utilizing machine learning for the work of the nation\'s children</string>
+    <string name="startrack">\@starttrack.inc</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--  payment deatil screen  -->
+    <string name="pay_deadline">Payment deadline</string>
+    <string name="pay_date">Saturday, 13 November 2021, 19:00 (+7)</string>
+
+    <string name="text_favor_bank">Choose your favorite bank</string>
+    <string name="text_enter_va">Enter virtual account number</string>
+    <string name="text_enter_pay">Enter payment amount</string>
+    <string name="text_enter_complete">payment completed</string>
+
+    <string name="bca_virtu">BCA Virtual Account</string>
+    <string name="text_virtue_number">Virtual Account Number</string>
+    <string name="virtue_number">1394837285038294</string>
+    <string name="text_copy">copy</string>
+    <string name="text_payment">Payment Nominal</string>
+    <string name="text_payment_amount">Rp 50.000</string>
+    <string name="text_detail_complete_payment">Immediately complete the payment before the specified deadline to start funding the startup</string>
+    <string name="text_other_invest">Other investments</string>
+    <string name="text_invest_status">Check investment status</string>
+
+    <!--  fragment porto  -->
+    <string name="total_balance">Total Balance</string>
+    <string name="value_current_balance">Rp 5.000.000</string>
+    <string name="slash">/</string>
+    <string name="value_total_balance">Rp 7.000.000</string>
+    <string name="button_withdraw">Withdraw</string>
+
+    <string name="detail_porto">Portfolio details</string>
+    <string name="tot_withdraw">Total withdrawn this month</string>
+    <string name="value_total_withdran">Rp 10.000.000</string>
+
+    <string name="port_detail">Portfolio Details</string>
+    <string name="tot_with">Total Withdrawn This Month</string>
+    <string name="tot_fund">Total Funding</string>
+    <string name="upcoming_ret">Upcoming Returns</string>
+    <string name="loan_amount">Loan Amount</string>
+
+    <string name="value_upcoming_return">Rp 2.000.000</string>
+    <string name="tot_startup">4 Startup</string>
+
+    <string name="loan_detail">Loan details</string>
+
+    <string name="text_being_funded">Being Funded</string>
+    <string name="text_paid_off">Paid Off</string>
+    <string name="text_late_payment">Late Payment</string>
+
+    <!-- fragment FAQ   -->
+    <string name="string_faq">Frequently Asked Questions</string>
+
+    <string name="faq_1">How does FundRaisey work</string>
+    <string name="answer_1">FundRaisey is a marketplace that is a space for borrowers and lenders to help each other. Our job is to make sure the borrowers funds are valid and eligible to be given a loan from the lender. Lenders will benefit when the borrower has benefited from the project they submitted at the beginning of the loan with a loan period of 2 years</string>
+
+
+    <string name="faq_2">Benefits of using FundRaisey</string>
+    <string name="faq_3">Type of FundRaisey Lending</string>
+
+    <string name="string_faq_bot">Account questions</string>
+    <string name="faq_4">How to become a borrower in FundRaisey</string>
+    <string name="faq_5">What are the requirements to become a lender at FundRaisey</string>
+
+    <string name="your_question_faq">Your question has not been answered?</string>
+    <string name="button_faq">Contact FundRaisey</string>
+
+
+    <!--  History details screen  -->
+    <string name="fifty_history">Rp 50.000</string>
+    <string name="six_months_instal">6 months installment</string>
+    <string name="return_meth">Returning Method</string>
+    <string name="bca_VA">BCA Virtual Account</string>
+    <string name="text_pay_nominal">Payment Nominal</string>
+    <string name="button_upload_receipt">Upload receipt of payment (optional)</string>
+    <string name="text_return_info">Return Information</string>
+    <string name="text_loan_refun">Loan Refund</string>
+    <string name="text_refund_method">Refund Method</string>
+    <string name="text_late_pay">Unfinished Payment</string>
+    <string name="text_loan_info">Loan Information</string>
+    <string name="text_loan_app">Loan Application</string>
+    <string name="name_startup">Star Track.inc</string>
+    <string name="text_fund_need">Funding Needs</string>
+    <string name="text_about_startup">About Startup</string>
+    <string name="text_address">Address</string>
+    <string name="address">4rd Sudirman St., Jakarta</string>
+    <string name="text_since">Since</string>
+    <string name="since">2019</string>
+    <string name="text_contact">Contact</string>
+    <string name="text_website">Website</string>
+    <string name="website">www.starttrack.com</string>
+    <string name="text_phone">Phone</string>
+    <string name="phone">012345678910</string>
+    <string name="text_linkedin">LinkedIn</string>
+    <string name="text_instagram">Instagram</string>
+    <string name="text_facebook">Facebook</string>
+
+    <!--  profile screen verification  -->
+    <string name="text_fundraiser">Hello Fundriser</string>
+    <string name="text_username_email">username@email.com</string>
+    <string name="text_lender_perso">Lenders personal data</string>
+    <string name="text_update_perso">Update personal data</string>
+    <string name="text_change_pass">Change Password</string>
+    <string name="text_download_tnc">Download terms and privacy</string>
+    <string name="text_account">Account</string>
+    <string name="text_register_as_borrower">Register as a borrower</string>
+    <string name="text_logout">Logout</string>
+    <string name="text_profile">Profile</string>
+
+
+    <!-- profile screen -->
+    <string name="text_disclaimer">The data you provide will be used by us to verify against the data registered with the civil registration office to ensure the suitability of the data</string>
+    <string name="text_email">Email</string>
+    <string name="text_pass">Password</string>
+    <string name="text_star">*********</string>
+    <string name="text_id_num">ID Number</string>
+    <string name="text_full_name">Full name</string>
+    <string name="text_bank_account">Bank account number</string>
+    <string name="text_date_birth">Date of birth</string>
+    <string name="example_date_birth">12/11/1989</string>
+    <string name="text_ph">Phone Number</string>
+    <string name="text_gender">Gender</string>
+    <string-array name="gender_radio">
+        <item>Gender</item>
+        <item>Female</item>
+        <item>Male</item>
+    </string-array>
+
+    <string name="text_upload_photo">Upload Photo ID</string>
+    <string name="text_upload_selfie">Upload selfies</string>
+    <string name="text_save_pro">Save Profile</string>
+
+
+
+
+
+
+
+
+
+
+
 </resources>
