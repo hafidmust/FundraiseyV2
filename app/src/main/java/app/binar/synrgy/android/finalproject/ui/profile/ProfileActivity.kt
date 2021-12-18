@@ -11,6 +11,7 @@ import androidx.core.content.edit
 import androidx.lifecycle.ViewModelProvider
 import app.binar.synrgy.android.finalproject.databinding.ActivityProfileVerificationBinding
 import app.binar.synrgy.android.finalproject.ui.payment.dialog.PopupDialog
+import app.binar.synrgy.android.finalproject.ui.profile.form.ProfileFormActivity
 import app.binar.synrgy.android.finalproject.utils.Const
 
 class ProfileActivity : AppCompatActivity() {
@@ -57,6 +58,11 @@ class ProfileActivity : AppCompatActivity() {
             }
         }
 
+        binding.buttonUpdateData.setOnClickListener {
+            val intentSendId = Intent(this, ProfileFormActivity::class.java).apply {}
+            startActivity(intentSendId)
+        }
+
         viewModel.getVerification()
         viewModel.verificationResponse.observe(this, {
             when (isLogin) {
@@ -65,6 +71,7 @@ class ProfileActivity : AppCompatActivity() {
                         true -> {
                             binding.indicatorHeader.progress = 100
                             binding.emailUsernameBot.visibility = View.VISIBLE
+                            binding.boxProgress.visibility = View.GONE
                         }
                         false -> {
                             binding.indicatorHeader.progress = 50
@@ -73,6 +80,10 @@ class ProfileActivity : AppCompatActivity() {
                     }
                 }
                 false -> binding.indicatorHeader.progress = 0
+            }
+            when(it.verified){
+                true -> binding.iconUpdate.visibility = View.GONE
+                false -> binding.iconUpdate.visibility = View.VISIBLE
             }
             binding.emailUsername.text = it.fullName
             binding.emailUsernameBot.text = it.email

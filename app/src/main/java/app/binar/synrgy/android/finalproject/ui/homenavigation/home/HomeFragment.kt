@@ -90,6 +90,7 @@ class HomeFragment : Fragment() {
                     when (it.verified) {
                         true -> {
                             binding.indicatorHeader.progress = 100
+                            binding.boxTotalBalance.visibility = View.GONE
                         }
                         false -> {
                             binding.indicatorHeader.progress = 50

@@ -30,6 +30,9 @@
             android:name=".ui.payment.detail.DetailPaymentActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.profile.form.ProfileFormActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.Splashscreen"
             android:exported="true">
 

@@ -48,7 +48,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:paddingBottom="100dp">
 
             <TextView
                 android:id="@+id/card_disclaimer"
@@ -90,7 +91,7 @@
                 android:layout_marginTop="4dp"
                 android:background="@drawable/grid_recycler_home"
                 android:backgroundTint="@color/grey_light"
-
+                android:enabled="false"
                 android:fontFamily="@font/inter_regular"
                 android:paddingLeft="8dp"
                 android:text="@string/text_username_email"
@@ -127,6 +128,7 @@
                 android:text="@string/text_star"
                 android:textColor="@color/grey"
                 android:textSize="14sp"
+                android:enabled="false"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pass_profile" />
@@ -152,15 +154,11 @@
                 android:layout_height="46dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/grid_recycler_home"
-
-
                 android:fontFamily="@font/inter_regular"
                 android:paddingLeft="8dp"
-
-                android:text="@string/text_id_num"
+                android:hint="@string/text_id_num"
                 android:textColor="@color/grey"
                 android:textSize="14sp"
-
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/id_num_profile" />
@@ -185,12 +183,9 @@
                 android:layout_height="46dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/grid_recycler_home"
-
-
                 android:fontFamily="@font/inter_regular"
                 android:paddingLeft="8dp"
-
-                android:text="@string/text_id_num"
+                android:hint="@string/text_full_name"
                 android:textColor="@color/grey"
                 android:textSize="14sp"
 
@@ -219,15 +214,11 @@
                 android:layout_height="46dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/grid_recycler_home"
-
-
                 android:fontFamily="@font/inter_regular"
                 android:paddingLeft="8dp"
-
-                android:text="@string/text_bank_account"
+                android:hint="@string/text_bank_account"
                 android:textColor="@color/grey"
                 android:textSize="14sp"
-
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/bank_profile" />
@@ -253,12 +244,9 @@
                 android:layout_height="46dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/grid_recycler_home"
-
-
                 android:fontFamily="@font/inter_regular"
                 android:paddingLeft="8dp"
-
-                android:text="@string/text_ph"
+                android:hint="@string/text_ph"
                 android:textColor="@color/grey"
                 android:textSize="14sp"
 
@@ -293,6 +281,7 @@
                 android:text="@string/example_date_birth"
                 android:textColor="@color/grey"
                 android:textSize="14sp"
+                android:enabled="false"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/birth_profile" />
@@ -401,23 +390,20 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_save"
-                android:layout_width="match_parent"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@color/grey"
                 android:backgroundTint="@color/blue_primary"
-                android:fontFamily="@font/inter_regular"
+                android:fontFamily="@font/inter_semibold"
                 android:text="@string/text_save_pro"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/upload_photo_section_selfie">
 
-
             </androidx.appcompat.widget.AppCompatButton>
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
