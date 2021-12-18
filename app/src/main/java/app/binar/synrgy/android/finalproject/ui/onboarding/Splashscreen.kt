@@ -1,4 +1,4 @@
-package app.binar.synrgy.android.finalproject.ui
+package app.binar.synrgy.android.finalproject.ui.onboarding
 
 import android.content.Context
 import android.content.Intent
@@ -12,6 +12,7 @@ import androidx.core.content.edit
 import app.binar.synrgy.android.finalproject.R
 import app.binar.synrgy.android.finalproject.databinding.ActivitySplashcreenBinding
 import app.binar.synrgy.android.finalproject.ui.homenavigation.HomeNavigationActivity
+import app.binar.synrgy.android.finalproject.ui.signup.SignupActivity
 import app.binar.synrgy.android.finalproject.utils.Const
 
 class Splashscreen : AppCompatActivity() {
@@ -28,7 +29,7 @@ class Splashscreen : AppCompatActivity() {
 
         sharedPreferences.edit {
             this.putString(Const.PHONE_NUMBER, "0876543210")
-            this.putBoolean(Const.IS_LOGIN, true)
+            //this.putBoolean(Const.IS_LOGIN, true)
             this.putString(Const.EMAIL, "fundraisey_dev@gmail.com")
             apply()
         }
@@ -39,8 +40,13 @@ class Splashscreen : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
 
+            if (sharedPreferences.getBoolean(app.binar.synrgy.android.finalproject.constant.Const.IS_LOGIN, true)) {
                 startActivity(Intent(this, HomeNavigationActivity::class.java))
                 finish()
+            } else {
+                startActivity(Intent(this, OnboardingActivity::class.java))
+                finish()
+            }
 
         }, 3000)
     }

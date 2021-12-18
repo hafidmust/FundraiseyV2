@@ -17,7 +17,7 @@
         android:layout_marginTop="80dp"
         android:fontFamily="@font/inter_regular"
         android:text="@string/register"
-        android:textColor="@color/blue"
+        android:textColor="@color/blue_primary"
         android:textSize="25sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -86,7 +86,7 @@
         android:autofillHints="Date of Birth"
         android:background="@drawable/bg_text_box"
         android:fontFamily="@font/inter_regular"
-        android:text="@string/birthdate"
+        android:text="@string/text_date_birth"
         android:textColor="#A6A6A6"
         android:paddingLeft="15dp"
         android:paddingTop="12dp"
@@ -114,7 +114,7 @@
         android:layout_marginTop="38dp"
         android:fontFamily="@font/inter_regular"
         android:text="@string/privacy"
-        android:textColor="@color/blue"
+        android:textColor="@color/blue_primary"
         android:textSize="14sp"
         app:layout_constraintLeft_toRightOf="@id/checkbox_privacy"
         app:layout_constraintTop_toBottomOf="@+id/datepicker" />
@@ -162,7 +162,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_regular"
             android:text="@string/log_in_bot"
-            android:textColor="@color/blue"
+            android:textColor="@color/blue_primary"
             android:textSize="14sp" />
     </LinearLayout>
 
