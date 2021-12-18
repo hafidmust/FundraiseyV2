@@ -37,13 +37,13 @@ class DetailPaymentActivity() : AppCompatActivity() {
         val transactionId = intent.getIntExtra(GET_TRANSACTION_ID,0)
         Log.v("YUK",transactionId.toString())
 
+        val sharedPreferences = getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
+
+        detailPaymentViewModel = DetailPaymentViewModel(sharedPreferences)
         detailPaymentViewModel.getTransaction(transactionId)
 
         showShimmer()
 
-
-        val sharedPreferences = getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
-        detailPaymentViewModel = DetailPaymentViewModel(sharedPreferences)
         detailPaymentViewModel.loanResponse.observe(this, {
             hideShimmer()
             binding.tvvirtualnumber.text = it.accountNumber
