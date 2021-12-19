@@ -104,7 +104,7 @@ class PaymentActivity : AppCompatActivity() {
             binding.textCurrency.visibility = View.VISIBLE
         }
 
-        binding.boxNominal.addTextChangedListener(MoneyTextWatcher(binding.boxNominal))
+//        binding.boxNominal.addTextChangedListener(MoneyTextWatcher(binding.boxNominal))
 //        binding.boxNominal.addTextChangedListener(object : TextWatcher {
 //
 //            override fun afterTextChanged(s: Editable) {

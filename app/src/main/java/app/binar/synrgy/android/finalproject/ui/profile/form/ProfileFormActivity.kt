@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.ViewModelProvider
 import app.binar.synrgy.android.finalproject.databinding.ActivityProfileScreenBinding
 import com.bumptech.glide.Glide
@@ -30,7 +31,7 @@ class ProfileFormActivity : AppCompatActivity() {
                 uri?.let {
 
                     val type = contentResolver.getType(it)
-                    val tempFile = File.createTempFile("temp-", null, null)
+                    val tempFile = File.createTempFile("temp-", ".jpg", null)
                     val inputstream = contentResolver.openInputStream(uri)
 
                     tempFile.outputStream().use {
@@ -39,7 +40,7 @@ class ProfileFormActivity : AppCompatActivity() {
 
                     val requestBody = tempFile.asRequestBody(type?.toMediaType())
                     val body =
-                        MultipartBody.Part.createFormData("image", tempFile.name, requestBody)
+                        MultipartBody.Part.createFormData("file", tempFile.name, requestBody)
 
                     viewModel.postCitizenID(body)
                     Glide.with(this).load(uri).into(binding.uploadPhotoSectionId)
@@ -55,7 +56,7 @@ class ProfileFormActivity : AppCompatActivity() {
                 uri?.let {
 
                     val type = contentResolver.getType(it)
-                    val tempFile = File.createTempFile("temp-", null, null)
+                    val tempFile = File.createTempFile("temp-", ".png", null)
                     val inputstream = contentResolver.openInputStream(uri)
 
                     tempFile.outputStream().use {
@@ -64,7 +65,7 @@ class ProfileFormActivity : AppCompatActivity() {
 
                     val requestBody = tempFile.asRequestBody(type?.toMediaType())
                     val body =
-                        MultipartBody.Part.createFormData("image", tempFile.name, requestBody)
+                        MultipartBody.Part.createFormData("file", tempFile.name, requestBody)
 
                     viewModel.postSelfie(body)
                     Glide.with(this).load(uri).into(binding.uploadPhotoSectionSelfie)
@@ -100,18 +101,36 @@ class ProfileFormActivity : AppCompatActivity() {
                     binding.genderRadio.setSelection(1)
                 }
             }
-            viewModel.onChangeDOB(it.dateOfBirth)
-            viewModel.citizenIDTemp = binding.editIdNum.text.toString()
-            viewModel.bankAccountNumberTemp = binding.editBank.text.toString()
-            viewModel.fullNameTemp = binding.editFullName.text.toString()
-            viewModel.genderTemp = binding.genderRadio.selectedItem.toString()
-            viewModel.phoneNumberTemp = binding.editPhone.text.toString()
-            Log.d("ini hasil println", "${viewModel.citizenIDTemp} \n" +
-                    "${viewModel.phoneNumberTemp} \n" +
-                    "${viewModel.genderTemp} \n" +
-                    "${viewModel.fullNameTemp} \n" +
-                    "${viewModel.bankAccountNumberTemp} \n" +
-                    "${viewModel.dateOfBirthTemp} \n")
+            viewModel.onChangeGender(it.gender)
+//            viewModel.onChangeDOB(it.dateOfBirth)
+//            viewModel.citizenIDTemp = binding.editIdNum.text.toString()
+//            viewModel.bankAccountNumberTemp = binding.editBank.text.toString()
+//            viewModel.fullNameTemp = binding.editFullName.text.toString()
+//            viewModel.genderTemp = binding.genderRadio.selectedItem.toString()
+//            viewModel.phoneNumberTemp = binding.editPhone.text.toString()
+//            Log.d("ini hasil println", "${viewModel.citizenIDTemp} \n" +
+//                    "${viewModel.phoneNumberTemp} \n" +
+//                    "${viewModel.genderTemp} \n" +
+//                    "${viewModel.fullNameTemp} \n" +
+//                    "${viewModel.bankAccountNumberTemp} \n" +
+//                    "${viewModel.dateOfBirthTemp} \n")
         })
+        binding.editIdNum.doAfterTextChanged {
+            viewModel.onChangeCitizenID(it.toString())
+        }
+        binding.editFullName.doAfterTextChanged {
+            viewModel.onChangeFullName(it.toString())
+        }
+        binding.editBirthProfile.doAfterTextChanged {
+            viewModel.onChangeDOB(it.toString())
+        }
+        binding.editPhone.doAfterTextChanged {
+            viewModel.onChangePhoneNumber(it.toString())
+        }
+        binding.editBank.doAfterTextChanged {
+            viewModel.onChangeBankAccount(it.toString())
+        }
+//        binding.genderRadio.onItemClickListener {
+//        }
     }
 }

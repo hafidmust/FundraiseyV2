@@ -102,14 +102,14 @@ interface HomeAPI {
     )
 
     @Multipart
-    @POST("/v1/investor/selfie")
+    @POST("/v1/upload/investor/selfie")
     suspend fun uploadSelfie(
         @Header("Authorization") authorization : String,
         @Part file: MultipartBody.Part
     ): Response<SelfieResponse>
 
     @Multipart
-    @POST("/v1/investor/citizen-id")
+    @POST("/v1/upload/investor/citizen-id")
     suspend fun uploadCitizenID(
         @Header("Authorization") authorization : String,
         @Part file: MultipartBody.Part

@@ -17,13 +17,13 @@ class MoneyTextWatcher(editText: EditText) : TextWatcher {
     override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
     override fun afterTextChanged(s: Editable) {
         val editText = editTextWeakReference.get()
-        if (editText == null || editText.text.toString().toInt() == 0) {
+        if (editText == null || editText.text.toString().toInt() == 0 || editText.text.isNullOrEmpty()) {
             return
         }
         editText.removeTextChangedListener(this)
         val parsed = parseCurrencyValue(editText.text.toString())
         val formatted = numberFormat.format(parsed)
-        editText.setText(formatted.toInt())
+        editText.setText(formatted)
         editText.setSelection(formatted.length)
         editText.addTextChangedListener(this)
     }
