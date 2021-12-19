@@ -15,6 +15,7 @@ import app.binar.synrgy.android.finalproject.databinding.ActivityPaymentBinding
 import app.binar.synrgy.android.finalproject.ui.payment.detail.DetailPaymentActivity
 import app.binar.synrgy.android.finalproject.utils.Const
 import com.google.android.material.snackbar.Snackbar
+import org.kodejava.android.MoneyTextWatcher
 import java.text.DecimalFormat
 import java.text.NumberFormat
 import java.util.*
@@ -99,26 +100,30 @@ class PaymentActivity : AppCompatActivity() {
             viewModel.onChangeAmount(amount)
         }
 
-        //binding.boxNominal.addTextChangedListener(MoneyTextWatcher(binding.boxNominal))
-        binding.boxNominal.addTextChangedListener(object : TextWatcher {
+        binding.boxNominal.doAfterTextChanged {
+            binding.textCurrency.visibility = View.VISIBLE
+        }
 
-            override fun afterTextChanged(s: Editable) {
-                binding.boxNominal.setHint("0")
-            }
-
-            override fun beforeTextChanged(
-                s: CharSequence, start: Int,
-                count: Int, after: Int
-            ) {
-            }
-
-            override fun onTextChanged(
-                s: CharSequence, start: Int,
-                before: Int, count: Int
-            ) {
-                binding.textCurrency.visibility = View.VISIBLE
-            }
-        })
+        binding.boxNominal.addTextChangedListener(MoneyTextWatcher(binding.boxNominal))
+//        binding.boxNominal.addTextChangedListener(object : TextWatcher {
+//
+//            override fun afterTextChanged(s: Editable) {
+//                binding.boxNominal.setHint("0")
+//            }
+//
+//            override fun beforeTextChanged(
+//                s: CharSequence, start: Int,
+//                count: Int, after: Int
+//            ) {
+//            }
+//
+//            override fun onTextChanged(
+//                s: CharSequence, start: Int,
+//                before: Int, count: Int
+//            ) {
+//                binding.textCurrency.visibility = View.VISIBLE
+//            }
+//        })
 
         binding.rgBank.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {

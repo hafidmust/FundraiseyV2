@@ -2,6 +2,7 @@ package app.binar.synrgy.android.finalproject.ui.profile.form
 
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -75,7 +76,7 @@ class ProfileFormActivity : AppCompatActivity() {
         }
 
         binding.buttonSave.setOnClickListener {
-            viewModel.updateProfile()
+            viewModel.updateUserProfile()
         }
 
         binding.arrowBack.setOnClickListener {
@@ -100,11 +101,17 @@ class ProfileFormActivity : AppCompatActivity() {
                 }
             }
             viewModel.onChangeDOB(it.dateOfBirth)
-            viewModel.onChangeGender(binding.genderRadio.selectedItem.toString())
-            viewModel.onChangeCitizenID(binding.editIdNum.text.toString())
-            viewModel.onChangeFullName(binding.editFullName.text.toString())
-            viewModel.onChangeBankAccount(binding.editBank.text.toString())
-            viewModel.onChangePhoneNumber(binding.editPhone.text.toString())
+            viewModel.citizenIDTemp = binding.editIdNum.text.toString()
+            viewModel.bankAccountNumberTemp = binding.editBank.text.toString()
+            viewModel.fullNameTemp = binding.editFullName.text.toString()
+            viewModel.genderTemp = binding.genderRadio.selectedItem.toString()
+            viewModel.phoneNumberTemp = binding.editPhone.text.toString()
+            Log.d("ini hasil println", "${viewModel.citizenIDTemp} \n" +
+                    "${viewModel.phoneNumberTemp} \n" +
+                    "${viewModel.genderTemp} \n" +
+                    "${viewModel.fullNameTemp} \n" +
+                    "${viewModel.bankAccountNumberTemp} \n" +
+                    "${viewModel.dateOfBirthTemp} \n")
         })
     }
-    }
+}

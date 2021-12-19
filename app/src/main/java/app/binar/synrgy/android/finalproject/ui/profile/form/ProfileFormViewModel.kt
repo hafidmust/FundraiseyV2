@@ -1,6 +1,7 @@
 package app.binar.synrgy.android.finalproject.ui.profile.form
 
 import android.content.SharedPreferences
+import android.util.Log
 import androidx.core.content.edit
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -80,12 +81,6 @@ class ProfileFormViewModel() : ViewModel() {
 ////                    selfiePhoto.isNotEmpty()
 //    }
 
-    fun updateProfile(){
-//        postCitizenID()
-//        postSelfie()
-        updateUserProfile()
-    }
-
 
     fun getUserData() {
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
@@ -159,5 +154,11 @@ class ProfileFormViewModel() : ViewModel() {
                 }
             }
         }
+        Log.d("ini hasil println", "${citizenIDTemp}\n" +
+                "${phoneNumberTemp}\n" +
+                "${genderTemp}\n" +
+                "${fullNameTemp}\n" +
+                "${bankAccountNumberTemp}\n" +
+                "${dateOfBirthTemp}\n")
     }
 }
