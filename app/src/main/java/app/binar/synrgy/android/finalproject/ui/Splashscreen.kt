@@ -37,6 +37,7 @@ class Splashscreen : AppCompatActivity() {
         mediaPlayer?.setOnPreparedListener {}
         mediaPlayer!!.start()
 
+
         Handler(Looper.getMainLooper()).postDelayed({
 
                 startActivity(Intent(this, HomeNavigationActivity::class.java))

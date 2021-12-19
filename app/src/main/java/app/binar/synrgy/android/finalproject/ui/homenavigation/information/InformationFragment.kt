@@ -9,7 +9,10 @@ import androidx.fragment.app.Fragment
 import app.binar.synrgy.android.finalproject.databinding.FragmentInformationBinding
 import android.content.Intent
 import android.net.Uri
+import app.binar.synrgy.android.finalproject.R
 import app.binar.synrgy.android.finalproject.data.information.InformationResponse
+import app.binar.synrgy.android.finalproject.ui.profile.ProfileActivity
+import kotlinx.android.synthetic.main.fragment_home.*
 
 
 class InformationFragment : Fragment() {
@@ -46,7 +49,7 @@ class InformationFragment : Fragment() {
             dialogBuilder.setMessage("This action will take you to our Whatsapp Contact, continue?")
                 .setCancelable(false)
                 .setPositiveButton("Proceed", { dialog, id ->
-                    val number = "+62 82362035167"
+                    val number = "+62 85800605688"
                     val url = "https://api.whatsapp.com/send?phone=$number"
                     val i = Intent(Intent.ACTION_VIEW)
                     i.data = Uri.parse(url)
@@ -57,8 +60,15 @@ class InformationFragment : Fragment() {
                 })
 
             val alert = dialogBuilder.create()
-            alert.setTitle("AlertDialogExample")
+            alert.setTitle("")
+            alert.setIcon(R.drawable.ic_union)
             alert.show()
+        }
+
+        binding.logoProfile.setOnClickListener {
+            val intentSendId = Intent(activity, ProfileActivity::class.java).apply {
+            }
+            startActivity(intentSendId)
         }
 
         viewModel.onViewLoaded()

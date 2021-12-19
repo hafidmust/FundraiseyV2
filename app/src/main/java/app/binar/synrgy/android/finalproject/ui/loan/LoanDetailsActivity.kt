@@ -39,16 +39,13 @@ class LoanDetailsActivity : AppCompatActivity() {
 
 
             binding.nameProjectFunding.text = it.name
-//            nominal
             binding.nominal.text = CurrencyHelper.toIdrCurrency(it.targetValue)
             binding.textFundingAmount.text = CurrencyHelper.toIdrCurrency(it.currentValue)
             binding.loanapp.text = it.name
             binding.startupcontentname.text = it.startup?.name.toString()
             binding.tvcontentaboutstartup.text = it.description.toString()
             binding.tvDetailAboutStartup.text = it.startup?.description.toString()
-//            get remaining day
             binding.tvremainingday.text = DaysHelper.getDaysHelper(it.startDate.toString(), it.endDate.toString()) +" day left"
-//            progress
             binding.progressFunding.max = it.targetValue!!
             binding.progressFunding.progress = it.currentValue!!
             Glide.with(binding.root)
@@ -70,21 +67,13 @@ class LoanDetailsActivity : AppCompatActivity() {
                     binding.contentreturn.text = "6 month installment"
                 }
             }
-
         })
-        binding.nested.visibility = View.VISIBLE
-
-        viewModel.getDataStartup(id)
-//        viewModel.startupResponse.observe(this,{
-//            binding.startupcontentname.text = it.name.toString()
-//            binding.tvDetailAboutStartup.text = it.description.toString()
-//
-//        })
-        binding.cardviewAddressstartup.setOnClickListener{
-            // TODO: 11/29/2021
+        binding.imgBack.setOnClickListener {
+            onBackPressed()
         }
+        binding.nested.visibility = View.VISIBLE
+        viewModel.getDataStartup(id)
         binding.buttonFundNow.setOnClickListener {
-//            startActivity(Intent(this,PaymentActivity::class.java))
             val intentSendLoanId = Intent(this, PaymentActivity::class.java).apply {
                 putExtra(PaymentActivity.GET_LOAN_ID, id)
             }

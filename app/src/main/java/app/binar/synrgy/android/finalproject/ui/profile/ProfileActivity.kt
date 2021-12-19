@@ -58,35 +58,40 @@ class ProfileActivity : AppCompatActivity() {
             }
         }
 
+        binding.arrowBack.setOnClickListener {
+            onBackPressed()
+        }
+
         binding.buttonUpdateData.setOnClickListener {
             val intentSendId = Intent(this, ProfileFormActivity::class.java).apply {}
             startActivity(intentSendId)
-        }
 
-        viewModel.getVerification()
-        viewModel.verificationResponse.observe(this, {
-            when (isLogin) {
-                true -> {
-                    when (it.verified) {
-                        true -> {
-                            binding.indicatorHeader.progress = 100
-                            binding.emailUsernameBot.visibility = View.VISIBLE
-                            binding.boxProgress.visibility = View.GONE
-                        }
-                        false -> {
-                            binding.indicatorHeader.progress = 50
-                            binding.emailUsernameBot.visibility = View.VISIBLE
+            viewModel.getVerification()
+            viewModel.verificationResponse.observe(this, {
+                when (isLogin) {
+                    true -> {
+                        when (it.verified) {
+                            true -> {
+                                binding.indicatorHeader.progress = 100
+                                binding.iconUpdate.visibility = View.GONE
+                                binding.emailUsernameBot.visibility = View.VISIBLE
+                            }
+                            false -> {
+                                binding.indicatorHeader.progress = 50
+                                binding.iconUpdate.visibility = View.VISIBLE
+                                binding.boxProgress.visibility = View.VISIBLE
+                                binding.emailUsernameBot.visibility = View.VISIBLE
+                            }
                         }
                     }
+                    false -> {
+                        binding.boxProgress.visibility = View.VISIBLE
+                        binding.indicatorHeader.progress = 0
+                    }
                 }
-                false -> binding.indicatorHeader.progress = 0
-            }
-            when(it.verified){
-                true -> binding.iconUpdate.visibility = View.GONE
-                false -> binding.iconUpdate.visibility = View.VISIBLE
-            }
-            binding.emailUsername.text = it.fullName
-            binding.emailUsernameBot.text = it.email
-        })
+                binding.emailUsername.text = it.fullName
+                binding.emailUsernameBot.text = it.email
+            })
+        }
     }
 }
