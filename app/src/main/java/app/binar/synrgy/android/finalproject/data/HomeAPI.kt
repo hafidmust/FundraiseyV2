@@ -9,9 +9,10 @@ import app.binar.synrgy.android.finalproject.data.loan.DetailLoanResponse
 import app.binar.synrgy.android.finalproject.data.payment.*
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioResponse
 import app.binar.synrgy.android.finalproject.data.portofolio.PortofolioSummaryResponse
-import app.binar.synrgy.android.finalproject.data.profile.VerificationResponse
+import app.binar.synrgy.android.finalproject.data.profile.*
 import com.google.gson.GsonBuilder
 import com.google.gson.internal.GsonBuildConfig
+import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Response
@@ -99,4 +100,23 @@ interface HomeAPI {
     suspend fun withdrawAllFunds(
         @Header("Authorization") authorization : String,
     )
+
+    @Multipart
+    @POST("/v1/upload/investor/selfie")
+    suspend fun uploadSelfie(
+        @Header("Authorization") authorization : String,
+        @Part file: MultipartBody.Part
+    ): Response<SelfieResponse>
+
+    @Multipart
+    @POST("/v1/upload/investor/citizen-id")
+    suspend fun uploadCitizenID(
+        @Header("Authorization") authorization : String,
+        @Part file: MultipartBody.Part
+    ): Response<CitizenIDResponse>
+
+    @PUT("/v1/user/investor/update")
+    suspend fun editUserProfile(
+        @Header("Authorization") authorization: String,
+        @Body request : ProfileFormRequest) : Response<ProfileFormResponse>
 }

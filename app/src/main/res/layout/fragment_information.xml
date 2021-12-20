@@ -30,6 +30,7 @@
         app:layout_constraintBottom_toBottomOf="@id/view_information"/>
 
     <ImageView
+        android:id="@+id/logo_profile"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginRight="18dp"

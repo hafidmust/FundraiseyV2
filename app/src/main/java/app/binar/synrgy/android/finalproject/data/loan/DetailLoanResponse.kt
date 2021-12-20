@@ -17,7 +17,7 @@ data class DetailLoanResponse(
 data class DataDetail(
 
     @field:SerializedName("interestRate")
-    val interestRate: Double? = null,
+    val interestRate: Int? = null,
 
     @field:SerializedName("endDate")
     val endDate: String? = null,
@@ -45,8 +45,10 @@ data class DataDetail(
 
     @field:SerializedName("lenderCount")
     val lenderCount: Int? = null,
+
     @field:SerializedName("paymentPlan")
-    val paymentPlan: PaymentPlann? = null
+    val paymentPlan: PaymentPlann? = null,
+
 )
 
 data class PaymentPlann(
@@ -55,4 +57,14 @@ data class PaymentPlann(
     @SerializedName("interestRate") var interestRate: Int? = null,
     @SerializedName("monthInterval") var monthInterval: Int? = null,
     @SerializedName("totalPeriod") var totalPeriod: Int? = null
+)
+
+data class paymentList(
+    @SerializedName("period") var period: Int? = null,
+    @SerializedName("returnDate") var returnDate: String? = null,
+    @SerializedName("totalAmount") var totalAmount: Int? = null,
+    @SerializedName("interestRate") var interestRate: Int? = null,
+    @SerializedName("platformFee") var platformFee: Int? = null,
+    @SerializedName("platformFeeRate") var platformFeeRate: Int? = null,
+    @SerializedName("paid") var paid: Boolean? = null
 )

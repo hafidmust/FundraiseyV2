@@ -63,18 +63,10 @@ class PaymentViewModel(var sharedPreferences: SharedPreferences?) : ViewModel() 
             val response = homeAPI.postPaymentTransaction("Bearer ${sharedPreferences?.getString(Constant.ACCESS_TOKEN,"")}", request)
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
-//                    paymentSuccess.value = true
                     transcationIdMut.value = response.body()?.data?.idData
                     fundingIdMut.value = id
                     paymentMethodMut.value = response.body()?.data?.paymentAgent?.name
-//                    transcationIdMut.value = response.body()?.data?.idData
                     Log.d("cek",response.body()?.data?.idData.toString())
-
-
-//                    if (response.body()?.status == 403) {
-//                        showMessageAPI.value = response.body()!!.message
-//                        showLoading.value = false
-//                    }
                 } else {
                     val error =
                         Gson().fromJson(response.errorBody()?.string(), ErrorModel::class.java)
@@ -84,29 +76,4 @@ class PaymentViewModel(var sharedPreferences: SharedPreferences?) : ViewModel() 
             }
         }
     }
-
-//    fun doPaymentStatus() {
-//        homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
-//        showLoading.value = true
-//        CoroutineScope(Dispatchers.IO).launch {
-//            val request = TransactionStatusRequest(
-//                transactionId = fundingID
-//            )
-//            val response = homeAPI.postTransactionStatus("Bearer ${DummyBearer.auth}", request)
-//            withContext(Dispatchers.Main) {
-//                if (response.isSuccessful) {
-//                    if (response.body()?.status == 403) {
-//                        showMessageAPI.value = response.body()!!.message
-//                        showLoading.value = false
-//                    }
-//                } else {
-//                    val error =
-//                        Gson().fromJson(response.errorBody()?.string(), ErrorModel::class.java)
-//                    showMessageAPI.value = error.message
-//                    showLoading.value = false
-//                }
-//                paymentSuccess.value = true
-//            }
-//        }
-//    }
 }

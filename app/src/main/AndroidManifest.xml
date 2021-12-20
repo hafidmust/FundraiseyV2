@@ -9,7 +9,6 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_union"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.FinalProject">
         <activity
             android:name=".ui.onboarding.SkippedOnboardingActivity"
@@ -67,6 +66,20 @@
             android:name=".ui.profile.form.ProfileFormActivity"
             android:exported="false" />
 
+<!--        <service-->
+<!--            android:name=".MyFirebaseMessagingService"-->
+<!--            android:exported="false">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.google.firebase.MESSAGING_EVENT" />-->
+<!--            </intent-filter>-->
+<!--        </service>-->
+<!--        <service-->
+<!--            android:name=".FirebaseMessageReceiver"-->
+<!--            android:exported="false">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.google.firebase.MESSAGING_EVENT" />-->
+<!--            </intent-filter>-->
+<!--        </service>-->
 
 
 

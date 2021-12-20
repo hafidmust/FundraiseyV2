@@ -104,6 +104,7 @@
                     android:textSize="20sp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/name" />
+
             </com.facebook.shimmer.ShimmerFrameLayout>
 
             <TextView
@@ -260,7 +261,32 @@
                 app:layout_constraintTop_toBottomOf="@id/viewreturnmethod" />
 
             <TextView
+                android:id="@+id/labelinterest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="14dp"
+                android:fontFamily="@font/inter_bold"
+                android:text="Installment"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/labelreturn" />
+
+            <TextView
                 android:id="@+id/contentreturn"
+                android:layout_width="0dp"
+                android:layout_height="14dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="14dp"
+                android:fontFamily="@font/inter_bold"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/viewreturnmethod" />
+
+            <TextView
+                android:id="@+id/contentinstallment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
@@ -269,8 +295,7 @@
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/viewreturnmethod" />
-
+                app:layout_constraintTop_toBottomOf="@id/contentreturn" />
 
             <View
                 android:id="@+id/viewreturnmethod2"
@@ -278,7 +303,7 @@
                 android:layout_height="2dp"
                 android:layout_marginTop="18dp"
                 android:background="@color/blue_primary"
-                app:layout_constraintTop_toBottomOf="@id/labelreturn"
+                app:layout_constraintTop_toBottomOf="@id/labelinterest"
                 app:layout_goneMarginTop="14dp" />
 
             <TextView

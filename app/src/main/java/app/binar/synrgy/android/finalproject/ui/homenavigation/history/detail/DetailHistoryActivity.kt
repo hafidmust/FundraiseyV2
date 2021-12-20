@@ -1,9 +1,14 @@
 package app.binar.synrgy.android.finalproject.ui.homenavigation.history.detail
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import app.binar.synrgy.android.finalproject.constant.Constant
 import app.binar.synrgy.android.finalproject.databinding.HistoryDetailBinding
 import app.binar.synrgy.android.finalproject.ui.payment.dialog.PopupDialog
@@ -37,8 +42,7 @@ class DetailHistoryActivity : AppCompatActivity() {
         viewModel.loanResponse.observe(this, {
             binding.nameProjectFunding.text = it.loan.name
             binding.nominal.text = CurrencyHelper.toIdrCurrency(it.amount)
-//            binding.progressFunding.max = it.loan.targetValue
-//            binding.progressFunding.progress = it.amount
+            binding.imgBack.setOnClickListener { onBackPressed() }
             binding.tvfundingall.text = CurrencyHelper.toIdrCurrency(it.loan.targetValue)
             binding.tvDate.text = it.paymentDeadline
             binding.tvvirtualnumber.text = it.accountNumber
@@ -58,6 +62,7 @@ class DetailHistoryActivity : AppCompatActivity() {
             binding.tvContentInstagram.text = "-"
             binding.tvContentfb.text = "-"
             binding.tvNamaBank.text = it.paymentAgent.name
+            binding.tvInterest.text = "(${it.interestRate}% Interest)"
 //            binding.contentreturningmethod.text = it.paymentPlan.id
             when(it.loan.paymentPlan.totalPeriod){
                 1 -> {
@@ -78,11 +83,12 @@ class DetailHistoryActivity : AppCompatActivity() {
             binding.tvCopyVa.setOnClickListener {
 
             }
-
-//            binding.loanapp.text = it.name
-//            binding.tvcontentaboutstartup.text = it.description.toString()
-//            binding.nominal.text = it.currentValue.toString()
-
+            binding.tvCopyVa.setOnClickListener {
+                copyVAN()
+            }
+            binding.tvCopyTagihan.setOnClickListener {
+                copyVAN()
+            }
         })
         when(statusPay){
             "pending" ->{
@@ -100,12 +106,13 @@ class DetailHistoryActivity : AppCompatActivity() {
                 binding.tvlatepayment.visibility = View.VISIBLE
             }
         }
+    }
+    private fun copyVAN() {
+        val tvToCopy = binding.tvvirtualnumber.text.toString()
+        val clipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clipData = ClipData.newPlainText("text", tvToCopy)
+        clipboardManager.setPrimaryClip(clipData)
 
-//        binding.buttonUploadReceipt.setOnClickListener {
-//            dialog.uploadReceiptDialog(true)
-//            Handler(Looper.getMainLooper()).postDelayed({
-//                finish()
-//            },5000)
-//        }
+        Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show()
     }
 }
