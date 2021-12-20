@@ -14,7 +14,6 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import app.binar.synrgy.android.finalproject.ui.homenavigation.HomeNavigationActivity
 import app.binar.synrgy.android.finalproject.ui.loading.LoadingDialog
-import app.binar.synrgy.android.finalproject.ui.signin.SignInActivity
 
 
 class SignupActivity : AppCompatActivity() {
@@ -63,14 +62,14 @@ class SignupActivity : AppCompatActivity() {
             Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
         })
 
-//        binding.radioGroup.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { radioGroup, id ->
-//            when (id) {
-//                binding.rbMale.id ->
-//                    viewmodel.gender = "male"
-//                binding.rbFemale.id ->
-//                    viewmodel.gender = "female"
-//            }
-//        })
+        binding.radioGroup.setOnCheckedChangeListener(RadioGroup.OnCheckedChangeListener { radioGroup, id ->
+            when (id) {
+                binding.rbMale.id ->
+                    viewmodel.gender = "male"
+                binding.rbFemale.id ->
+                    viewmodel.gender = "female"
+            }
+        })
         binding.checkboxPrivacy.setOnCheckedChangeListener { buttonView, isChecked ->
             if(isChecked){
                 viewmodel.isPPChecked = true
@@ -84,12 +83,15 @@ class SignupActivity : AppCompatActivity() {
         viewmodel.isLoginSuccess.observe(this,{
             if (it){
                 startActivity(
-                    Intent(this, SignInActivity::class.java)
+                    Intent(this, HomeNavigationActivity::class.java).apply {
+                        this.addFlags(
+                            Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                                    Intent.FLAG_ACTIVITY_CLEAR_TASK or
+                                    Intent.FLAG_ACTIVITY_NEW_TASK
+                        )
+                    }
                 )
             }
-        })
-        viewmodel.showAlert.observe(this,{
-            Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
         })
     }
 

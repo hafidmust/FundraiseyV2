@@ -17,7 +17,7 @@
         android:layout_marginTop="80dp"
         android:fontFamily="@font/inter_regular"
         android:text="@string/register"
-        android:textColor="@color/blue_primary"
+        android:textColor="@color/blue"
         android:textSize="25sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -113,7 +113,7 @@
         android:layout_marginTop="38dp"
         android:fontFamily="@font/inter_regular"
         android:text="@string/privacy"
-        android:textColor="@color/blue_primary"
+        android:textColor="@color/blue"
         android:textSize="14sp"
         app:layout_constraintLeft_toRightOf="@id/checkbox_privacy"
         app:layout_constraintTop_toBottomOf="@+id/date_pick" />
@@ -162,7 +162,7 @@
             android:layout_marginLeft="5dp"
             android:fontFamily="@font/inter_regular"
             android:text="@string/log_in_bot"
-            android:textColor="@color/blue_primary"
+            android:textColor="@color/blue"
             android:textSize="14sp" />
     </LinearLayout>
 

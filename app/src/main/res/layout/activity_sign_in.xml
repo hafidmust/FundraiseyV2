@@ -15,7 +15,7 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="80dp"
         android:text="@string/log_in"
-        android:textColor="@color/blue_primary"
+        android:textColor="@color/blue"
         android:textSize="25sp"
         android:fontFamily="@font/inter_regular"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -90,7 +90,7 @@
         android:layout_marginEnd="48dp"
         android:text="@string/forgot_pass"
         android:fontFamily="@font/inter_regular"
-        android:textColor="@color/blue_primary"
+        android:textColor="@color/blue"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/password"
         tools:ignore="MissingConstraints" />
@@ -98,7 +98,7 @@
     <!--    button sign in -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/button_sign_in"
-        android:layout_width="match_parent"
+        android:layout_width="323dp"
         android:layout_height="40dp"
         android:layout_marginTop="232dp"
         android:background="@drawable/bg_input_button"
@@ -106,47 +106,37 @@
         android:text="@string/log_in"
         android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@id/button_forgot_password"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginHorizontal="20dp"/>
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="48dp" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/have_an_account"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_regular"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/dont"
+        android:textColor="@color/black"
+        android:textSize="14sp"
         app:layout_constraintTop_toBottomOf="@id/button_sign_in"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:orientation="horizontal">
-        <TextView
-            android:id="@+id/have_an_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/inter_regular"
-            android:text="@string/dont"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_sign_in"
-            tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteX="110dp"
+        tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:id="@+id/register"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/inter_regular"
-            android:text="@string/register"
-            android:textColor="@color/blue_primary"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/have_an_account"
-            app:layout_constraintStart_toEndOf="@+id/have_an_account"
-            app:layout_constraintTop_toBottomOf="@id/button_sign_in"
-            tools:ignore="MissingConstraints" />
-    </LinearLayout>
-
-
+    <TextView
+        android:id="@+id/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/inter_regular"
+        android:layout_marginStart="4dp"
+        android:text="@string/register"
+        android:textColor="@color/blue"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/button_sign_in"
+        app:layout_constraintLeft_toRightOf="@id/have_an_account"
+        tools:layout_editor_absoluteX="110dp"
+        tools:ignore="MissingConstraints" />
 
 
 

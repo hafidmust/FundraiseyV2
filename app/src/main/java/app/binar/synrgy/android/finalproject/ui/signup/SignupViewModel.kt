@@ -2,7 +2,7 @@ package app.binar.synrgy.android.finalproject.ui.signup
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import app.binar.synrgy.android.finalproject.constant.Constant
+import app.binar.synrgy.android.finalproject.constant.Const
 import app.binar.synrgy.android.finalproject.data.api.HomeAPI
 import app.binar.synrgy.android.finalproject.data.api.signup.SignUpRequest
 import app.binar.synrgy.android.finalproject.model.ErrorModel
@@ -22,7 +22,6 @@ class SignupViewModel : ViewModel() {
     val showMessageAPI: MutableLiveData<String> = MutableLiveData()
     val isLoginSuccess: MutableLiveData<Boolean> = MutableLiveData(false)
     val showLoading : MutableLiveData<Boolean> = MutableLiveData(false)
-    val showAlert : MutableLiveData<String> = MutableLiveData()
 
     private lateinit var homeAPI: HomeAPI
     private var email: String = ""
@@ -46,12 +45,12 @@ class SignupViewModel : ViewModel() {
 
     fun onChangePassword(password: String) {
         this.password = password
-//        if (!validatePassword(password)) {
-//            showMessagePassword.value = "Password minimal 6 karakter & kombinasi huruf"
-//        } else {
-//            validatePassword(password)
-//
-//        }
+        if (!validatePassword(password)) {
+            showMessagePassword.value = "Password minimal 6 karakter & kombinasi huruf"
+        } else {
+            validatePassword(password)
+
+        }
         validate()
     }
 
@@ -72,13 +71,13 @@ class SignupViewModel : ViewModel() {
     }
 
     private fun validatePassword(password: String): Boolean {
-        val pattern: Pattern = Pattern.compile(Constant.PASSWORD_PATTERN)
+        val pattern: Pattern = Pattern.compile(Const.PASSWORD_PATTERN)
         val matcher: Matcher = pattern.matcher(password)
         return matcher.matches()
     }
 
     private fun validatePhone(phone: String): Boolean {
-        val pattern: Pattern = Pattern.compile(Constant.PHONE_PATTERN)
+        val pattern: Pattern = Pattern.compile(Const.PHONE_PATTERN)
         val matcher: Matcher = pattern.matcher(phone)
         return matcher.matches()
     }
@@ -95,7 +94,8 @@ class SignupViewModel : ViewModel() {
             val request = SignUpRequest(
                 email = email,
                 password = password,
-                phoneNumber = phone
+                phoneNumber = phone,
+                gender = gender
             )
             val response = homeAPI.postSignUp(request)
             withContext(Dispatchers.Main) {
@@ -105,8 +105,6 @@ class SignupViewModel : ViewModel() {
                         showMessageAPI.value = response.body()!!.message
                         isLoginSuccess.value = true
                         showLoading.value = false
-                        showAlert.value = "Silahkan cek email untuk verifikasi"
-
                     }
                 } else {
                     val error =
