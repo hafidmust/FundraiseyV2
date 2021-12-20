@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:src="@drawable/ic_back_white"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/viewDetailPayment"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@id/viewDetailPayment" />
@@ -55,6 +56,20 @@
         android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@id/viewPaymentDeadline" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_deadline"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/labelPaymentDeadline"
+        android:layout_marginLeft="20dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorGrey"
+            android:layout_marginTop="8dp"/>
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
     <TextView
         android:id="@+id/tv_deadline_timestamp"
@@ -118,6 +133,20 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/dhimmer_namebank"
+        android:layout_width="200dp"
+        android:layout_height="32dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/constraintguide"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="18dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorGrey"/>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
     <TextView
         android:id="@+id/tvBca"
         android:layout_width="match_parent"
@@ -125,7 +154,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="18dp"
         android:fontFamily="@font/inter_bold"
-        android:text="BCA Virtual Account"
+        
         android:textColor="@color/blue_primary"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -142,6 +171,21 @@
         android:text="Virtual Account Number"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvBca" />
+    
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_va"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvVAN"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorGrey"/>
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
     <TextView
         android:id="@+id/tvvirtualnumber"
@@ -179,6 +223,20 @@
         android:text="Payment Nominal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvvirtualnumber" />
+    
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_nominal"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTagihan">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorGrey"/>
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
     <TextView
         android:id="@+id/tvjumlahtagihan"

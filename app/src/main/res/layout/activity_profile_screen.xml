@@ -48,7 +48,8 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:paddingBottom="100dp">
 
             <TextView
                 android:id="@+id/card_disclaimer"
@@ -61,7 +62,7 @@
                 android:paddingTop="9dp"
                 android:paddingRight="20dp"
                 android:text="@string/text_disclaimer"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 android:textStyle="bold"
@@ -90,7 +91,7 @@
                 android:layout_marginTop="4dp"
                 android:background="@drawable/grid_recycler_home"
                 android:backgroundTint="@color/grey_light"
-
+                android:enabled="false"
                 android:fontFamily="@font/inter_regular"
                 android:paddingLeft="8dp"
                 android:text="@string/text_username_email"
@@ -127,6 +128,7 @@
                 android:text="@string/text_star"
                 android:textColor="@color/grey"
                 android:textSize="14sp"
+                android:enabled="false"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/pass_profile" />
@@ -152,15 +154,12 @@
                 android:layout_height="46dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/grid_recycler_home"
-
-
                 android:fontFamily="@font/inter_regular"
                 android:paddingLeft="8dp"
-
-                android:text="@string/text_id_num"
+                android:hint="@string/text_id_num"
                 android:textColor="@color/grey"
                 android:textSize="14sp"
-
+                android:inputType="number"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/id_num_profile" />
@@ -185,20 +184,15 @@
                 android:layout_height="46dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/grid_recycler_home"
-
-
                 android:fontFamily="@font/inter_regular"
                 android:paddingLeft="8dp"
-
-                android:text="@string/text_id_num"
+                android:hint="@string/text_full_name"
                 android:textColor="@color/grey"
                 android:textSize="14sp"
-
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/full_name_profile" />
 
-            <!--  bank  -->
 
             <TextView
                 android:id="@+id/bank_profile"
@@ -219,20 +213,16 @@
                 android:layout_height="46dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/grid_recycler_home"
-
-
                 android:fontFamily="@font/inter_regular"
                 android:paddingLeft="8dp"
-
-                android:text="@string/text_bank_account"
+                android:hint="@string/text_bank_account"
                 android:textColor="@color/grey"
                 android:textSize="14sp"
-
+                android:inputType="number"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/bank_profile" />
 
-            <!--  Phone Numb  -->
 
             <TextView
                 android:id="@+id/phone_profile"
@@ -253,20 +243,16 @@
                 android:layout_height="46dp"
                 android:layout_marginTop="4dp"
                 android:background="@drawable/grid_recycler_home"
-
-
                 android:fontFamily="@font/inter_regular"
                 android:paddingLeft="8dp"
-
-                android:text="@string/text_ph"
+                android:hint="@string/text_ph"
                 android:textColor="@color/grey"
                 android:textSize="14sp"
-
+                android:inputType="number"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/phone_profile" />
 
-            <!--  date of birth  -->
 
             <TextView
                 android:id="@+id/birth_profile"
@@ -293,11 +279,11 @@
                 android:text="@string/example_date_birth"
                 android:textColor="@color/grey"
                 android:textSize="14sp"
+                android:enabled="false"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/birth_profile" />
 
-            <!--    Gender    -->
             <TextView
                 android:id="@+id/gender_profile"
                 android:layout_width="wrap_content"
@@ -327,7 +313,6 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/gender_profile" />
 
-            <!--  upload prfile           -->
 
             <TextView
                 android:id="@+id/upload_profile"
@@ -343,25 +328,17 @@
                 app:layout_constraintTop_toBottomOf="@id/gender_radio" />
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/upload_photo_section"
+            <ImageView
+                android:id="@+id/upload_photo_section_id"
                 android:layout_width="340dp"
                 android:layout_height="132dp"
                 android:background="@drawable/box_rectangle_photo_upload"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/upload_profile">
+                app:layout_constraintTop_toBottomOf="@id/upload_profile"
+                android:src="@drawable/ic_image_upload">
 
-                <ImageView
-                    android:id="@+id/image_upload"
-                    android:layout_width="75dp"
-                    android:layout_height="73dp"
-                    android:layout_marginTop="43dp"
-                    android:src="@drawable/ic_image_upload"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </ImageView>
 
 
             <TextView
@@ -375,55 +352,42 @@
                 android:textColor="@color/grey"
                 android:textSize="12sp"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/upload_photo_section" />
+                app:layout_constraintTop_toBottomOf="@id/upload_photo_section_id" />
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <ImageView
                 android:id="@+id/upload_photo_section_selfie"
                 android:layout_width="340dp"
                 android:layout_height="132dp"
                 android:background="@drawable/box_rectangle_photo_upload"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/selfie_profile">
+                app:layout_constraintTop_toBottomOf="@id/selfie_profile"
+                android:src="@drawable/ic_image_upload">
 
-                <ImageView
-                    android:id="@+id/image_upload_selfie"
-                    android:layout_width="75dp"
-                    android:layout_height="73dp"
-                    android:layout_marginTop="43dp"
-                    android:src="@drawable/ic_image_upload"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            </ImageView>
 
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_save"
-                android:layout_width="match_parent"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:background="@color/grey"
                 android:backgroundTint="@color/blue_primary"
-                android:fontFamily="@font/inter_regular"
+                android:fontFamily="@font/inter_semibold"
                 android:text="@string/text_save_pro"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/upload_photo_section_selfie">
 
-
             </androidx.appcompat.widget.AppCompatButton>
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     </androidx.core.widget.NestedScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

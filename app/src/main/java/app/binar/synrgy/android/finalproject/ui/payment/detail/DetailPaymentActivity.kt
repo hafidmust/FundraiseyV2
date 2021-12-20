@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import app.binar.synrgy.android.finalproject.databinding.ActivityDetailPaymentBinding
@@ -36,15 +37,25 @@ class DetailPaymentActivity() : AppCompatActivity() {
         val transactionId = intent.getIntExtra(GET_TRANSACTION_ID,0)
         Log.v("YUK",transactionId.toString())
 
-        val loanId = intent.getIntExtra(GET_LOAN_ID,0)
-        Log.v("YUK",loanId.toString())
-
         val sharedPreferences = getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
+
         detailPaymentViewModel = DetailPaymentViewModel(sharedPreferences)
+        detailPaymentViewModel.getTransaction(transactionId)
+
+        showShimmer()
+
         detailPaymentViewModel.loanResponse.observe(this, {
+            hideShimmer()
             binding.tvvirtualnumber.text = it.accountNumber
             binding.tvjumlahtagihan.text = CurrencyHelper.toIdrCurrency(it.amount)
             binding.tvDeadlineTimestamp.text = it.paymentDeadline
+            when{
+                it.paymentAgent.equals(1) -> binding.tvBca.text = "BCA Virtual Account"
+                it.paymentAgent.equals(2) -> binding.tvBca.text = "Mandiri Virtual Account"
+                it.paymentAgent.equals(3) -> binding.tvBca.text = "OVO Virtual Account"
+                it.paymentAgent.equals(4) -> binding.tvBca.text = "GOPAY Virtual Account"
+            }
+//            status = it.transactionStatus
             binding.tvBca.text = it.paymentAgent.name
         })
 
@@ -71,11 +82,30 @@ class DetailPaymentActivity() : AppCompatActivity() {
         binding.btnCheckInvestmentStatus.setOnClickListener {
             startActivity(
                 Intent(this, DetailHistoryActivity::class.java).apply {
-                    putExtra(DetailHistoryActivity.GET_ID, sharedPreferences.getInt(Const.FUNDING_ID, 0))
-                    putExtra(DetailHistoryActivity.GET_STATUS, status)
+                    putExtra(DetailHistoryActivity.GET_ID, transactionId)
                 }
             )
         }
+    }
+
+    private fun hideShimmer() {
+        binding.shimmerDeadline.stopShimmerAnimation()
+        binding.dhimmerNamebank.stopShimmerAnimation()
+        binding.shimmerVa.stopShimmerAnimation()
+        binding.shimmerNominal.stopShimmerAnimation()
+
+        binding.shimmerDeadline.visibility = View.GONE
+        binding.dhimmerNamebank.visibility = View.GONE
+        binding.shimmerVa.visibility = View.GONE
+        binding.shimmerNominal.visibility = View.GONE
+
+    }
+
+    private fun showShimmer() {
+        binding.shimmerDeadline.startShimmerAnimation()
+        binding.dhimmerNamebank.startShimmerAnimation()
+        binding.shimmerVa.startShimmerAnimation()
+        binding.shimmerNominal.startShimmerAnimation()
     }
 
     private fun copyVAN() {

@@ -20,27 +20,11 @@
             android:name=".ui.homenavigation.history.detail.DetailHistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.signin.SignInActivity"
-            android:exported="true"/>
-        <activity
             android:name=".ui.homenavigation.HomeNavigationActivity"
             android:exported="false" />
         <activity
             android:name=".ui.profile.ProfileActivity"
             android:exported="false" />
-        <activity
-            android:name=".ui.payment.detail.DetailPaymentActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.onboarding.Splashscreen"
-            android:exported="true">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
         <activity
             android:name=".ui.onboarding.OnboardingActivity"
             android:exported="true"/>
@@ -48,11 +32,45 @@
             android:name=".ui.onboarding.SkippedOnboardingActivity"
             android:exported="true"/>
         <activity
+            android:name=".ui.signin.SignInActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".ui.profile.form.ProfileFormActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.signup.SignupActivity"
             android:exported="true"/>
         <activity
+            android:name=".ui.payment.detail.DetailPaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.onboarding.Splashscreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".ui.payment.PaymentActivity"
             android:exported="false"/>
+
+<!--        <service-->
+<!--            android:name=".MyFirebaseMessagingService"-->
+<!--            android:exported="false">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.google.firebase.MESSAGING_EVENT" />-->
+<!--            </intent-filter>-->
+<!--        </service>-->
+<!--        <service-->
+<!--            android:name=".FirebaseMessageReceiver"-->
+<!--            android:exported="false">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.google.firebase.MESSAGING_EVENT" />-->
+<!--            </intent-filter>-->
+<!--        </service>-->
+
     </application>
 </manifest>
 

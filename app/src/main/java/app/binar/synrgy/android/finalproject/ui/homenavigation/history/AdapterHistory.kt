@@ -19,7 +19,7 @@ class AdapterHistory(var data: List<ContentItem>, val listener : EventListener) 
         RecyclerView.ViewHolder(binding.root) {
             @SuppressLint("ResourceAsColor")
             fun bind(ContentItem: ContentItem){
-                binding.tvStartupname.text = ContentItem.loan.name
+                binding.tvStartupname.text = ContentItem.loan.startup.name
                 binding.tvNominalHistory.text = ContentItem.amount.toString()
                 binding.tvDeadline.text = ContentItem.paymentDeadline
                 binding.tvContentCampaigndeadline.text = ContentItem.loan.endDate

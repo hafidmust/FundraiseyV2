@@ -85,7 +85,7 @@
 
     <!--  Payment screen  -->
     <string name="page_payment_screen">Payment</string>
-    <string name="nominal_amount">Nominal Amounts</string>
+    <string name="nominal_amount">Nominal Amount</string>
     <string name="nominal_text">Nominal</string>
     <string name="hint_text_amount">Rp. 0</string>
     <string name="fiftythousand">50000</string>

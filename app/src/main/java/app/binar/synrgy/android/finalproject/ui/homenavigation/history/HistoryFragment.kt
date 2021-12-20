@@ -32,9 +32,13 @@ class HistoryFragment : Fragment() {
                 startActivity(intentSendId)
             }
         })
+        binding.shimmerHistory.startShimmerAnimation()
         binding.recyclerviewHistory.adapter = historyAdapter
         viewModel.onViewLoaded()
         viewModel.history.observe(viewLifecycleOwner,{
+            binding.shimmerHistory.stopShimmerAnimation()
+            binding.shimmerHistory.visibility = View.GONE
+
             historyAdapter.update(it)
         })
 

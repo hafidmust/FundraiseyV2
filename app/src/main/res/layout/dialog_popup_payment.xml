@@ -24,7 +24,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/inter_regular"
                 android:text="Thank you for participating to donate"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 android:textColor="#0F4880"
                 android:textFontWeight="600"
                 android:layout_marginTop="37dp"

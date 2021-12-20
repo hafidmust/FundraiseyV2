@@ -106,10 +106,14 @@ class HomeFragment : Fragment() {
                         }
                         false -> {
                             binding.indicatorHeader.progress = 50
+                            binding.boxTotalBalance.visibility = View.VISIBLE
                         }
                     }
                 }
-                false -> binding.indicatorHeader.progress = 0
+                false -> {
+                    binding.indicatorHeader.progress = 0
+                    binding.boxTotalBalance.visibility = View.VISIBLE
+                }
             }
         })
         return root
