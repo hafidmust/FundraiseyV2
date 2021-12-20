@@ -14,6 +14,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class ProfileViewModel() : ViewModel() {
+    val goHomePage: MutableLiveData<Boolean> = MutableLiveData(false)
     val verificationResponse : MutableLiveData<VerificationData> = MutableLiveData()
     private lateinit var homeAPI: HomeAPI
 

@@ -8,10 +8,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import app.binar.synrgy.android.finalproject.databinding.ActivityProfileVerificationBinding
+import app.binar.synrgy.android.finalproject.ui.homenavigation.HomeNavigationActivity
 import app.binar.synrgy.android.finalproject.ui.payment.dialog.PopupDialog
 import app.binar.synrgy.android.finalproject.ui.profile.form.ProfileFormActivity
+import app.binar.synrgy.android.finalproject.ui.signin.SignInActivity
 import app.binar.synrgy.android.finalproject.utils.Const
 
 class ProfileActivity : AppCompatActivity() {
@@ -52,10 +55,23 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         binding.buttonLogoutVerif.setOnClickListener {
-            sharedPreferences.edit {
-                putBoolean(Const.IS_LOGIN, false)
-                apply()
-            }
+            viewModel.goHomePage.observe(this, {
+                if (it) {
+                    startActivity(
+                        Intent(this, SignInActivity::class.java).apply {
+                            this.addFlags(
+                                Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                                        Intent.FLAG_ACTIVITY_CLEAR_TASK or
+                                        Intent.FLAG_ACTIVITY_NEW_TASK
+                            )
+                            sharedPreferences.edit {
+                                putBoolean(Const.IS_LOGIN, false)
+                                apply()
+                            }
+                        }
+                    )
+                }
+            })
         }
 
         binding.arrowBack.setOnClickListener {
