@@ -196,7 +196,6 @@ data class DataDetail(
 	@field:SerializedName("interestRate")
 	val interestRate: Double? = null,
 
-	val id: Int,
 
 
 )
