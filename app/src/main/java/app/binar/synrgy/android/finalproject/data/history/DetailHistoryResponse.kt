@@ -71,7 +71,7 @@ data class StartupDetail(
 data class LoanDetail(
 
 	@field:SerializedName("interestRate")
-	val interestRate: Double,
+	val interestRate: Int,
 
 	@field:SerializedName("paymentPlan")
 	val paymentPlan: PaymentPlanDetail,
@@ -191,7 +191,11 @@ data class DataDetail(
 	val paymentDeadline: String,
 
 	@field:SerializedName("id")
-	val id: Int
+	val id: Int,
+
+	@field:SerializedName("interestRate")
+	val interestRate: Double? = null,
+
 )
 
 data class CredentialsItemDetail(

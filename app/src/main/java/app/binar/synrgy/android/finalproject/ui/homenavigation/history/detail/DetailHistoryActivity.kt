@@ -60,6 +60,7 @@ class DetailHistoryActivity : AppCompatActivity() {
             binding.tvContentInstagram.text = "-"
             binding.tvContentfb.text = "-"
             binding.tvNamaBank.text = it.paymentAgent.name
+            binding.tvInterest.text = "(${it.interestRate}% Interest)"
             binding.tvCopyVa.setOnClickListener {
 
             }

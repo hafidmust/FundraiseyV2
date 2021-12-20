@@ -56,6 +56,7 @@ class LoanDetailsActivity : AppCompatActivity() {
             binding.tvContentPhone.text = it.startup?.phoneNumber.toString()
             binding.contentsince.text = it.startup?.foundedDate.toString()
             binding.tvFundingAmountNominal.text = it.lenderCount.toString()
+            binding.contentinstallment.text = "${it.interestRate}%"
             when(it.paymentPlan?.totalPeriod){
                 1 -> {
                     binding.contentreturn.text = "Cash Payment"
