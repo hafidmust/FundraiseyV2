@@ -1,21 +1,19 @@
 package app.binar.synrgy.android.finalproject.ui.homenavigation.portofolio
 
-import android.util.Log
+import android.content.SharedPreferences
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import app.binar.synrgy.android.finalproject.constant.Constant
+
 import app.binar.synrgy.android.finalproject.data.HomeAPI
 import app.binar.synrgy.android.finalproject.data.home.Data
-import app.binar.synrgy.android.finalproject.data.payment.TransactionStatusRequest
 import app.binar.synrgy.android.finalproject.data.portofolio.*
-import app.binar.synrgy.android.finalproject.model.ErrorModel
-import app.binar.synrgy.android.finalproject.utils.DummyBearer
-import com.google.gson.Gson
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class PortofolioViewModel : ViewModel() {
+class PortofolioViewModel(val sharedPreferences: SharedPreferences?) : ViewModel() {
     val loanResponse: MutableLiveData<List<DataItem>> = MutableLiveData()
     val summaryResponse: MutableLiveData<summary> = MutableLiveData()
     val balanceResponse: MutableLiveData<Data> = MutableLiveData()
@@ -69,7 +67,7 @@ class PortofolioViewModel : ViewModel() {
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
         CoroutineScope(Dispatchers.IO).launch {
             withContext(Dispatchers.Main) {
-                homeAPI.withdrawAllFunds("Bearer ${DummyBearer.auth}")
+                homeAPI.withdrawAllFunds("Bearer ${sharedPreferences?.getString(Constant.ACCESS_TOKEN,"")}")
             }
         }
     }
@@ -78,7 +76,7 @@ class PortofolioViewModel : ViewModel() {
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
         CoroutineScope(Dispatchers.IO).launch {
             val response = homeAPI.getPortofolio(
-                "Bearer ${DummyBearer.auth}"
+                "Bearer ${sharedPreferences?.getString(Constant.ACCESS_TOKEN,"")}"
             )
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
@@ -94,7 +92,8 @@ class PortofolioViewModel : ViewModel() {
     fun getDataSummary() {
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
         CoroutineScope(Dispatchers.IO).launch {
-            val responseSummary = homeAPI.getPortofolioSummary("Bearer ${DummyBearer.auth}")
+            val responseSummary = homeAPI.getPortofolioSummary("Bearer ${sharedPreferences?.getString(
+                Constant.ACCESS_TOKEN,"")}")
 
             withContext(Dispatchers.Main) {
                 if (responseSummary.isSuccessful) {
@@ -107,7 +106,7 @@ class PortofolioViewModel : ViewModel() {
     fun getDataBalance() {
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
         CoroutineScope(Dispatchers.IO).launch {
-            val responseBalance = homeAPI.getBalanceHome("Bearer ${DummyBearer.auth}")
+            val responseBalance = homeAPI.getBalanceHome("Bearer ${sharedPreferences?.getString(Constant.ACCESS_TOKEN,"")}")
 
             withContext(Dispatchers.Main) {
                 if (responseBalance.isSuccessful) {

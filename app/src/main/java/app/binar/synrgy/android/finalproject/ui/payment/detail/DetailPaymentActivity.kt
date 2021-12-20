@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import app.binar.synrgy.android.finalproject.constant.Constant
 import app.binar.synrgy.android.finalproject.databinding.ActivityDetailPaymentBinding
 import app.binar.synrgy.android.finalproject.ui.homenavigation.HomeNavigationActivity
 import app.binar.synrgy.android.finalproject.ui.homenavigation.history.detail.DetailHistoryActivity
@@ -37,7 +38,7 @@ class DetailPaymentActivity() : AppCompatActivity() {
         val transactionId = intent.getIntExtra(GET_TRANSACTION_ID,0)
         Log.v("YUK",transactionId.toString())
 
-        val sharedPreferences = getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(Constant.PREF_NAME, Context.MODE_PRIVATE)
 
         detailPaymentViewModel = DetailPaymentViewModel(sharedPreferences)
         detailPaymentViewModel.getTransaction(transactionId)

@@ -27,7 +27,7 @@
         <TextView
             android:id="@+id/text_app_name"
             android:layout_marginTop="20dp"
-            android:textColor="@color/colorBluePrimary"
+            android:textColor="@color/blue_primary"
             android:textSize="30sp"
             android:fontFamily="@font/inter_bold"
             android:layout_width="wrap_content"

@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.lifecycle.ViewModelProvider
+import app.binar.synrgy.android.finalproject.constant.Constant
 import app.binar.synrgy.android.finalproject.databinding.HistoryDetailBinding
 import app.binar.synrgy.android.finalproject.ui.payment.dialog.PopupDialog
 import app.binar.synrgy.android.finalproject.utils.CurrencyHelper
@@ -31,7 +31,8 @@ class DetailHistoryActivity : AppCompatActivity() {
         val statusPay = intent.getStringExtra(GET_STATUS)
         Log.d("coba", statusPay.toString())
 
-        viewModel = ViewModelProvider(this).get(DetailHistoryViewModel::class.java)
+        val sharedPreferences = this.getSharedPreferences(Constant.PREF_NAME, MODE_PRIVATE)
+        viewModel = DetailHistoryViewModel(sharedPreferences)
         viewModel.getDataFromAPI(id)
         viewModel.loanResponse.observe(this, {
             binding.nameProjectFunding.text = it.loan.name
@@ -57,6 +58,23 @@ class DetailHistoryActivity : AppCompatActivity() {
             binding.tvContentInstagram.text = "-"
             binding.tvContentfb.text = "-"
             binding.tvNamaBank.text = it.paymentAgent.name
+//            binding.contentreturningmethod.text = it.paymentPlan.id
+            when(it.loan.paymentPlan.totalPeriod){
+                1 -> {
+                    binding.contentreturningmethod.text = "Cash Payment"
+                    binding.tvMonthInstallment.text = "Cash Payment"
+                }
+                2 -> {
+                    binding.contentreturningmethod.text = "1 years installment"
+                    binding.tvMonthInstallment.text = "1 years installment"
+
+                }
+                4 -> {
+                    binding.contentreturningmethod.text = "6 month installment"
+                    binding.tvMonthInstallment.text = "6 month installment"
+
+                }
+            }
             binding.tvCopyVa.setOnClickListener {
 
             }

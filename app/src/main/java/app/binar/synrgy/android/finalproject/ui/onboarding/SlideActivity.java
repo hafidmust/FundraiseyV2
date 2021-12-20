@@ -1,22 +1,12 @@
 package app.binar.synrgy.android.finalproject.ui.onboarding;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 import app.binar.synrgy.android.finalproject.R;
-import app.binar.synrgy.android.finalproject.constant.Const;
-import app.binar.synrgy.android.finalproject.databinding.ActivitySlideBinding;
-import app.binar.synrgy.android.finalproject.ui.homenavigation.HomeNavigationActivity;
+import app.binar.synrgy.android.finalproject.constant.Constant;
 
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 public class SlideActivity extends AppCompatActivity {
 
@@ -32,8 +22,8 @@ public class SlideActivity extends AppCompatActivity {
         adapter = new SlideViewPagerAdapter(this);
         viewPager.setAdapter(adapter);
 
-        SharedPreferences.Editor editor = getSharedPreferences(Const.PREF_NAME, MODE_PRIVATE).edit();
-        editor.putBoolean(Const.SLIDE, true);
+        SharedPreferences.Editor editor = getSharedPreferences(Constant.PREF_NAME, MODE_PRIVATE).edit();
+        editor.putBoolean(Constant.SLIDE, true);
         editor.commit();
 
 

@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.core.content.edit
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import app.binar.synrgy.android.finalproject.constant.Constant
 import app.binar.synrgy.android.finalproject.data.HomeAPI
 import app.binar.synrgy.android.finalproject.data.payment.PaymentTransactionRequest
 import app.binar.synrgy.android.finalproject.data.payment.TransactionStatusRequest
@@ -17,7 +18,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class PaymentViewModel(var sharedPreferences: SharedPreferences) : ViewModel() {
+class PaymentViewModel(var sharedPreferences: SharedPreferences?) : ViewModel() {
     val showMessageAPI: MutableLiveData<String> = MutableLiveData()
     val showMessageAmount: MutableLiveData<String> = MutableLiveData()
     val showLoading: MutableLiveData<Boolean> = MutableLiveData(false)
@@ -32,7 +33,7 @@ class PaymentViewModel(var sharedPreferences: SharedPreferences) : ViewModel() {
 
     private lateinit var homeAPI: HomeAPI
     private var amount: Int ?= null
-    private var fundingID: Int = sharedPreferences.getInt(Const.FUNDING_ID, 2)
+//    private var fundingID: Int = sharedPreferences?.getInt(Const.FUNDING_ID, 2)
 
     fun onChangeAmount(amount: Int) {
         this.amount = amount
@@ -59,7 +60,7 @@ class PaymentViewModel(var sharedPreferences: SharedPreferences) : ViewModel() {
                 amount = amount,
                 paymentAgentId = paymentAgentId
             )
-            val response = homeAPI.postPaymentTransaction("Bearer ${DummyBearer.auth}", request)
+            val response = homeAPI.postPaymentTransaction("Bearer ${sharedPreferences?.getString(Constant.ACCESS_TOKEN,"")}", request)
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
 //                    paymentSuccess.value = true
@@ -84,28 +85,28 @@ class PaymentViewModel(var sharedPreferences: SharedPreferences) : ViewModel() {
         }
     }
 
-    fun doPaymentStatus() {
-        homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
-        showLoading.value = true
-        CoroutineScope(Dispatchers.IO).launch {
-            val request = TransactionStatusRequest(
-                transactionId = fundingID
-            )
-            val response = homeAPI.postTransactionStatus("Bearer ${DummyBearer.auth}", request)
-            withContext(Dispatchers.Main) {
-                if (response.isSuccessful) {
-                    if (response.body()?.status == 403) {
-                        showMessageAPI.value = response.body()!!.message
-                        showLoading.value = false
-                    }
-                } else {
-                    val error =
-                        Gson().fromJson(response.errorBody()?.string(), ErrorModel::class.java)
-                    showMessageAPI.value = error.message
-                    showLoading.value = false
-                }
-                paymentSuccess.value = true
-            }
-        }
-    }
+//    fun doPaymentStatus() {
+//        homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
+//        showLoading.value = true
+//        CoroutineScope(Dispatchers.IO).launch {
+//            val request = TransactionStatusRequest(
+//                transactionId = fundingID
+//            )
+//            val response = homeAPI.postTransactionStatus("Bearer ${DummyBearer.auth}", request)
+//            withContext(Dispatchers.Main) {
+//                if (response.isSuccessful) {
+//                    if (response.body()?.status == 403) {
+//                        showMessageAPI.value = response.body()!!.message
+//                        showLoading.value = false
+//                    }
+//                } else {
+//                    val error =
+//                        Gson().fromJson(response.errorBody()?.string(), ErrorModel::class.java)
+//                    showMessageAPI.value = error.message
+//                    showLoading.value = false
+//                }
+//                paymentSuccess.value = true
+//            }
+//        }
+//    }
 }

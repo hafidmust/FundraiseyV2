@@ -1,6 +1,6 @@
 package app.binar.synrgy.android.finalproject.constant
 
-object Const {
+object Constant {
     const val IS_LOGIN = "IS_LOGIN"
     const val PREF_NAME = "FINAL_PROJECT_A"
     const val EMAIL = "EMAIL"
@@ -11,6 +11,7 @@ object Const {
     const val TOKEN = "TOKEN"
     const val IS_GUEST = "IS_GUEST"
     const val SLIDE = "SLIDE"
+    const val ACCESS_TOKEN = "ACCESS_TOKEN"
 
     // regex password pattern
     const val PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#\$%^&+=!_()/*.,])(?=\\S+\$).{4,}\$"

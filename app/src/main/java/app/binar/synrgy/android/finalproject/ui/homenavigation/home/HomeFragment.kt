@@ -9,12 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.edit
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import app.binar.synrgy.android.finalproject.constant.Constant
 import app.binar.synrgy.android.finalproject.data.home.homeDataItem
 import app.binar.synrgy.android.finalproject.databinding.FragmentHomeBinding
 import app.binar.synrgy.android.finalproject.ui.loan.LoanDetailsActivity
 import app.binar.synrgy.android.finalproject.ui.profile.ProfileActivity
-import app.binar.synrgy.android.finalproject.utils.Const
+
 import app.binar.synrgy.android.finalproject.utils.CurrencyHelper
 
 class HomeFragment : Fragment() {
@@ -28,8 +28,8 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        val sharedPreferences = activity?.getSharedPreferences(Constant.PREF_NAME, Context.MODE_PRIVATE)
+        homeViewModel = HomeViewModel(sharedPreferences)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.logoProfile.setOnClickListener {
@@ -39,9 +39,9 @@ class HomeFragment : Fragment() {
         }
         binding.shimmerAdapterHome.startShimmerAnimation()
 
-        val sharedPreferences = requireActivity().getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
+
         val root: View = binding.root
-        val isLogin = sharedPreferences.getBoolean(Const.IS_LOGIN, false)
+        val isLogin = sharedPreferences?.getBoolean(Constant.IS_LOGIN, false)
         val homeAdapter = AdapterHome(listOf(), object : AdapterHome.EventListener{
             override fun click(item: homeDataItem) {
                 if (isLogin == false) {
@@ -64,8 +64,8 @@ class HomeFragment : Fragment() {
                 } else {
                     val intentSendId = Intent(activity, LoanDetailsActivity::class.java).apply {
                         putExtra(LoanDetailsActivity.GET_ID, item.id)
-                        sharedPreferences.edit {
-                            this.putInt(Const.FUNDING_ID, item.id!!)
+                        sharedPreferences?.edit {
+//                            this.putInt(Const.FUNDING_ID, item.id!!)
                         }
                     }
                     startActivity(intentSendId)

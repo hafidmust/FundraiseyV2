@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import app.binar.synrgy.android.finalproject.R
+import app.binar.synrgy.android.finalproject.constant.Constant
 import app.binar.synrgy.android.finalproject.data.HomeAPI
 import app.binar.synrgy.android.finalproject.data.payment.DataDetail
 import app.binar.synrgy.android.finalproject.data.payment.PaymentGuideResponse
@@ -19,7 +20,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class DetailPaymentViewModel(var sharedPreferences: SharedPreferences) : ViewModel() {
+class DetailPaymentViewModel(var sharedPreferences: SharedPreferences?) : ViewModel() {
 
     val detailPaymentGuide: MutableLiveData<List<PaymentGuideResponse>> = MutableLiveData()
     val loanResponse : MutableLiveData<DataDetail> = MutableLiveData()
@@ -45,7 +46,7 @@ class DetailPaymentViewModel(var sharedPreferences: SharedPreferences) : ViewMod
     fun getTransaction(id : Int){
         homeAPI = HomeAPI.getInstance().create(HomeAPI::class.java)
         CoroutineScope(Dispatchers.IO).launch {
-            val responseLoanDetail = homeAPI.getPaymentDetail("Bearer ${DummyBearer.auth}",id)
+            val responseLoanDetail = homeAPI.getPaymentDetail("Bearer ${sharedPreferences?.getString(Constant.ACCESS_TOKEN,"")}",id)
             withContext(Dispatchers.Main){
                 if (responseLoanDetail.isSuccessful){
                     loanResponse.value = responseLoanDetail.body()?.data
@@ -60,7 +61,7 @@ class DetailPaymentViewModel(var sharedPreferences: SharedPreferences) : ViewMod
             val request = TransactionStatusRequest(
                 transactionId = transa
             )
-            val response = homeAPI.postTransactionStatus("Bearer ${DummyBearer.auth}", request)
+            val response = homeAPI.postTransactionStatus("Bearer ${sharedPreferences?.getString(Constant.ACCESS_TOKEN,"")}", request)
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     if (response.body()?.status == 200){

@@ -1,12 +1,10 @@
 package app.binar.synrgy.android.finalproject.ui.signin
 
 import android.content.SharedPreferences
-import android.text.TextUtils
 import androidx.core.content.edit
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import app.binar.synrgy.android.finalproject.constant.Const
-import app.binar.synrgy.android.finalproject.constant.Const.PHONE_PATTERN
+import app.binar.synrgy.android.finalproject.constant.Constant
 import app.binar.synrgy.android.finalproject.data.api.HomeAPI
 import app.binar.synrgy.android.finalproject.data.api.signIn.SignInRequest
 import app.binar.synrgy.android.finalproject.model.ErrorModel
@@ -15,7 +13,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import retrofit2.create
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -38,18 +35,20 @@ class SignInViewModel(private val sharedPreferences: SharedPreferences) : ViewMo
             showMessageEmail.value = "format email harus benar"
         } else {
             validateEmail(email)
-            validate()
+            isButtonEnable.value = true
+//            validate()
         }
     }
 
     fun onChangePassword(password: String) {
         this.password = password
-        if (!validatePassword(password)) {
-            showMessagePassword.value = "Password minimal 6 karakter & kombinasi huruf"
-        } else {
-            validatePassword(password)
-            validate()
-        }
+//        validate()
+//        if (!validatePassword(password)) {
+//            showMessagePassword.value = "Password minimal 6 karakter & kombinasi huruf"
+//        } else {
+//            validatePassword(password)
+//            validate()
+//        }
     }
 
     private fun validateEmail(email: String): Boolean {
@@ -57,7 +56,7 @@ class SignInViewModel(private val sharedPreferences: SharedPreferences) : ViewMo
     }
 
     private fun validatePassword(password: String): Boolean {
-        val pattern: Pattern = Pattern.compile(Const.PASSWORD_PATTERN)
+        val pattern: Pattern = Pattern.compile(Constant.PASSWORD_PATTERN)
         val matcher: Matcher = pattern.matcher(password)
         return matcher.matches()
     }
@@ -74,7 +73,10 @@ class SignInViewModel(private val sharedPreferences: SharedPreferences) : ViewMo
         CoroutineScope(Dispatchers.IO).launch {
             val request = SignInRequest(
                 email = email,
-                password = password
+                password = password,
+                grantType = "password",
+                clientId = "client-web",
+                clientSecret = "password"
             )
 
             val response = homeAPI.postSignIn(request = request)
@@ -82,13 +84,14 @@ class SignInViewModel(private val sharedPreferences: SharedPreferences) : ViewMo
                 if (response.isSuccessful) {
                     val signInResponse = response.body()
                     sharedPreferences.edit {
-                        this.putBoolean(Const.IS_LOGIN, true)
-                        this.putString(Const.EMAIL, signInResponse?.email)
-                        this.putString(Const.PASSWORD, signInResponse?.password)
-                        this.putString(Const.GRANT_TYPE, signInResponse?.password)
-                        this.putString(Const.CLIENT_SECRET, signInResponse?.password)
-                        this.putString(Const.CLIENT_ID, "client-apps")
-                        this.putBoolean(Const.IS_GUEST, false)
+                        this.putBoolean(Constant.IS_LOGIN, true)
+//                        this.putString(Const.EMAIL, signInResponse?.email)
+//                        this.putString(Const.PASSWORD, signInResponse?.password)
+//                        this.putString(Const.GRANT_TYPE, signInResponse?.password)
+//                        this.putString(Const.CLIENT_SECRET, signInResponse?.password)
+                        this.putString(Constant.ACCESS_TOKEN, signInResponse?.data?.accessToken)
+                        this.putString(Constant.CLIENT_ID, "client-apps")
+                        this.putBoolean(Constant.IS_GUEST, false)
                         apply()
                     }
                     showLoading.value = false

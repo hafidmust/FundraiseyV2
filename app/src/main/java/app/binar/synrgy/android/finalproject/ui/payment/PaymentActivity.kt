@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.RadioGroup
 import androidx.core.widget.doAfterTextChanged
 import app.binar.synrgy.android.finalproject.R
+import app.binar.synrgy.android.finalproject.constant.Constant
 import app.binar.synrgy.android.finalproject.databinding.ActivityPaymentBinding
 import app.binar.synrgy.android.finalproject.ui.payment.detail.DetailPaymentActivity
 import app.binar.synrgy.android.finalproject.utils.Const
@@ -40,8 +41,8 @@ class PaymentActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.hide()
 
-        val sharedPreferences = getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
-        val phoneNumber = sharedPreferences.getString(Const.PHONE_NUMBER, "")
+        val sharedPreferences = getSharedPreferences(Constant.PREF_NAME, Context.MODE_PRIVATE)
+//        val phoneNumber = sharedPreferences.getString(Const.PHONE_NUMBER, "")
         viewModel = PaymentViewModel(sharedPreferences)
         val getLoanId = intent.getIntExtra(GET_LOAN_ID,0)
         Log.d("getLoanId",getLoanId.toString())
@@ -134,12 +135,12 @@ class PaymentActivity : AppCompatActivity() {
         binding.rgWallet.setOnCheckedChangeListener { group, checkedId ->
             when(checkedId){
                 binding.rbGopay.id ->{
-                    viewModel.paymentAgentCode = phoneNumber!!
+//                    viewModel.paymentAgentCode = phoneNumber!!
                     viewModel.paymentAgentId = 3
                     binding.rgBank.clearCheck()
                 }
                 binding.rbObo.id ->{
-                    viewModel.paymentAgentCode = phoneNumber!!
+//                    viewModel.paymentAgentCode = phoneNumber!!
                     viewModel.paymentAgentId = 4
                     binding.rgBank.clearCheck()
                 }

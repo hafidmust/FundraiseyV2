@@ -8,7 +8,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import app.binar.synrgy.android.finalproject.R
-import app.binar.synrgy.android.finalproject.constant.Const
+import app.binar.synrgy.android.finalproject.constant.Constant
 import app.binar.synrgy.android.finalproject.ui.homenavigation.HomeNavigationActivity
 
 class MainActivity : AppCompatActivity() {
@@ -18,11 +18,11 @@ class MainActivity : AppCompatActivity() {
 
 
         val sharedPreferences: SharedPreferences =
-            applicationContext.getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
+            applicationContext.getSharedPreferences(Constant.PREF_NAME, Context.MODE_PRIVATE)
 
 
         Handler(Looper.getMainLooper()).postDelayed({
-            if (sharedPreferences.getBoolean(Const.IS_LOGIN, true)) {
+            if (sharedPreferences.getBoolean(Constant.IS_LOGIN, false)) {
                 startActivity(Intent(this, HomeNavigationActivity::class.java))
                 finish()
             } else {

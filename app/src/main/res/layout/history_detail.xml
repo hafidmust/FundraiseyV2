@@ -155,7 +155,6 @@
             android:layout_marginRight="20dp"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/inter_regular"
-                android:text="@string/six_months_instal"
                 android:textColor="@color/hitam"
                 android:textSize="12sp"
                 app:layout_constraintTop_toBottomOf="@id/retuning_method"

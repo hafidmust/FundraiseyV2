@@ -1,7 +1,7 @@
 package app.binar.synrgy.android.finalproject.ui.homenavigation.portofolio
 
 import android.app.AlertDialog
-import android.content.DialogInterface
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
@@ -10,10 +10,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import app.binar.synrgy.android.finalproject.constant.Constant
 import app.binar.synrgy.android.finalproject.data.portofolio.DataItem
 import app.binar.synrgy.android.finalproject.databinding.FragmentPortofolioBinding
 import app.binar.synrgy.android.finalproject.ui.homenavigation.history.detail.DetailHistoryActivity
+
 import app.binar.synrgy.android.finalproject.utils.CurrencyHelper
 import com.google.firebase.messaging.FirebaseMessaging
 
@@ -30,8 +31,8 @@ class PortofolioFragment : Fragment() {
     ): View? {
         super.onCreate(savedInstanceState)
         _binding = FragmentPortofolioBinding.inflate(inflater, container, false)
-        portofolioViewModel =
-            ViewModelProvider(this).get(PortofolioViewModel::class.java)
+        val sharedPreferences = activity?.getSharedPreferences(Constant.PREF_NAME, Context.MODE_PRIVATE)
+        portofolioViewModel = PortofolioViewModel(sharedPreferences)
 
         portofolioViewModel.onViewLoaded()
 

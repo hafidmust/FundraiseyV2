@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash_screen)
+        setContentView(R.layout.activity_splashcreen)
         supportActionBar?.hide()
         val imageView = ImageView(this)
         Glide.with(this)

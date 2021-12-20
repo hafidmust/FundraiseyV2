@@ -6,8 +6,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.widget.doAfterTextChanged
-import app.binar.synrgy.android.finalproject.R
-import app.binar.synrgy.android.finalproject.constant.Const
+import app.binar.synrgy.android.finalproject.constant.Constant
 import app.binar.synrgy.android.finalproject.databinding.ActivitySignInBinding
 import app.binar.synrgy.android.finalproject.ui.homenavigation.HomeNavigationActivity
 import app.binar.synrgy.android.finalproject.ui.loading.LoadingDialog
@@ -26,7 +25,7 @@ class SignInActivity : AppCompatActivity() {
 
         // inisialisasi sharedpreferences
         val sharedPreferences : SharedPreferences =
-            applicationContext.getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE)
+            applicationContext.getSharedPreferences(Constant.PREF_NAME, Context.MODE_PRIVATE)
 
         // viewmodel initial
         viewModel = SignInViewModel(sharedPreferences)
@@ -34,6 +33,9 @@ class SignInActivity : AppCompatActivity() {
         viewModel.isButtonEnable.observe(this, {
             binding.buttonSignIn.isEnabled = it
         })
+        binding.buttonSignIn.setOnClickListener {
+            viewModel.doSignIn()
+        }
 
         viewModel.showLoading.observe(this, {
             loading.showLoading(it)

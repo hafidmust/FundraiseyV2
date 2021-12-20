@@ -3,7 +3,6 @@ package app.binar.synrgy.android.finalproject.ui.onboarding;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import app.binar.synrgy.android.finalproject.R;
-import app.binar.synrgy.android.finalproject.constant.Const;
+import app.binar.synrgy.android.finalproject.constant.Constant;
 import app.binar.synrgy.android.finalproject.ui.homenavigation.HomeNavigationActivity;
 import app.binar.synrgy.android.finalproject.ui.signin.SignInActivity;
 import app.binar.synrgy.android.finalproject.ui.signup.SignupActivity;
@@ -42,7 +41,7 @@ public class SlideViewPagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, final int position) {
 
-        SharedPreferences sharedPreferences = ctx.getSharedPreferences(Const.PREF_NAME, Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = ctx.getSharedPreferences(Constant.PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
         LayoutInflater layoutInflater = (LayoutInflater) ctx.getSystemService(ctx.LAYOUT_INFLATER_SERVICE);
@@ -171,8 +170,8 @@ public class SlideViewPagerAdapter extends PagerAdapter {
                 skip.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        editor.putBoolean(Const.IS_GUEST, true);
-                        editor.putBoolean(Const.IS_LOGIN, true);
+                        editor.putBoolean(Constant.IS_GUEST, true);
+                        editor.putBoolean(Constant.IS_LOGIN, true);
                         Intent intent = new Intent(ctx, HomeNavigationActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         ctx.startActivity(intent);

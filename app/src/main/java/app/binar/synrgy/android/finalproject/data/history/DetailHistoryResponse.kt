@@ -191,7 +191,17 @@ data class DataDetail(
 	val paymentDeadline: String,
 
 	@field:SerializedName("id")
-	val id: Int
+	val id: Int,
+
+
+)
+
+data class PaymentPlanHistory(
+	@SerializedName("id") var id : Int?    = null,
+	@SerializedName("name") var name : String? = null,
+	@SerializedName("interestRate") var interestRate : Int? = null,
+	@SerializedName("monthInterval") var monthInterval: Int? = null,
+	@SerializedName("totalPeriod") var totalPeriod : Int?= null
 )
 
 data class CredentialsItemDetail(
@@ -259,11 +269,13 @@ data class DocumentsItemDetail(
 
 data class PaymentPlanDetail(
 
-	@field:SerializedName("name")
-	val name: String,
+	@SerializedName("id") var id: Int? = null,
+	@SerializedName("name") var name: String? = null,
+	@SerializedName("interestRate") var interestRate: Int? = null,
+	@SerializedName("monthInterval") var monthInterval: Int? = null,
+	@SerializedName("totalPeriod") var totalPeriod: Int? = null
 
-	@field:SerializedName("id")
-	val id: Int
+
 )
 
 data class TransactionMethodDetail(
