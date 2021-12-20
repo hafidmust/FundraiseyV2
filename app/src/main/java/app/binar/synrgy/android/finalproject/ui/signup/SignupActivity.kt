@@ -66,15 +66,15 @@ class SignupActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.checkboxPrivacy.setOnCheckedChangeListener { buttonView, isChecked ->
-            if(isChecked){
-                viewmodel.isPPChecked = true
-            } else{
-                viewmodel.isPPChecked = false
-            }
-        }
+//        binding.checkboxPrivacy.setOnCheckedChangeListener { buttonView, isChecked ->
+//            if(isChecked){
+//                viewmodel.isPPChecked = true
+//            } else{
+//                viewmodel.isPPChecked = false
+//            }
+//        }
 
-        binding.datepicker.setOnClickListener {
+        binding.datePick.setOnClickListener {
             val c = Calendar.getInstance()
             val year = c.get(Calendar.YEAR)
             val month = c.get(Calendar.MONTH)
@@ -82,12 +82,12 @@ class SignupActivity : AppCompatActivity() {
             val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, timeOfYear, monthOfYear, dayOfMonth ->
 
                 // Display Selected date in textbox
-                binding.datepicker.text = ("$dayOfMonth / ${monthOfYear + 1} / $timeOfYear")
+                binding.datePick.text = ("$dayOfMonth / ${monthOfYear + 1} / $timeOfYear")
 
             }, year, month, day)
 
             dpd.show()
-            viewmodel.onChangeDateOfBirth(binding.datepicker.text as String)
+            viewmodel.onChangeDateOfBirth(binding.datePick.text as String)
         }
         viewmodel.showLoading.observe(this,{
             loading.showLoading(it)
