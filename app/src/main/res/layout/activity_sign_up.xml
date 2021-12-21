@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.signup.SignupActivity">
+
+    <!-- sign up -->
+    <TextView
+        android:id="@+id/sign_up_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="45dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="270dp"
+        android:fontFamily="@font/inter_regular"
+        android:text="@string/register"
+        android:textColor="@color/blue_primary"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+
+    <!-- email -->
+
+    <EditText
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:id="@+id/text_email"
+        android:outlineSpotShadowColor="@color/blue_primary"
+        android:layout_width="318dp"
+        android:layout_height="54dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="32dp"
+        android:autofillHints="phone"
+        android:textSize="16sp"
+        android:background="@drawable/bg_sign_in_box"
+        android:fontFamily="@font/inter_regular"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="15dp"
+        android:textColorHint="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_header"
+        tools:ignore="LabelFor,TextFields" />
+
+    <!--    password -->
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="318dp"
+        android:layout_height="54dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="25dp"
+        android:autofillHints="password"
+        android:background="@drawable/bg_sign_in_box"
+        android:drawableEnd="@drawable/ic_eye"
+        android:fontFamily="@font/inter_regular"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:paddingLeft="15dp"
+        android:textSize="16sp"
+        android:paddingEnd="15dp"
+        android:textColorHint="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_email"
+        tools:ignore="LabelFor" />
+
+    <!--    phone -->
+    <EditText
+        android:id="@+id/text_phone"
+        android:layout_width="318dp"
+        android:layout_height="54dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="25dp"
+        android:autofillHints="phone"
+        android:background="@drawable/bg_sign_in_box"
+        android:fontFamily="@font/inter_regular"
+        android:hint="@string/phone"
+        android:inputType="phone"
+        android:textSize="16sp"
+        android:paddingLeft="15dp"
+        android:textColorHint="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        tools:ignore="LabelFor" />
+
+    <!--  date birth  -->
+    <TextView
+        android:id="@+id/date_pick"
+        android:layout_width="318dp"
+        android:layout_height="54dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/bg_sign_in_box"
+        android:textSize="16sp"
+        android:datePickerMode="calendar"
+        android:fontFamily="@font/inter_regular"
+        android:hint="@string/text_date_birth"
+        android:paddingLeft="15dp"
+        android:paddingTop="13dp"
+        android:textColorHint="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_phone" />
+
+
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_sign_up"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/bg_text_register"
+        android:fontFamily="@font/inter_regular"
+        android:text="@string/create"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/blue_primary"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/tvlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/have_an_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/have_an"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/log_in_bot"
+            android:textColor="@color/blue_primary"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
