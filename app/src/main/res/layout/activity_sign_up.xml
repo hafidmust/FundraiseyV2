@@ -7,8 +7,6 @@
     tools:context=".ui.signup.SignupActivity">
 
     <!-- header sign up -->
-    <!--  layout format sign_up_header ini amna  -->
-
     <TextView
         android:id="@+id/sign_up_header"
         android:layout_width="wrap_content"
@@ -31,7 +29,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="32dp"
         android:autofillHints="phone"
-        android:background="@drawable/bg_text_box"
+        android:background="@drawable/bg_selector"
         android:fontFamily="@font/inter_regular"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
@@ -49,7 +47,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="25dp"
         android:autofillHints="password"
-        android:background="@drawable/bg_text_box"
+        android:background="@drawable/bg_selector"
         android:fontFamily="@font/inter_regular"
         android:hint="@string/password"
         android:inputType="textPassword"
@@ -67,7 +65,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="25dp"
         android:autofillHints="phone"
-        android:background="@drawable/bg_text_box"
+        android:background="@drawable/bg_selector"
         android:fontFamily="@font/inter_regular"
         android:hint="@string/phone"
         android:inputType="phone"
@@ -85,7 +83,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="25dp"
         android:autofillHints="password"
-        android:background="@drawable/bg_text_box"
+        android:background="@drawable/bg_selector"
         android:fontFamily="@font/inter_regular"
         android:hint="@string/date_birth"
         android:paddingLeft="15dp"
